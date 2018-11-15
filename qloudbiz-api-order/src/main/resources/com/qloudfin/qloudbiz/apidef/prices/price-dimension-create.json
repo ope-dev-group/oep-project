@@ -1,0 +1,15 @@
+{
+	"priceDimensions": [
+		{
+			"dimensionId": null,
+			"dimensionEngName": "product.type",
+			"dimensionCnName": "产品类型",
+			"jsonPath": "product.type",
+			"javaMethod": "com.qloudfin.oep.sales.Product.getType",
+			"valueFormat": "string",
+			"defaultValue": "= 手机",
+			"active": true,
+			"tenantId": "qloud"
+		}
+	]
+}

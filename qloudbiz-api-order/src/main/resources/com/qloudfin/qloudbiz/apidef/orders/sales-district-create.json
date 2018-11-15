@@ -1,0 +1,10 @@
+{
+	"salesDistricts": [
+		{
+			"districtId": "43432432-545-5453-54534",
+			"districtName": "西北",
+			"description": "西北包括陕西，宁夏，甘肃，新疆，青海",
+			"tenantId": "qloudfin"
+		}
+	]
+}

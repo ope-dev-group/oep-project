@@ -1,0 +1,11 @@
+{
+	"priceTypes": [
+		{
+			"priceTypeId": "432434-545-545-545453555",
+			"priceTypeName": "促销价",
+			"priority": 10,
+			"use4Quote": true,
+			"tenantId": "qloud"
+		}
+	]
+}

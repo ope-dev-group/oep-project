@@ -1,0 +1,84 @@
+{
+	"orders": [
+		{
+			"orderId": "434234-4-324525-544354",
+			"channel": {
+				"channelId": "43434-54545-54345435-555",
+				"channelName": "三方电商"
+			},
+			"orderSource": "京东",
+			"dealer": {
+				"dealerId": "54345435-354445-354543-555",
+				"dealerName": "上海京东"
+			},
+			"totalPrice": 43435454.55,
+			"priceActiveBefore": "2018-10-22T12:00:00.0000",
+			"createTime": "2018-10-10T12:00:00.0000",
+			"updateTime": null,
+			"orderUser": {
+				"orderUserId": "54545-4455-55555",
+				"orderUserName": "张思"
+			},
+			"orderApiKey": "54545-4gggg455-55555",
+			"contractId": "43q434-4324234-532245-535",
+			"deliveryStatus": "pending",
+			"status": "submitted",
+			"paymentStatus": "payed",
+			"deliverAddr": {
+				"id": null,
+				"country": "中国",
+				"city": "天津",
+				"district": "河东区电子城街道办",
+				"address": "仙霞路1222号",
+				"postalCode": "300100",
+				"contact": "王莫某",
+				"phone": [
+					"17029876755"
+				]
+			},
+			"sourceOrderId": "44444-555-555",
+			"erpOrderId": null,
+			"tenantId": "qloudfin",
+			"orderItems": [
+				{
+					"itemId": null,
+					"skuCode": "445-55-555-555",
+					"number": 10,
+					"productUnitId": "544656565-65-546546-65546",
+					"listPrice": {
+						"listPriceId": "4343434-43435-53355",
+						"listPrice": 123.00,
+						"currency": "RMB"
+					},
+					"quotedPrice": {
+						"price": 10.00,
+						"currency": "RMB",
+						"priceActiveBefore": "2018-10-22T12:00:00.0000"
+					},
+					"activeTotal": 433.44,
+					"deliverAddr": null,
+					"status": "submitted"
+				},
+				{
+					"itemId": null,
+					"skuCode": "445-55-5-555-55-555",
+					"number": 20,
+					"productUnitId": "544656565-65-546546-65546",
+					"listPrice": {
+						"listPriceId": "434-4435-53355",
+						"listPrice": 12.00,
+						"currency": "RMB"
+					},
+					"quotedPrice": {
+						"price": 10.00,
+						"currency": "RMB",
+						"priceActiveBefore": "2018-10-22T12:00:00.0000"
+					},
+					"activeTotal": 143.44,
+					"deliverAddr": null,
+					"status": "submitted"
+				}
+			]
+		}
+	]
+}

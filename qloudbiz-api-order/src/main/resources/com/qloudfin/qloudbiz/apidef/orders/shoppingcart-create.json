@@ -1,0 +1,28 @@
+{
+	"shoppingcartId": null,
+	"userId": "2343432-4324234-54354-5435",
+	"channelId": "43545-53454-453454",
+	"createTime": "2018-10-22T14:44:33.555",
+	"orderItems": [
+		{
+			"itemId": null,
+			"skuId": "445-55-555-555",
+			"number": 10,
+			"listPrice": {
+				"listPriceId": "4343434-45-53355",
+				"listPrice": 123.00,
+				"currency": "RMB"
+			}
+		},
+		{
+			"itemId": null,
+			"skuId": "445-55-555",
+			"number": 1,
+			"listPrice": {
+				"listPriceId": "4343434-43435-53355",
+				"listPrice": 12.00,
+				"currency": "RMB"
+			}
+		}
+	]
+}

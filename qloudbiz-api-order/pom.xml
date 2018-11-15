@@ -1,0 +1,152 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.csft</groupId>
+  <artifactId>qloud-api-order</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  <properties>
+	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+ <build>
+	<finalName>qloud-api-order</finalName>
+
+	<pluginManagement>
+	    <plugins>
+	        <plugin>
+	            <groupId>org.eclipse.m2e</groupId>
+	            <artifactId>lifecycle-mapping</artifactId>
+	            <version>1.0.0</version>
+	            <configuration>
+	                <lifecycleMappingMetadata>
+	                    <pluginExecutions>
+	                        <pluginExecution>
+	                            <pluginExecutionFilter>
+	                                <groupId>org.apache.maven.plugins</groupId>
+	                                <artifactId>maven-dependency-plugin</artifactId>
+	                                <versionRange>[1.0.0,)</versionRange>
+	                                <goals>
+	                                    <goal>copy-dependencies</goal>
+	                                    <goal>unpack</goal>
+	                                </goals>
+	                            </pluginExecutionFilter>
+	                            <action>
+	                                <ignore />
+	                            </action>
+	                        </pluginExecution>
+	                    </pluginExecutions>
+	                </lifecycleMappingMetadata>
+	            </configuration>
+	        </plugin>
+	    </plugins>
+	</pluginManagement>
+																													
+
+
+		<plugins>
+		    <!--编译插件-->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			
+			<!--打包插件-->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				 <artifactId>maven-jar-plugin</artifactId>
+				<version>3.1.0</version>
+				<configuration>
+					<finalName>${project.artifactId}-${project.version}</finalName>
+					<excludes>
+					<exclude>**/*.xml</exclude>
+					<exclude>**/*.properties</exclude>
+					<exclude>**/*.json</exclude>
+					<exclude>**/*.conf</exclude>
+					</excludes>
+					<outputDirectory>${project.build.directory}/qloudbiz-api-order</outputDirectory>
+				</configuration>
+			</plugin>
+			
+			<!-- 添加运行环境插件 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>3.1.1</version>
+				<executions>
+					<execution>
+						<id>setup-standalone</id>
+						<phase>validate</phase>
+						<goals>
+						<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+								<groupId>com.qloudfin.qloudbus</groupId>
+								<artifactId>qloudbus-sdk-server</artifactId>
+								<version>3.0.0</version>
+								<classifier>standalone</classifier>
+								<outputDirectory>${project.build.directory}/qloudbiz-api-order</outputDirectory>
+								<type>zip</type>
+								<overWrite>true</overWrite>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+				</executions>
+				
+			</plugin>
+			
+			<!--自定义配置文件插件-->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>3.1.0</version>
+				<configuration>
+				<finalName>qloudbiz-api-order</finalName>
+				<appendAssemblyId>false</appendAssemblyId>
+				<descriptors>
+				<descriptor>src/main/assembly/root.xml</descriptor>
+				</descriptors>
+				 </configuration>
+				<executions>
+					<execution>
+					<id>make-assembly</id>
+					<phase>package</phase>
+					<goals>
+					<goal>single</goal>
+					</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>com.qloudfin.qloudbus</groupId>
+			<artifactId>qloudbus-sdk-client</artifactId>
+			<version>3.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+			<dependency>
+			<groupId>com.qloudfin.qloudbus</groupId>
+			<artifactId>qloudbus-sdk-server</artifactId>
+			<version>3.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		 <dependency>
+    		<groupId>com.alibaba</groupId>
+    		<artifactId>fastjson</artifactId>
+    		<version>1.2.8</version>
+    		<scope>compile</scope>
+		</dependency>
+	</dependencies>
+</project>

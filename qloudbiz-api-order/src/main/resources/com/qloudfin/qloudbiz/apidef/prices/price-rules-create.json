@@ -1,0 +1,22 @@
+{
+	"prices": [
+		{
+			"priceId": null,
+			"skuCode": "5435345-543543-5435435",
+			"priceTypeId": "432434-545-545-545453555",
+			"dimensionJson": "dealer.id = '1001' & product.type = 'toy' & order.oderItem.number < 10",
+			"price": 124.0,
+			"productUnitId": "544656565-65-546546-65546",
+			"productTypeId": "54465-65-546546-6666",
+			"currency": "RMB",
+			"includingTax": true,
+			"taxRate": "5%",
+			"calculationMethod": null,
+			"activeTime": "2018-10-22T12:00:00.0000",
+			"endTime": "2118-10-22T12:00:00.0000",
+			"active": true,
+			"need2confirm": false,
+			"tenantId": "qloud"
+		}
+	]
+}
