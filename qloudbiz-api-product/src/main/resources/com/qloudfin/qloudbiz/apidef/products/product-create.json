@@ -1,0 +1,49 @@
+{
+	"products": [
+		{
+			"productId": "43434324-545435-543545-454354",
+			"productTypes": [
+				"4325454-5434653-654-5435-65363567"
+			],
+			"upcCode": null,
+			"productName": "lenova T460",
+			"description": "lenovo desktop computer",
+			"productModel": "T460",
+			"productSpecs": "size:400*250*150mm, weight:2kg",
+			"productUnits": [
+				"432434-43545-45435435"
+			],
+			"mainProduct": null,
+			"inPackageProducts": [],
+			"productUnit": "台",
+			"activeStartTime": "2018-10-18T17:40:50.3244",
+			"activeEndTime": "2118-10-18T17:40:50.3244",
+			"tenantId": "qloudfin",
+			"productAttributes": [
+				{
+					"attribute": {
+						"attributeId": "43434324-545435-543545-454378",
+						"attributeName": "重量",
+						"description": "就是常说的重量",
+						"constraint": "/^[0-9]*",
+						"required": false,
+						"sku": false,
+						"productTypes": [
+							"4325454-5434653-654-5435-65363567"
+						],
+						"tenantId": "qloudfin"
+					},
+					"value": {
+						"attrValueId": null,
+						"productId": "43434324-545435-543545-454354",
+						"attributeId": "43434324-545435-543545-454378",
+						"stringValue": null,
+						"numbericValue": 43255.55,
+						"numbericUnit": "kg",
+						"datetimeValue": null
+					}
+				}
+			]
+		}
+	]
+}

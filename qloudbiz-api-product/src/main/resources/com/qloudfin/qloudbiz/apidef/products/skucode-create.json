@@ -1,0 +1,35 @@
+{
+	"skuCodes": [
+		{
+			"productId": "43434324-545435-543545-454354",
+			"skuCode": "43434324-545435",
+			"skuValues": [
+				{
+					"attributeId": "43434-5355-5435436-5435",
+					"attributeValue": {
+						"attrValueId": null,
+						"productId": "43434324-545435-543545-454354",
+						"attributeId": "43434-5355-5435436-5435",
+						"stringValue": null,
+						"numbericValue": 43255.55,
+						"numbericUnit": "kg",
+						"datetimeValue": null
+					}
+				},
+				{
+					"attributeId": "43434-5355-54446-5436",
+					"attributeValue": {
+						"attrValueId": null,
+						"productId": "43434324-545435-543545-454354",
+						"attributeId": "43434-5355-54446-5436",
+						"stringValue": null,
+						"numbericValue": 8,
+						"numbericUnit": "G",
+						"datetimeValue": null
+					}
+				}
+			],
+			"tenantId": "qloudfin"
+		}
+	]
+}

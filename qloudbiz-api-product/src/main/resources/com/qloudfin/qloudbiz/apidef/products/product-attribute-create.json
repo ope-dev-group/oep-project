@@ -1,0 +1,16 @@
+{
+	"productAttributes": [
+		{
+			"attributeId": "45435345-5436653-65546456-65666",
+			"attributeName": "重量",
+			"description": "就是常说的重量",
+			"constraint": "/^[0-9]*",
+			"required": false,
+			"sku": false,
+			"productTypes": [
+				"4325454-5434653-654-5435-6536356"
+			],
+			"tenantId": "qloudfin"
+		}
+	]
+}

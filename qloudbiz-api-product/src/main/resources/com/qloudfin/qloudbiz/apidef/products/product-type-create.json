@@ -1,0 +1,20 @@
+{
+	"productTypes": [
+		{
+			"typeId": "4325454-5434653-654-5435-6536356",
+			"typeName": "智能手机",
+			"parentId": null,
+			"isPhysical": true,
+			"toTransport": true,
+			"tenantId": "qloudfin"
+		},
+		{
+			"typeId": "4325454-5434653-654-5435-65363567",
+			"typeName": "笔记本电脑",
+			"parentId": null,
+			"isPhysical": true,
+			"toTransport": true,
+			"tenantId": "qloudfin"
+		}
+	]
+}

@@ -1,0 +1,24 @@
+{
+	"productUnits": [
+		{
+			"productUnitId": "432434-43545-45435435",
+			"productUnitName": "台",
+			"minimalUnit": false,
+			"conversionJson": {
+				"left": {
+					"productUnitId": "432434-43545-45435435",
+					"productUnitName": "台"
+				},
+				"rate": 4,
+				"right": {
+					"productUnitId": "432434-43545-45435435",
+					"productUnitName": "台"
+				}
+			},
+			"products": [
+				"42354544-54354545-543545"
+			],
+			"tenantId": "qloud"
+		}
+	]
+}

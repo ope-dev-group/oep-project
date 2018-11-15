@@ -1,0 +1,30 @@
+{
+	"orders": [
+		{
+			"orderId": "434234-4-324525-544354",
+			"sourceOrderId": "44444-555-555",
+			"erpOrderId": null,
+			"channel": {
+				"channelId": "43434-54545-54345435-555",
+				"channelName": "三方电商"
+			},
+			"orderSource": "京东",
+			"dealer": {
+				"dealerId": "54345435-354445-354543-555",
+				"dealerName": "上海京东"
+			},
+			"totalPrice": 43435454.55,
+			"priceActiveBefore": "2018-10-22T12:00:00.0000",
+			"orderUser": {
+				"orderUserId": "54545-4455-55555",
+				"orderUserName": "张思"
+			},			
+			"contractId": "43q434-4324234-532245-535",
+			"createTime": "2018-10-10T12:00:00.0000",			
+			"deliveryStatus": "pending",
+			"status": "submitted",
+			"paymentStatus": "payed",			
+			"tenantId": "qloudfin"
+		}
+	]
+}
