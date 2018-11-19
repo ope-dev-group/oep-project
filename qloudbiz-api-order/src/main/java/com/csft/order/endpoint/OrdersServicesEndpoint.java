@@ -1,4 +1,4 @@
-package com.csft.order.sdk;
+package com.csft.order.endpoint;
 
 import java.io.BufferedReader;
 import java.io.IOException;

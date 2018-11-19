@@ -1,4 +1,4 @@
-package com.csft.product.sdk;
+package com.csft.product.endpoint;
 
 
 import java.io.BufferedReader;
