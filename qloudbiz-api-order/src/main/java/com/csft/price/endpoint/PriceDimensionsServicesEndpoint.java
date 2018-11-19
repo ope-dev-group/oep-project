@@ -1,4 +1,4 @@
-package com.csft.price.sdk;
+package com.csft.price.endpoint;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,36 +11,40 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.alibaba.fastjson.JSON;
+import com.csft.order.endpoint.OrdersServicesEndpoint;
 import com.qloudfin.qloudbus.annotation.PathVariable;
 import com.qloudfin.qloudbus.annotation.RequestMapping;
 import com.qloudfin.qloudbus.annotation.RequestMethod;
 import com.qloudfin.qloudbus.reactive.Callback;
+
+
 /**
- * 价格类型微服务
+ * 价格维护微服务
  * 
  * @author Administrator
  *
  */
 @RequestMapping("/prices")
-public class PriceTypesServicesEndpoint {
-
+public class PriceDimensionsServicesEndpoint {
+	
 	private final static Logger logger = LoggerFactory.getLogger(PriceDimensionsServicesEndpoint.class);
 
 	/**
-	 * 新增价格类型
+	 * 新增价格维度
 	 * 
 	 * @param callback
 	 * @param body
 	 */
-	@RequestMapping(value = "/types", method = RequestMethod.POST)
-	public void addTypes(Callback<Object> callback, Map<String, String> body) {
-
+	@RequestMapping(value = "/dimensions", method = RequestMethod.POST)
+	
+	public void addDimensions(Callback<Object> callback, Map<String, String> body) {
+		
 		// 调试日志
-		logger.debug(">>>>>>>>>>>>>Add Price types,the param is:{}", body);
+		logger.debug(">>>>>>>>>>>>>Add dimensions,the param is:{}", body);
 		
 
 		// 加载数据文件
-		InputStream in = ClassLoader.getSystemResourceAsStream("com/qloudfin/qloudbiz/apidef/prices/price-type-create.json");
+		InputStream in = ClassLoader.getSystemResourceAsStream("com/qloudfin/qloudbiz/apidef/prices/price-dimension-create.json");
 
 		StringBuffer sb = new StringBuffer();
 		InputStreamReader isr = null;
@@ -73,21 +77,21 @@ public class PriceTypesServicesEndpoint {
 	}
 
 	/**
-	 * 修改价格类型
+	 * 修改价格维度
 	 * 
 	 * @param callback
 	 * @param orderId
 	 * @param orderItemId
 	 * @param body
 	 */
-	@RequestMapping(value = "/types/{dimensionId}", method = RequestMethod.PUT)
-	public void editType(Callback<Object> callback, @PathVariable("dimensionId") String dimensionId,Map<String, String> body) {
+	@RequestMapping(value = "/dimensions/{dimensionId}", method = RequestMethod.PUT)
+	public void editDimensions(Callback<Object> callback, @PathVariable("dimensionId") String dimensionId,Map<String, String> body) {
 
 		// 调试日志
-		logger.debug(">>>>>>>>>>>>>Edit price type ,the typeId is:{}, param is:{}", dimensionId, body);
+		logger.debug(">>>>>>>>>>>>>Edit dimensions dimensionId is:{}, param is:{}", dimensionId, body);
 
 		// 加载数据文件
-		InputStream in = ClassLoader.getSystemResourceAsStream("com/qloudfin/qloudbiz/apidef/prices/price-type-create.json");
+		InputStream in = ClassLoader.getSystemResourceAsStream("com/qloudfin/qloudbiz/apidef/prices/price-dimension-create.json");
 
 		StringBuffer sb = new StringBuffer();
 		InputStreamReader isr = null;
@@ -120,21 +124,21 @@ public class PriceTypesServicesEndpoint {
 	}
 
 	/**
-	 * 删除价格类型
+	 * 删除价格维度
 	 * 
 	 * @param callback
 	 * @param orderId
 	 * @param orderItemId
 	 * @param body
 	 */
-	@RequestMapping(value = "/types/{typeId}", method = RequestMethod.DELETE)
-	public void deleteType(Callback<Object> callback, @PathVariable("typeId") String typeId) {
+	@RequestMapping(value = "/dimensions/{dimensionId}", method = RequestMethod.DELETE)
+	public void deleteDimension(Callback<Object> callback, @PathVariable("dimensionId") String dimensionId) {
 
 		// 调试日志
-		logger.debug("Delete type :the typeId is:{},param is {}", typeId);
+		logger.debug("Delete dimension :the dimensionsId is:{},param is {}", dimensionId);
 
 		// 加载数据文件
-		InputStream in = ClassLoader.getSystemResourceAsStream("com/qloudfin/qloudbiz/apidef/prices/price-type-create.json");
+		InputStream in = ClassLoader.getSystemResourceAsStream("com/qloudfin/qloudbiz/apidef/prices/price-dimension-create.json");
 
 		StringBuffer sb = new StringBuffer();
 		InputStreamReader isr = null;
@@ -168,21 +172,21 @@ public class PriceTypesServicesEndpoint {
 	
 	
 	/**
-	 * 查询价格类型列表
+	 * 查询价格维度
 	 * 
 	 * @param callback
 	 * @param orderId
 	 * @param orderItemId
 	 * @param body
 	 */
-	@RequestMapping(value = "/types", method = RequestMethod.GET)
-	public void queryDimensions(Callback<Object> callback) {
+	@RequestMapping(value = "/dimensions/{dimensionId}", method = RequestMethod.GET)
+	public void queryDimensions(Callback<Object> callback,@PathVariable("dimensionId")String dimensionId) {
 
 		// 调试日志
-		logger.debug("Query type list");
+		logger.debug("Query dimension list");
 
 		// 加载数据文件
-		InputStream in = ClassLoader.getSystemResourceAsStream("com/qloudfin/qloudbiz/apidef/prices/price-type-create.json");
+		InputStream in = ClassLoader.getSystemResourceAsStream("com/qloudfin/qloudbiz/apidef/prices/price-dimension-create.json");
 
 		StringBuffer sb = new StringBuffer();
 		InputStreamReader isr = null;
@@ -210,7 +214,7 @@ public class PriceTypesServicesEndpoint {
 		// 业务处理
 		sb.toString().replaceAll("\t", "");
 		Object resultObj = JSON.parse(sb.toString());
-
+		
 		callback.accept(resultObj);
 	}
 }

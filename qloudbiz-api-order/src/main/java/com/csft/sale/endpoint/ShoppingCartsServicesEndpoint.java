@@ -1,4 +1,4 @@
-package com.csft.sale.sdk;
+package com.csft.sale.endpoint;
 
 import java.io.BufferedReader;
 import java.io.IOException;
