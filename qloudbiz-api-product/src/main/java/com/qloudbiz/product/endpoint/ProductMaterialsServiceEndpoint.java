@@ -12,6 +12,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.alibaba.fastjson.JSON;
+import com.qloudbiz.core.service.ServiceProxyFactory;
+import com.qloudbiz.product.service.ProductServiceInterface;
+import com.qloudbiz.product.service.impl.ProductServiceImpl;
 import com.qloudfin.qloudbus.annotation.PathVariable;
 import com.qloudfin.qloudbus.annotation.RequestMapping;
 import com.qloudfin.qloudbus.annotation.RequestMethod;
@@ -29,6 +32,7 @@ import com.qloudfin.qloudbus.reactive.Callback;
 public class ProductMaterialsServiceEndpoint {
 	
 	private final static Logger logger=LoggerFactory.getLogger(ProductMaterialsServiceEndpoint.class);
+	
 	
 	/**
 	 * 添加产品线
@@ -275,5 +279,11 @@ public class ProductMaterialsServiceEndpoint {
 	
 		
 		callback.accept(resultObj);	
+	}
+	
+	public static void main(String[] args) throws Exception {
+		ProductServiceInterface service=ServiceProxyFactory.createProxy(ProductServiceImpl.class);
+		
+		service.save();
 	}
 }
