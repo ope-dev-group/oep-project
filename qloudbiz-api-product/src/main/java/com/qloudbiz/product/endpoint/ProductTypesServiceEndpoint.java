@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.alibaba.fastjson.JSON;
+import com.qloudbiz.core.utils.FileUtils;
 import com.qloudfin.qloudbus.annotation.PathVariable;
 import com.qloudfin.qloudbus.annotation.RequestMapping;
 import com.qloudfin.qloudbus.annotation.RequestMethod;
@@ -31,6 +32,8 @@ public class ProductTypesServiceEndpoint {
 	
 	private final static Logger logger=LoggerFactory.getLogger(ProductTypesServiceEndpoint.class);
 	
+	private final static String PATH_ADD_TYPE_JSON = "com/qloudfin/qloudbiz/apidef/products/product-type-create.json";
+	
 	/**
 	 * 添加产品分类
 	 * @param callback
@@ -42,41 +45,16 @@ public class ProductTypesServiceEndpoint {
 		
 		
 		//调试日志
-		logger.debug(">>>>>>>>>>>>>Add types param is:{}",body);
+		logger.debug("Add types param is:{}",body);
 		
-		//加载数据文件
-		InputStream in=ClassLoader.getSystemResourceAsStream("com/qloudfin/qloudbiz/apidef/products/product-type-create.json");		
+		//读取json数据
+		String content = FileUtils.getResourceContent(PATH_ADD_TYPE_JSON);		
 		
-		
-		
-		StringBuffer sb=new StringBuffer();
-		InputStreamReader isr=null;
-		try {
-			isr = new InputStreamReader(in,"UTF-8");
-		} catch (UnsupportedEncodingException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		BufferedReader reader=new BufferedReader(isr);
-		String  line=null;
-		try {
-			while((line=reader.readLine())!=null){
-				sb.append(line);
-				
-			}
-			reader.close();
-			isr.close();
-			in.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 		
 		//业务处理
-		sb.toString().replaceAll("\t","");
-		Object resultObj=JSON.parse(sb.toString());
-	
+		Object resultObj = JSON.parse(content);
 		
-		callback.accept(resultObj);	
+		callback.accept(content);
 	}
 	
 	
@@ -91,10 +69,10 @@ public class ProductTypesServiceEndpoint {
 		
 		
 		//调试日志
-		logger.debug(">>>>>>>>>Update types :typeId is:{},param is {}",typeId,body);
+		logger.debug("Update types :typeId is:{},param is {}",typeId,body);
 		
 		//加载数据文件
-		InputStream in=ClassLoader.getSystemResourceAsStream("com/qloudfin/qloudbiz/apidef/products/product-type-create.json");		
+		InputStream in=ClassLoader.getSystemResourceAsStream(PATH_ADD_TYPE_JSON);		
 		
 		
 		
@@ -140,10 +118,10 @@ public class ProductTypesServiceEndpoint {
 		
 		
 		//调试日志
-		logger.debug(">>>>>>>>>>>>>>>>Delete types :typeId is:{}",typeId);
+		logger.debug("Delete types :typeId is:{}",typeId);
 		
 		//加载数据文件
-		InputStream in=ClassLoader.getSystemResourceAsStream("com/qloudfin/qloudbiz/apidef/products/product-type-create.json");		
+		InputStream in=ClassLoader.getSystemResourceAsStream(PATH_ADD_TYPE_JSON);		
 		
 		
 		
@@ -189,10 +167,10 @@ public class ProductTypesServiceEndpoint {
 		
 		
 		//调试日志
-		logger.debug(">>>>>>>>>>>>>>Query Types List");
+		logger.debug("Query Types List");
 		
 		//加载数据文件
-		InputStream in=ClassLoader.getSystemResourceAsStream("com/qloudfin/qloudbiz/apidef/products/product-type-create.json");		
+		InputStream in=ClassLoader.getSystemResourceAsStream(PATH_ADD_TYPE_JSON);		
 		
 		
 		
