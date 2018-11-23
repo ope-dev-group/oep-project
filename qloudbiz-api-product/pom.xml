@@ -1,15 +1,27 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.csft</groupId>
-  <artifactId>qloud-api-product</artifactId>
+  <groupId>com.qloudfin.qloudbiz</groupId>
+  <artifactId>qloudbiz-api-product</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
-  <properties>
-	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
+ 
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<junit.version>4.11</junit.version>
+		<qloudbit.version>4.0.0</qloudbit.version>
+		<apache.commons.version>2.6</apache.commons.version>
+		<conductor.version>1.10.4</conductor.version>
+		<jackson.version>2.7.5</jackson.version>
+		<qloud.saga.version>4.0.0</qloud.saga.version>
+		<camunda.version>7.9.0</camunda.version>
+		<camunda.commons.version>1.5.0</camunda.commons.version>
+		<mariadb.connector.version>2.3.0</mariadb.connector.version>
+		<flyway.version>5.2.1</flyway.version>
+	</properties>
+ 
 
  <build>
-	<finalName>qloud-api-product</finalName>
+	<finalName>agent</finalName>
 
 	<pluginManagement>
 	    <plugins>
@@ -41,12 +53,10 @@
 	    </plugins>
 	</pluginManagement>
 																													
-
-
-		<plugins>
-		    <!--编译插件-->
+	
+	<plugins>
+	        <!--maven编译插件-->
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.1</version>
 				<configuration>
@@ -58,89 +68,94 @@
 			<!--打包插件-->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				 <artifactId>maven-jar-plugin</artifactId>
-				<version>3.1.0</version>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.3.2</version>
 				<configuration>
 					<finalName>${project.artifactId}-${project.version}</finalName>
 					<excludes>
-					<exclude>**/*.xml</exclude>
-					<exclude>**/*.properties</exclude>
-					<exclude>**/*.json</exclude>
-					<exclude>**/*.conf</exclude>
+						<exclude>**/*.xml</exclude>
+						<exclude>**/*.properties</exclude>
+						<exclude>**/*.json</exclude>
+						<exclude>**/*.conf</exclude>
+						<exclude>**/*.txt</exclude>
 					</excludes>
-					<outputDirectory>${project.build.directory}/qloudbiz-api-product</outputDirectory>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.16</version>
+				<configuration>
+					<skip>true</skip>
+					<!--test>MainTest.java</test -->
 				</configuration>
 			</plugin>
 			
-			<!-- 添加运行环境插件 -->
+			
+			<!--打包配置文件-->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<appendAssemblyId>false</appendAssemblyId>
+					<descriptors>
+						<descriptor>src/main/assembly/root.xml</descriptor>
+					</descriptors>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			
+			<!--安装容器环境-->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
-				<version>3.1.1</version>
+				<version>3.0.2</version>
 				<executions>
 					<execution>
 						<id>setup-standalone</id>
 						<phase>validate</phase>
 						<goals>
-						<goal>unpack</goal>
+							<goal>unpack</goal>
 						</goals>
 						<configuration>
 							<artifactItems>
 								<artifactItem>
-								<groupId>com.qloudfin.qloudbus</groupId>
-								<artifactId>qloudbus-sdk-server</artifactId>
-								<version>3.0.0</version>
-								<classifier>standalone</classifier>
-								<outputDirectory>${project.build.directory}/qloudbiz-api-product</outputDirectory>
-								<type>zip</type>
-								<overWrite>true</overWrite>
+									<groupId>com.qloudfin.qloudbus</groupId>
+									<artifactId>qloudbus-sdk-server</artifactId>
+									<version>${qloudbit.version}</version>
+									<classifier>agent</classifier>
+									<type>zip</type>
+									<overWrite>true</overWrite>
+									<outputDirectory>${project.build.directory}/agent</outputDirectory>
+									<excludes>
+										lib/jackson-core-2.7.4.jar,lib/jackson-databind-2.7.4.jar,lib/jackson-annotations-2.7.0.jar
+									</excludes>
 								</artifactItem>
 							</artifactItems>
 						</configuration>
 					</execution>
 				</executions>
-				
-			</plugin>
-			
-			<!--自定义配置文件插件-->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<version>3.1.0</version>
-				<configuration>
-				<finalName>qloudbiz-api-product</finalName>
-				<appendAssemblyId>false</appendAssemblyId>
-				<descriptors>
-				<descriptor>src/main/assembly/root.xml</descriptor>
-				</descriptors>
-				 </configuration>
-				<executions>
-					<execution>
-					<id>make-assembly</id>
-					<phase>package</phase>
-					<goals>
-					<goal>single</goal>
-					</goals>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
+	
+	
+
+		
 	</build>
 
 
 	<dependencies>
-		<dependency>
-			<groupId>com.qloudfin.qloudbus</groupId>
-			<artifactId>qloudbus-sdk-client</artifactId>
-			<version>3.0.0</version>
-			<scope>provided</scope>
-		</dependency>
-			<dependency>
-			<groupId>com.qloudfin.qloudbus</groupId>
-			<artifactId>qloudbus-sdk-server</artifactId>
-			<version>3.0.0</version>
-			<scope>provided</scope>
-		</dependency>
+	
 		
 		 <dependency>
     		<groupId>com.alibaba</groupId>
@@ -149,5 +164,100 @@
     		<scope>compile</scope>
 		</dependency>
 			
+		
+		<!-- qloudservice dependencies -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>${apache.commons.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.qloudfin.qloudbus</groupId>
+			<artifactId>qloudbus-sdk-client</artifactId>
+			<version>4.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.qloudfin.qloudbus</groupId>
+			<artifactId>qloudbus-kafka-admin</artifactId>
+			<version>4.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>${jackson.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.netflix.conductor</groupId>
+			<artifactId>conductor-client</artifactId>
+			<scope>compile</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+				</exclusion>
+			</exclusions>
+			<version>${conductor.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.qloudfin</groupId>
+			<artifactId>qloud-saga-utils</artifactId>
+			<version>${qloud.saga.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+	
+
+		<dependency>
+			<groupId>org.mariadb.jdbc</groupId>
+			<artifactId>mariadb-java-client</artifactId>
+			<version>${mariadb.connector.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+			<version>${flyway.version}</version>
+		</dependency>
+		
+		
+		<!--  <dependency>
+	        <groupId>com.atomikos</groupId>
+	         <artifactId>transactions-jdbc</artifactId>
+	        <version>3.9.3</version>
+	     </dependency> -->
+	     
+	    <dependency>
+	        <groupId>com.atomikos</groupId>
+	         <artifactId>transactions-jdbc</artifactId>
+	        <version>4.0.6</version>
+	     </dependency> 
+	     
+		 <dependency>
+	        <groupId>com.atomikos</groupId>
+	         <artifactId>transactions-jta</artifactId>
+	        <version>4.0.6</version>
+	     </dependency>
+		
+		 <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.10</version>
+        </dependency>
+		
 	</dependencies>
 </project>
