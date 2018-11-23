@@ -1,0 +1,14 @@
+{
+	"productLogicTypes": [
+		{
+			"typeCode": "L01",
+			"typeName": "商城搜索分类",
+			"parentId": null,
+			"sort": "1",
+			"status": "Y",
+			"prodLineId": "3213244-43423545-54254545",
+			"remark": "备注说明文字",
+			"tenantId": "qloudfin"
+		}
+	]
+}

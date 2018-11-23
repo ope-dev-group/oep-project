@@ -1,0 +1,50 @@
+{
+	"productLogicTypes": [
+		{
+			"typeId": "4325454-5434653-654-5435-6536123",
+			“typeCode”:”L03”,
+			"typeName": "ERP统计分类",
+			"sort": "1",
+"children": [{
+"typeId": "4325454-5434653-654-5435-6536122",
+			“typeCode”:”L0301”,
+			"typeName": "成品,
+			"parentId": null,
+			"sort": "1",
+"children": [{
+"typeId": "4325454-5434653-654-5435-6536123",
+			“typeCode”:”L030101”,
+			"typeName": "电脑”,
+			"sort": "1"
+},{
+"typeId": "4325454-5434653-654-5435-6536113",
+			“typeCode”:”L030102”,
+			"typeName": "手机”,
+			"sort": "2"
+},{
+"typeId": "4325454-5434653-654-5435-6532113",
+			“typeCode”:”L030103”,
+			"typeName": "车”,
+			"sort": "3"
+}]
+},
+{
+"typeId": "4325454-5434653-654-5435-6536122",
+			“typeCode”:”L0302”,
+			"typeName": "原材料”,
+			"sort": "1",
+"children": [{
+"typeId": "4325454-5434653-654-5435-6536123",
+			“typeCode”:”L030201”,
+			"typeName": "金属件”,
+			"sort": "1"
+},{
+"typeId": "4325454-5434653-654-5435-6536113",
+			“typeCode”:”L030202”,
+			"typeName": "树脂”,
+			"sort": "2"
+}]
+}
+		}
+	]
+}
