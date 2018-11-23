@@ -34,6 +34,13 @@ public class ProductTypesServiceEndpoint {
 	
 	private final static String PATH_ADD_TYPE_JSON = "com/qloudfin/qloudbiz/apidef/products/product-type-create.json";
 	
+	private final static String PATH_UPDATE_TYPE_JSON = "com/qloudfin/qloudbiz/apidef/products/product-type-update.json";
+	
+	private final static String PATH_QUERYINF_TYPE_JSON = "com/qloudfin/qloudbiz/apidef/products/product-type-query-inf.json";
+	
+	
+	
+	
 	/**
 	 * 添加产品分类
 	 * @param callback
@@ -71,38 +78,12 @@ public class ProductTypesServiceEndpoint {
 		//调试日志
 		logger.debug("Update types :typeId is:{},param is {}",typeId,body);
 		
-		//加载数据文件
-		InputStream in=ClassLoader.getSystemResourceAsStream(PATH_ADD_TYPE_JSON);		
-		
-		
-		
-		StringBuffer sb=new StringBuffer();
-		InputStreamReader isr=null;
-		try {
-			isr = new InputStreamReader(in,"UTF-8");
-		} catch (UnsupportedEncodingException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		BufferedReader reader=new BufferedReader(isr);
-		String  line=null;
-		try {
-			while((line=reader.readLine())!=null){
-				sb.append(line);
-				
-			}
-			reader.close();
-			isr.close();
-			in.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		//读取json数据
+		String content = FileUtils.getResourceContent(PATH_UPDATE_TYPE_JSON);	
+	
 		
 		//业务处理
-		sb.toString().replaceAll("\t","");
-		Object resultObj=JSON.parse(sb.toString());
-	
+		Object resultObj = JSON.parse(content);
 		
 		callback.accept(null);	
 	}
@@ -120,87 +101,34 @@ public class ProductTypesServiceEndpoint {
 		//调试日志
 		logger.debug("Delete types :typeId is:{}",typeId);
 		
-		//加载数据文件
-		InputStream in=ClassLoader.getSystemResourceAsStream(PATH_ADD_TYPE_JSON);		
-		
-		
-		
-		StringBuffer sb=new StringBuffer();
-		InputStreamReader isr=null;
-		try {
-			isr = new InputStreamReader(in,"UTF-8");
-		} catch (UnsupportedEncodingException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		BufferedReader reader=new BufferedReader(isr);
-		String  line=null;
-		try {
-			while((line=reader.readLine())!=null){
-				sb.append(line);
-				
-			}
-			reader.close();
-			isr.close();
-			in.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		//读取json数据
+		String content = FileUtils.getResourceContent(PATH_ADD_TYPE_JSON);	
 		
 		//业务处理
-		sb.toString().replaceAll("\t","");
-		Object resultObj=JSON.parse(sb.toString());
+		Object resultObj = JSON.parse(content);
 	
 		
 		callback.accept(null);	
 	}
 	
 	/**
-	 * 查询产品分类
+	 * 查询产品分类详情
 	 * @param callback
 	 * @param corpId
 	 * @param token
 	 */
-	@RequestMapping(value="/types",method=RequestMethod.GET)
-	public void queryLines(Callback<Object> callback){
+	@RequestMapping(value="/types/{typeId}",method=RequestMethod.GET)
+	public void queryLinesINF(Callback<Object> callback, @PathVariable("typeId") String typeId){
 		
 		
 		//调试日志
 		logger.debug("Query Types List");
 		
-		//加载数据文件
-		InputStream in=ClassLoader.getSystemResourceAsStream(PATH_ADD_TYPE_JSON);		
-		
-		
-		
-		StringBuffer sb=new StringBuffer();
-		InputStreamReader isr=null;
-		try {
-			isr = new InputStreamReader(in,"UTF-8");
-		} catch (UnsupportedEncodingException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		BufferedReader reader=new BufferedReader(isr);
-		String  line=null;
-		try {
-			while((line=reader.readLine())!=null){
-				sb.append(line);
-				
-			}
-			reader.close();
-			isr.close();
-			in.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		//读取json数据
+		String content = FileUtils.getResourceContent(PATH_QUERYINF_TYPE_JSON);	
 		
 		//业务处理
-		sb.toString().replaceAll("\t","");
-		Object resultObj=JSON.parse(sb.toString());
-	
+		Object resultObj = JSON.parse(content);
 		
 		callback.accept(resultObj);	
 	}

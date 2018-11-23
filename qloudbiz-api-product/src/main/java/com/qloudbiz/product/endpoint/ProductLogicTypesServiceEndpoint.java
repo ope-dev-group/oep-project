@@ -110,7 +110,7 @@ public class ProductLogicTypesServiceEndpoint {
 	 * 查询产品逻辑分类列表
 	 * @param callback
 	 */
-	@RequestMapping(value="/logicTypes/rootNode?logicTypeCode=&logicTypeName=&status=&lineId=", method=RequestMethod.GET)
+	@RequestMapping(value="/logicTypes/rootNode", method=RequestMethod.GET)
 	public void queryLogicTypes(Callback<Object> callback) {
 		
 		
@@ -134,7 +134,7 @@ public class ProductLogicTypesServiceEndpoint {
 	 * @param callback
 	 * @param logicTypeId
 	 */
-	@RequestMapping(value = "/logicTypes/rootNode/{logicTypeId}?logicTypeName=", method=RequestMethod.GET)
+	@RequestMapping(value = "/logicTypes/rootNode/{logicTypeId}", method=RequestMethod.GET)
 	public void queryLogicTypesTree(Callback<Object> callback,@PathVariable("logicTypeId")String logicTypeId) {
 		
 		
