@@ -31,6 +31,10 @@ public class ProductLinesServiceEndpoint {
 	
 	private final static Logger logger=LoggerFactory.getLogger(ProductLinesServiceEndpoint.class);
 	
+	private final static String PATH_ADD_LINES_JSON="com/qloudfin/qloudbiz/apidef/products/productlines-create.json";	
+	
+	
+	
 	/**
 	 * 添加产品线
 	 * @param callback
@@ -43,10 +47,9 @@ public class ProductLinesServiceEndpoint {
 		
 		//调试日志
 		logger.debug(">>>>>>>>>>>>>Add lines param is:{}",body);
-		
-		
+	
 		//读取json数据
-		String content=FileUtils.getResourceContent("com/qloudfin/qloudbiz/apidef/products/productlines-create.json");
+		String content=FileUtils.getResourceContent(PATH_ADD_LINES_JSON);
 		
 		//业务处理
 		Object resultObj=JSON.parse(content);
