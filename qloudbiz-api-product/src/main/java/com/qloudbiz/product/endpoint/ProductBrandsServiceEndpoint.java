@@ -28,7 +28,11 @@ import com.qloudfin.qloudbus.reactive.Callback;
  */
 @RequestMapping("/products")
 public class ProductBrandsServiceEndpoint {
-	private final static String PATH_ADD_BRANDS_JSON="com/qloudfin/qloudbiz/apidef/products/productbrands-create.json";
+	private final static String PATH_ADD_BRANDS_JSON="com/qloudfin/qloudbiz/apidef/products/productbrands-create.json";//添加品牌json
+	
+	
+	
+	
 	private final static Logger logger=LoggerFactory.getLogger(ProductBrandsServiceEndpoint.class);
 	
 	/**
@@ -43,6 +47,8 @@ public class ProductBrandsServiceEndpoint {
 		
 		//调试日志
 		logger.debug(">>>>>>>>>>>>>Add brands param is:{}",body);
+		
+		
 		//读取json数据
 		String content=FileUtils.getResourceContent(PATH_ADD_BRANDS_JSON);
 		
@@ -65,7 +71,6 @@ public class ProductBrandsServiceEndpoint {
 		
 		//调试日志
 		logger.debug(">>>>>>>>>Update brands :brandId is:{},param is {}",lineId,body);
-		
 		
 		callback.accept(null);	
 	}

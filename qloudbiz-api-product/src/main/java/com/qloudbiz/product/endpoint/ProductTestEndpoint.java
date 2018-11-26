@@ -5,8 +5,16 @@ import io.vertx.core.Launcher;
 
 
 
+
+
+
+
 import java.util.List;
 import java.util.Map;
+
+
+
+
 
 
 
@@ -15,9 +23,15 @@ import org.slf4j.LoggerFactory;
 
 
 
+
+
+
+
+import com.qloudbiz.core.factory.ServiceProxyFactory;
 import com.qloudbiz.core.result.ResultData;
 import com.qloudbiz.core.utils.ResultDataUtils;
 import com.qloudbiz.product.dao.ProductDao;
+import com.qloudbiz.product.service.ProductServiceInterface;
 import com.qloudfin.qloudbus.annotation.RequestMapping;
 import com.qloudfin.qloudbus.annotation.RequestMethod;
 import com.qloudfin.qloudbus.reactive.Callback;
@@ -47,14 +61,18 @@ public class ProductTestEndpoint {
 		
 		
 		try {
-			productDao.listall(result->{
+			/*productDao.listall(result->{
 				
 				ResultData<List<Map>> data=(ResultData<List<Map>>)result;
 				List<Map> maps=data.getData();
 				callback.accept(maps);
 				
 				
-			}, 0, 10);
+			}, 0, 10);*/
+			
+			ProductServiceInterface service=ServiceProxyFactory.createProxy(ProductServiceInterface.class);
+			service.save();
+			
 		} catch (Exception e) {
 			
 			e.printStackTrace();
