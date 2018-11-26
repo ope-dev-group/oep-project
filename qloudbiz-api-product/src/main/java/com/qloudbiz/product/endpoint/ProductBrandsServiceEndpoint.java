@@ -30,7 +30,11 @@ import com.qloudfin.qloudbus.reactive.Callback;
 public class ProductBrandsServiceEndpoint {
 	private final static String PATH_ADD_BRANDS_JSON="com/qloudfin/qloudbiz/apidef/products/productbrands-create.json";//添加品牌json
 	
-	private final static String PATH_UPDATE="com/qloudfin/qloudbiz/apidef/common/update_or_delete.json";//新增或者修改json
+	private final static String PATH_UPDATE_DELETE="com/qloudfin/qloudbiz/apidef/common/update_or_delete.json";//新增或者修改json
+	private final static String PATH_LIST_BRANDS_JSON="com/qloudfin/qloudbiz/apidef/products/productbrands-list.json";//添加品牌json
+
+	private final static String PATH_QUERY_BRANDS_DETAIL_JSON="com/qloudfin/qloudbiz/apidef/products/productbrands-detail.json";//添加品牌json
+
 	
 	
 	private final static Logger logger=LoggerFactory.getLogger(ProductBrandsServiceEndpoint.class);
@@ -60,18 +64,19 @@ public class ProductBrandsServiceEndpoint {
 	
 	
 	/**
-	 * 修改品牌
+	 * 修改、品牌
 	 * @param callback
 	 * @param corpId
 	 * @param token
 	 */
 	@RequestMapping(value="/brands/{brandId}",method=RequestMethod.PUT)
-	public void updateLines(Callback<Object> callback,@PathVariable("lineId") String lineId,Map<String,String> body){
+	public void updateBrand(Callback<Object> callback,@PathVariable("brandId") String brandId,Map<String,String> body){
 		
 		//调试日志
-		
+		logger.debug(">>>>>>>>>>>>>Update brands param is:{}",body);
+
 		//读取json数据
-		String content=FileUtils.getResourceContent(PATH_UPDATE);
+		String content=FileUtils.getResourceContent(PATH_UPDATE_DELETE);
 		
 		Object resultObj=JSON.parse(content);
 	
@@ -80,100 +85,70 @@ public class ProductBrandsServiceEndpoint {
 	}
 	
 	/**
-	 * 删除产品线
+	 * 删除品牌
 	 * @param callback
 	 * @param corpId
 	 * @param token
 	 */
-	@RequestMapping(value="/lines/{lineId}",method=RequestMethod.DELETE)
-	public void deleteLines(Callback<Object> callback,@PathVariable("lineId") String lineId){
-		
-		
+	@RequestMapping(value="/brands/{brandId}",method=RequestMethod.DELETE)
+	public void deleteBrand(Callback<Object> callback,@PathVariable("brandId") String brandId,Map<String,String> body){
+		logger.debug(">>>>>>>>>>>>>Delete brands param is:{}",body);
+
 		//调试日志
-		logger.debug("Delete lines :lineId is:{}",lineId);
 		
-		//加载数据文件
-		InputStream in=ClassLoader.getSystemResourceAsStream("com/qloudfin/qloudbiz/apidef/products/productlines-create.json");		
+		//读取json数据
+		String content=FileUtils.getResourceContent(PATH_UPDATE_DELETE);
 		
-		
-		
-		StringBuffer sb=new StringBuffer();
-		InputStreamReader isr=null;
-		try {
-			isr = new InputStreamReader(in,"UTF-8");
-		} catch (UnsupportedEncodingException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		BufferedReader reader=new BufferedReader(isr);
-		String  line=null;
-		try {
-			while((line=reader.readLine())!=null){
-				sb.append(line);
-				
-			}
-			reader.close();
-			isr.close();
-			in.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		//业务处理
-		sb.toString().replaceAll("\t","");
-		Object resultObj=JSON.parse(sb.toString());
+		Object resultObj=JSON.parse(content);
 	
 		
-		callback.accept(null);	
+		callback.accept(resultObj);	
 	}
 	
+	
 	/**
-	 * 查询产品线信息
+	 * 查询品牌列表
 	 * @param callback
 	 * @param corpId
 	 * @param token
 	 */
-	@RequestMapping(value="/lines",method=RequestMethod.GET)
-	public void queryLines(Callback<Object> callback){
+	@RequestMapping(value="/brands",method=RequestMethod.GET)
+	public void queryBrands(Callback<Object> callback,@RequestParam("brandCode" )String brandCode,@RequestParam("brandName" )String brandName,@RequestParam("brandType" )String brandType,@RequestParam("status" )String status){
 		
 		
 		//调试日志
-		logger.debug("Query lines");
+		logger.debug(">>>>>>>>>>>>>Query brands list  ,the brandCode is {},brandName is {},brandType is {},status is {}",brandCode,brandName,brandType,status);
+
 		
-		//加载数据文件
-		InputStream in=ClassLoader.getSystemResourceAsStream("com/qloudfin/qloudbiz/apidef/products/productlines-create.json");		
+		//读取json数据
+		String content=FileUtils.getResourceContent(PATH_LIST_BRANDS_JSON);
 		
-		
-		
-		StringBuffer sb=new StringBuffer();
-		InputStreamReader isr=null;
-		try {
-			isr = new InputStreamReader(in,"UTF-8");
-		} catch (UnsupportedEncodingException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		BufferedReader reader=new BufferedReader(isr);
-		String  line=null;
-		try {
-			while((line=reader.readLine())!=null){
-				sb.append(line);
-				
-			}
-			reader.close();
-			isr.close();
-			in.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		//业务处理
-		sb.toString().replaceAll("\t","");
-		Object resultObj=JSON.parse(sb.toString());
+		Object resultObj=JSON.parse(content);
 	
 		
+		callback.accept(resultObj);	
+	}
+	
+	
+	/**
+	 * 查询品牌详情
+	 * @param callback
+	 * @param corpId
+	 * @param token
+	 */
+	@RequestMapping(value="/brands/{brandId}",method=RequestMethod.GET)
+	public void queryBrandDetail(Callback<Object> callback,@PathVariable("brandId" )String brandId){
+		
+		
+		//调试日志
+		logger.debug(">>>>>>>>>>>>>Query brands Detail ,the brandId is {},",brandId);
+
+		
+		//读取json数据
+		String content=FileUtils.getResourceContent(PATH_QUERY_BRANDS_DETAIL_JSON);
+		
+		Object resultObj=JSON.parse(content);
+	
 		callback.accept(resultObj);	
 	}
 }
