@@ -32,11 +32,11 @@ public class ProductTypesServiceEndpoint {
 	
 	private final static Logger logger=LoggerFactory.getLogger(ProductTypesServiceEndpoint.class);
 	
-	private final static String PATH_ADD_TYPE_JSON = "com/qloudfin/qloudbiz/apidef/products/product-type-create.json";
+	private final static String PATH_ADD_TYPES_JSON = "com/qloudfin/qloudbiz/apidef/products/product-type-create.json";
 	
-	private final static String PATH_QUERYINF_TYPE_JSON = "com/qloudfin/qloudbiz/apidef/products/product-type-query-inf.json";
+	private final static String PATH_QUERYINF_TYPES_JSON = "com/qloudfin/qloudbiz/apidef/products/product-type-query-inf.json";
 	
-	private final static String PATH_UPDATE_OR_DELETE = "com/qloudfin/qloudbiz/apidef/products/product-update_or_delete.json";
+	private final static String PATH_UPDATE_OR_DELETE = "com/qloudfin/qloudbiz/apidef/common/update_or_delete.json";
 	
 	
 	
@@ -55,13 +55,13 @@ public class ProductTypesServiceEndpoint {
 		logger.debug("Add types param is:{}",body);
 		
 		//读取json数据
-		String content = FileUtils.getResourceContent(PATH_ADD_TYPE_JSON);		
+		String content = FileUtils.getResourceContent(PATH_ADD_TYPES_JSON);		
 		
 		
 		//业务处理
 		Object resultObj = JSON.parse(content);
 		
-		callback.accept(content);
+		callback.accept(resultObj);
 	}
 	
 	
@@ -85,7 +85,7 @@ public class ProductTypesServiceEndpoint {
 		//业务处理
 		Object resultObj = JSON.parse(content);
 		
-		callback.accept(null);	
+		callback.accept(resultObj);	
 	}
 	
 	/**
@@ -108,7 +108,7 @@ public class ProductTypesServiceEndpoint {
 		Object resultObj = JSON.parse(content);
 	
 		
-		callback.accept(null);	
+		callback.accept(resultObj);	
 	}
 	
 	/**
@@ -125,7 +125,7 @@ public class ProductTypesServiceEndpoint {
 		logger.debug("Query Types List");
 		
 		//读取json数据
-		String content = FileUtils.getResourceContent(PATH_QUERYINF_TYPE_JSON);	
+		String content = FileUtils.getResourceContent(PATH_QUERYINF_TYPES_JSON);	
 		
 		//业务处理
 		Object resultObj = JSON.parse(content);

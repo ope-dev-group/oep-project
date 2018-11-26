@@ -28,15 +28,15 @@ public class ProductLogicTypesServiceEndpoint {
 	
 	private final static Logger logger = LoggerFactory.getLogger(ProductLogicTypesServiceEndpoint.class);
 	
-	private final static String PATH_ADD_LOGIC_TYPE_JSON = "com/qloudfin/qloudbiz/apidef/products/product-logic-type-create.json";
+	private final static String PATH_ADD_LOGIC_TYPES_JSON = "com/qloudfin/qloudbiz/apidef/products/product-logic-type-create.json";
 	
-	private final static String PATH_QUERY_LOGIC_TYPE_JSON = "com/qloudfin/qloudbiz/apidef/products/product-logic-type-query.json";
+	private final static String PATH_QUERY_LOGIC_TYPES_JSON = "com/qloudfin/qloudbiz/apidef/products/product-logic-type-query.json";
 	
-	private final static String PATH_QUERY_LOGIC_TYPE_TREE_JSON = "com/qloudfin/qloudbiz/apidef/products/product-logic-type-query-tree.json";
+	private final static String PATH_QUERY_LOGIC_TYPES_TREE_JSON = "com/qloudfin/qloudbiz/apidef/products/product-logic-type-query-tree.json";
 	
-	private final static String PATH_QUERY_LOGIC_TYPE_INF_JSON = "com/qloudfin/qloudbiz/apidef/products/product-logic-type-query-inf.json";
+	private final static String PATH_QUERY_LOGIC_TYPES_INF_JSON = "com/qloudfin/qloudbiz/apidef/products/product-logic-type-query-inf.json";
 	
-	private final static String PATH_UPDATE_OR_DELETE = "com/qloudfin/qloudbiz/apidef/products/product-update_or_delete.json";
+	private final static String PATH_UPDATE_OR_DELETE = "com/qloudfin/qloudbiz/apidef/common/update_or_delete.json";
 	
 	
 	/**
@@ -51,7 +51,7 @@ public class ProductLogicTypesServiceEndpoint {
 		logger.debug("========Add logicTypes parm is:{}", body);
 		
 		//读取json数据
-		String content=FileUtils.getResourceContent(PATH_ADD_LOGIC_TYPE_JSON);
+		String content=FileUtils.getResourceContent(PATH_ADD_LOGIC_TYPES_JSON);
 		
 		Object resultObj = JSON.parse(content);
 		
@@ -118,11 +118,11 @@ public class ProductLogicTypesServiceEndpoint {
 		logger.debug("Query logicTypes");
 		
 		//读取json数据
-		String content=FileUtils.getResourceContent(PATH_QUERY_LOGIC_TYPE_JSON);
+		String content=FileUtils.getResourceContent(PATH_QUERY_LOGIC_TYPES_JSON);
 		
 		Object resultObj = JSON.parse(content);
 		
-		callback.accept(null);
+		callback.accept(resultObj);
 		
 	}
 	
@@ -142,11 +142,11 @@ public class ProductLogicTypesServiceEndpoint {
 		logger.debug("Query logicTypesTree");
 		
 		//读取json数据
-		String content=FileUtils.getResourceContent(PATH_QUERY_LOGIC_TYPE_TREE_JSON);
+		String content=FileUtils.getResourceContent(PATH_QUERY_LOGIC_TYPES_TREE_JSON);
 		
 	    Object resultObj = JSON.parse(content);
 		
-		callback.accept(null);
+		callback.accept(resultObj);
 		
 	
 		
@@ -167,11 +167,11 @@ public class ProductLogicTypesServiceEndpoint {
 				logger.debug("Query logicTypesINF");
 				
 				//读取json数据
-				String content=FileUtils.getResourceContent(PATH_QUERY_LOGIC_TYPE_INF_JSON);
+				String content=FileUtils.getResourceContent(PATH_QUERY_LOGIC_TYPES_INF_JSON);
 			
 				Object resultObj = JSON.parse(content);
 				
-				callback.accept(null);
+				callback.accept(resultObj);
 	}
 	
 	
