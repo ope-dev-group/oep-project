@@ -30,7 +30,7 @@ import com.qloudfin.qloudbus.reactive.Callback;
 public class ProductBrandsServiceEndpoint {
 	private final static String PATH_ADD_BRANDS_JSON="com/qloudfin/qloudbiz/apidef/products/productbrands-create.json";//添加品牌json
 	
-	private final static String PATH_UPDATE="com/qloudfin/qloudbiz/apidef/products/product-update_or_delete.json";//新增或者修改json
+	private final static String PATH_UPDATE="com/qloudfin/qloudbiz/apidef/common/update_or_delete.json";//新增或者修改json
 	
 	
 	private final static Logger logger=LoggerFactory.getLogger(ProductBrandsServiceEndpoint.class);
