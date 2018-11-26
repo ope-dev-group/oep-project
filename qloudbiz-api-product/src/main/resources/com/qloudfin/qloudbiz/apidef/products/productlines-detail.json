@@ -1,0 +1,43 @@
+{
+	"returnCode": "0",
+	"returnMsg": "ok",
+	"pgUpDownFlag": "next",
+	"totalNum": 20,
+	"pagePerNum": 25,
+	"currentNum": 1,
+	"result": [{
+			"lineId": "3213244-43423545-54254545",
+			"lineCode ": "0001",
+			"lineName": "3C",
+			"parentId": null,
+			"sort": "1",
+			"status": "Y",
+			"createdTime": "2018-11-10  09:30:00",
+			"creatorId": "1001",
+			"creatorName": "张三",
+			"modifyTime": "2018 - 11 - 20 09: 43: 20 ",
+			"modifierId": "1001",
+			"modifierName": "张三",
+			"lastModifyTime": "2018-11-20  09:43:20:123",
+			"ownerCompanyCode": "20382302",
+			"tenantId": "qloudfin"
+		},
+		{
+			"lineId": "3213244-43423545-54254543",
+			"lineCode ": "0002",
+			"lineName": "车辆",
+			"parentId": null,
+			"sort": "2",
+			"status": "Y",
+			"createdTime": "2018-10-10  09:30:00",
+			"creatorId": "1001",
+			"creatorName": "张三",
+			"modifyTime": "2018-10 -20 09: 43: 20 ",
+			"modifierId": "1001",
+			"modifierName": "张三",
+			"lastModifyTime": "2018-11-20  09:43:20:123",
+			"ownerCompanyCode": "20382302",
+			"tenantId": "qloudfin"
+		}
+	]
+}

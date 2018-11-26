@@ -33,10 +33,15 @@ public class ProductLinesServiceEndpoint {
 	
 	private final static String PATH_ADD_LINES_JSON="com/qloudfin/qloudbiz/apidef/products/productlines-create.json";	
 	
+	private final static String PATH_UPDATE_DELETE="com/qloudfin/qloudbiz/apidef/common/update_or_delete.json";//新增或者修改json
+	private final static String PATH_LIST_LINES_JSON="com/qloudfin/qloudbiz/apidef/products/productlines-list.json";//添加品牌json
+	private final static String PATH_QUERY_LINES_DETAIL_JSON="com/qloudfin/qloudbiz/apidef/products/productlines-detail.json";//添加品牌json
+
+	
 	
 	
 	/**
-	 * 添加产品线
+	 * 新增产品线
 	 * @param callback
 	 * @param corpId
 	 * @param token
@@ -72,40 +77,14 @@ public class ProductLinesServiceEndpoint {
 		//调试日志
 		logger.debug(">>>>>>>>>Update lines :lineId is:{},param is {}",lineId,body);
 		
-		//加载数据文件
-		InputStream in=ClassLoader.getSystemResourceAsStream(PATH_ADD_LINES_JSON);		
-		
-		
-		
-		StringBuffer sb=new StringBuffer();
-		InputStreamReader isr=null;
-		try {
-			isr = new InputStreamReader(in,"UTF-8");
-		} catch (UnsupportedEncodingException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		BufferedReader reader=new BufferedReader(isr);
-		String  line=null;
-		try {
-			while((line=reader.readLine())!=null){
-				sb.append(line);
+		//读取json数据
+		String content=FileUtils.getResourceContent(PATH_ADD_LINES_JSON);
 				
-			}
-			reader.close();
-			isr.close();
-			in.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
 		//业务处理
-		sb.toString().replaceAll("\t","");
-		Object resultObj=JSON.parse(sb.toString());
+		Object resultObj=JSON.parse(content);
 	
 		
-		callback.accept(null);	
+		callback.accept(resultObj);	
 	}
 	
 	/**
@@ -121,44 +100,18 @@ public class ProductLinesServiceEndpoint {
 		//调试日志
 		logger.debug("Delete lines :lineId is:{}",lineId);
 		
-		//加载数据文件
-		InputStream in=ClassLoader.getSystemResourceAsStream("com/qloudfin/qloudbiz/apidef/products/productlines-create.json");		
-		
-		
-		
-		StringBuffer sb=new StringBuffer();
-		InputStreamReader isr=null;
-		try {
-			isr = new InputStreamReader(in,"UTF-8");
-		} catch (UnsupportedEncodingException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		BufferedReader reader=new BufferedReader(isr);
-		String  line=null;
-		try {
-			while((line=reader.readLine())!=null){
-				sb.append(line);
+		//读取json数据
+		String content=FileUtils.getResourceContent(PATH_UPDATE_DELETE);
 				
-			}
-			reader.close();
-			isr.close();
-			in.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
 		//业务处理
-		sb.toString().replaceAll("\t","");
-		Object resultObj=JSON.parse(sb.toString());
+		Object resultObj=JSON.parse(content);
 	
 		
-		callback.accept(null);	
+		callback.accept(resultObj);		
 	}
 	
 	/**
-	 * 查询产品线信息
+	 * 查询产品线列表
 	 * @param callback
 	 * @param corpId
 	 * @param token
@@ -170,37 +123,35 @@ public class ProductLinesServiceEndpoint {
 		//调试日志
 		logger.debug("Query lines");
 		
-		//加载数据文件
-		InputStream in=ClassLoader.getSystemResourceAsStream("com/qloudfin/qloudbiz/apidef/products/productlines-create.json");		
-		
-		
-		
-		StringBuffer sb=new StringBuffer();
-		InputStreamReader isr=null;
-		try {
-			isr = new InputStreamReader(in,"UTF-8");
-		} catch (UnsupportedEncodingException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		BufferedReader reader=new BufferedReader(isr);
-		String  line=null;
-		try {
-			while((line=reader.readLine())!=null){
-				sb.append(line);
+		//读取json数据
+		String content=FileUtils.getResourceContent(PATH_LIST_LINES_JSON);
 				
-			}
-			reader.close();
-			isr.close();
-			in.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
 		//业务处理
-		sb.toString().replaceAll("\t","");
-		Object resultObj=JSON.parse(sb.toString());
+		Object resultObj=JSON.parse(content);
+	
+		
+		callback.accept(resultObj);	
+	}
+	
+	
+	/**
+	 * 查询产品线详情
+	 * @param callback
+	 * @param corpId
+	 * @param token
+	 */
+	@RequestMapping(value="/lines/{lineId}",method=RequestMethod.GET)
+	public void queryLinesDetail(Callback<Object> callback,@PathVariable("lineId")String lineId){
+		
+		
+		//调试日志
+		logger.debug("Query lines");
+		
+		//读取json数据
+		String content=FileUtils.getResourceContent(PATH_QUERY_LINES_DETAIL_JSON);
+				
+		//业务处理
+		Object resultObj=JSON.parse(content);
 	
 		
 		callback.accept(resultObj);	
