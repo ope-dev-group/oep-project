@@ -1,0 +1,24 @@
+{
+	"returnCode":"0", 
+	"returnMsg":"ok",
+	"pgUpDownFlag":"next",
+	"totalNum":20,
+	"pagePerNum":25, 
+	"currentNum":1,
+	"result": 
+	{
+		"groupId": "4325454-5434653-654-5435-6536356",
+		"groupName": "机身详情",
+		"sort": "10",
+		"status": "Y", 
+		"productTypeId": "3213244-43423545-54254545",
+		"createdTime": "2018-11-10  09:30:00",
+		"creatorId": "1001",
+		"creatorName": "张三",
+		"modifyTime": "2018-11-20  09:43:20" ,
+		"modifierId": "1001",
+		"modifierName": "张三",
+		"lastModifyTime": "2018-11-20  09:43:20:123",
+		"tenantId": "qloudfin"
+	}
+}

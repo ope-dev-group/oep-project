@@ -1,10 +1,5 @@
 package com.qloudbiz.product.endpoint;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -66,7 +61,7 @@ public class ProductLogicTypesServiceEndpoint {
 	 * @param typeId
 	 * @param body
 	 */
-	@RequestMapping(value = "/logicTypes/{typeId}",method=RequestMethod.PUT)
+	@RequestMapping(value = "/logicTypes/{typeId}", method=RequestMethod.PUT)
 	public void updateLogicTypes(Callback<Object> callback,@PathVariable("typeId") String typeId, Map<String,String> body) {
 		
 		
