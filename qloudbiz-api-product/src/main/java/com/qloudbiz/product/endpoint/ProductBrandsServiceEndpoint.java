@@ -68,7 +68,7 @@ public class ProductBrandsServiceEndpoint {
 	@RequestMapping(value="/brands/{brandId}",method=RequestMethod.PUT)
 	public void updateLines(Callback<Object> callback,@PathVariable("lineId") String lineId,Map<String,String> body){
 		  
-		 
+		   
 		//调试日志
 		logger.debug(">>>>>>>>>Update brands :brandId is:{},param is {}",lineId,body);
 		
