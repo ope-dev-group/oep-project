@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.alibaba.fastjson.JSON;
+import com.qloudbiz.core.utils.FileUtils;
 import com.qloudfin.qloudbus.annotation.PathVariable;
 import com.qloudfin.qloudbus.annotation.RequestMapping;
 import com.qloudfin.qloudbus.annotation.RequestMethod;
@@ -27,53 +28,31 @@ import com.qloudfin.qloudbus.reactive.Callback;
  */
 @RequestMapping("/products")
 public class ProductBrandsServiceEndpoint {
+	private final static String PATH_ADD_BRANDS_JSON="com/qloudfin/qloudbiz/apidef/products/productbrands-create.json";//添加品牌json
+	
+	
+	
 	
 	private final static Logger logger=LoggerFactory.getLogger(ProductBrandsServiceEndpoint.class);
 	
 	/**
-	 * 添加产品线
+	 * 添加品牌接口
 	 * @param callback
 	 * @param corpId
 	 * @param token
 	 */
-	@RequestMapping(value="/lines",method=RequestMethod.POST)
-	public void addLines(Callback<Object> callback,Map<String,String> body){
+	@RequestMapping(value="/brands",method=RequestMethod.POST)
+	public void addBrands(Callback<Object> callback,Map<String,String> body){
 		
 		
 		//调试日志
-		logger.debug(">>>>>>>>>>>>>Add lines param is:{}",body);
-		
-		//加载数据文件
-		InputStream in=ClassLoader.getSystemResourceAsStream("com/qloudfin/qloudbiz/apidef/products/productlines-create.json");		
+		logger.debug(">>>>>>>>>>>>>Add brands param is:{}",body);
 		
 		
+		//读取json数据
+		String content=FileUtils.getResourceContent(PATH_ADD_BRANDS_JSON);
 		
-		StringBuffer sb=new StringBuffer();
-		InputStreamReader isr=null;
-		try {
-			isr = new InputStreamReader(in,"UTF-8");
-		} catch (UnsupportedEncodingException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		BufferedReader reader=new BufferedReader(isr);
-		String  line=null;
-		try {
-			while((line=reader.readLine())!=null){
-				sb.append(line);
-				
-			}
-			reader.close();
-			isr.close();
-			in.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		//业务处理
-		sb.toString().replaceAll("\t","");
-		Object resultObj=JSON.parse(sb.toString());
+		Object resultObj=JSON.parse(content);
 	
 		
 		callback.accept(resultObj);	
@@ -81,50 +60,17 @@ public class ProductBrandsServiceEndpoint {
 	
 	
 	/**
-	 * 修改产品线
+	 * 修改品牌
 	 * @param callback
 	 * @param corpId
 	 * @param token
 	 */
-	@RequestMapping(value="/lines/{lineId}",method=RequestMethod.PUT)
+	@RequestMapping(value="/brands/{brandId}",method=RequestMethod.PUT)
 	public void updateLines(Callback<Object> callback,@PathVariable("lineId") String lineId,Map<String,String> body){
-		
-		
+		  
+		 
 		//调试日志
-		logger.debug(">>>>>>>>>Update lines :lineId is:{},param is {}",lineId,body);
-		
-		//加载数据文件
-		InputStream in=ClassLoader.getSystemResourceAsStream("com/qloudfin/qloudbiz/apidef/products/productlines-create.json");		
-		
-		
-		
-		StringBuffer sb=new StringBuffer();
-		InputStreamReader isr=null;
-		try {
-			isr = new InputStreamReader(in,"UTF-8");
-		} catch (UnsupportedEncodingException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		BufferedReader reader=new BufferedReader(isr);
-		String  line=null;
-		try {
-			while((line=reader.readLine())!=null){
-				sb.append(line);
-				
-			}
-			reader.close();
-			isr.close();
-			in.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		//业务处理
-		sb.toString().replaceAll("\t","");
-		Object resultObj=JSON.parse(sb.toString());
-	
+		logger.debug(">>>>>>>>>Update brands :brandId is:{},param is {}",lineId,body);
 		
 		callback.accept(null);	
 	}
