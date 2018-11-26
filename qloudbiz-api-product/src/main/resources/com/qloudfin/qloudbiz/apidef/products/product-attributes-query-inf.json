@@ -1,0 +1,43 @@
+{
+	"returnCode":"0", 
+	"returnMsg":"ok",
+	"result": {
+	"attributeId": "3423423423",
+	"attributeCode": "system",
+	"attributeName": "操作系统",
+	"isRequired": "Y", 
+	"attributeConstraint ": "Enum", 
+	"maxStringLength":  "" ,
+	"dateTimeFormat": "", 
+	"numberFormat":"",
+	"numberFormat":null,
+	"sort": "10",
+	"status": "Y",   
+	"productTypeId": "3213244-43423545-54254545", 
+	"attributeType": "Basic", 
+	"attributeGroupId": "3213244-43423545-234534", 
+	"attrributeValues":
+	[{
+		"id":"12123213123",
+		"sort": "10",
+		"value":"IOS"
+		},
+		{
+		"id":"1212321323",
+		"sort": "20",
+		"value":"Android"
+		}
+	],
+	"isSearchForMiddlePlatform": "Y", 
+	"isSearchForShoppingMall": "Y", 
+	"description":"",
+	"createdTime": "2018-11-10  09:30:00",
+	"creatorId": "1001",
+	"creatorName": "张三",
+	"modifyTime": "2018-11-20  09:43:20" ,
+	"modifierId": "1001",
+	"modifierName": "张三",
+	"lastModifyTime": "2018-11-20  09:43:20:123",
+	"tenantId": "qloudfin"
+}
+}
