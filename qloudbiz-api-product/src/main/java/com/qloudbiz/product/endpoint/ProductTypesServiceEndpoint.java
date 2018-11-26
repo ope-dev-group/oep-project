@@ -34,9 +34,9 @@ public class ProductTypesServiceEndpoint {
 	
 	private final static String PATH_ADD_TYPE_JSON = "com/qloudfin/qloudbiz/apidef/products/product-type-create.json";
 	
-	private final static String PATH_UPDATE_TYPE_JSON = "com/qloudfin/qloudbiz/apidef/products/product-type-update.json";
-	
 	private final static String PATH_QUERYINF_TYPE_JSON = "com/qloudfin/qloudbiz/apidef/products/product-type-query-inf.json";
+	
+	private final static String PATH_UPDATE_OR_DELETE = "com/qloudfin/qloudbiz/apidef/products/product-update_or_delete.json";
 	
 	
 	
@@ -79,7 +79,7 @@ public class ProductTypesServiceEndpoint {
 		logger.debug("Update types :typeId is:{},param is {}",typeId,body);
 		
 		//读取json数据
-		String content = FileUtils.getResourceContent(PATH_UPDATE_TYPE_JSON);	
+		String content = FileUtils.getResourceContent(PATH_UPDATE_OR_DELETE);	
 	
 		
 		//业务处理
@@ -102,7 +102,7 @@ public class ProductTypesServiceEndpoint {
 		logger.debug("Delete types :typeId is:{}",typeId);
 		
 		//读取json数据
-		String content = FileUtils.getResourceContent(PATH_ADD_TYPE_JSON);	
+		String content = FileUtils.getResourceContent(PATH_UPDATE_OR_DELETE);	
 		
 		//业务处理
 		Object resultObj = JSON.parse(content);
