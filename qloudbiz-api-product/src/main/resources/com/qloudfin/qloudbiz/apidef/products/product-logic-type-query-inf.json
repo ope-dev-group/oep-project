@@ -1,21 +1,22 @@
 {
-	"productLogicTypes": [
-		{
-			"typeId": "4325454-5434653-654-5435-6536356",
-			“typeCode”:” L01”,
-			"typeName": "商城搜索分类",
-			"parentId": null,
-			"sort": "1",
-			"status": "Y",
-			"prodLineId": "3213244-43423545-54254545",
-			"createdTime": "2018-11-10  09:30:00",
-			"creatorId": "1001",
-			"creatorName": "张三",
-			"modifyTime": ""2018-11-20  09:43:20" ,
-			"modifierId": "1001",
-			"modifierName": "张三",
-			"lastModifyTime": "2018-11-20  09:43:20:123",
-			"tenantId": "qloudfin"
-		}
-	]
+	"returnCode":"0", 
+	"returnMsg":"ok",
+	"result":
+	{
+		"typeId": "4325454-5434653-654-5435-6536356",
+		"typeCode":"L01",
+		"typeName": "商城搜索分类",
+		"parentId": null,
+		"sort": "1",
+		"status": "Y",
+		"prodLineId": "3213244-43423545-54254545",
+		"createdTime": "2018-11-10  09:30:00",
+		"creatorId": "1001",
+		"creatorName": "张三",
+		"modifyTime": "2018-11-20  09:43:20" ,
+		"modifierId": "1001",
+		"modifierName": "张三",
+		"lastModifyTime": "2018-11-20  09:43:20:123",
+		"tenantId": "qloudfin"
+	}
 }
