@@ -73,7 +73,7 @@ public class ProductLinesServiceEndpoint {
 		logger.debug(">>>>>>>>>Update lines :lineId is:{},param is {}",lineId,body);
 		
 		//加载数据文件
-		InputStream in=ClassLoader.getSystemResourceAsStream("com/qloudfin/qloudbiz/apidef/products/productlines-create.json");		
+		InputStream in=ClassLoader.getSystemResourceAsStream(PATH_ADD_LINES_JSON);		
 		
 		
 		
