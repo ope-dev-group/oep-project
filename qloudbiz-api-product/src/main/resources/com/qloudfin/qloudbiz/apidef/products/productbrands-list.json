@@ -2,8 +2,8 @@
 	"returnCode": "0",
 	"returnMsg": "ok",
 	"result": {
-		"brandId": "3213244-43423545-54254545",
-		"brandCode": "1001",
+		"brandId": "1",
+		"brandCode": "apple",
 		"brandName": "苹果",
 		"sort": "1",
 		"status": "Y",

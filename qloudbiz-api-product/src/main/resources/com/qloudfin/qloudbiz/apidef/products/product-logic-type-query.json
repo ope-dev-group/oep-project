@@ -7,9 +7,9 @@
 	"currentNum":1,
 	"result": [
 	{
-			"typeId": "4325454-5434653-654-5435-6536356",
-			"typeCode":"L01",
-			"typeName": "商城搜索分类",
+			"typeId": "11",
+			"typeCode":"apple-logic-type",
+			"typeName": 苹果逻辑分类",
 			"parentId": null,
 			"sort": "1",
 			"status": "Y",
@@ -24,11 +24,11 @@
 			"tenantId": "qloudfin"
 		},
 		{
-			"typeId":"4325454-5434653-654-5435-6536123",
-			"typeCode":"L02",
-			"typeName": "财务统计分类",
+			"typeId":"12",
+			"typeCode":"samsung-logic-type",
+			"typeName": "三星逻辑分类",
 			"parentId": null,
-			"sort": "1",
+			"sort": "2",
 			"status": "Y",
 			"prodLineId": "3213244-43423545-54254545",
 			"createdTime": "2018-11-10  09:30:00",
@@ -41,11 +41,11 @@
 			"tenantId": "qloudfin"
 		},
 		{
-			"typeId": "4325454-5434653-654-5435-6536123",
-			"typeCode":"L03",
-			"typeName": "ERP统计分类",
+			"typeId": "13",
+			"typeCode":"huawei-logic-type",
+			"typeName": "华为逻辑分类",
 			"parentId": null,
-			"sort": "1",
+			"sort": "3",
 			"status": "Y",
 			"prodLineId": "3213244-43423545-54254545",
 			"createdTime": "2018-11-10  09:30:00",

@@ -86,7 +86,7 @@ public class ProductAttributesServiceEndpoint {
 	public void deleteAttributes(Callback<Object> callback, @PathVariable("attributeId") String attributeId) {
 		
 		//调试日志
-		logger.debug("=======Update attributes : attributeId is :{},param is {}", attributeId);
+		logger.debug("=======Delete attributes : attributeId is :{}", attributeId);
 		
 		//读取json数据
 		String content=FileUtils.getResourceContent(PATH_UPDATE_OR_DELETE);

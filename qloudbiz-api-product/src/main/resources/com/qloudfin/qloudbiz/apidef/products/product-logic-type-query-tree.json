@@ -4,56 +4,56 @@
 	"result": 
 	[
 		{
-			"typeId": "4325454-5434653-654-5435-6536123",
-			"typeCode":"L03",
-			"typeName": "ERP统计分类",
+			"typeId": "11",
+			"typeCode":"apple-logic-type",
+			"typeName": "苹果逻辑分类",
 			"sort": "1",
 			"children": [
 				{
-					"typeId": "4325454-5434653-654-5435-6536122",
-					"typeCode":"L0301",
-					"typeName": "成品",
+					"typeId": "1001",
+					"typeCode":"iphone-type",
+					"typeName": "苹果手机分类",
 					"parentId": null,
 					"sort": "1",
 					"children": 
 					[
 						{
-						"typeId": "4325454-5434653-654-5435-6536123",
-						"typeCode":"L030101",
-						"typeName": "电脑",
+						"typeId": "100001",
+						"typeCode":"iphne8",
+						"typeName": "苹果8手机",
 						"sort": "1"
 						},
 						{
-						"typeId": "4325454-5434653-654-5435-6536113",
-						"typeCode":"L030102",
-						"typeName": "手机",
+						"typeId": "100002",
+						"typeCode":"iphonex",
+						"typeName": "苹果x手机",
 						"sort": "2"
 						},
 						{
-						"typeId": "4325454-5434653-654-5435-6532113",
-						"typeCode":"L030103",
-						"typeName": "车",
+						"typeId": "100003",
+						"typeCode":"iphonexs",
+						"typeName": "苹果xs手机",
 						"sort": "3"
 						}
 					]
 				},
 				{
-					"typeId": "4325454-5434653-654-5435-6536122",
-					"typeCode":"L0302",
-					"typeName": "原材料",
+					"typeId": "1002",
+					"typeCode":"ipad-type",
+					"typeName": "苹果平板电脑分类",
 					"sort": "2",
 					"children": 
 					[
 						{
-						"typeId": "4325454-5434653-654-5435-6536123",
-						"typeCode":"L030201",
-						"typeName": "金属件",
+						"typeId": "100004",
+						"typeCode":"ipadmin",
+						"typeName": "ipad min",
 						"sort": "1"
 						},
 						{
-						"typeId": "4325454-5434653-654-5435-6536113",
-						"typeCode":"L030202",
-						"typeName": "树脂",
+						"typeId": "100005",
+						"typeCode":"ipadpro",
+						"typeName": "ipad pro",
 						"sort": "2"
 						}
 					]

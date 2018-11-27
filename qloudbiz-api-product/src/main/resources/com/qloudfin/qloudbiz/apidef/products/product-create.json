@@ -2,20 +2,19 @@
 	"returnCode": "0",
 	"returnMsg": "ok",
 	"result": {
-		"productId": "432545-56565-010232",
-		"productCode": "010232",
-		"productTypeId": "432545-545435-45345435-54435",
-		"brandId": "432545-545435-23423423-52435",
-		"productLineId": "432545-34354-23423423-52435",
+		"productId": "10001",
+		"productCode": "product1",
+		"productTypeId": "1001",
+		"brandId": " 1",
+		"productLineId": "101",
 		"productLogicTypes": [
-			"432545-545435-45345435-52435",
-			"432545-545435-45345435-54423"
+			"11"
 		],
-		"productCategroy": "single",
+		"productCategroy": "iphone",
 		"productDivision": "01",
 		"upcCode": null,
-		"productName": "lenova T460",
-		"description": "lenovo desktop computer",
+		"productName": "iphne8",
+		"description": "iphone8 cool",
 		"defaultWarehouseId": "423423423-234234-23423",
 		"abcLevel": "A",
 		"stockQty": 1250,
@@ -31,8 +30,8 @@
 		"tenantId": "qloudfin",
 		"productAttributes": [
 		   {
-				"attributeId": "234234-2342356-2311",
-				"attributeName": "重量",
+				"attributeId": "2001",
+				"attributeName": "操作系统",
 				"stringValue": null,
 				"numbericValue": 43255.55,
 				"numbericUnit": "kg",
@@ -41,7 +40,7 @@
 				"enumText": null
 			},
 			{
-				"attributeId": "234234-2342356-2312",
+				"attributeId": 2002",
 				"attributeName": "颜色",
 				"stringValue": null,
 				"numbericValue": null,
