@@ -2,7 +2,7 @@
 	"returnCode":"0", 
 	"returnMsg":"ok",
 	"result":{
-		"attributeId": "1212312312",
+		"attributeId": "2001",
 		"attributeCode": "system",
 		"attributeName": "操作系统",
 		"isRequired": "Y", 
@@ -11,19 +11,19 @@
 		"dateTimeFormat": "", 
 		"numberFormat": "",
 		"numberUnit":null,
-		"sort": "10",
+		"sort": "1",
 		"status": "Y",   
-		"productTypeId": "3213244-43423545-54254545", 
+		"productTypeId": "1001", 
 		"attributeType": "Basic", 
-		"attributeGroupId": "3213244-43423545-234534", 
+		"attributeGroupId": "2000-1", 
 		"attrributeValues":[{
-			"id":"12123213123",
-			"sort": "10",
+			"id":"123",
+			"sort": "1",
 			"value":"IOS"
 			},
 			{
-			"id":"1212321323",
-			"sort": "20",
+			"id":"124",
+			"sort": "2",
 			"value":"Android"
 			}],
 		"isSearchForMiddlePlatform": "Y", 

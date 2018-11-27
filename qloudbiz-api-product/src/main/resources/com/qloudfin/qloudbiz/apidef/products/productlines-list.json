@@ -7,9 +7,9 @@
 	"currentNum": 1,
 	"totalPage":1,
 	"result": [{
-			"lineId": "3213244-43423545-54254545",
-			"lineCode ": "0001",
-			"lineName": "3C",
+			"lineId": "101",
+			"lineCode ": "iphone-line",
+			"lineName": "苹果手机产品线",
 			"parentId": null,
 			"sort": "1",
 			"status": "Y",
@@ -24,9 +24,9 @@
 			"tenantId": "qloudfin"
 		},
 		{
-			"lineId": "3213244-43423545-54254543",
-			"lineCode ": "0002",
-			"lineName": "车辆",
+			"lineId": "102",
+			"lineCode ": "ipad-line",
+			"lineName": "苹果平板电脑产品线",
 			"parentId": null,
 			"sort": "2",
 			"status": "Y",

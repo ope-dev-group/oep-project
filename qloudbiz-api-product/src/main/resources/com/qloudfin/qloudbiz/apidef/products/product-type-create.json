@@ -2,9 +2,9 @@
 	"returnCode":"0", 
 	"returnMsg":"ok",
 	"result":{
-		"typeId": "4325454-5434653-654-5435-6536356",
-		"typeCode":"1002",
-		"typeName": "电器",
+		"typeId": "1001",
+		"typeCode":"iphone-type",
+		"typeName": "苹果手机分类",
 		"parentId": null,
 		"isPhysical": true,
 		"toTransport": true,

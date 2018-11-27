@@ -3,9 +3,9 @@
 	"returnMsg":"ok",
 	"result": 
 	{
-		"typeId": "4325454-5434653-654-5435-6536356",
-		"typeCode":"P03",
-		"typeName": "产品分类",
+		"typeId": "1001",
+		"typeCode":"iphone-type",
+		"typeName": "苹果手机分类",
 		"parentId": null,
 		"toTransport": true,
 		"sort": "1",

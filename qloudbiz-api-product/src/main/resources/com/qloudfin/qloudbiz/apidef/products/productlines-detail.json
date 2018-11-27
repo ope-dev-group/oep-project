@@ -2,9 +2,9 @@
 	"returnCode":"0",
 	"returnMsg": "ok",
 	"result": {
-		"lineId": "3213244-43423545-54254545",
-		"lineCode ": "0001",
-		"lineName": "3C",
+		"lineId": "101",
+		"lineCode ": "iphone-line",
+		"lineName": "苹果手机产品线",
 		"sort": "1",
 		"status": "Y",
 		"createdTime": "2018-11-10  09:30:00",
