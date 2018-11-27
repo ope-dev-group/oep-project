@@ -1,7 +1,5 @@
 package com.qloudbiz.product.endpoint;
 
-import io.netty.handler.codec.http.multipart.FileUpload;
-
 import java.util.Map;
 
 import org.slf4j.Logger;
