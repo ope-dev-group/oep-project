@@ -1,35 +1,26 @@
 {
-	"skuCodes": [
-		{
-			"productId": "43434324-545435-543545-454354",
-			"skuCode": "43434324-545435",
-			"skuValues": [
-				{
-					"attributeId": "43434-5355-5435436-5435",
-					"attributeValue": {
-						"attrValueId": null,
-						"productId": "43434324-545435-543545-454354",
-						"attributeId": "43434-5355-5435436-5435",
-						"stringValue": null,
-						"numbericValue": 43255.55,
-						"numbericUnit": "kg",
-						"datetimeValue": null
-					}
-				},
-				{
-					"attributeId": "43434-5355-54446-5436",
-					"attributeValue": {
-						"attrValueId": null,
-						"productId": "43434324-545435-543545-454354",
-						"attributeId": "43434-5355-54446-5436",
-						"stringValue": null,
-						"numbericValue": 8,
-						"numbericUnit": "G",
-						"datetimeValue": null
-					}
-				}
-			],
-			"tenantId": "qloudfin"
-		}
-	]
+	"skus": [{
+		"skuId": "43434324-545435-543545-454351",
+		"productId": "43434324-545435-543545-454354",
+		"skuCode": "43434324-545435",
+		"skuName": "小米8 全面屏游戏智能手机 6GB+64GB 黑色 全网通4G 双卡双待",
+		"barCode": "2342343",
+		"status": "Y",
+		"stockQty": 1250,
+		"stockAmount": 1250000,
+		"skuAttributes": [{
+				"attributeId": "234234-2342356-2112",
+				"attributeName": "版本",
+				"enumValue": "2345-64656-3289",
+				"enumText": "6G+64G"
+			},
+			{
+				"attributeId": "234234-2342356-2312",
+				"attributeName": "颜色",
+				"enumValue": "2345-64656-3789",
+				"enumText": "红色"
+			}
+		]
+
+	}]
 }

@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 
 import com.alibaba.fastjson.JSON;
 import com.qloudbiz.core.factory.ServiceProxyFactory;
+import com.qloudbiz.core.utils.FileUtils;
 import com.qloudbiz.product.service.ProductServiceInterface;
 import com.qloudbiz.product.service.impl.ProductServiceImpl;
 import com.qloudfin.qloudbus.annotation.PathVariable;
@@ -23,7 +24,7 @@ import com.qloudfin.qloudbus.reactive.Callback;
 
 
 /**
- * 产品线服务
+ * 主物料微服务
  *
  * @author Kezx
  *
@@ -33,9 +34,16 @@ public class ProductMaterialsServiceEndpoint {
 	
 	private final static Logger logger=LoggerFactory.getLogger(ProductMaterialsServiceEndpoint.class);
 	  
+	private final static String PATH_ADD_PRODUCT_JSON="com/qloudfin/qloudbiz/apidef/products/product-create.json";//添加品牌json
+	
+	private final static String PATH_UPDATE_DELETE="com/qloudfin/qloudbiz/apidef/common/update_or_delete.json";//新增或者修改json
+	private final static String PATH_LIST_PRODUCT_JSON="com/qloudfin/qloudbiz/apidef/products/product-list.json";//添加品牌json
+
+	private final static String PATH_QUERY_PRODUCT_DETAIL_JSON="com/qloudfin/qloudbiz/apidef/products/product-detail.json";//添加品牌json
+
 	
 	/**
-	 * 添加产品线
+	 * 添加主物料
 	 * @param callback
 	 * @param corpId
 	 * @param token
@@ -46,38 +54,11 @@ public class ProductMaterialsServiceEndpoint {
 		
 		//调试日志
 		logger.debug(">>>>>>>>>>>>>Add materials param is:{}",body);
-		
-		//加载数据文件
-		InputStream in=ClassLoader.getSystemResourceAsStream("com/qloudfin/qloudbiz/apidef/products/product-create.json");		
-		
-		
-		
-		StringBuffer sb=new StringBuffer();
-		InputStreamReader isr=null;
-		try {
-			isr = new InputStreamReader(in,"UTF-8");
-		} catch (UnsupportedEncodingException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		BufferedReader reader=new BufferedReader(isr);
-		String  line=null;
-		try {
-			while((line=reader.readLine())!=null){
-				sb.append(line);
+		//读取json数据
+		String content=FileUtils.getResourceContent(PATH_ADD_PRODUCT_JSON);
 				
-			}
-			reader.close();
-			isr.close();
-			in.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
 		//业务处理
-		sb.toString().replaceAll("\t","");
-		Object resultObj=JSON.parse(sb.toString());
+		Object resultObj=JSON.parse(content);
 	
 		
 		callback.accept(resultObj);	
@@ -85,7 +66,7 @@ public class ProductMaterialsServiceEndpoint {
 	
 	
 	/**
-	 * 修改产品线
+	 * 修改主物料
 	 * @param callback
 	 * @param corpId
 	 * @param token
@@ -96,136 +77,57 @@ public class ProductMaterialsServiceEndpoint {
 		
 		//调试日志
 		logger.debug(">>>>>>>>>Update materials :materialId is:{},param is {}",lineId,body);
-		
-		//加载数据文件
-		InputStream in=ClassLoader.getSystemResourceAsStream("com/qloudfin/qloudbiz/apidef/products/product-create.json");		
-		
-		
-		
-		StringBuffer sb=new StringBuffer();
-		InputStreamReader isr=null;
-		try {
-			isr = new InputStreamReader(in,"UTF-8");
-		} catch (UnsupportedEncodingException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		BufferedReader reader=new BufferedReader(isr);
-		String  line=null;
-		try {
-			while((line=reader.readLine())!=null){
-				sb.append(line);
+		//读取json数据
+		String content=FileUtils.getResourceContent(PATH_UPDATE_DELETE);
 				
-			}
-			reader.close();
-			isr.close();
-			in.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
 		//业务处理
-		sb.toString().replaceAll("\t","");
-		Object resultObj=JSON.parse(sb.toString());
+		Object resultObj=JSON.parse(content);
 	
 		
-		callback.accept(null);	
+		callback.accept(resultObj);	
 	}
 	
 	/**
-	 * 删除产品线
+	 * 删除主物料
 	 * @param callback
 	 * @param corpId
 	 * @param token
 	 */
-	@RequestMapping(value="/materials/{lineId}",method=RequestMethod.DELETE)
-	public void deleteMaterials(Callback<Object> callback,@PathVariable("lineId") String lineId){
+	@RequestMapping(value="/materials/{materialId}",method=RequestMethod.DELETE)
+	public void deleteMaterials(Callback<Object> callback,@PathVariable("materialId") String materialId){
 		
-		
+
 		//调试日志
-		logger.debug("Delete materials :materialId is:{}",lineId);
-		
-		//加载数据文件
-		InputStream in=ClassLoader.getSystemResourceAsStream("com/qloudfin/qloudbiz/apidef/products/product-create.json");		
-		
-		
-		
-		StringBuffer sb=new StringBuffer();
-		InputStreamReader isr=null;
-		try {
-			isr = new InputStreamReader(in,"UTF-8");
-		} catch (UnsupportedEncodingException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		BufferedReader reader=new BufferedReader(isr);
-		String  line=null;
-		try {
-			while((line=reader.readLine())!=null){
-				sb.append(line);
+		logger.debug(">>>>>>>>>Update materials :materialId is:{},param is {}",materialId);
+	
+		//读取json数据
+		String content=FileUtils.getResourceContent(PATH_UPDATE_DELETE);
 				
-			}
-			reader.close();
-			isr.close();
-			in.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
 		//业务处理
-		sb.toString().replaceAll("\t","");
-		Object resultObj=JSON.parse(sb.toString());
+		Object resultObj=JSON.parse(content);
 	
 		
-		callback.accept(null);	
+		callback.accept(resultObj);	
 	}
 	
 	/**
-	 * 查询产品线列表信息
+	 * 查询主物料列表
 	 * @param callback
 	 * @param corpId
 	 * @param token
 	 */
 	@RequestMapping(value="/materials",method=RequestMethod.GET)
-	public void queryMaterials(Callback<Object> callback){
+	public void queryMaterials(Callback<Object> callback,@RequestParam("productCode")String productCode,@RequestParam("productName")String productName,@RequestParam("upcCode")String upcCode,@RequestParam("status")String status){
 		
 		
 		//调试日志
-		logger.debug("Query materials");
-		
-		//加载数据文件
-		InputStream in=ClassLoader.getSystemResourceAsStream("com/qloudfin/qloudbiz/apidef/products/product-create.json");		
-		
-		
-		
-		StringBuffer sb=new StringBuffer();
-		InputStreamReader isr=null;
-		try {
-			isr = new InputStreamReader(in,"UTF-8");
-		} catch (UnsupportedEncodingException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		BufferedReader reader=new BufferedReader(isr);
-		String  line=null;
-		try {
-			while((line=reader.readLine())!=null){
-				sb.append(line);
+		logger.debug("Query materials list ");
+
+		//读取json数据
+		String content=FileUtils.getResourceContent(PATH_LIST_PRODUCT_JSON);
 				
-			}
-			reader.close();
-			isr.close();
-			in.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
 		//业务处理
-		sb.toString().replaceAll("\t","");
-		Object resultObj=JSON.parse(sb.toString());
+		Object resultObj=JSON.parse(content);
 	
 		
 		callback.accept(resultObj);	
@@ -233,7 +135,7 @@ public class ProductMaterialsServiceEndpoint {
 	
 	
 	/**
-	 * 查询产品线列表信息
+	 * 查询主物料详情
 	 * @param callback
 	 * @param corpId
 	 * @param token
@@ -245,45 +147,13 @@ public class ProductMaterialsServiceEndpoint {
 		//调试日志
 		logger.debug(">>>>>>>Query material Detail materialId is {}",materialId);
 		
-		//加载数据文件
-		InputStream in=ClassLoader.getSystemResourceAsStream("com/qloudfin/qloudbiz/apidef/products/product-create.json");		
-		
-		
-		
-		StringBuffer sb=new StringBuffer();
-		InputStreamReader isr=null;
-		try {
-			isr = new InputStreamReader(in,"UTF-8");
-		} catch (UnsupportedEncodingException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		BufferedReader reader=new BufferedReader(isr);
-		String  line=null;
-		try {
-			while((line=reader.readLine())!=null){
-				sb.append(line);
+		//读取json数据
+		String content=FileUtils.getResourceContent(PATH_QUERY_PRODUCT_DETAIL_JSON);
 				
-			}
-			reader.close();
-			isr.close();
-			in.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
 		//业务处理
-		sb.toString().replaceAll("\t","");
-		Object resultObj=JSON.parse(sb.toString());
+		Object resultObj=JSON.parse(content);
 	
 		
 		callback.accept(resultObj);	
-	}
-	
-	public static void main(String[] args) throws Exception {
-		ProductServiceInterface service=ServiceProxyFactory.createProxy(ProductServiceImpl.class);
-		
-		service.save();
 	}
 }

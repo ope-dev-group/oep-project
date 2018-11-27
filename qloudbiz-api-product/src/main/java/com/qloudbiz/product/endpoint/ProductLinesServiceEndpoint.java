@@ -78,7 +78,7 @@ public class ProductLinesServiceEndpoint {
 		logger.debug(">>>>>>>>>Update lines :lineId is:{},param is {}",lineId,body);
 		
 		//读取json数据
-		String content=FileUtils.getResourceContent(PATH_ADD_LINES_JSON);
+		String content=FileUtils.getResourceContent(PATH_UPDATE_DELETE);
 				
 		//业务处理
 		Object resultObj=JSON.parse(content);
@@ -117,11 +117,11 @@ public class ProductLinesServiceEndpoint {
 	 * @param token
 	 */
 	@RequestMapping(value="/lines",method=RequestMethod.GET)
-	public void queryLines(Callback<Object> callback){
+	public void queryLines(Callback<Object> callback,@RequestParam("lineCode")String lineCode,@RequestParam("lineName")String lineName,@RequestParam("status")String status,@RequestParam("tenantId")String tenantId){
 		
 		
 		//调试日志
-		logger.debug("Query lines");
+		logger.debug("Query lines ,the lineCode is {} ,the lineName is {},the status is {} ,the tenantId is {}",lineCode,lineName,status,tenantId);
 		
 		//读取json数据
 		String content=FileUtils.getResourceContent(PATH_LIST_LINES_JSON);

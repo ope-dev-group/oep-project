@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.alibaba.fastjson.JSON;
+import com.qloudbiz.core.utils.FileUtils;
 import com.qloudfin.qloudbus.annotation.PathVariable;
 import com.qloudfin.qloudbus.annotation.RequestMapping;
 import com.qloudfin.qloudbus.annotation.RequestMethod;
@@ -29,6 +30,14 @@ import com.qloudfin.qloudbus.reactive.Callback;
 public class ProductSkucodesServiceEndpoint {
 	
 	private final static Logger logger=LoggerFactory.getLogger(ProductSkucodesServiceEndpoint.class);
+		  
+	private final static String PATH_ADD_SKU_JSON="com/qloudfin/qloudbiz/apidef/products/skucode-create.json";//添加品牌json
+	
+	private final static String PATH_UPDATE_DELETE="com/qloudfin/qloudbiz/apidef/common/update_or_delete.json";//新增或者修改json
+	private final static String PATH_LIST_SKU_JSON="com/qloudfin/qloudbiz/apidef/products/skucode-list.json";//添加品牌json
+
+	private final static String PATH_QUERY_SKU_DETAIL_JSON="com/qloudfin/qloudbiz/apidef/products/skucode-detail.json";//添加品牌json
+
 	
 	/**
 	 * 添加产品skuCode
@@ -43,36 +52,11 @@ public class ProductSkucodesServiceEndpoint {
 		//调试日志
 		logger.debug(">>>>>>>>>>>>>Add Product Skucodes param is:{}",body);
 		
-		//加载数据文件
-		InputStream in=ClassLoader.getSystemResourceAsStream("com/qloudfin/qloudbiz/apidef/products/skucode-create.json");		
-		
-		
-		
-		StringBuffer sb=new StringBuffer();
-		InputStreamReader isr=null;
-		try {
-			isr = new InputStreamReader(in,"UTF-8");
-		} catch (UnsupportedEncodingException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		BufferedReader reader=new BufferedReader(isr);
-		String  line=null;
-		try {
-			while((line=reader.readLine())!=null){
-				sb.append(line);
+		//读取json数据
+		String content=FileUtils.getResourceContent(PATH_ADD_SKU_JSON);
 				
-			}
-			reader.close();
-			isr.close();
-			in.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
 		//业务处理
-		sb.toString().replaceAll("\t","");
-		Object resultObj=JSON.parse(sb.toString());
+		Object resultObj=JSON.parse(content);
 	
 		
 		callback.accept(resultObj);	
@@ -85,47 +69,21 @@ public class ProductSkucodesServiceEndpoint {
 	 * @param corpId
 	 * @param token
 	 */
-	@RequestMapping(value="/skucodes/{skuCode}",method=RequestMethod.PUT)
-	public void updateSkucodes(Callback<Object> callback,@PathVariable("skuCode") String skuCode,Map<String,String> body){
+	@RequestMapping(value="/skucodes/{skuId}",method=RequestMethod.PUT)
+	public void updateSkucodes(Callback<Object> callback,@PathVariable("skuId") String skuId,Map<String,String> body){
 		
 		
 		//调试日志
-		logger.debug(">>>>>>>>>Update skucodes :skucode is:{},param is {}",skuCode,body);
+		logger.debug(">>>>>>>>>Update skucodes :skuId is:{},param is {}",skuId,body);
 		
-		//加载数据文件
-		InputStream in=ClassLoader.getSystemResourceAsStream("com/qloudfin/qloudbiz/apidef/products/skucode-create.json");		
-		
-		
-		
-		StringBuffer sb=new StringBuffer();
-		InputStreamReader isr=null;
-		try {
-			isr = new InputStreamReader(in,"UTF-8");
-		} catch (UnsupportedEncodingException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		BufferedReader reader=new BufferedReader(isr);
-		String  line=null;
-		try {
-			while((line=reader.readLine())!=null){
-				sb.append(line);
+		//读取json数据
+		String content=FileUtils.getResourceContent(PATH_UPDATE_DELETE);
 				
-			}
-			reader.close();
-			isr.close();
-			in.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
 		//业务处理
-		sb.toString().replaceAll("\t","");
-		Object resultObj=JSON.parse(sb.toString());
+		Object resultObj=JSON.parse(content);
 	
 		
-		callback.accept(null);	
+		callback.accept(resultObj);	
 	}
 	
 	/**
@@ -134,47 +92,22 @@ public class ProductSkucodesServiceEndpoint {
 	 * @param corpId
 	 * @param token
 	 */
-	@RequestMapping(value="/skucodes/{skuCode}",method=RequestMethod.DELETE)
-	public void deleteSkucode(Callback<Object> callback,@PathVariable("skuCode") String skuCode){
+	@RequestMapping(value="/skucodes/{skuId}",method=RequestMethod.DELETE)
+	public void deleteSkucode(Callback<Object> callback,@PathVariable("skuId") String skuId){
 		
 		
 		//调试日志
-		logger.debug(">>>>>>>>>>>>>>>>Delete skuCode :skuCode is:{}",skuCode);
-		
-		//加载数据文件
-		InputStream in=ClassLoader.getSystemResourceAsStream("com/qloudfin/qloudbiz/apidef/products/skucode-create.json");		
+		logger.debug(">>>>>>>>>>>>>>>>Delete skuCode :skuId is:{}",skuId);
 		
 		
-		
-		StringBuffer sb=new StringBuffer();
-		InputStreamReader isr=null;
-		try {
-			isr = new InputStreamReader(in,"UTF-8");
-		} catch (UnsupportedEncodingException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		BufferedReader reader=new BufferedReader(isr);
-		String  line=null;
-		try {
-			while((line=reader.readLine())!=null){
-				sb.append(line);
+		//读取json数据
+		String content=FileUtils.getResourceContent(PATH_UPDATE_DELETE);
 				
-			}
-			reader.close();
-			isr.close();
-			in.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
 		//业务处理
-		sb.toString().replaceAll("\t","");
-		Object resultObj=JSON.parse(sb.toString());
+		Object resultObj=JSON.parse(content);
 	
 		
-		callback.accept(null);	
+		callback.accept(resultObj);	
 	}
 	
 	
@@ -185,44 +118,18 @@ public class ProductSkucodesServiceEndpoint {
 	 * @param corpId
 	 * @param token
 	 */
-	@RequestMapping(value="/skucodes/types/{typeId}",method=RequestMethod.GET)
-	public void querySkucodes(Callback<Object> callback,@PathVariable("typeId")String typeId){
+	@RequestMapping(value="/skucodes",method=RequestMethod.GET)
+	public void querySkucodes(Callback<Object> callback,@RequestParam("typeId")String typeId,@RequestParam("productCode") String  productCode,@RequestParam("skuName")String skuName,@RequestParam("status")String status){
 		
 		
 		//调试日志
-		logger.debug(">>>>>>>>>>>>>>Query  Product Skucodes list");
+		logger.debug(">>>>>>>>>>>>>>Query  Product Skucodes list the typeId is {},the productCode is {},the skuName is {},the status is {}",typeId,productCode,skuName,status);
 		
-		//加载数据文件
-		InputStream in=ClassLoader.getSystemResourceAsStream("com/qloudfin/qloudbiz/apidef/products/skucode-create.json");		
-		
-		
-		
-		StringBuffer sb=new StringBuffer();
-		InputStreamReader isr=null;
-		try {
-			isr = new InputStreamReader(in,"UTF-8");
-		} catch (UnsupportedEncodingException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		BufferedReader reader=new BufferedReader(isr);
-		String  line=null;
-		try {
-			while((line=reader.readLine())!=null){
-				sb.append(line);
+		//读取json数据
+		String content=FileUtils.getResourceContent(PATH_LIST_SKU_JSON);
 				
-			}
-			reader.close();
-			isr.close();
-			in.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
 		//业务处理
-		sb.toString().replaceAll("\t","");
-		Object resultObj=JSON.parse(sb.toString());
+		Object resultObj=JSON.parse(content);
 	
 		
 		callback.accept(resultObj);	
@@ -235,44 +142,18 @@ public class ProductSkucodesServiceEndpoint {
 	 * @param corpId
 	 * @param token
 	 */
-	@RequestMapping(value="/skucodes/{skuCode}",method=RequestMethod.GET)
-	public void querySkucode(Callback<Object> callback,@PathVariable("skuCode")String skuCode){
+	@RequestMapping(value="/skucodes/{skuId}",method=RequestMethod.GET)
+	public void querySkucode(Callback<Object> callback,@PathVariable("skuId")String skuCode){
 		
 		
 		//调试日志
-		logger.debug(">>>>>>>>>>>>>>Query  Product skuCode,skuCode is {}",skuCode);
+		logger.debug(">>>>>>>>>>>>>>Query  Product sku detail,skuCode is {}",skuCode);
 		
-		//加载数据文件
-		InputStream in=ClassLoader.getSystemResourceAsStream("com/qloudfin/qloudbiz/apidef/products/skucode-create.json");		
-		
-		
-		
-		StringBuffer sb=new StringBuffer();
-		InputStreamReader isr=null;
-		try {
-			isr = new InputStreamReader(in,"UTF-8");
-		} catch (UnsupportedEncodingException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		BufferedReader reader=new BufferedReader(isr);
-		String  line=null;
-		try {
-			while((line=reader.readLine())!=null){
-				sb.append(line);
+		//读取json数据
+		String content=FileUtils.getResourceContent(PATH_QUERY_SKU_DETAIL_JSON);
 				
-			}
-			reader.close();
-			isr.close();
-			in.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
 		//业务处理
-		sb.toString().replaceAll("\t","");
-		Object resultObj=JSON.parse(sb.toString());
+		Object resultObj=JSON.parse(content);
 	
 		
 		callback.accept(resultObj);	
