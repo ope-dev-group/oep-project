@@ -118,7 +118,7 @@ public class ProductTypesServiceEndpoint {
 	 * @param token
 	 */
 	@RequestMapping(value="/types/{typeId}",method=RequestMethod.GET)
-	public void queryLinesINF(Callback<Object> callback, @PathVariable("typeId") String typeId){
+	public void queryTypesINF(Callback<Object> callback, @PathVariable("typeId") String typeId){
 		
 		
 		//调试日志
