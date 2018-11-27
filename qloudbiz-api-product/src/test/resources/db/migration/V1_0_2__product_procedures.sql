@@ -36,8 +36,9 @@ CREATE PROCEDURE QLOUDFLOW_PRODUCT_LISTALL_PROCEDURE(
 	IN v_pagesize int
 )
 lable:BEGIN
-	SELECT productId,code,name FROM product limit v_startrow,v_pagesize;
-	
+	IF(v_startrow=-1)  THEN SELECT COUNT(1) FROM product;
+	ELSE SELECT productId,code,name FROM product LIMIT v_startrow,v_pagesize;
+	END IF;
 END//
 DELIMITER;
 

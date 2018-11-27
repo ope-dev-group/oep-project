@@ -59,7 +59,7 @@ public class ProductDaoTest {
 		Product product=new Product();
 		product.setProductId(UUID.randomUUID().toString().replace("-",""));
 		product.setCode("Ipad");
-		product.setName("联想-T50");
+		product.setName("联想-T80");
 		
 		
 		logger.debug("++++++INSERT INTO PRODUCT ....");
@@ -80,8 +80,8 @@ public class ProductDaoTest {
 		ProductDao dao=new ProductDao();
 		try {
 			dao.listall(result->{
-				logger.debug("query all product result{}",result);
-			}, 0, 10);
+				logger.debug("query all product result {}",result);
+			}, 2, 10);
 		} catch (Exception e) {
 			
 			e.printStackTrace();

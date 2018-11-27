@@ -16,7 +16,9 @@ import javax.sql.DataSource;
 import org.apache.kafka.common.utils.CollectionUtils;
 
 import com.alibaba.fastjson.asm.Type;
+import com.qloudbiz.core.result.PageResultData;
 import com.qloudbiz.core.utils.ConnectionUtils;
+import com.qloudbiz.core.utils.PageUtils;
 import com.qloudbiz.core.utils.ResultSetUtils;
 import com.qloudfin.qloudbus.reactive.Callback;
 import com.qloudfin.sagas.persistence.jdbc.JdbcClient;
@@ -249,6 +251,76 @@ public abstract class BaseDao<T> {
 		}
 		
 		return resultList;
+	}
+	
+	
+	/**
+	 * 调用存储过程的查询，不接收参数，返回查询列表
+	 * @param callabelSql  存储过程sql
+	 * @currentNum 当前页
+	 * @pagePerNum 页大小
+	 * @param params	        可变参数列表
+	 * @return
+	 * @throws SQLException 
+	 */
+	public PageResultData<List<Map>> callProcQueryPage(String callabelSql,int currentNum,int pagePerNum,Object ...params) throws Exception{
+		
+		
+		//查询总记录数
+		int totalCount=0;
+		
+		String count="0";
+		Map<String,Object> maps=null;
+		if(null!=params && params.length>0){
+			maps=this.callProcQuerySingle(callabelSql,-1,pagePerNum,params);
+		}else{
+			maps=this.callProcQuerySingle(callabelSql,-1,pagePerNum);
+		}
+		
+		if(null!=maps) {
+			for(String key:maps.keySet()){
+				count=maps.get(key)+"";
+				break;
+			}
+		}
+		
+		totalCount=Integer.parseInt(count);
+		PageResultData<List<Map>> page=new PageResultData<List<Map>>();
+		if(totalCount>0){
+			PageUtils pageUtils=new PageUtils(pagePerNum,totalCount,currentNum);
+			
+			
+			//计算开始索引
+			int startIndex=pageUtils.getStartIndex();
+			
+			List<Map> items=null;
+			//查询分页数据
+			if(null!=params && params.length>0){
+				items=this.callProcQueryList(callabelSql,startIndex,pagePerNum,params);
+
+			}else{
+				 items=this.callProcQueryList(callabelSql,startIndex,pagePerNum);
+
+			}
+			
+			pageUtils.setItems(items);
+			
+			page=new PageResultData<List<Map>>();
+			
+			
+			page.setCurrentNum(pageUtils.getCurrentPage());
+			page.setNextPage(pageUtils.getNextPage());
+			page.setPagePerNum(pagePerNum);
+			page.setPrePage(pageUtils.getPrePage());
+			page.setResult(items);
+			page.setTotalNum(pageUtils.getTotalCount());
+			page.setTotalPage(pageUtils.getTotalPage());
+			page.setResultCode("0");
+			
+		}else{
+			
+		}
+		return page;
 	}
 	
 	

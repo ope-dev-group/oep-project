@@ -19,10 +19,11 @@ import org.slf4j.LoggerFactory;
 
 
 
-import com.qloudbiz.core.dao.BaseDao;
 
+import com.qloudbiz.core.dao.BaseDao;
 import com.qloudbiz.product.pojo.Product;
-import com.qloudbiz.core.result.ResultData;
+import com.qloudbiz.core.result.BaseResult;
+import com.qloudbiz.core.result.PageResultData;
 import com.qloudbiz.core.utils.ConnectionUtils;
 import com.qloudbiz.core.utils.ResultDataUtils;
 import com.qloudfin.qloudbus.reactive.Callback;
@@ -162,7 +163,7 @@ public class ProductDao extends BaseDao<Product> {
 
 	private String listall_sql = "{CALL QLOUDFLOW_PRODUCT_LISTALL_PROCEDURE(?,?)}";
 
-	public void listall(Callback<Object> callback, int startRow, int pageSize)throws Exception {
+	public void listall(Callback<Object> callback, int currentPage, int pageSize)throws Exception {
 		
 		List<Map> ret = null;
 		Connection conn = null;
@@ -171,11 +172,11 @@ public class ProductDao extends BaseDao<Product> {
 			// 手动提交事务
 			//conn = getConnection();
 
-			logger.debug("listall startRow = {} , pageSize = {}", startRow, pageSize);
+			logger.debug("listall startRow = {} , pageSize = {}", currentPage, pageSize);
 			
 			
-			ret=super.callProcQueryList(listall_sql, startRow,pageSize);
-			callback.accept(ResultDataUtils.success("PROD_0000",ret));
+			PageResultData<List<Map>> page=super.callProcQueryPage(listall_sql, currentPage,pageSize);
+			callback.accept(page);
 		} catch (Exception e) {
 			logger.error("local sql error, {}", e);
 			// 异步返回

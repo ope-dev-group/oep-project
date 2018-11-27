@@ -28,7 +28,7 @@ import org.slf4j.LoggerFactory;
 
 
 import com.qloudbiz.core.factory.ServiceProxyFactory;
-import com.qloudbiz.core.result.ResultData;
+import com.qloudbiz.core.result.BaseResult;
 import com.qloudbiz.core.utils.ResultDataUtils;
 import com.qloudbiz.product.dao.ProductDao;
 import com.qloudbiz.product.service.ProductServiceInterface;

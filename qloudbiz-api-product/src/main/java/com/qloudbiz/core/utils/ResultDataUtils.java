@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+import com.qloudbiz.core.result.BaseResult;
 import com.qloudbiz.core.result.ResultData;
-import com.qloudbiz.core.result.ResultStatusEnum;
 
 /**
  * 结果工具类
@@ -26,13 +26,12 @@ public class ResultDataUtils {
 	 * @param data 返回的数据
 	 * @return
 	 */
-	public static <T> ResultData success(String code,T data){
+	public static <T> BaseResult success(String code,T data){
 		ResultData<T> resultData=new ResultData<T>();
-		resultData.setResultStatus(ResultStatusEnum.SUCCESS.getCode());
 		
 		resultData.setResultCode(code);
 		resultData.setMsg(getMessageByCode(code));
-		resultData.setData(data);
+		resultData.setResult(data);
 		
 		return resultData;
 	}
@@ -44,13 +43,13 @@ public class ResultDataUtils {
 	 * @param data  返回的数据
 	 * @return
 	 */
-	public static <T> ResultData error(String code,T data){
+	public static <T> BaseResult error(String code,T data){
 		ResultData<T> resultData=new ResultData<T>();
-		resultData.setResultStatus(ResultStatusEnum.ERROR.getCode());
+	
 		
 		resultData.setResultCode(code);
 		resultData.setMsg(getMessageByCode(code));
-		resultData.setData(data);
+		resultData.setResult(data);
 		
 		return resultData;
 	}
