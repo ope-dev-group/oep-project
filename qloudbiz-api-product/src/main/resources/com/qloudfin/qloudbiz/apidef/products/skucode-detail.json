@@ -1,0 +1,28 @@
+{
+	"returnCode": "0",
+	"returnMsg": "ok",
+	"result": [{
+		"skuId": "43434324-545435-543545-454351",
+		"productId": "43434324-545435-543545-454354",
+		"skuCode": "43434324-545435",
+		"skuName": "小米8 全面屏游戏智能手机 6GB+64GB 黑色 全网通4G 双卡双待",
+		"barCode": "2342343",
+		"status": "Y",
+		"stockQty": 1250,
+		"stockAmount": 1250000,
+		"skuAttributes": [{
+				"attributeId": "234234-2342356-2112",
+				"attributeName": "版本",
+				"enumValue": "2345-64656-3289",
+				"enumText": "6G+64G"
+			},
+			{
+				"attributeId": "234234-2342356-2312",
+				"attributeName": "颜色",
+				"enumValue": "2345-64656-3789",
+				"enumText": "黑色"
+			}
+		]
+
+	}]
+}
