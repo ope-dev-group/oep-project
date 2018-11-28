@@ -84,7 +84,7 @@ public class ProductAttributeGroupsServiceEndpoint {
 	 * @param body
 	 */
 	@RequestMapping(value = "/attributegroups/{groupId}", method=RequestMethod.DELETE)
-	public void deleteAttributeGroups(Callback<Object> callback, @PathVariable("groupId")String groupId, Map<String,String> body) {
+	public void deleteAttributeGroups(Callback<Object> callback, @PathVariable("groupId")String groupId) {
 		
 		//调试日志
 		logger.debug("Delete attributeGroups : groupId is :{}", groupId);
