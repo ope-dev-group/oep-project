@@ -10,6 +10,7 @@ import com.qloudbiz.core.utils.FileUtils;
 import com.qloudfin.qloudbus.annotation.PathVariable;
 import com.qloudfin.qloudbus.annotation.RequestMapping;
 import com.qloudfin.qloudbus.annotation.RequestMethod;
+import com.qloudfin.qloudbus.annotation.RequestParam;
 import com.qloudfin.qloudbus.reactive.Callback;
 
 /**
@@ -104,11 +105,17 @@ public class ProductAttributesServiceEndpoint {
 	 * @param callback
 	 */
 	@RequestMapping(value = "/attributes", method=RequestMethod.GET)
-	public void queryAttributes(Callback<Object> callback) {
+	public void queryAttributes(Callback<Object> callback,
+			@RequestParam("productTypeId")String productTypeId, 
+			@RequestParam("attributeCode")String attributeCode,
+			@RequestParam("attributeName")String attributeName,
+			@RequestParam("isRequired")String isRequired,
+			@RequestParam("attributeType")String attributeType,
+			@RequestParam("attributeGroupId")String attributeGroupId) {
 		
 		//调试日志
-		logger.debug("Query attributes");
-		
+		logger.debug(">>>>>>>>>>>>>Query attributes list  ,the productTypeId is {},attributeCode is {},attributeName is {},isRequired is {}, attributeType is {}, attributeGroupId is {}",productTypeId,attributeCode,attributeName,isRequired,attributeType,attributeGroupId);
+
 		//读取json数据
 		String content = FileUtils.getResourceContent(PATH_QUERY_ATTRIBUTES_JSON);
 		

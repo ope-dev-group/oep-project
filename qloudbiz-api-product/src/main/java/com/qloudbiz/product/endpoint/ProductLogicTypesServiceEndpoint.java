@@ -11,6 +11,7 @@ import com.qloudbiz.core.utils.FileUtils;
 import com.qloudfin.qloudbus.annotation.PathVariable;
 import com.qloudfin.qloudbus.annotation.RequestMapping;
 import com.qloudfin.qloudbus.annotation.RequestMethod;
+import com.qloudfin.qloudbus.annotation.RequestParam;
 import com.qloudfin.qloudbus.reactive.Callback;
 
 
@@ -106,10 +107,14 @@ public class ProductLogicTypesServiceEndpoint {
 	 * @param callback
 	 */
 	@RequestMapping(value = "/logictypes/rootnode")
-	public void queryLogicTypes(Callback<Object> callback) {
+	public void queryLogicTypes(Callback<Object> callback,
+			@RequestParam("logicTypeCode")String logicTypeCode,
+			@RequestParam("logicTypeName")String logicTypeName,
+			@RequestParam("status")String status,
+			@RequestParam("lineId")String lineId) {
 		
 		//调试日志
-		logger.debug("Query LogicTypes");
+		logger.debug("Query LogicTypes list, logicTypeCode is {}, logicTypeName is {}, status is {}, lineId is {}",logicTypeCode,logicTypeName,status,lineId);
 		
 		//读取数据
 		String content = FileUtils.getResourceContent(PATH_QUERY_LOGIC_TYPES_JSON);
@@ -127,10 +132,12 @@ public class ProductLogicTypesServiceEndpoint {
 	 * @param logicTypeId
 	 */
 	@RequestMapping(value = "/logictypes/rootnode/{logicTypeId}")
-	public void queryLogicTypesTree(Callback<Object> callback, @PathVariable("logicTypeId")String logicTypeId) {
+	public void queryLogicTypesTree(Callback<Object> callback, 
+			@PathVariable("logicTypeId")String logicTypeId, 
+			@RequestParam("logicTypeName")String logicTypeName) {
 		
 		//调试日志
-		logger.debug("Query LogicTypesTree , logicTypeId is :{}",logicTypeId);
+		logger.debug("Query LogicTypesTree , logicTypeId is :{}, logicTypeName is {}",logicTypeId,logicTypeName);
 		
 		//读取数据
 		String content = FileUtils.getResourceContent(PATH_QUERY_LOGIC_TYPES_TREE_JSON);

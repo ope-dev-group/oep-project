@@ -10,6 +10,7 @@ import com.qloudbiz.core.utils.FileUtils;
 import com.qloudfin.qloudbus.annotation.PathVariable;
 import com.qloudfin.qloudbus.annotation.RequestMapping;
 import com.qloudfin.qloudbus.annotation.RequestMethod;
+import com.qloudfin.qloudbus.annotation.RequestParam;
 import com.qloudfin.qloudbus.reactive.Callback;
 
 /**
@@ -22,6 +23,8 @@ public class ProductAttributeGroupsServiceEndpoint {
 	
 	
 	private final static String PATH_ADD_ATTRIBUTE_GROUP_JSON = "com/qloudfin/qloudbiz/apidef/products/product-attributes-group-create.json";
+	
+	private final static String PATH_QUERY_ATTRIBUTE_GROUPS_JSON = "com/qloudfin/qloudbiz/apidef/products/product-attributes-group-query.json";
 	
 	private final static String PATH_QUERY_ATTRIBUTE_GROUP_INF_JSON = "com/qloudfin/qloudbiz/apidef/products/product-attributes-group-query-inf.json";
 	
@@ -91,6 +94,36 @@ public class ProductAttributeGroupsServiceEndpoint {
 		
 		//读取数据
 		String content = FileUtils.getResourceContent(PATH_UPDATE_OR_DELETE);
+		
+		Object resultObj = JSON.parse(content);
+		
+		callback.accept(resultObj);
+	}
+	
+	
+
+	
+	/**
+	 * 获取产品属性组列表
+	 * @param callback
+	 * @param prodTypeId
+	 * @param attributeCode
+	 * @param attributeName
+	 * @param attributeType
+	 * @param status
+	 */
+	@RequestMapping(value = "/attributeGroups", method=RequestMethod.GET)
+	public void queryAtrributeGroups(Callback<Object> callback, 
+			@RequestParam("prodTypeId")String prodTypeId,
+			@RequestParam("attributeCode")String attributeCode,
+			@RequestParam("attributeName")String attributeName,
+			@RequestParam("attributeType")String attributeType,
+			@RequestParam("status")String status) {
+		
+		//调试日志
+		logger.debug("Query list attributeGroups : prodTypeId is :{}, attributeCode is {}, attributeName is {}, attributeType is {}, status is {}", prodTypeId,attributeCode,attributeName,attributeType,status);
+		
+		String content = FileUtils.getResourceContent(PATH_QUERY_ATTRIBUTE_GROUPS_JSON);
 		
 		Object resultObj = JSON.parse(content);
 		

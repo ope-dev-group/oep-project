@@ -36,6 +36,8 @@ public class ProductTypesServiceEndpoint {
 	
 	private final static String PATH_QUERYINF_TYPES_JSON = "com/qloudfin/qloudbiz/apidef/products/product-type-query-inf.json";
 	
+	private final static String PATH_QUERY_TYPES_JSON = "com/qloudfin/qloudbiz/apidef/products/product-type-query.json";
+	
 	private final static String PATH_UPDATE_OR_DELETE = "com/qloudfin/qloudbiz/apidef/common/update_or_delete.json";
 	
 	
@@ -110,6 +112,29 @@ public class ProductTypesServiceEndpoint {
 		
 		callback.accept(resultObj);	
 	}
+	
+	
+	
+	
+	/**
+	 * 获取产品分类树
+	 * @param callback
+	 */
+	@RequestMapping(value = "/types", method=RequestMethod.GET)
+	public void queryTypes(Callback<Object> callback,
+			@RequestParam("typeName")String typeName) {
+		
+		//调试日志
+		logger.debug("Query  Types Tree ,typeName is {}",typeName);
+		
+		String content = FileUtils.getResourceContent(PATH_QUERY_TYPES_JSON);
+		
+		Object resultObj = JSON.parse(content);
+		
+		callback.accept(resultObj);
+	}
+	
+	
 	
 	/**
 	 * 查询产品分类详情
