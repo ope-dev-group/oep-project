@@ -36,7 +36,7 @@ public class ProductAttributeGroupsServiceEndpoint {
 	 * @param callback
 	 * @param body
 	 */
-	@RequestMapping(value = "/attribute/groups", method=RequestMethod.POST)
+	@RequestMapping(value = "/attributegroups", method=RequestMethod.POST)
 	public void addAttributeGroups(Callback<Object> callback, Map<String,String> body) {
 		
 		//调试日志
