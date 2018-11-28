@@ -92,10 +92,10 @@ public class ProductBrandsServiceEndpoint {
 	 */
 	@RequestMapping(value="/brands/{brandId}",method=RequestMethod.DELETE)
 	public void deleteBrand(Callback<Object> callback,@PathVariable("brandId") String brandId){
-		logger.debug(">>>>>>>>>>>>>Delete brands param is:{}");
+		logger.debug(">>>>>>>>>>>>>Delete brands brandId is:{}");
 
 		//调试日志
-		
+		 
 		//读取json数据
 		String content=FileUtils.getResourceContent(PATH_UPDATE_DELETE);
 		
