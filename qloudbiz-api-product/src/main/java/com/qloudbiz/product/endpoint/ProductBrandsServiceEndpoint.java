@@ -91,8 +91,8 @@ public class ProductBrandsServiceEndpoint {
 	 * @param token
 	 */
 	@RequestMapping(value="/brands/{brandId}",method=RequestMethod.DELETE)
-	public void deleteBrand(Callback<Object> callback,@PathVariable("brandId") String brandId,Map<String,String> body){
-		logger.debug(">>>>>>>>>>>>>Delete brands param is:{}",body);
+	public void deleteBrand(Callback<Object> callback,@PathVariable("brandId") String brandId){
+		logger.debug(">>>>>>>>>>>>>Delete brands param is:{}");
 
 		//调试日志
 		
@@ -113,7 +113,7 @@ public class ProductBrandsServiceEndpoint {
 	 * @param token
 	 */
 	@RequestMapping(value="/brands",method=RequestMethod.GET)
-	public void queryBrands(Callback<Object> callback,@RequestParam("brandCode" )String brandCode,@RequestParam("brandName" )String brandName,@RequestParam("brandType" )String brandType,@RequestParam("status" )String status){
+	public void queryBrands(Callback<Object> callback, @RequestParam("brandCode" )String brandCode,@RequestParam("brandName" )String brandName,@RequestParam("brandType" )String brandType,@RequestParam("status" )String status){
 		
 		
 		//调试日志
