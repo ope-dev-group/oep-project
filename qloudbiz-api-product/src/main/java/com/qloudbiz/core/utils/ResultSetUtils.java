@@ -15,13 +15,13 @@ public class ResultSetUtils {
 	}
 
 	
-	public static List<Map> processResultSet(ResultSet rs) throws SQLException {
+	public static List<Map<String,Object>> processResultSet(ResultSet rs) throws SQLException {
 		List list = new ArrayList();
 		ResultSetMetaData md = rs.getMetaData();// 获取键名
 		int columnCount = md.getColumnCount();// 获取行的数量		
 		
 		while (rs.next()) {
-			Map rowData = new HashMap();// 声明Map
+			Map<String,Object> rowData = new HashMap<String,Object>();// 声明Map
 			for(int i = 1; i <= columnCount; i++) {
 				String colname = md.getColumnName(i);				
 				Object colvalue = rs.getObject(i);				

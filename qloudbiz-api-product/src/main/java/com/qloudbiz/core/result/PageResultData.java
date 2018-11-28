@@ -1,5 +1,8 @@
 package com.qloudbiz.core.result;
 
+import java.util.List;
+import java.util.Map;
+
 import lombok.Data;
 
 /**
@@ -9,7 +12,7 @@ import lombok.Data;
  * @param <T>
  */
 @Data
-public class PageResultData<T> extends ResultData<T> {
+public class PageResultData extends ResultData<List<?>> {
 	//String pgUpDownFlag;//上一页，下一页标识,next-下一页，pre-上一页
 	int totalNum=0;  //总记录数
 	int pagePerNum=20;//pageSize,页大小

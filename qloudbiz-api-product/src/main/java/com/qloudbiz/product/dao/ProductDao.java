@@ -161,9 +161,9 @@ public class ProductDao extends BaseDao<Product> {
 		}
 	}
 
-	private String listall_sql = "{CALL QLOUDFLOW_PRODUCT_LISTALL_PROCEDURE(?,?)}";
+	private String listall_sql = "{CALL QLOUDFLOW_PRODUCT_LISTALL_PROCEDURE(?,?,?)}";
 
-	public void listall(Callback<Object> callback, int currentPage, int pageSize)throws Exception {
+	public void listall(Callback<Object> callback, int currentPage, int pageSize,String name)throws Exception {
 		
 		List<Map> ret = null;
 		Connection conn = null;
@@ -174,10 +174,15 @@ public class ProductDao extends BaseDao<Product> {
 
 			logger.debug("listall startRow = {} , pageSize = {}", currentPage, pageSize);
 			
+			/*List<Object> params=new ArrayList<Object>();
+			params.add(entity.getName());*/
+			PageResultData page=super.callProcQueryPage(listall_sql, currentPage,pageSize,name);
 			
-			PageResultData<List<Map>> page=super.callProcQueryPage(listall_sql, currentPage,pageSize);
 			callback.accept(page);
+
+			return;
 		} catch (Exception e) {
+			e.printStackTrace();
 			logger.error("local sql error, {}", e);
 			// 异步返回
 			Map<String, Object> result = new HashMap<>();
@@ -186,8 +191,7 @@ public class ProductDao extends BaseDao<Product> {
 			callback.accept(result);
 			return;
 		} 
-		callback.accept(ret);
-		return;
+		
 	}
 	
 	

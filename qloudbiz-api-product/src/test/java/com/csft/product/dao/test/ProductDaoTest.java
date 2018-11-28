@@ -3,6 +3,7 @@ package com.csft.product.dao.test;
 
 import static org.junit.Assert.*;
 
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.sql.CallableStatement;
@@ -15,15 +16,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+
 import com.qloudbiz.core.dao.DbInit;
 import com.qloudbiz.product.dao.ProductDao;
 import com.qloudbiz.product.pojo.Product;
+import com.qloudbiz.core.result.PageResultData;
 import com.qloudbiz.core.utils.ConnectionUtils;
 
 
@@ -78,10 +82,12 @@ public class ProductDaoTest {
 	public void testQuerylist(){
 		logger.debug("++++++Test query  product list....");
 		ProductDao dao=new ProductDao();
+		/*Product product=new Product();
+		product.setName("联想-T490");*/
 		try {
 			dao.listall(result->{
 				logger.debug("query all product result {}",result);
-			}, 2, 10);
+			}, 1, 10,"联想");
 		} catch (Exception e) {
 			
 			e.printStackTrace();
@@ -141,30 +147,20 @@ public class ProductDaoTest {
 		logger.debug("++++++Test save product ....");
 		
 	
-		ConnectionUtils.beginTransaction();
-		
+		logger.debug("++++++Test query  product list....");
 		ProductDao dao=new ProductDao();
-		Product product=new Product();
-		product.setProductId(UUID.randomUUID().toString().replace("-",""));
-		product.setCode("Ipad");
-		product.setName("联想-T50");
-		
-	
-		
-		
-		
-		
-		logger.debug("++++++INSERT INTO PRODUCT ....");
+	/*	Product product=new Product();
+		product.setName("联想");*/
+		logger.debug("++++++Test save product ....");
 		try {
-			dao.save(result->{
-				logger.debug("test save product {}",result);
-				ConnectionUtils.commitTransaction();
-				ConnectionUtils.closeConnection();
-			}, product);
+			dao.listall(result->{
+				logger.debug("query all product result {}",result);
+				PageResultData data=(PageResultData)result;
+				logger.debug("list size is {} ",data.getResult().size());
+			}, 1, 10,"联想");
 		} catch (Exception e) {
 			
 			e.printStackTrace();
-			fail();
 		}
 	}
 }
