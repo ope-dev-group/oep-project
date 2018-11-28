@@ -9,7 +9,7 @@
 	{
 			"typeId": "11",
 			"typeCode":"apple-logic-type",
-			"typeName": 苹果逻辑分类",
+			"typeName": "苹果逻辑分类",
 			"parentId": null,
 			"sort": "1",
 			"status": "Y",
