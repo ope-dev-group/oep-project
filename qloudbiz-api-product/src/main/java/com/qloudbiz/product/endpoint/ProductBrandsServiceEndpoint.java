@@ -95,7 +95,7 @@ public class ProductBrandsServiceEndpoint {
 		logger.debug(">>>>>>>>>>>>>Delete brands brandId is:{}");
 
 		//调试日志
-		 
+		  
 		//读取json数据
 		String content=FileUtils.getResourceContent(PATH_UPDATE_DELETE);
 		
