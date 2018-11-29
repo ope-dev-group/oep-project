@@ -1,0 +1,58 @@
+{
+	"returnCode":"0", 
+	"returnMsg":"ok",
+	"result": 
+	[
+		{
+			"typeId": "1001",
+			"typeCode":"iphone-type",
+			"typeName": "苹果手机分类",
+			"sort": "1",
+			"children": [
+				{
+					"typeId": "1001-1",
+					"typeCode":"iphone7-type",
+					"typeName": "苹果7手机分类",
+					"parentId": 1001,
+					"sort": "1",
+					"children": 
+					[
+						{
+						"typeId": "1001-1-small",
+						"typeCode":"iphne7",
+						"typeName": "苹果7手机",
+						"sort": "1"
+						},
+						{
+						"typeId": "1001-1-plus",
+						"typeCode":"iphne7plus",
+						"typeName": "苹果7plus手机",
+						"sort": "2"
+						}
+					]
+				},
+				{
+					"typeId": "1001-2",
+					"typeCode":"iphone8-type",
+					"typeName": "苹果8手机分类",
+					"sort": "2",
+					"children": 
+					[
+						{
+						"typeId": "1001-2-small",
+						"typeCode":"iphone8",
+						"typeName": "苹果8手机",
+						"sort": "1"
+						},
+						{
+						"typeId": "1001-2-plus",
+						"typeCode":"iphone8plus",
+						"typeName": "苹果8plus手机",
+						"sort": "2"
+						}
+					]
+				}
+			]
+		}
+	]
+}
