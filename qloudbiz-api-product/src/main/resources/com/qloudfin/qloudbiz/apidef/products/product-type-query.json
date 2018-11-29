@@ -1,25 +1,58 @@
 {
 	"returnCode":"0", 
 	"returnMsg":"ok",
-	"result": [
-	{
-		"typeId": "1001",
-		"typeCode":"iphone-type",
-		"typeName": "苹果手机分类",
-		"parentId": null,
-		"toTransport": true,
-		"sort": "1",
-		"status": "Y",
-		"prodLineId": "3213244-43423545-54254545",
-		"remark": "remark",
-		"createdTime": "2018-11-10  09:30:00",
-		"creatorId": "1001",
-		"creatorName": "张三",
-		"modifyTime": "2018-11-20  09:43:20" ,
-		"modifierId": "1001",
-		"modifierName": "张三",
-		"lastModifyTime": "2018-11-20  09:43:20:123",
-		"tenantId": "qloudfin"
-	}
+	"result": 
+	[
+		{
+			"typeId": "1001",
+			"typeCode":"iphone-type",
+			"typeName": "苹果手机分类",
+			"sort": "1",
+			"children": [
+				{
+					"typeId": "1001-1",
+					"typeCode":"iphone7-type",
+					"typeName": "苹果7手机分类",
+					"parentId": 1001,
+					"sort": "1",
+					"children": 
+					[
+						{
+						"typeId": "1001-1-small",
+						"typeCode":"iphne7",
+						"typeName": "苹果7手机",
+						"sort": "1"
+						},
+						{
+						"typeId": "1001-1-plus",
+						"typeCode":"iphne7plus",
+						"typeName": "苹果7plus手机",
+						"sort": "2"
+						}
+					]
+				},
+				{
+					"typeId": "1001-2",
+					"typeCode":"iphone8-type",
+					"typeName": "苹果8手机分类",
+					"sort": "2",
+					"children": 
+					[
+						{
+						"typeId": "1001-2-small",
+						"typeCode":"iphone8",
+						"typeName": "苹果8手机",
+						"sort": "1"
+						},
+						{
+						"typeId": "1001-2-plus",
+						"typeCode":"iphone8plus",
+						"typeName": "苹果8plus手机",
+						"sort": "2"
+						}
+					]
+				}
+			]
+		}
 	]
 }
