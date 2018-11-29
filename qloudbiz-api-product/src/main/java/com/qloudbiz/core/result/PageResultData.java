@@ -12,7 +12,7 @@ import lombok.Data;
  * @param <T>
  */
 @Data
-public class PageResultData extends ResultData<List<?>> {
+public class PageResultData<T> extends ResultData<List<T>> {
 	//String pgUpDownFlag;//上一页，下一页标识,next-下一页，pre-上一页
 	int totalNum=0;  //总记录数
 	int pagePerNum=20;//pageSize,页大小
@@ -26,12 +26,28 @@ public class PageResultData extends ResultData<List<?>> {
 	public PageResultData() {
 		super();
 	}
+	
+	
+	
 	@Override
 	public String toString() {
 		return "PageResultData [totalNum=" + totalNum + ", pagePerNum="
 				+ pagePerNum + ", currentNum=" + currentNum + ", totalPage="
 				+ totalPage + ", prePage=" + prePage + ", nextPage=" + nextPage+result
 				+ "]";
+	}
+
+
+
+	public PageResultData(int totalNum, int pagePerNum, int currentNum,
+			int totalPage, int prePage, int nextPage) {
+		super();
+		this.totalNum = totalNum;
+		this.pagePerNum = pagePerNum;
+		this.currentNum = currentNum;
+		this.totalPage = totalPage;
+		this.prePage = prePage;
+		this.nextPage = nextPage;
 	}
 	
 	

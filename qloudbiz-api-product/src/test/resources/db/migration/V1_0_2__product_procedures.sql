@@ -37,7 +37,7 @@ CREATE PROCEDURE QLOUDFLOW_PRODUCT_LISTALL_PROCEDURE(
 	IN v_name varchar(255)
 )
 lable:BEGIN
-	IF(v_startrow=-1)  THEN SELECT COUNT(1) FROM product where name like CONCAT( '%', v_name, '%' ) ;
+	IF v_startrow=-1  THEN SELECT COUNT(1) FROM product where name like CONCAT( '%', v_name, '%' ) ;
 	ELSE SELECT productId,code,name FROM product where name like CONCAT( '%', v_name, '%' ) LIMIT v_startrow,v_pagesize;
 	END IF;
 END//

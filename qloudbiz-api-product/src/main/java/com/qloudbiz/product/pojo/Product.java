@@ -6,13 +6,13 @@ import lombok.Data;
 
 @Data
 public class Product {
-	@Pojo(name="product_id")
+	@Pojo(name="productId")
 	private String productId;
 	
-	@Pojo(name="product_code")
+	@Pojo(name="code")
 	private String code;
 	
-	@Pojo(name="product_name")
+	@Pojo(name="name")
 	private String name;
 	
 	@Override

@@ -20,15 +20,19 @@ import org.slf4j.LoggerFactory;
 
 
 
+
+
+
 import com.qloudbiz.core.dao.BaseDao;
 import com.qloudbiz.product.pojo.Product;
+import com.qloudbiz.product.vo.ProductVO;
 import com.qloudbiz.core.result.BaseResult;
 import com.qloudbiz.core.result.PageResultData;
 import com.qloudbiz.core.utils.ConnectionUtils;
 import com.qloudbiz.core.utils.ResultDataUtils;
 import com.qloudfin.qloudbus.reactive.Callback;
 
-public class ProductDao extends BaseDao<Product> {
+public class ProductDao extends BaseDao {
 	private final static Logger logger = LoggerFactory.getLogger(ProductDao.class);
 	
 	
@@ -46,7 +50,7 @@ public class ProductDao extends BaseDao<Product> {
 				super.callProcUpdate(save_product_sql, entity.getProductId(),entity.getCode(),entity.getName());		
 				
 				//返回结果
-				callback.accept(ResultDataUtils.success("PROD_0000",null));
+				callback.accept(ResultDataUtils.success(null));
 			
 				return;
 			} catch (Exception e) {
@@ -163,35 +167,28 @@ public class ProductDao extends BaseDao<Product> {
 
 	private String listall_sql = "{CALL QLOUDFLOW_PRODUCT_LISTALL_PROCEDURE(?,?,?)}";
 
-	public void listall(Callback<Object> callback, int currentPage, int pageSize,String name)throws Exception {
+	public void listall(Callback<PageResultData<Product>> callback,ProductVO vo)throws Exception {
 		
-		List<Map> ret = null;
-		Connection conn = null;
-		CallableStatement ps = null;
+	
+		
+		logger.debug("listall startRow = {} , pageSize = {}",
+				vo.getCurrentNum(), vo.getPagePerNum());
+
+	
+		PageResultData<Product> page=null;
+	
 		try {
-			// 手动提交事务
-			//conn = getConnection();
-
-			logger.debug("listall startRow = {} , pageSize = {}", currentPage, pageSize);
-			
-			/*List<Object> params=new ArrayList<Object>();
-			params.add(entity.getName());*/
-			PageResultData page=super.callProcQueryPage(listall_sql, currentPage,pageSize,name);
-			
-			callback.accept(page);
-
-			return;
-		} catch (Exception e) {
-			e.printStackTrace();
-			logger.error("local sql error, {}", e);
-			// 异步返回
-			Map<String, Object> result = new HashMap<>();
-			result.put("error", "Failed to listall products!");
-			result.put("returnCode", 500);
-			callback.accept(result);
-			return;
-		} 
+			page = super.callProcQueryPage(Product.class,
+					listall_sql, vo.getCurrentNum(), vo.getPagePerNum(),
+					vo.getName());
+			 
 		
+		} catch(Exception e){
+			throw new Exception(e);
+		}finally{
+			callback.accept(page);
+		}
+	
 	}
 	
 	

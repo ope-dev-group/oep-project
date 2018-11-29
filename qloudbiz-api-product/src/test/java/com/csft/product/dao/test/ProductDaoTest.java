@@ -3,7 +3,6 @@ package com.csft.product.dao.test;
 
 import static org.junit.Assert.*;
 
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.sql.CallableStatement;
@@ -14,8 +13,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.UUID;
-
 
 import org.junit.Before;
 import org.junit.Ignore;
@@ -23,10 +22,10 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
 import com.qloudbiz.core.dao.DbInit;
 import com.qloudbiz.product.dao.ProductDao;
 import com.qloudbiz.product.pojo.Product;
+import com.qloudbiz.product.vo.ProductVO;
 import com.qloudbiz.core.result.PageResultData;
 import com.qloudbiz.core.utils.ConnectionUtils;
 
@@ -57,33 +56,42 @@ public class ProductDaoTest {
 	public void testSave() {
 		logger.debug("++++++Test save product ....");
 		
-	
-		
-		ProductDao dao=new ProductDao();
-		Product product=new Product();
-		product.setProductId(UUID.randomUUID().toString().replace("-",""));
-		product.setCode("Ipad");
-		product.setName("联想-T80");
 		
 		
-		logger.debug("++++++INSERT INTO PRODUCT ....");
-		try {
-			dao.save(result->{
-				logger.debug("test save product {}",result);
-			}, product);
-		} catch (Exception e) {
+		for(int i=0;i<100;i++){
+			try {
+				Thread.sleep(1000l);
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			ProductDao dao=new ProductDao();
+			Product product=new Product();
+			product.setProductId(UUID.randomUUID().toString().replace("-",""));
+			int random=new Random(1000).nextInt();
+			product.setCode("Think pad"+random);
+			product.setName("联想-T80"+random);
 			
-			e.printStackTrace();
-			fail();
+			
+			logger.debug("++++++INSERT INTO PRODUCT ....");
+			try {
+				dao.save(result->{
+					logger.debug("test save product {}",result);
+				}, product);
+			} catch (Exception e) {
+				
+				e.printStackTrace();
+				fail();
+			}
 		}
 	}
 
 	@Test
 	public void testQuerylist(){
-		logger.debug("++++++Test query  product list....");
+		/*logger.debug("++++++Test query  product list....");
 		ProductDao dao=new ProductDao();
-		/*Product product=new Product();
-		product.setName("联想-T490");*/
+		Product product=new Product();
+		product.setName("联想-T490");
 		try {
 			dao.listall(result->{
 				logger.debug("query all product result {}",result);
@@ -91,7 +99,22 @@ public class ProductDaoTest {
 		} catch (Exception e) {
 			
 			e.printStackTrace();
+		}*/
+		
+		ProductDao dao=new ProductDao();
+		ProductVO vo=new ProductVO();
+		vo.setPagePerNum(4);
+		vo.setCurrentNum(1);
+		vo.setName("Think");
+		try {
+			dao.listall(result->{
+				logger.debug("query list :"+result);
+			}, vo);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		
 	}
 	
 	
@@ -152,15 +175,15 @@ public class ProductDaoTest {
 	/*	Product product=new Product();
 		product.setName("联想");*/
 		logger.debug("++++++Test save product ....");
-		try {
+		/*try {
 			dao.listall(result->{
-				logger.debug("query all product result {}",result);
-				PageResultData data=(PageResultData)result;
-				logger.debug("list size is {} ",data.getResult().size());
+				List<Product> list=result.getResult();
+				logger.debug("query all product list {}",list);
+				
 			}, 1, 10,"联想");
 		} catch (Exception e) {
 			
 			e.printStackTrace();
-		}
+		}*/
 	}
 }

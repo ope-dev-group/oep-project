@@ -5,6 +5,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+
+
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.qloudbiz.product.dao.ProductDao;
 import com.qloudfin.sagas.persistence.jdbc.JdbcClient;
 
 /**
@@ -13,6 +20,8 @@ import com.qloudfin.sagas.persistence.jdbc.JdbcClient;
  *
  */
 public class ConnectionUtils {
+		private final static Logger logger = LoggerFactory.getLogger(ConnectionUtils.class);
+
 		private static JdbcClient dbClient = JdbcClient.getInstance();
 	
     	//声明一个本地线程变量，用于存放connection
@@ -33,20 +42,24 @@ public class ConnectionUtils {
     	/**
     	 * 得到Connection
     	 * @return
+    	 * @throws SQLException 
     	 */
     	public static Connection getConnection() {
-    		System.out.println("+++++++++++++++thread:"+Thread.currentThread());
+
     		Connection conn = connectionHolder.get();
     		//如果在当前线程中没有绑定相应的Connection
-    		if (conn == null) {
-    			try {
+    		try {
+	    		if (conn == null || conn.isClosed()) {
     				conn = dbClient.poolConnect();
+    				
     				connectionHolder.set(conn);
-    			} catch (Exception e) {
-    				e.printStackTrace();
-    			} 
-    		}
-    		System.out.println("++++++++++++++++++++++++++++++++++CONNECTION IS"+conn);
+	    		}
+	    		logger.debug("+++++++++++++++GET CONNECTION {}:",conn);
+
+    		} catch (SQLException e) {
+    			
+			} 
+    		
     		return conn;
     	}
     	/**
@@ -56,9 +69,20 @@ public class ConnectionUtils {
     		Connection conn = connectionHolder.get();
     		if (conn != null) {
     			try {
+    				
+    			
+    				
+    				
+    				logger.debug("+++++++++++++++CLOSE CONNECTION  {}:",conn);
+
     				conn.close();
+    				
+    				
+    				logger.debug("+++++++++++++++REMOVE CONNECTION  {}:",conn);
+    				
     				//从ThreadLocal中清除Connection
     				connectionHolder.remove();
+    				
     			} catch (SQLException e) {
     				e.printStackTrace();
     			}	
@@ -136,8 +160,9 @@ public class ConnectionUtils {
     	
     	/**
     	 * 提交事务
+    	 * @throws SQLException 
     	 */
-    	public static void commitTransaction() {
+    	public static void commitTransaction()  {
     		Connection conn=getConnection();
     		try {
     			if (conn != null) {
@@ -157,6 +182,7 @@ public class ConnectionUtils {
     			if (conn != null) {
     				if (!conn.getAutoCommit()) {
     					conn.rollback();
+    					
     				}
     			}
     		}catch(SQLException e) {}

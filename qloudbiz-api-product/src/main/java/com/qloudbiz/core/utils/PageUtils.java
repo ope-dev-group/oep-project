@@ -7,7 +7,7 @@ import java.util.List;
  * @author Administrator
  *
  */
-public class PageUtils {
+public class PageUtils<T> {
 	int pageSize=20;//页大小
 	int totalCount=0;//总记录数
 	int currentPage=1;//当前页
@@ -17,7 +17,7 @@ public class PageUtils {
 	int startIndex=0;//开始行号
 	int endIndex;//结束行号
 	
-	private List<?> items;//数据
+	private List<T> items;//数据
 	
 	public PageUtils(int pageSize, int totalCount, int currentPage) {
 		this.caculatePage(pageSize, totalCount, currentPage);
@@ -75,17 +75,17 @@ public class PageUtils {
 		}
 		
 		//设置总页数
-		if(totalCount==0){
+		if(this.totalCount==0){
 			this.totalPage=0;
-		}else if(totalCount%pageSize==0){
-			this.totalPage=totalCount/pageSize;
+		}else if(this.totalCount%this.pageSize==0){
+			this.totalPage=this.totalCount/this.pageSize;
 		}else{
-			this.totalPage=(totalCount/pageSize)+1;
+			this.totalPage=(this.totalCount/this.pageSize)+1;
 		}
 		
 		//设置当前页
 		if(currentPage>this.totalPage){
-			this.currentPage=totalPage;
+			this.currentPage=this.totalPage;
 		}else if(currentPage<1){
 			this.currentPage=1;
 		}else{
@@ -118,12 +118,12 @@ public class PageUtils {
 	}
 
 
-	public List<?> getItems() {
+	public List<T> getItems() {
 		return items;
 	}
 
 
-	public void setItems(List<?> items) {
+	public void setItems(List<T> items) {
 		this.items = items;
 	}
 

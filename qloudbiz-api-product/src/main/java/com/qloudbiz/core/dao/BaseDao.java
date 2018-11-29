@@ -4,54 +4,31 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
 import javax.sql.DataSource;
 
-import org.apache.kafka.common.utils.CollectionUtils;
 
-import com.alibaba.fastjson.asm.Type;
 import com.qloudbiz.core.result.PageResultData;
 import com.qloudbiz.core.utils.BeanUtils;
 import com.qloudbiz.core.utils.ConnectionUtils;
 import com.qloudbiz.core.utils.PageUtils;
 import com.qloudbiz.core.utils.ResultSetUtils;
-import com.qloudfin.qloudbus.reactive.Callback;
-import com.qloudfin.sagas.persistence.jdbc.JdbcClient;
 
-public abstract class BaseDao<T> {
 
-	private JdbcClient dbClient = JdbcClient.getInstance();
+/**
+ * dao基类，提供基础的查询和数据库连接的获取和控制
+ * @author Administrator
+ *
+ */
+public  class BaseDao{
 
-	/*
-	 * public Connection getConnection(){ Connection conn=null; try { conn =
-	 * dbClient.poolConnect();
-	 * 
-	 * //设置手动提交 conn.setAutoCommit(false); } catch (SQLException e) {
-	 * 
-	 * e.printStackTrace(); } if(null==conn){ //抛出异常 } return conn; }
-	 */
-
-	/*public abstract void save(final Callback<Object> callback, T entity)
-			throws Exception;
-
-	public abstract void update(final Callback<Object> callback, T entity)
-			throws Exception;
-
-	public abstract void delete(final Callback<Object> callback, T entity)
-			throws Exception;
-
-	public abstract void listall(final Callback<Object> callback, int startRow,
-			int pageSize) throws Exception;*/
-
-	
-	
 	/**
 	 * 调用存储过程的查询，接收参数列表，返回单一结果
 	 * @param callabelSql
@@ -59,7 +36,7 @@ public abstract class BaseDao<T> {
 	 * @return
 	 * @throws SQLException 
 	 */
-	public T callProcQuerySingle(Class<T> beanClass,String callabelSql,List<Object> params) throws Exception{
+	public <T> T callProcQuerySingle(Class<T> beanClass,String callabelSql,List<Object> params) throws Exception{
 		
 		
 		Map<String,Object> map=this.callProcQuerySingle(callabelSql, params);
@@ -79,7 +56,7 @@ public abstract class BaseDao<T> {
 	 * @return
 	 * @throws SQLException 
 	 */
-	public T callProcQuerySingle(Class<T> beanClass,String callabelSql,Object... params) throws Exception{
+	public <T> T callProcQuerySingle(Class<T> beanClass,String callabelSql,Object... params) throws Exception{
 		
 		Map<String,Object> map=this.callProcQuerySingle(callabelSql, params);
 		if(null!=map){
@@ -97,7 +74,7 @@ public abstract class BaseDao<T> {
 	 * @return
 	 * @throws SQLException 
 	 */
-	public T callProcQuerySingle(Class<T> beanClass,String callabelSql) throws Exception{
+	public <T> T callProcQuerySingle(Class<T> beanClass,String callabelSql) throws Exception{
 		Map<String,Object> map=this.callProcQuerySingle(callabelSql);
 		if(null!=map){
 			//map转对象
@@ -116,7 +93,7 @@ public abstract class BaseDao<T> {
 	 * @return
 	 * @throws SQLException 
 	 */
-	public List<T> callProcQueryList(Class<T> beanClass,String callabelSql,List<Object> params) throws Exception{
+	public <T> List<T> callProcQueryList(Class<T> beanClass,String callabelSql,List<Object> params) throws Exception{
 		List<Map<String,Object>> list=this.callProcQueryList( callabelSql,params);
 		List<T> datas=new ArrayList<T>();
 		if(null!=list && !list.isEmpty()){
@@ -139,7 +116,7 @@ public abstract class BaseDao<T> {
 	 * @return
 	 * @throws SQLException 
 	 */
-	public List<T> callProcQueryList(Class<T> beanClass,String callabelSql,Object... params) throws Exception{
+	public <T> List<T> callProcQueryList(Class<T> beanClass,String callabelSql,Object... params) throws Exception{
 		List<Map<String,Object>> list=this.callProcQueryList( callabelSql,params);
 		List<T> datas=new ArrayList<T>();
 		if(null!=list && !list.isEmpty()){
@@ -164,7 +141,7 @@ public abstract class BaseDao<T> {
 	 * @return
 	 * @throws SQLException 
 	 */
-	public List<T> callProcQueryList(Class<T> beanClass,String callabelSql) throws Exception{
+	public <T> List<T> callProcQueryList(Class<T> beanClass,String callabelSql) throws Exception{
 		List<Map<String,Object>> list=this.callProcQueryList( callabelSql);
 		List<T> datas=new ArrayList<T>();
 		if(null!=list && !list.isEmpty()){
@@ -264,10 +241,8 @@ public abstract class BaseDao<T> {
 					resultList=ResultSetUtils.processResultSet(rs);
 				}
 			}
+			
 		
-		}catch(Exception e){
-			e.printStackTrace();
-			ConnectionUtils.rollbackTransaction(conn);
 		}finally{
 			
 			//关闭资源
@@ -320,9 +295,6 @@ public abstract class BaseDao<T> {
 				}
 			}
 		
-		}catch(Exception e){
-			e.printStackTrace();
-			ConnectionUtils.rollbackTransaction(conn);
 		}finally{
 			//关闭资源
 			ConnectionUtils.close(statement);
@@ -368,8 +340,6 @@ public abstract class BaseDao<T> {
 				}
 			}
 		
-		}catch(Exception e){
-			ConnectionUtils.rollbackTransaction(conn);
 		}finally{
 		
 			//关闭资源
@@ -395,7 +365,108 @@ public abstract class BaseDao<T> {
 	 * @return
 	 * @throws SQLException 
 	 */
-	public PageResultData callProcQueryPage(String callabelSql,int currentNum,int pagePerNum,Object ...params) throws Exception{
+	public <T> PageResultData<T> callProcQueryPage(Class<T> beanClass,String callabelSql,int currentNum,int pagePerNum,Object ...params) throws Exception{
+		
+		
+		//查询总记录数
+		PageResultData<Map<String,Object>> page=this.callProcQueryPage(callabelSql,currentNum, pagePerNum,params);
+		
+		List<T> datas=new ArrayList<T>();
+		if(null!=page && null!=page.getResult() && !page.getResult().isEmpty()){
+			List<Map<String,Object >> list=page.getResult();
+			for(Map<String,Object> obj:list){
+				//map转对象
+				datas.add(BeanUtils.mapToObject(obj, beanClass));
+			}
+			PageResultData<T> pageData=new PageResultData<T>();
+			io.advantageous.boon.core.reflection.BeanUtils.copyProperties(page, pageData);
+			pageData.setResult(datas);
+			
+			return pageData;
+			
+		}
+		return null;
+	}
+	
+	
+	/**
+	 * 调用存储过程的查询，不接收参数，返回分页对象
+	 * @param callabelSql  存储过程sql
+	 * @currentNum 当前页
+	 * @pagePerNum 页大小
+	 * @param params	        可变参数列表
+	 * @return
+	 * @throws SQLException 
+	 */
+	public <T> PageResultData<T> callProcQueryPage(Class<T> beanClass,String callabelSql,int currentNum,int pagePerNum) throws Exception{
+		
+		
+	
+		
+		
+		//查询总记录数
+		PageResultData<Map<String,Object>> page=this.callProcQueryPage(callabelSql, currentNum,pagePerNum,Collections.EMPTY_LIST);
+		
+		List<T> datas=new ArrayList<T>();
+		if(null!=page && null!=page.getResult() && !page.getResult().isEmpty()){
+			List<Map<String,Object >> list=page.getResult();
+			for(Map<String,Object> obj:list){
+				//map转对象
+				datas.add(BeanUtils.mapToObject(obj, beanClass));
+			}
+			PageResultData<T> pageData=new PageResultData<T>();
+			io.advantageous.boon.core.reflection.BeanUtils.copyProperties(page, pageData);
+			pageData.setResult(datas);
+			return pageData;
+			
+		}
+		return null;
+	}
+	
+	
+	/**
+	 * 调用存储过程的查询，不接收参数，返回分页对象
+	 * @param callabelSql  存储过程sql
+	 * @currentNum 当前页
+	 * @pagePerNum 页大小
+	 * @param params	        可变参数列表
+	 * @return
+	 * @throws SQLException 
+	 */
+	public <T> PageResultData<T> callProcQueryPage(Class<T> beanClass,String callabelSql,int currentNum,int pagePerNum,List<Object> params) throws Exception{
+		
+	
+		
+		//查询总记录数
+		PageResultData<Map<String,Object>> page=this.callProcQueryPage(callabelSql, currentNum,pagePerNum,params);
+		
+		List<T> datas=new ArrayList<T>();
+		if(null!=page && null!=page.getResult() && !page.getResult().isEmpty()){
+			List<Map<String,Object >> list=page.getResult();
+			for(Map<String,Object> obj:list){
+				//map转对象
+				datas.add(BeanUtils.mapToObject(obj, beanClass));
+			}
+			PageResultData<T> pageData=new PageResultData<T>();
+			io.advantageous.boon.core.reflection.BeanUtils.copyProperties(page, pageData);
+			pageData.setResult(datas);
+			return pageData;
+			
+		}
+		return null;
+	}
+	
+	
+	/**
+	 * 调用存储过程的查询，接收可变参数，返回分页对象
+	 * @param callabelSql  存储过程sql
+	 * @currentNum 当前页
+	 * @pagePerNum 页大小
+	 * @param params	        可变参数列表
+	 * @return
+	 * @throws SQLException 
+	 */
+	public PageResultData<Map<String,Object>> callProcQueryPage(String callabelSql,int currentNum,int pagePerNum,Object ...params) throws Exception{
 		
 		
 		//查询总记录数
@@ -422,11 +493,23 @@ public abstract class BaseDao<T> {
 		}
 		
 		totalCount=Integer.parseInt(count);
-		PageResultData page=new PageResultData();
+		
+		//设置分页
+		PageUtils pageUtils=new PageUtils(pagePerNum,totalCount,currentNum);
+
+		if(totalCount<0){
+			totalCount=0;
+		}
+	
+		PageResultData<Map<String,Object>> page = new PageResultData(pageUtils.getTotalCount(),
+				pageUtils.getPageSize(), pageUtils.getCurrentPage(),
+				pageUtils.getTotalPage(), pageUtils.getPrePage(),
+				pageUtils.getNextPage());
+				
+	
 		List<Object> pageParams2=new ArrayList<Object>();
 
 		if(totalCount>0){
-			PageUtils pageUtils=new PageUtils(pagePerNum,totalCount,currentNum);
 			
 			
 			//计算开始索引
@@ -441,28 +524,12 @@ public abstract class BaseDao<T> {
 			if(null!=params && params.length>0){
 				pageParams2.addAll(Arrays.asList(params));
 				items=this.callProcQueryList(callabelSql,pageParams2);
-
+				
 			}else{
 				 items=this.callProcQueryList(callabelSql,pageParams2);
-
+				 page.setResult(items);
 			}
-			
-			pageUtils.setItems(items);
-			
-			page=new PageResultData();
-			
-			
-			page.setCurrentNum(pageUtils.getCurrentPage());
-			page.setNextPage(pageUtils.getNextPage());
-			page.setPagePerNum(pagePerNum);
-			page.setPrePage(pageUtils.getPrePage());
 			page.setResult(items);
-			page.setTotalNum(pageUtils.getTotalCount());
-			page.setTotalPage(pageUtils.getTotalPage());
-			page.setResultCode("0");
-			
-		}else{
-			
 		}
 		return page;
 	}
@@ -477,7 +544,7 @@ public abstract class BaseDao<T> {
 	 * @return
 	 * @throws SQLException 
 	 */
-	public PageResultData callProcQueryPage(String callabelSql,int currentNum,int pagePerNum) throws Exception{
+	public PageResultData<Map<String,Object>> callProcQueryPage(String callabelSql,int currentNum,int pagePerNum) throws Exception{
 		
 		
 		return this.callProcQueryPage(callabelSql, currentNum,pagePerNum,Collections.EMPTY_LIST);
@@ -493,10 +560,7 @@ public abstract class BaseDao<T> {
 	 * @return
 	 * @throws SQLException 
 	 */
-	public PageResultData callProcQueryPage(String callabelSql,int currentNum,int pagePerNum,List<Object> params) throws Exception{
-		
-	
-		
+	public PageResultData<Map<String,Object>> callProcQueryPage(String callabelSql,int currentNum,int pagePerNum,List<Object> params) throws Exception{
 		//查询总记录数
 		int totalCount=0;
 		
@@ -522,9 +586,22 @@ public abstract class BaseDao<T> {
 		}
 		
 		totalCount=Integer.parseInt(count);
-		PageResultData page=new PageResultData();
+		if(totalCount<0) {
+			totalCount=0;
+		}
+		
+		
+		
+		//设置分页
+		PageUtils pageUtils=new PageUtils(pagePerNum,totalCount,currentNum);
+
+		
+	
+		PageResultData<Map<String,Object>> page = new PageResultData(pageUtils.getTotalCount(),
+				pageUtils.getPageSize(), pageUtils.getCurrentPage(),
+				pageUtils.getTotalPage(), pageUtils.getPrePage(),
+				pageUtils.getNextPage());
 		if(totalCount>0){
-			PageUtils pageUtils=new PageUtils(pagePerNum,totalCount,currentNum);
 			
 			
 			//计算开始索引
@@ -548,24 +625,16 @@ public abstract class BaseDao<T> {
 
 			}
 			
+			//设置分页的列表数据
 			pageUtils.setItems(items);
 			
-			
-			//设置分页
-			page=new PageResultData();
-			page.setCurrentNum(pageUtils.getCurrentPage());
-			page.setNextPage(pageUtils.getNextPage());
-			page.setPagePerNum(pagePerNum);
-			page.setPrePage(pageUtils.getPrePage());
-			page.setResult(pageUtils.getItems());
-			page.setTotalNum(pageUtils.getTotalCount());
-			page.setTotalPage(pageUtils.getTotalPage());
-			page.setResultCode("0");
-			
-		}else{
-			
+			page.setResult(items);
+		
+			return page;
+	
 		}
 		return page;
+		
 	}
 	
 	/**
@@ -623,9 +692,6 @@ public abstract class BaseDao<T> {
 				
 				updateCount=statement.getUpdateCount();
 			}
-		}catch(Exception e){
-			//回滚事务
-			ConnectionUtils.rollbackTransaction(conn);
 		}finally{
 			ConnectionUtils.close(statement);
 			
@@ -670,9 +736,6 @@ public abstract class BaseDao<T> {
 				statement.execute();
 				updateCount=statement.getUpdateCount();
 			}
-		}catch(Exception e){
-			//回滚事务
-			ConnectionUtils.rollbackTransaction(conn);
 		}finally{
 			ConnectionUtils.close(statement);
 			
@@ -725,15 +788,12 @@ public abstract class BaseDao<T> {
 	
 			}
 		
-		}catch(Exception e){
-			//回滚事务
-			ConnectionUtils.rollbackTransaction(conn);
 		}finally{
 			ConnectionUtils.close(statement);
 			
 			//如果未开启事务则关闭流
 			if(conn.getAutoCommit()){
-				ConnectionUtils.close(conn);
+				ConnectionUtils.closeConnection();
 			}
 		}
 		
@@ -778,15 +838,12 @@ public abstract class BaseDao<T> {
 	
 			}
 		
-		}catch(Exception e){
-			//回滚事务
-			ConnectionUtils.rollbackTransaction(conn);
 		}finally{
 			ConnectionUtils.close(statement);
 			
 			//如果未开启事务则关闭流
 			if(conn.getAutoCommit()){
-				ConnectionUtils.close(conn);
+				ConnectionUtils.closeConnection();
 			}
 		}
 		
