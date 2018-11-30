@@ -9,10 +9,10 @@ import com.qloudfin.qloudbus.reactive.Callback;
 
 public interface ProductTestService {
 	
-	/*public void save();
+	public void save(Callback<Product> callback,ProductVO vo) throws GenericException;
 
 	
-	public void update() ;*/
+	//public void update() ;
 	
 	public void query(Callback<PageResultData<Product>> callback,ProductVO vo)throws GenericException;
 

@@ -5,13 +5,17 @@ package com.qloudbiz.product.service.impl;
 
 
 
+import java.util.UUID;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.csft.product.dao.test.ProductDaoTest;
 import com.qloudbiz.core.exception.GenericException;
 import com.qloudbiz.core.result.PageResultData;
 import com.qloudbiz.core.utils.ExceptionUtils;
 import com.qloudbiz.product.dao.ProductDao;
+import com.qloudbiz.product.dao.ProductTestDao;
 import com.qloudbiz.product.pojo.Product;
 import com.qloudbiz.product.service.ProductTestService;
 import com.qloudbiz.product.vo.ProductVO;
@@ -23,26 +27,9 @@ import com.qloudfin.qloudbus.reactive.Callback;
 public class ProductTestServiceImpl implements ProductTestService{
 	private final static Logger logger = LoggerFactory.getLogger(ProductTestServiceImpl.class);
 
-	private ProductDao productDao=new ProductDao();
+	private ProductTestDao productDao=new ProductTestDao();
 	
 	
-	/*@Override
-	public void save() {
-		System.out.println("save successful");
-		Product product=new Product();
-		try {
-			productDao.save(result->{},product);
-		} catch (Exception e) {
-			
-			e.printStackTrace();
-		}
-	}
-
-	@Override
-	public void update() {
-		System.out.println("update successful");
-		
-	}*/
 
 	@Override
 	public void query(Callback<PageResultData<Product>> callback,ProductVO vo) throws GenericException {
@@ -59,6 +46,20 @@ public class ProductTestServiceImpl implements ProductTestService{
 			logger.debug(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>SERVICE CALLBACK");
 			
  		}, vo);
+	}
+
+
+	@Override
+	public void save(Callback<Product> callback, ProductVO vo) throws GenericException{
+		
+		//设置主键
+		vo.setProductId(UUID.randomUUID().toString().replaceAll("-",""));
+		
+		productDao.save(result->{
+			callback.accept(result);
+		}, vo);
+		
+		
 	}
 
 	

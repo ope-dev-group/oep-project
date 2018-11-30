@@ -1,6 +1,8 @@
 package com.qloudbiz.product.endpoint;
 
 
+import lombok.RequiredArgsConstructor;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -79,6 +81,52 @@ public class ProductTestEndpoint {
 			
 		} catch (Exception e) {
 			logger.error(">>>>>>>>>>query exception ");
+			callback.accept(ResultDataUtils.error(e));
+		}
+	}
+	
+	
+	/**
+	 * 保存产品
+	 * @param callback
+	 * @param corpId
+	 * @param token
+	 */
+	@RequestMapping(value="/test",method=RequestMethod.POST)
+	public void saveProducttest(Callback<Object> callback,final ProductVO vo){
+		logger.debug(">>>>>>>>>>save product the param is {}",vo);
+	
+		 
+		try {
+			
+			
+			
+			
+			//请求参数验证
+			if(null==vo){
+				callback.accept(ResultDataUtils.error("402"));
+				return;
+			}
+			
+			if(null==vo.getCode() || vo.getCode().isEmpty()){
+				callback.accept(ResultDataUtils.error("401",new String[]{"code"}));
+				return;
+			}
+			
+			if(null==vo.getName() || vo.getName().isEmpty()){
+				callback.accept(ResultDataUtils.error("401",new String[]{"name"}));
+				return;
+			}
+
+
+			//调用Service
+			service.save(product->{				
+				callback.accept(ResultDataUtils.success(product));
+			},vo);
+			
+			
+		} catch (Exception e) {
+			
 			callback.accept(ResultDataUtils.error(e));
 		}
 	}
