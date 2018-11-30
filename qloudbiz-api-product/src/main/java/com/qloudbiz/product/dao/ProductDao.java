@@ -23,12 +23,17 @@ import org.slf4j.LoggerFactory;
 
 
 
+
+
+
 import com.qloudbiz.core.dao.BaseDao;
+import com.qloudbiz.core.exception.GenericException;
 import com.qloudbiz.product.pojo.Product;
 import com.qloudbiz.product.vo.ProductVO;
 import com.qloudbiz.core.result.BaseResult;
 import com.qloudbiz.core.result.PageResultData;
 import com.qloudbiz.core.utils.ConnectionUtils;
+import com.qloudbiz.core.utils.ExceptionUtils;
 import com.qloudbiz.core.utils.ResultDataUtils;
 import com.qloudfin.qloudbus.reactive.Callback;
 
@@ -39,7 +44,7 @@ public class ProductDao extends BaseDao {
 	private String save_product_sql = "{CALL QLOUDFLOW_PRODUCT_INSERT_PROCEDURE(?,?,?)}";
 
 	
-	public void save(Callback<Object> callback, Product entity) throws Exception {
+	public void save(Callback<Object> callback, Product entity) throws GenericException {
 
 		// 异步返回结果
 		Map<String, Object> result = new HashMap<String, Object>();
@@ -50,7 +55,7 @@ public class ProductDao extends BaseDao {
 				super.callProcUpdate(save_product_sql, entity.getProductId(),entity.getCode(),entity.getName());		
 				
 				//返回结果
-				callback.accept(ResultDataUtils.success(null));
+				callback.accept(ResultDataUtils.success());
 			
 				return;
 			} catch (Exception e) {
@@ -76,7 +81,7 @@ public class ProductDao extends BaseDao {
 	private String update_sql="{CALL QLOUDFLOW_PRODUCT_UPDATE_PROCEDURE(?,?,?,?)}";
 
 	//update product
-	public void update(Callback<Object> callback, Product entity) throws Exception {
+	public void update(Callback<Object> callback, Product entity) throws GenericException {
 
 		Connection conn=null;
 		CallableStatement ps=null;
@@ -129,7 +134,7 @@ public class ProductDao extends BaseDao {
 	//delete product
 	private String delete_sql="{CALL QLOUDFLOW_PRODUCT_DELETE_PROCEDURE(?,?)}";
 	
-	public void delete(Callback<Object> callback, Product entity) throws Exception {
+	public void delete(Callback<Object> callback, Product entity) throws GenericException {
 		Connection conn=null;
 		CallableStatement ps=null;
 		try{
@@ -167,30 +172,21 @@ public class ProductDao extends BaseDao {
 
 	private String listall_sql = "{CALL QLOUDFLOW_PRODUCT_LISTALL_PROCEDURE(?,?,?)}";
 
-	public void listall(Callback<PageResultData<Product>> callback,ProductVO vo)throws Exception {
+	public void listall(Callback<PageResultData<Product>> callback,ProductVO vo)throws GenericException {
 		
 	
-		
+	
 		logger.debug("listall startRow = {} , pageSize = {}",
 				vo.getCurrentNum(), vo.getPagePerNum());
 
-	
-		PageResultData<Product> page=null;
-	
-		try {
-			page = super.callProcQueryPage(Product.class,
-					listall_sql, vo.getCurrentNum(), vo.getPagePerNum(),
-					vo.getName());
-			 
-		
-		} catch(Exception e){
-			throw new Exception(e);
-		}finally{
-			callback.accept(page);
-		}
-	
-	}
-	
-	
 
+		PageResultData<Product> page=null;
+
+	
+		page = super.callProcQueryPage(Product.class,
+				listall_sql, vo.getCurrentNum(), vo.getPagePerNum(),
+				vo.getName());
+		
+		callback.accept(page);
+	}
 }

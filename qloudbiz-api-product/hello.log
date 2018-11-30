@@ -2002,3 +2002,12 @@ END
 2018-11-29 11:03:52,108 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:24) WARN  --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@482cd91f: WARNING: transaction manager not running?
 2018-11-29 11:03:52,108 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:32) DEBUG --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@482cd91f: close()...
 2018-11-29 11:03:52,145 com.csft.product.dao.test.ProductDaoTest [main] (ProductDaoTest.java:111) DEBUG --> query list :PageResultData [totalNum=11, pagePerNum=4, currentNum=1, totalPage=3, prePage=1, nextPage=2[Product [productId=2, code=Think pad-1244746321, name=ThinkPad ], Product [productId=27bf065ca55c46b5982ff988e030a396, code=Think pad-1244746321, name=ThinkPad -2], Product [productId=3, code=ThinkPad T4201, name=ThinkPad T4034], Product [productId=6304d594878e4402a37591d7d20d46a5, code=Think pad-1244746321, name=ThinkPad 3]]]
+2018-11-30 09:45:03,367 com.qloudbiz.product.dao.ProductDao [main] (ProductDao.java:207) DEBUG --> finally 
+2018-11-30 09:45:11,682 com.qloudbiz.product.dao.ProductDao [main] (ProductDao.java:207) DEBUG --> finally 
+2018-11-30 09:45:43,322 com.qloudbiz.product.dao.ProductDao [main] (ProductDao.java:207) DEBUG --> finally 
+2018-11-30 09:46:09,489 com.qloudbiz.product.dao.ProductDao [main] (ProductDao.java:207) DEBUG --> finally 
+2018-11-30 09:46:45,030 com.qloudbiz.product.dao.ProductDao [main] (ProductDao.java:201) DEBUG --> >>>>>>> 
+2018-11-30 09:46:47,745 com.qloudbiz.product.dao.ProductDao [main] (ProductDao.java:207) DEBUG --> finally 
+2018-11-30 09:47:15,205 com.qloudbiz.product.dao.ProductDao [main] (ProductDao.java:201) DEBUG --> >>>>>>> 
+2018-11-30 09:47:20,617 com.qloudbiz.product.dao.ProductDao [main] (ProductDao.java:204) DEBUG --> >>>>>>> 
+2018-11-30 09:47:28,539 com.qloudbiz.product.dao.ProductDao [main] (ProductDao.java:207) DEBUG --> finally 
