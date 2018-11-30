@@ -34,7 +34,7 @@ public class ProductTestEndpoint {
 	ProductTestService service=ServiceProxyFactory.createProxy(ProductTestServiceImpl.class);
 	
 	/**
-	 * 添加产品线
+	 * 查询产品
 	 * @param callback
 	 * @param corpId
 	 * @param token
@@ -59,7 +59,7 @@ public class ProductTestEndpoint {
 			}
 			
 			
-			//请求参数
+			//参数设置
 			ProductVO vo=new ProductVO();
 			vo.setName(name);
 			vo.setCurrentNum(currentNum);
@@ -78,6 +78,7 @@ public class ProductTestEndpoint {
 			
 			
 		} catch (Exception e) {
+			logger.error(">>>>>>>>>>query exception ");
 			callback.accept(ResultDataUtils.error(e));
 		}
 	}

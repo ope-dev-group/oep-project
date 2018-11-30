@@ -52,38 +52,11 @@ public class ResultDataUtils {
 		return resultData;
 	}
 	
-	
-	/**
-	 * 获取成功的消息对象，且不接收数据，增、删、改、可以用此返回对象
-	 * @param code 消息编码
-	 * @param data 返回的数据
-	 * @return
-	 */
-	public static BaseResult success(String...placeholders ){
-		BaseResult resultData=new BaseResult();
-		
-		resultData.setResultCode(SUCCESS_CODE);
-		resultData.setMsg(MessageUtils.getMessage(SUCCESS_CODE,placeholders));
-		return resultData;
-	}
+
 	
 	
 	
-	/**
-	 * 获取成功的分页消息，且不接收数据
-	 * @param code 消息编码
-	 * @param data 返回的数据
-	 * @return
-	 */
-	public static  PageResultData success(PageResultData data,String...placeholders){
-		
-		if(null!=data){
-			data.setResultCode(SUCCESS_CODE);
-			data.setMsg(MessageUtils.getMessage(SUCCESS_CODE,placeholders));
-		}
-		
-		return data;
-	}
+	
 	
 	
 	/**
