@@ -1,6 +1,5 @@
 package com.qloudbiz.product.service.impl;
 
-import java.util.concurrent.CountDownLatch;
 
 
 
@@ -8,9 +7,10 @@ import java.util.concurrent.CountDownLatch;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.BeanUtils;
 
+import com.qloudbiz.core.exception.GenericException;
 import com.qloudbiz.core.result.PageResultData;
+import com.qloudbiz.core.utils.ExceptionUtils;
 import com.qloudbiz.product.dao.ProductDao;
 import com.qloudbiz.product.pojo.Product;
 import com.qloudbiz.product.service.ProductTestService;
@@ -45,9 +45,12 @@ public class ProductTestServiceImpl implements ProductTestService{
 	}*/
 
 	@Override
-	public void query(Callback<PageResultData<Product>> callback,ProductVO vo) throws Exception {
+	public void query(Callback<PageResultData<Product>> callback,ProductVO vo) throws GenericException {
 		logger.debug(">>>>>>>>>>service query method start");
-		final PageResultData<Product> page=new PageResultData<Product>();
+
+		//业务数据验证，如果业务数据有问题，抛出异常
+		//ExceptionUtils.throwsGenericException("400");
+	
 		
 		productDao.listall(result->{
 		

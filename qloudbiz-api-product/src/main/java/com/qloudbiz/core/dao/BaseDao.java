@@ -1,23 +1,26 @@
 package com.qloudbiz.core.dao;
 
+
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import java.util.ArrayList;
 import java.util.Arrays;
-
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
 import javax.sql.DataSource;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import com.qloudbiz.core.exception.GenericException;
 import com.qloudbiz.core.result.PageResultData;
 import com.qloudbiz.core.utils.BeanUtils;
 import com.qloudbiz.core.utils.ConnectionUtils;
+import com.qloudbiz.core.utils.ExceptionUtils;
 import com.qloudbiz.core.utils.PageUtils;
 import com.qloudbiz.core.utils.ResultSetUtils;
 
@@ -28,6 +31,8 @@ import com.qloudbiz.core.utils.ResultSetUtils;
  *
  */
 public  class BaseDao{
+	
+	private Logger logger=LoggerFactory.getLogger(BaseDao.class);
 
 	/**
 	 * 调用存储过程的查询，接收参数列表，返回单一结果
@@ -36,7 +41,7 @@ public  class BaseDao{
 	 * @return
 	 * @throws SQLException 
 	 */
-	public <T> T callProcQuerySingle(Class<T> beanClass,String callabelSql,List<Object> params) throws Exception{
+	public <T> T callProcQuerySingle(Class<T> beanClass,String callabelSql,List<Object> params) throws GenericException{
 		
 		
 		Map<String,Object> map=this.callProcQuerySingle(callabelSql, params);
@@ -56,7 +61,7 @@ public  class BaseDao{
 	 * @return
 	 * @throws SQLException 
 	 */
-	public <T> T callProcQuerySingle(Class<T> beanClass,String callabelSql,Object... params) throws Exception{
+	public <T> T callProcQuerySingle(Class<T> beanClass,String callabelSql,Object... params) throws GenericException{
 		
 		Map<String,Object> map=this.callProcQuerySingle(callabelSql, params);
 		if(null!=map){
@@ -74,7 +79,7 @@ public  class BaseDao{
 	 * @return
 	 * @throws SQLException 
 	 */
-	public <T> T callProcQuerySingle(Class<T> beanClass,String callabelSql) throws Exception{
+	public <T> T callProcQuerySingle(Class<T> beanClass,String callabelSql) throws GenericException{
 		Map<String,Object> map=this.callProcQuerySingle(callabelSql);
 		if(null!=map){
 			//map转对象
@@ -93,7 +98,7 @@ public  class BaseDao{
 	 * @return
 	 * @throws SQLException 
 	 */
-	public <T> List<T> callProcQueryList(Class<T> beanClass,String callabelSql,List<Object> params) throws Exception{
+	public <T> List<T> callProcQueryList(Class<T> beanClass,String callabelSql,List<Object> params) throws GenericException{
 		List<Map<String,Object>> list=this.callProcQueryList( callabelSql,params);
 		List<T> datas=new ArrayList<T>();
 		if(null!=list && !list.isEmpty()){
@@ -116,7 +121,7 @@ public  class BaseDao{
 	 * @return
 	 * @throws SQLException 
 	 */
-	public <T> List<T> callProcQueryList(Class<T> beanClass,String callabelSql,Object... params) throws Exception{
+	public <T> List<T> callProcQueryList(Class<T> beanClass,String callabelSql,Object... params) throws GenericException{
 		List<Map<String,Object>> list=this.callProcQueryList( callabelSql,params);
 		List<T> datas=new ArrayList<T>();
 		if(null!=list && !list.isEmpty()){
@@ -141,7 +146,7 @@ public  class BaseDao{
 	 * @return
 	 * @throws SQLException 
 	 */
-	public <T> List<T> callProcQueryList(Class<T> beanClass,String callabelSql) throws Exception{
+	public <T> List<T> callProcQueryList(Class<T> beanClass,String callabelSql) throws GenericException{
 		List<Map<String,Object>> list=this.callProcQueryList( callabelSql);
 		List<T> datas=new ArrayList<T>();
 		if(null!=list && !list.isEmpty()){
@@ -164,7 +169,7 @@ public  class BaseDao{
 	 * @return
 	 * @throws SQLException 
 	 */
-	public Map<String,Object> callProcQuerySingle(String callabelSql,List<Object> params) throws Exception{
+	public Map<String,Object> callProcQuerySingle(String callabelSql,List<Object> params) throws GenericException{
 		List<Map<String,Object>> maps=callProcQueryList(callabelSql,params);
 		if(null!=maps && !maps.isEmpty()){
 			return maps.get(0);
@@ -180,7 +185,7 @@ public  class BaseDao{
 	 * @return
 	 * @throws SQLException 
 	 */
-	public Map<String,Object> callProcQuerySingle(String callabelSql,Object... params) throws Exception{
+	public Map<String,Object> callProcQuerySingle(String callabelSql,Object... params) throws GenericException{
 		List<Map<String,Object>> maps=callProcQueryList(callabelSql,params);
 		if(null!=maps && !maps.isEmpty()){
 			return maps.get(0);
@@ -196,7 +201,7 @@ public  class BaseDao{
 	 * @return
 	 * @throws SQLException 
 	 */
-	public Map<String,Object> callProcQuerySingle(String callabelSql) throws Exception{
+	public Map<String,Object> callProcQuerySingle(String callabelSql) throws GenericException{
 		List<Map<String,Object>> maps=callProcQueryList(callabelSql);
 		if(null!=maps && !maps.isEmpty()){
 			return maps.get(0);
@@ -214,7 +219,7 @@ public  class BaseDao{
 	 * @return
 	 * @throws SQLException 
 	 */
-	public List<Map<String,Object>> callProcQueryList(String callabelSql,List<Object> params) throws Exception{
+	public List<Map<String,Object>> callProcQueryList(String callabelSql,List<Object> params) throws GenericException{
 		Connection conn = ConnectionUtils.getConnection();
 		DataSource dataSource = null;
 		CallableStatement statement = null;
@@ -223,26 +228,30 @@ public  class BaseDao{
 		ResultSet rs=null;
 		try{
 	
-			if (null != conn) {
-				
-				statement = conn.prepareCall(callabelSql);
-				if (null != statement) {
-					if (params != null && !params.isEmpty()) {
-	
-						for (int i = 0; i < params.size(); i++) {
-							statement.setObject(i + 1, params.get(i));
-						}
+			
+			statement = conn.prepareCall(callabelSql);
+			
+			if (null != statement) {
+				if (params != null && !params.isEmpty()) {
+
+					for (int i = 0; i < params.size(); i++) {
+						statement.setObject(i + 1, params.get(i));
 					}
-				}
-				
-				statement.execute();
-				rs=statement.getResultSet();
-				if(null!=rs){
-					resultList=ResultSetUtils.processResultSet(rs);
 				}
 			}
 			
+			statement.execute();
+			rs=statement.getResultSet();
+			if(null!=rs){
+				resultList=ResultSetUtils.processResultSet(rs);
+			}
+	
+			
 		
+		}catch (SQLException e) {
+			logger.debug(">>>>>>>>>>>>>>>>>>>>>>>DataBase SQL Exception "+e.getMessage());
+			e.printStackTrace();
+			ExceptionUtils.throwsGenericException("300",e.getMessage());//Call PrepareCall Exception!
 		}finally{
 			
 			//关闭资源
@@ -250,8 +259,13 @@ public  class BaseDao{
 			ConnectionUtils.close(rs);
 			
 			//如果未开启事务则关闭数据库连接
-			if(!conn.isClosed() && conn.getAutoCommit()){
-				ConnectionUtils.closeConnection();
+			try {
+				if(!conn.isClosed() && conn.getAutoCommit()){
+					ConnectionUtils.closeConnection();
+				}
+			} catch (SQLException e) {
+				logger.debug(">>>>>>>>>>>>>>>>>>>>>>>Close Connection EXCEPTION"+e.getMessage());
+				ExceptionUtils.throwsGenericException("301",e.getMessage());//关闭连接出错
 			}
 		}
 		
@@ -267,7 +281,7 @@ public  class BaseDao{
 	 * @return
 	 * @throws SQLException 
 	 */
-	public List<Map<String,Object>> callProcQueryList(String callabelSql,Object... params) throws Exception{
+	public List<Map<String,Object>> callProcQueryList(String callabelSql,Object... params) throws GenericException{
 		Connection conn = ConnectionUtils.getConnection();
 		DataSource dataSource = null;
 		CallableStatement statement = null;
@@ -295,14 +309,23 @@ public  class BaseDao{
 				}
 			}
 		
+		}catch (SQLException e) {
+			logger.debug(">>>>>>>>>>>>>>>>>>>>>>>DataBase SQL Exception "+e.getMessage());
+			e.printStackTrace();
+			ExceptionUtils.throwsGenericException("300",e.getMessage());//Call PrepareCall Exception!
 		}finally{
 			//关闭资源
 			ConnectionUtils.close(statement);
 			ConnectionUtils.close(rs);
 			
-			//如果未开启事务则关闭流
-			if(!conn.isClosed() && conn.getAutoCommit()){
-				ConnectionUtils.closeConnection();
+			//如果未开启事务则关闭数据库连接
+			try {
+				if(!conn.isClosed() && conn.getAutoCommit()){
+					ConnectionUtils.closeConnection();
+				}
+			} catch (SQLException e) {
+				logger.debug(">>>>>>>>>>>>>>>>>>>>>>>Close Connection EXCEPTION"+e.getMessage());
+				ExceptionUtils.throwsGenericException("301",e.getMessage());//关闭连接出错
 			}
 		}
 		
@@ -320,7 +343,7 @@ public  class BaseDao{
 	 * @return
 	 * @throws SQLException 
 	 */
-	public List<Map<String,Object>> callProcQueryList(String callabelSql) throws Exception{
+	public List<Map<String,Object>> callProcQueryList(String callabelSql) throws GenericException{
 		Connection conn = ConnectionUtils.getConnection();
 		DataSource dataSource = null;
 		CallableStatement statement = null;
@@ -340,15 +363,24 @@ public  class BaseDao{
 				}
 			}
 		
+		}catch (SQLException e) {
+			logger.debug(">>>>>>>>>>>>>>>>>>>>>>>DataBase SQL Exception "+e.getMessage());
+			e.printStackTrace();
+			ExceptionUtils.throwsGenericException("300",e.getMessage());//Call PrepareCall Exception!
 		}finally{
 		
 			//关闭资源
 			ConnectionUtils.close(statement);
 			ConnectionUtils.close(rs);
 			
-			//如果未开启事务则关闭流
-			if(!conn.isClosed() && conn.getAutoCommit()){
-				ConnectionUtils.closeConnection();
+			//如果未开启事务则关闭数据库连接
+			try {
+				if(!conn.isClosed() && conn.getAutoCommit()){
+					ConnectionUtils.closeConnection();
+				}
+			} catch (SQLException e) {
+				logger.debug(">>>>>>>>>>>>>>>>>>>>>>>Close Conection Exception "+e.getMessage());
+				ExceptionUtils.throwsGenericException("301",e.getMessage());//关闭连接出错
 			}
 		}
 		
@@ -365,7 +397,7 @@ public  class BaseDao{
 	 * @return
 	 * @throws SQLException 
 	 */
-	public <T> PageResultData<T> callProcQueryPage(Class<T> beanClass,String callabelSql,int currentNum,int pagePerNum,Object ...params) throws Exception{
+	public <T> PageResultData<T> callProcQueryPage(Class<T> beanClass,String callabelSql,int currentNum,int pagePerNum,Object ...params) throws GenericException{
 		
 		
 		//查询总记录数
@@ -398,7 +430,7 @@ public  class BaseDao{
 	 * @return
 	 * @throws SQLException 
 	 */
-	public <T> PageResultData<T> callProcQueryPage(Class<T> beanClass,String callabelSql,int currentNum,int pagePerNum) throws Exception{
+	public <T> PageResultData<T> callProcQueryPage(Class<T> beanClass,String callabelSql,int currentNum,int pagePerNum) throws GenericException{
 		
 		
 	
@@ -433,7 +465,7 @@ public  class BaseDao{
 	 * @return
 	 * @throws SQLException 
 	 */
-	public <T> PageResultData<T> callProcQueryPage(Class<T> beanClass,String callabelSql,int currentNum,int pagePerNum,List<Object> params) throws Exception{
+	public <T> PageResultData<T> callProcQueryPage(Class<T> beanClass,String callabelSql,int currentNum,int pagePerNum,List<Object> params) throws GenericException{
 		
 	
 		
@@ -466,7 +498,7 @@ public  class BaseDao{
 	 * @return
 	 * @throws SQLException 
 	 */
-	public PageResultData<Map<String,Object>> callProcQueryPage(String callabelSql,int currentNum,int pagePerNum,Object ...params) throws Exception{
+	public PageResultData<Map<String,Object>> callProcQueryPage(String callabelSql,int currentNum,int pagePerNum,Object ...params) throws GenericException{
 		
 		
 		//查询总记录数
@@ -544,7 +576,7 @@ public  class BaseDao{
 	 * @return
 	 * @throws SQLException 
 	 */
-	public PageResultData<Map<String,Object>> callProcQueryPage(String callabelSql,int currentNum,int pagePerNum) throws Exception{
+	public PageResultData<Map<String,Object>> callProcQueryPage(String callabelSql,int currentNum,int pagePerNum) throws GenericException{
 		
 		
 		return this.callProcQueryPage(callabelSql, currentNum,pagePerNum,Collections.EMPTY_LIST);
@@ -560,7 +592,7 @@ public  class BaseDao{
 	 * @return
 	 * @throws SQLException 
 	 */
-	public PageResultData<Map<String,Object>> callProcQueryPage(String callabelSql,int currentNum,int pagePerNum,List<Object> params) throws Exception{
+	public PageResultData<Map<String,Object>> callProcQueryPage(String callabelSql,int currentNum,int pagePerNum,List<Object> params) throws GenericException{
 		//查询总记录数
 		int totalCount=0;
 		
@@ -646,7 +678,7 @@ public  class BaseDao{
 	 * @param params	        传入参数
 	 * @return             无返回值
 	 */
-	public int callProcUpdate(String callabelSql)throws Exception{
+	public int callProcUpdate(String callabelSql)throws GenericException{
 		List param=Collections.EMPTY_LIST;
 		return callProcUpdate(callabelSql,param);
 		
@@ -668,7 +700,7 @@ public  class BaseDao{
 	 * @param params	        传入参数
 	 * @return             无返回值
 	 */
-	public int callProcUpdate(String callabelSql,List<Object> params)throws Exception{
+	public int callProcUpdate(String callabelSql,List<Object> params)throws GenericException{
 
 		System.out.println("+++++++++++++++thread:" + Thread.currentThread());
 		
@@ -692,12 +724,21 @@ public  class BaseDao{
 				
 				updateCount=statement.getUpdateCount();
 			}
+		}catch (SQLException e) {
+			logger.debug(">>>>>>>>>>>>>>>>>>>>>>>DataBase SQL Exception "+e.getMessage());
+			e.printStackTrace();
+			ExceptionUtils.throwsGenericException("300",e.getMessage());//Call PrepareCall Exception!
 		}finally{
 			ConnectionUtils.close(statement);
 			
-			//如果未开启事务则关闭流
-			if(conn.getAutoCommit()){
-				ConnectionUtils.close(conn);
+			//如果未开启事务则关闭数据库连接
+			try {
+				if(!conn.isClosed() && conn.getAutoCommit()){
+					ConnectionUtils.closeConnection();
+				}
+			} catch (SQLException e) {
+				logger.debug(">>>>>>>>>>>>>>>>>>>>>>>Close Connection EXCEPTION"+e.getMessage());
+				ExceptionUtils.throwsGenericException("301",e.getMessage());//关闭连接出错
 			}
 		}
 		
@@ -714,7 +755,7 @@ public  class BaseDao{
 	 * @param params	        传入参数,可变参数
 	 * @return             无返回值
 	 */
-	public int callProcUpdate(String callabelSql,Object ... params)throws Exception{
+	public int callProcUpdate(String callabelSql,Object ... params)throws GenericException{
 
 		System.out.println("+++++++++++++++thread:" + Thread.currentThread());
 		// 获取连接
@@ -736,12 +777,22 @@ public  class BaseDao{
 				statement.execute();
 				updateCount=statement.getUpdateCount();
 			}
+		}catch (SQLException e) {
+			logger.debug(">>>>>>>>>>>>>>>>>>>>>>>DataBase SQL Exception "+e.getMessage());
+			e.printStackTrace();
+			ExceptionUtils.throwsGenericException("300",e.getMessage());//Call PrepareCall Exception!
 		}finally{
 			ConnectionUtils.close(statement);
 			
-			//如果未开启事务则关闭流
-			if(conn.getAutoCommit()){
-				ConnectionUtils.close(conn);
+			
+			//如果未开启事务则关闭数据库连接
+			try {
+				if(!conn.isClosed() && conn.getAutoCommit()){
+					ConnectionUtils.closeConnection();
+				}
+			} catch (SQLException e) {
+				logger.debug(">>>>>>>>>>>>>>>>>>>>>>>Close Exception EXCEPTION"+e.getMessage());
+				ExceptionUtils.throwsGenericException("301",e.getMessage());//关闭连接出错
 			}
 		}
 		
@@ -760,7 +811,7 @@ public  class BaseDao{
 	 * @param params	        传入参数,参数列表
 	 * @return             无返回值
 	 */
-	public Object callProcUpdateWithOut(String callabelSql,int outSqlType,List<Object> params) throws Exception{
+	public Object callProcUpdateWithOut(String callabelSql,int outSqlType,List<Object> params) throws GenericException{
 		Connection conn = ConnectionUtils.getConnection();
 		DataSource dataSource = null;
 		CallableStatement statement = null;
@@ -788,12 +839,22 @@ public  class BaseDao{
 	
 			}
 		
+		}catch (SQLException e) {
+			logger.debug(">>>>>>>>>>>>>>>>>>>>>>>DataBase SQL Exception "+e.getMessage());
+			e.printStackTrace();
+			ExceptionUtils.throwsGenericException("300",e.getMessage());//Call PrepareCall Exception!
 		}finally{
 			ConnectionUtils.close(statement);
 			
-			//如果未开启事务则关闭流
-			if(conn.getAutoCommit()){
-				ConnectionUtils.closeConnection();
+			
+			//如果未开启事务则关闭数据库连接
+			try {
+				if(!conn.isClosed() && conn.getAutoCommit()){
+					ConnectionUtils.closeConnection();
+				}
+			} catch (SQLException e) {
+				logger.debug(">>>>>>>>>>>>>>>>>>>>>>>Close Exception EXCEPTION"+e.getMessage());
+				ExceptionUtils.throwsGenericException("301");//关闭连接出错
 			}
 		}
 		
@@ -810,7 +871,7 @@ public  class BaseDao{
 	 * @param params	        传入参数,参数列表
 	 * @return             无返回值
 	 */
-	public Object callProcUpdateWithOut(String callabelSql,int outSqlType,Object ...params) throws Exception{
+	public Object callProcUpdateWithOut(String callabelSql,int outSqlType,Object ...params) throws GenericException{
 		Connection conn = ConnectionUtils.getConnection();
 		DataSource dataSource = null;
 		CallableStatement statement = null;
@@ -838,12 +899,22 @@ public  class BaseDao{
 	
 			}
 		
+		}catch (SQLException e) {
+			logger.debug(">>>>>>>>>>>>>>>>>>>>>>>DataBase SQL Exception "+e.getMessage());
+			e.printStackTrace();
+			ExceptionUtils.throwsGenericException("300",e.getMessage());//Call PrepareCall Exception!
 		}finally{
 			ConnectionUtils.close(statement);
 			
-			//如果未开启事务则关闭流
-			if(conn.getAutoCommit()){
-				ConnectionUtils.closeConnection();
+			
+			//如果未开启事务则关闭数据库连接
+			try {
+				if(!conn.isClosed() && conn.getAutoCommit()){
+					ConnectionUtils.closeConnection();
+				}
+			} catch (SQLException e) {
+				logger.debug(">>>>>>>>>>>>>>>>>>>>>>>Close Exception  EXCEPTION"+e.getMessage());
+				ExceptionUtils.throwsGenericException("301");//关闭连接出错
 			}
 		}
 		

@@ -30,6 +30,9 @@ public class ProductTestEndpoint {
 	
 	private final static Logger logger=LoggerFactory.getLogger(ProductTestEndpoint.class);
 	
+	//创建Service
+	ProductTestService service=ServiceProxyFactory.createProxy(ProductTestServiceImpl.class);
+	
 	/**
 	 * 添加产品线
 	 * @param callback
@@ -38,16 +41,22 @@ public class ProductTestEndpoint {
 	 */
 	@RequestMapping(value="/test",method=RequestMethod.GET)
 	public void queryProducttest(Callback<Object> callback,@RequestParam("name") String name,@RequestParam("currentNum")int currentNum,@RequestParam("pagePerNum")int pagePerNum){
-		logger.debug(">>>>>>>>>>endpoint query method start");
-		
-		
-		
-		logger.debug(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>get request");
+		logger.debug(">>>>>>>>>>endpoint query product test method start");
+	
 		
 		try {
 			
 			
 			//请求参数验证
+			if(currentNum<=0){
+				callback.accept(ResultDataUtils.error("401",new String[]{"currentNum"}));
+				return;
+			}
+			
+			if(pagePerNum<=0){
+				callback.accept(ResultDataUtils.error("401",new String[]{"pagePerNum"}));
+				return;
+			}
 			
 			
 			//请求参数
@@ -56,28 +65,20 @@ public class ProductTestEndpoint {
 			vo.setCurrentNum(currentNum);
 			vo.setPagePerNum(pagePerNum);
 			
-			//创建Service
-			ProductTestService service=ServiceProxyFactory.createProxy(ProductTestServiceImpl.class);
+		
 			
 
 			//调用Service
 			service.query(page->{
 				
-				if(null==page){
-					callback.accept(ResultDataUtils.error("404"));
-				}else{
-					page=ResultDataUtils.successPage(page);
-					
-					callback.accept(page);
+				if(null!=page){					
+					callback.accept(ResultDataUtils.success(page));
 				}
-				
 			},vo);
 			
 			
 		} catch (Exception e) {
-			
-			e.printStackTrace();
-			
+			callback.accept(ResultDataUtils.error(e));
 		}
 	}
 }

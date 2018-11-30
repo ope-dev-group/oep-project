@@ -1,8 +1,5 @@
 package com.qloudbiz.product.endpoint;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -27,8 +24,6 @@ import com.qloudfin.qloudbus.reactive.Callback;
  * @author Kezx
  *
  */
-@Api(value = "/products/brands", description = "品牌列表")
-@RequestMapping("/products")
 public class ProductBrandsServiceEndpoint {
 	private final static String PATH_ADD_BRANDS_JSON = "com/qloudfin/qloudbiz/apidef/products/productbrands-create.json";// 添加品牌json
 
