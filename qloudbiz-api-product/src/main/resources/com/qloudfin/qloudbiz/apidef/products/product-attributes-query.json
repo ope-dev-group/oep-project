@@ -35,7 +35,7 @@
 			},{
 			"attributeId": "2002",
 			"attributeCode": "color",
-			" attributeName": "颜色",
+			"attributeName": "颜色",
 			"isRequired": "Y", 
 			"attributeConstraint ": "Enum", 
 			"maxStringLength":  null ,
