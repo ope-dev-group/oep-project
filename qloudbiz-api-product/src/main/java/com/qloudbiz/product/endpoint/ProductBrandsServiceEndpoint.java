@@ -24,7 +24,6 @@ import com.qloudfin.qloudbus.reactive.Callback;
  * @author Kezx
  *
  */
-@RequestMapping("/products")
 public class ProductBrandsServiceEndpoint {
 	private final static String PATH_ADD_BRANDS_JSON = "com/qloudfin/qloudbiz/apidef/products/productbrands-create.json";// 添加品牌json
 
