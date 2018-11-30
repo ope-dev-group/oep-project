@@ -175,18 +175,18 @@ public class ProductDao extends BaseDao {
 	public void listall(Callback<PageResultData<Product>> callback,ProductVO vo)throws GenericException {
 		
 	
-		
-			logger.debug("listall startRow = {} , pageSize = {}",
-					vo.getCurrentNum(), vo.getPagePerNum());
+	
+		logger.debug("listall startRow = {} , pageSize = {}",
+				vo.getCurrentNum(), vo.getPagePerNum());
+
+
+		PageResultData<Product> page=null;
 
 	
-			PageResultData<Product> page=null;
-	
+		page = super.callProcQueryPage(Product.class,
+				listall_sql, vo.getCurrentNum(), vo.getPagePerNum(),
+				vo.getName());
 		
-			page = super.callProcQueryPage(Product.class,
-					listall_sql, vo.getCurrentNum(), vo.getPagePerNum(),
-					vo.getName());
-			
-			callback.accept(page);
+		callback.accept(page);
 	}
 }
