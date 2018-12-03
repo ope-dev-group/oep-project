@@ -19,6 +19,7 @@ import com.qloudfin.qloudbus.annotation.RequestMapping;
 import com.qloudfin.qloudbus.annotation.RequestMethod;
 import com.qloudfin.qloudbus.annotation.RequestParam;
 import com.qloudfin.qloudbus.reactive.Callback;
+import com.qloudfin.qloudbus.security.util.StringUtils;
 
 
 /**
@@ -71,7 +72,7 @@ public class ProductTestEndpoint {
 		
 			
 
-			//调用Service
+			//调用分页查询方法
 			service.queryList(page->{
 				
 				if(null!=page){					
@@ -104,13 +105,17 @@ public class ProductTestEndpoint {
 			
 
 			//请求参数验证
-			if(null==productId || productId.isEmpty()){
+			if(StringUtils.isEmpty(productId)){
 				callback.accept(ResultDataUtils.error("402",new String[]{"productId"}));
 				return;
 			}
 			
+			
+			//设置参数
 			ProductVO vo=new ProductVO(); 
 			vo.setProductId(productId);
+			
+			//调用查询详情方法
 			service.queryDetail(result->{
 				if(null!=result){
 					callback.accept(ResultDataUtils.success(result));
@@ -144,25 +149,25 @@ public class ProductTestEndpoint {
 				return;
 			}
 			
-			if(null==vo.getCode() || vo.getCode().isEmpty()){
+			if(StringUtils.isEmpty(vo.getCode())){
 				callback.accept(ResultDataUtils.error("401",new String[]{"code"}));
 				return;
 			}
 			
-			if(null==vo.getName() || vo.getName().isEmpty()){
+			if(StringUtils.isEmpty(vo.getName())){
 				callback.accept(ResultDataUtils.error("401",new String[]{"name"}));
 				return;
 			}
 
 
-			//调用Service
+			//调用Save
 			service.save(product->{				
 				callback.accept(ResultDataUtils.success(product));
 			},vo);
 			
 			
 		} catch (Exception e) {
-			
+			logger.error("the exception is {}",e);
 			callback.accept(ResultDataUtils.error(e));
 		}
 	}
@@ -187,7 +192,7 @@ public class ProductTestEndpoint {
 			
 			//请求参数验证
 		
-			if(null==productId ||productId.isEmpty()){
+			if(StringUtils.isEmpty(productId)){
 				callback.accept(ResultDataUtils.error("401",new String[]{"productId"}));
 				return;
 			}
@@ -198,19 +203,16 @@ public class ProductTestEndpoint {
 			vo.setProductId(productId);
 			
 			
-			//查询product，验证是否存在
+			//调用delete方法
 			
 			service.delete(rownum->{				
-				try {
-					if(null!=rownum && rownum.intValue()==1){
-						callback.accept(ResultDataUtils.success());
-					}else{
-						callback.accept(ResultDataUtils.error("407"));
-					}
-				} catch (Exception e) {
-					logger.error("the exception is {}",e);
-					callback.accept(ResultDataUtils.error(e));
+				
+				if(null!=rownum && rownum.intValue()==1){
+					callback.accept(ResultDataUtils.success());
+				}else{
+					callback.accept(ResultDataUtils.error("407"));
 				}
+				
 			},vo);
 	
 		
@@ -247,17 +249,18 @@ public class ProductTestEndpoint {
 			}
 			
 			
-			if(null==vo.getCode() || vo.getCode().isEmpty()){
+			if(StringUtils.isEmpty(vo.getCode())){
 				callback.accept(ResultDataUtils.error("401",new String[]{"code"}));
 				return;
 			}
 			
-			if(null==vo.getName() || vo.getName().isEmpty()){
+			if(StringUtils.isEmpty(vo.getName())){
 				callback.accept(ResultDataUtils.error("401",new String[]{"name"}));
 				return;
 			}
 
 			vo.setProductId(productId);
+			
 
 			//调用update Service
 			service.update(rownum->{				

@@ -25,15 +25,15 @@ public class ExceptionUtils {
 		
 		throw new GenericException(code,message);
 		
+		
 	}
 
 	//抛出通用的异常，接收错误编码和数据
 	public static void throwsGenericException(String code,Object data) throws GenericException{
 		//根据code获取消息
 		String message=MessageUtils.getMessage(code);
-		
-		
-			throw new GenericException(code,message,data);
+
+		throw new GenericException(code,message,data);
 		
 		
 	}

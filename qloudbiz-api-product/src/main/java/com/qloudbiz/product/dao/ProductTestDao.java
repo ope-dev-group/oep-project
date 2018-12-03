@@ -90,6 +90,7 @@ public class ProductTestDao extends BaseDao {
 	private String listone_sql = "{CALL QLOUDFLOW_PRODUCT_SINGLE_PROCEDURE(?)}";
 
 	public void queryById(Callback<Product> callback,ProductVO vo)throws GenericException {
+
 		Product product=super.callProcQuerySingle(Product.class, listone_sql,vo.getProductId());
 		
 		callback.accept(product);

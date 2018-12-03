@@ -32,7 +32,7 @@ public interface ProductTestService {
 	 * @param vo
 	 * @throws GenericException
 	 */
-	public void delete(Callback<Integer> callback,ProductVO vo)throws GenericException;
+	public void delete(Callback<Integer> callback,ProductVO vo)throws Exception;
 	
 	/**
 	 * 修改
