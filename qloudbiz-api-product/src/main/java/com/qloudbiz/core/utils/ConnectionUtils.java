@@ -54,7 +54,7 @@ public class ConnectionUtils {
     				
     				connectionHolder.set(conn);
 	    		}
-	    		logger.debug("+++++++++++++++GET CONNECTION {}:",conn);
+	    		
 
     		} catch (SQLException e) {
     			
@@ -73,13 +73,11 @@ public class ConnectionUtils {
     			
     				
     				
-    				logger.debug("+++++++++++++++CLOSE CONNECTION  {}:",conn);
+    				
 
     				conn.close();
     				
-    				
-    				logger.debug("+++++++++++++++REMOVE CONNECTION  {}:",conn);
-    				
+    			
     				//从ThreadLocal中清除Connection
     				connectionHolder.remove();
     				

@@ -31,17 +31,19 @@ public class ServiceProxyFactory {
 						@Override
 						public Object invoke(Object proxy, Method method,
 								Object[] args) throws Throwable {
-							logger.debug(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>BEGIN  TRANSACTION");
+							
 
 							ConnectionUtils.beginTransaction();
+							logger.debug(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>BEGIN  TRANSACTION");
+
 							Object obj;
 							try {
 								obj = method.invoke(target, args);
 
-								logger.debug(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>COMMIT TRANSACTION");
 								
 								// 提交事务
 								ConnectionUtils.commitTransaction();
+								logger.debug(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>COMMIT TRANSACTION");
 
 								return obj;
 							} catch (InvocationTargetException  e) {
@@ -57,6 +59,8 @@ public class ServiceProxyFactory {
 								throw e.getCause();
 							} finally {
 								// 关闭连接
+								logger.debug(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>CLOSE CONNECTION");
+
 								ConnectionUtils.closeConnection();
 							}
 						}

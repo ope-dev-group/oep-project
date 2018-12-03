@@ -25,13 +25,13 @@ public class ProductTestDao extends BaseDao {
 	private String save_product_sql = "{CALL QLOUDFLOW_PRODUCT_INSERT_PROCEDURE(?,?,?)}";
 
 	
-	public void save(Callback<Product> callback, ProductVO entity) throws GenericException {
+	public void save(Callback<Product> callback, ProductVO vo) throws GenericException {
 
 		//调用存储过程		
-		int rownum=super.callProcUpdate(save_product_sql, entity.getProductId(),entity.getCode(),entity.getName());		
+		int rownum=super.callProcUpdate(save_product_sql, vo.getProductId(),vo.getCode(),vo.getName());		
 		
 		//
-		Product product=super.callProcQuerySingle(Product.class, listone_sql,entity.getProductId());
+		Product product=super.callProcQuerySingle(Product.class, listone_sql,vo.getProductId());
 		callback.accept(product);
 
 	}
@@ -89,10 +89,8 @@ public class ProductTestDao extends BaseDao {
 	
 	private String listone_sql = "{CALL QLOUDFLOW_PRODUCT_SINGLE_PROCEDURE(?)}";
 
-	public void queryById(Callback<Product> callback,String id)throws GenericException {
-		
-	
-		Product product=super.callProcQuerySingle(Product.class, listone_sql,id);
+	public void queryById(Callback<Product> callback,ProductVO vo)throws GenericException {
+		Product product=super.callProcQuerySingle(Product.class, listone_sql,vo.getProductId());
 		
 		callback.accept(product);
 	}

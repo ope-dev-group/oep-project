@@ -5,10 +5,26 @@ package com.qloudbiz.product.service.impl;
 
 
 
-import java.util.UUID;
+import io.advantageous.boon.core.reflection.BeanUtils;
 
+import java.util.UUID;
+import java.util.concurrent.CountDownLatch;
+
+
+
+
+
+
+
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+
+
+
+
+
 
 import com.csft.product.dao.test.ProductDaoTest;
 import com.qloudbiz.core.exception.GenericException;
@@ -20,6 +36,7 @@ import com.qloudbiz.product.pojo.Product;
 import com.qloudbiz.product.service.ProductTestService;
 import com.qloudbiz.product.vo.ProductVO;
 import com.qloudfin.qloudbus.reactive.Callback;
+import com.qloudfin.qloudbus.reactive.CountDownAsyncLatch;
 
 
 
@@ -66,37 +83,84 @@ public class ProductTestServiceImpl implements ProductTestService{
 	@Override
 	public void delete(Callback<Integer> callback, ProductVO vo)throws GenericException {
 		
-		//查询product，验证是否存在
+		//同步计数器
+		CountDownLatch latch=new CountDownLatch(1);
+		
+		Product prod=new Product();
+	
+		
+		//查询product，验证是否存在此记录
 		productDao.queryById(product->{
+			latch.countDown();
 			if(null!=product){
-				
-					try {
-						productDao.delete(rownum->{
-							try {
-								callback.accept(rownum);
-							} catch (Exception e) {
-								// TODO Auto-generated catch block
-								ExceptionUtils.throwsGenericException("408");
-							}
-						}, vo);
-					} catch (GenericException e) {
-						ExceptionUtils.throwsGenericException(e.getCode(),e.getData());
-					}
-				
-			}else{
-				ExceptionUtils.throwsGenericException("408");
+				BeanUtils.copyProperties(product, prod);
 			}
-		}, vo.getProductId());
+			
+		}, vo);
 		
 		
+		try {
+			//同步等待
+			latch.await();
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		//记录存在则删除
+		if(null!=prod && StringUtils.isNotEmpty(prod.getProductId())){
+			
+			productDao.delete(rownum->{
+				callback.accept(rownum);
+			}, vo);
+		}else{
+			
+			//记录不存在抛出异常
+			ExceptionUtils.throwsGenericException("408");
+		}
 	}
 
 
 	@Override
 	public void update(Callback<Integer> callback, ProductVO vo)throws GenericException {
-		productDao.update(rownum->{
-			callback.accept(rownum);
+		
+		//同步计数器
+		CountDownLatch latch=new CountDownLatch(1);
+		
+		Product prod=new Product();
+	
+		
+		//查询product，验证是否存在此记录
+		productDao.queryById(product->{
+			latch.countDown();
+			if(null!=product){
+				BeanUtils.copyProperties(product, prod);
+			}
+			
 		}, vo);
+		
+		
+		try {
+			//同步等待
+			latch.await();
+		} catch (InterruptedException e1) {
+			
+		}
+		
+		
+		
+		//记录存在则更新
+		if(null!=prod && StringUtils.isNotEmpty(prod.getProductId())){
+			
+			productDao.update(rownum->{
+				callback.accept(rownum);
+			}, vo);
+		}else{
+			
+			//记录不存在抛出异常
+			ExceptionUtils.throwsGenericException("408");
+		}
+	
 	}
 
 
@@ -104,7 +168,7 @@ public class ProductTestServiceImpl implements ProductTestService{
 	public void queryDetail(Callback<Product> callback,ProductVO vo) throws GenericException {
 		productDao.queryById(product->{
 			callback.accept(product);
-		}, vo.getProductId());
+		}, vo);
 	}
 	
 	

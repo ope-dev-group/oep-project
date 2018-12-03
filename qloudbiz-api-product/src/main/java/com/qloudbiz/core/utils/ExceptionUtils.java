@@ -17,30 +17,24 @@ public class ExceptionUtils {
 	/**
 	 * 抛出通用的异常,接收错误编码
 	 * @param code
+	 * @throws GenericException 
 	 */
-	public static void throwsGenericException(String code){
+	public static void throwsGenericException(String code) throws GenericException{
 		//根据code获取消息
 		String message=MessageUtils.getMessage(code);
 		
-		try {
-			throw new GenericException(code,message);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		throw new GenericException(code,message);
+		
 	}
 
 	//抛出通用的异常，接收错误编码和数据
-	public static void throwsGenericException(String code,Object data){
+	public static void throwsGenericException(String code,Object data) throws GenericException{
 		//根据code获取消息
 		String message=MessageUtils.getMessage(code);
 		
-		try {
+		
 			throw new GenericException(code,message,data);
-		} catch (Exception e) {
-			
-			e.printStackTrace();
-		}
+		
 		
 	}
 	
