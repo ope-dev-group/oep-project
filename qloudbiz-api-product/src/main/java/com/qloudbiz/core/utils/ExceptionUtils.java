@@ -24,7 +24,7 @@ public class ExceptionUtils {
 		
 		try {
 			throw new GenericException(code,message);
-		} catch (GenericException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -37,10 +37,11 @@ public class ExceptionUtils {
 		
 		try {
 			throw new GenericException(code,message,data);
-		} catch (GenericException e) {
-			// TODO Auto-generated catch block
+		} catch (Exception e) {
+			
 			e.printStackTrace();
 		}
+		
 	}
 	
 }

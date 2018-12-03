@@ -13,6 +13,7 @@ public class GenericException extends Exception{
 	String msg;//异常消息
 	Object data;//数据
 	
+	
 	public GenericException(String code, String msg) {
 		super();
 		this.code = code;
@@ -26,4 +27,11 @@ public class GenericException extends Exception{
 		this.msg = msg;
 		this.data = data;
 	}
+
+
+	public GenericException() {
+		super();
+	}
+
+
 }

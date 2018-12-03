@@ -36,20 +36,33 @@ public class ProductTestDao extends BaseDao {
 
 	}
 
-	private String update_sql="{CALL QLOUDFLOW_PRODUCT_UPDATE_PROCEDURE(?,?,?,?)}";
+	private String update_sql="{CALL QLOUDFLOW_PRODUCT_UPDATE_PROCEDURE(?,?,?)}";
 
 	//update product
-	public void update(Callback<Object> callback, Product entity) throws GenericException {
+	public void update(Callback<Integer> callback, ProductVO vo) throws GenericException {
 
 		
-		
+		Integer rownum=super.callProcUpdate(update_sql,vo.getProductId(),vo.getCode(),vo.getName());
+		callback.accept(rownum);
 	}
 
 	
 	//delete product
-	private String delete_sql="{CALL QLOUDFLOW_PRODUCT_DELETE_PROCEDURE(?,?)}";
+	private String delete_sql="{CALL QLOUDFLOW_PRODUCT_DELETE_PROCEDURE(?)}";
 	
-	public void delete(Callback<Object> callback, Product entity) throws GenericException {
+	/**
+	 * 删除
+	 * @param callback
+	 * @param vo
+	 * @throws GenericException
+	 */
+	public void delete(Callback<Integer> callback,ProductVO vo) throws GenericException {
+		
+		
+		Integer rownum=super.callProcUpdate(delete_sql,vo.getProductId());
+		callback.accept(rownum);
+		
+	
 		
 	}
 
@@ -79,6 +92,8 @@ public class ProductTestDao extends BaseDao {
 	public void queryById(Callback<Product> callback,String id)throws GenericException {
 		
 	
-		super.callProcQuerySingle(Product.class, listone_sql,id);
+		Product product=super.callProcQuerySingle(Product.class, listone_sql,id);
+		
+		callback.accept(product);
 	}
 }

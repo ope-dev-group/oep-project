@@ -32,7 +32,7 @@ public class ProductTestServiceImpl implements ProductTestService{
 	
 
 	@Override
-	public void query(Callback<PageResultData<Product>> callback,ProductVO vo) throws GenericException {
+	public void queryList(Callback<PageResultData<Product>> callback,ProductVO vo) throws GenericException {
 		logger.debug(">>>>>>>>>>service query method start");
 
 		//业务数据验证，如果业务数据有问题，抛出异常
@@ -61,6 +61,53 @@ public class ProductTestServiceImpl implements ProductTestService{
 		
 		
 	}
+
+
+	@Override
+	public void delete(Callback<Integer> callback, ProductVO vo)throws GenericException {
+		
+		//查询product，验证是否存在
+		productDao.queryById(product->{
+			if(null!=product){
+				
+					try {
+						productDao.delete(rownum->{
+							try {
+								callback.accept(rownum);
+							} catch (Exception e) {
+								// TODO Auto-generated catch block
+								ExceptionUtils.throwsGenericException("408");
+							}
+						}, vo);
+					} catch (GenericException e) {
+						ExceptionUtils.throwsGenericException(e.getCode(),e.getData());
+					}
+				
+			}else{
+				ExceptionUtils.throwsGenericException("408");
+			}
+		}, vo.getProductId());
+		
+		
+	}
+
+
+	@Override
+	public void update(Callback<Integer> callback, ProductVO vo)throws GenericException {
+		productDao.update(rownum->{
+			callback.accept(rownum);
+		}, vo);
+	}
+
+
+	@Override
+	public void queryDetail(Callback<Product> callback,ProductVO vo) throws GenericException {
+		productDao.queryById(product->{
+			callback.accept(product);
+		}, vo.getProductId());
+	}
+	
+	
 
 	
 }

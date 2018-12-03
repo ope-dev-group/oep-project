@@ -9,11 +9,39 @@ import com.qloudfin.qloudbus.reactive.Callback;
 
 public interface ProductTestService {
 	
+	/**
+	 * 保存
+	 * @param callback
+	 * @param vo
+	 * @throws GenericException
+	 */
 	public void save(Callback<Product> callback,ProductVO vo) throws GenericException;
 
 	
-	//public void update() ;
+
+	//查询列表
+	public void queryList(Callback<PageResultData<Product>> callback,ProductVO vo)throws GenericException;
+
 	
-	public void query(Callback<PageResultData<Product>> callback,ProductVO vo)throws GenericException;
+	//查询详情
+	public void queryDetail(Callback<Product> callback,ProductVO vo)throws GenericException;
+	
+	/**
+	 * 删除
+	 * @param callback
+	 * @param vo
+	 * @throws GenericException
+	 */
+	public void delete(Callback<Integer> callback,ProductVO vo)throws GenericException;
+	
+	/**
+	 * 修改
+	 * @param callback
+	 * @param vo
+	 * @throws GenericException
+	 */
+	public void update(Callback<Integer> callback,ProductVO vo)throws GenericException;
+	
+	
 
 }

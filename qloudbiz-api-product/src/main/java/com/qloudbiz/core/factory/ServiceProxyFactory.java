@@ -1,6 +1,7 @@
 package com.qloudbiz.core.factory;
 
 import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
@@ -43,7 +44,7 @@ public class ServiceProxyFactory {
 								ConnectionUtils.commitTransaction();
 
 								return obj;
-							} catch (Exception e) {
+							} catch (InvocationTargetException  e) {
 								logger.debug("ROLLBACK TRANSACTION");
 
 								// 回滚
@@ -52,7 +53,8 @@ public class ServiceProxyFactory {
 												.getConnection());
 
 								logger.debug("SERVICE THROWS EXCEPTION");
-								throw e;
+								logger.error("Exception is {}",e);
+								throw e.getCause();
 							} finally {
 								// 关闭连接
 								ConnectionUtils.closeConnection();

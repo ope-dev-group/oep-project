@@ -30,7 +30,7 @@ import com.qloudbiz.core.utils.ResultSetUtils;
  * @author Administrator
  *
  */
-public  class BaseDao{
+public  class BaseDao {
 	
 	private Logger logger=LoggerFactory.getLogger(BaseDao.class);
 
@@ -248,8 +248,8 @@ public  class BaseDao{
 	
 			
 		
-		}catch (SQLException e) {
-			logger.debug(">>>>>>>>>>>>>>>>>>>>>>>DataBase SQL Exception "+e.getMessage());
+		}catch (Exception e) {
+			logger.error(">>>>>>>>>>>>>>>>>>>>>>>DataBase SQL Exception "+e.getMessage());
 			e.printStackTrace();
 			ExceptionUtils.throwsGenericException("300",e.getMessage());//Call PrepareCall Exception!
 		}finally{
@@ -264,7 +264,7 @@ public  class BaseDao{
 					ConnectionUtils.closeConnection();
 				}
 			} catch (SQLException e) {
-				logger.debug(">>>>>>>>>>>>>>>>>>>>>>>Close Connection EXCEPTION"+e.getMessage());
+				logger.error(">>>>>>>>>>>>>>>>>>>>>>>Close Connection EXCEPTION"+e.getMessage());
 				ExceptionUtils.throwsGenericException("301",e.getMessage());//关闭连接出错
 			}
 		}
@@ -285,10 +285,13 @@ public  class BaseDao{
 		Connection conn = ConnectionUtils.getConnection();
 		DataSource dataSource = null;
 		CallableStatement statement = null;
-		Object outParam=null;
 		List<Map<String,Object>> resultList=null;
 		ResultSet rs=null;
 		try{
+		
+		Object outParam=null;
+		
+		
 	
 			if (null != conn) {
 				
@@ -309,8 +312,8 @@ public  class BaseDao{
 				}
 			}
 		
-		}catch (SQLException e) {
-			logger.debug(">>>>>>>>>>>>>>>>>>>>>>>DataBase SQL Exception "+e.getMessage());
+		}catch (Exception e) {
+			logger.error(">>>>>>>>>>>>>>>>>>>>>>>DataBase SQL Exception "+e.getMessage());
 			e.printStackTrace();
 			ExceptionUtils.throwsGenericException("300",e.getMessage());//Call PrepareCall Exception!
 		}finally{
@@ -324,7 +327,7 @@ public  class BaseDao{
 					ConnectionUtils.closeConnection();
 				}
 			} catch (SQLException e) {
-				logger.debug(">>>>>>>>>>>>>>>>>>>>>>>Close Connection EXCEPTION"+e.getMessage());
+				logger.error(">>>>>>>>>>>>>>>>>>>>>>>Close Connection EXCEPTION"+e.getMessage());
 				ExceptionUtils.throwsGenericException("301",e.getMessage());//关闭连接出错
 			}
 		}
@@ -363,8 +366,8 @@ public  class BaseDao{
 				}
 			}
 		
-		}catch (SQLException e) {
-			logger.debug(">>>>>>>>>>>>>>>>>>>>>>>DataBase SQL Exception "+e.getMessage());
+		}catch (Exception e) {
+			logger.error(">>>>>>>>>>>>>>>>>>>>>>>DataBase SQL Exception "+e.getMessage());
 			e.printStackTrace();
 			ExceptionUtils.throwsGenericException("300",e.getMessage());//Call PrepareCall Exception!
 		}finally{
@@ -379,7 +382,7 @@ public  class BaseDao{
 					ConnectionUtils.closeConnection();
 				}
 			} catch (SQLException e) {
-				logger.debug(">>>>>>>>>>>>>>>>>>>>>>>Close Conection Exception "+e.getMessage());
+				logger.error(">>>>>>>>>>>>>>>>>>>>>>>Close Conection Exception "+e.getMessage());
 				ExceptionUtils.throwsGenericException("301",e.getMessage());//关闭连接出错
 			}
 		}
@@ -724,7 +727,7 @@ public  class BaseDao{
 				
 				updateCount=statement.getUpdateCount();
 			}
-		}catch (SQLException e) {
+		}catch (Exception e) {
 			logger.debug(">>>>>>>>>>>>>>>>>>>>>>>DataBase SQL Exception "+e.getMessage());
 			e.printStackTrace();
 			ExceptionUtils.throwsGenericException("300",e.getMessage());//Call PrepareCall Exception!
@@ -737,7 +740,7 @@ public  class BaseDao{
 					ConnectionUtils.closeConnection();
 				}
 			} catch (SQLException e) {
-				logger.debug(">>>>>>>>>>>>>>>>>>>>>>>Close Connection EXCEPTION"+e.getMessage());
+				logger.error(">>>>>>>>>>>>>>>>>>>>>>>Close Connection EXCEPTION"+e.getMessage());
 				ExceptionUtils.throwsGenericException("301",e.getMessage());//关闭连接出错
 			}
 		}
@@ -756,46 +759,57 @@ public  class BaseDao{
 	 * @return             无返回值
 	 */
 	public int callProcUpdate(String callabelSql,Object ... params)throws GenericException{
-
-		System.out.println("+++++++++++++++thread:" + Thread.currentThread());
+		int updateCount = 0;
+		Connection conn=null;
+		CallableStatement statement	= null; 
+		try {
 		// 获取连接
-		Connection conn = ConnectionUtils.getConnection();
+		conn = ConnectionUtils.getConnection();
 
-		CallableStatement statement = null;
-		int updateCount=0;
-		try{
-			if (null != conn) {
-				
-				statement = conn.prepareCall(callabelSql);
-				if (params != null && params.length>0 && null != statement) {
 	
+		
+	
+		
+			System.out.println("+++++++++++++++thread:"
+					+ Thread.currentThread());
+			
+			
+
+			if (null != conn) {
+
+				statement = conn.prepareCall(callabelSql);
+				if (params != null && params.length > 0 && null != statement) {
+
 					for (int i = 0; i < params.length; i++) {
 						statement.setObject(i + 1, params[i]);
 					}
 				}
-	
+
 				statement.execute();
-				updateCount=statement.getUpdateCount();
+				updateCount = statement.getUpdateCount();
 			}
-		}catch (SQLException e) {
-			logger.debug(">>>>>>>>>>>>>>>>>>>>>>>DataBase SQL Exception "+e.getMessage());
+		} catch (Exception e) {
+			logger.error(">>>>>>>>>>>>>>>>>>>>>>>DataBase SQL Exception "
+					+ e.getMessage());
 			e.printStackTrace();
-			ExceptionUtils.throwsGenericException("300",e.getMessage());//Call PrepareCall Exception!
-		}finally{
+			ExceptionUtils.throwsGenericException("300", e.getMessage());// Call
+																			// PrepareCall
+			throw new GenericException();												// Exception!
+		} finally {
 			ConnectionUtils.close(statement);
-			
-			
-			//如果未开启事务则关闭数据库连接
+
+			// 如果未开启事务则关闭数据库连接
 			try {
-				if(!conn.isClosed() && conn.getAutoCommit()){
+				if (!conn.isClosed() && conn.getAutoCommit()) {
 					ConnectionUtils.closeConnection();
 				}
-			} catch (SQLException e) {
-				logger.debug(">>>>>>>>>>>>>>>>>>>>>>>Close Exception EXCEPTION"+e.getMessage());
-				ExceptionUtils.throwsGenericException("301",e.getMessage());//关闭连接出错
+			} catch (Exception e) {
+				logger.debug(">>>>>>>>>>>>>>>>>>>>>>>Close Exception EXCEPTION"
+						+ e.getMessage());
+				ExceptionUtils.throwsGenericException("301", e.getMessage());// 关闭连接出错
 			}
 		}
-		
+
 		return updateCount;
 	}
 	
@@ -839,7 +853,7 @@ public  class BaseDao{
 	
 			}
 		
-		}catch (SQLException e) {
+		}catch (Exception e) {
 			logger.debug(">>>>>>>>>>>>>>>>>>>>>>>DataBase SQL Exception "+e.getMessage());
 			e.printStackTrace();
 			ExceptionUtils.throwsGenericException("300",e.getMessage());//Call PrepareCall Exception!
@@ -899,7 +913,7 @@ public  class BaseDao{
 	
 			}
 		
-		}catch (SQLException e) {
+		}catch (Exception e) {
 			logger.debug(">>>>>>>>>>>>>>>>>>>>>>>DataBase SQL Exception "+e.getMessage());
 			e.printStackTrace();
 			ExceptionUtils.throwsGenericException("300",e.getMessage());//Call PrepareCall Exception!

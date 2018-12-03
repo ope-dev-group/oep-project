@@ -14,6 +14,7 @@ import com.qloudbiz.product.pojo.Product;
 import com.qloudbiz.product.service.ProductTestService;
 import com.qloudbiz.product.service.impl.ProductTestServiceImpl;
 import com.qloudbiz.product.vo.ProductVO;
+import com.qloudfin.qloudbus.annotation.PathVariable;
 import com.qloudfin.qloudbus.annotation.RequestMapping;
 import com.qloudfin.qloudbus.annotation.RequestMethod;
 import com.qloudfin.qloudbus.annotation.RequestParam;
@@ -36,7 +37,7 @@ public class ProductTestEndpoint {
 	ProductTestService service=ServiceProxyFactory.createProxy(ProductTestServiceImpl.class);
 	
 	/**
-	 * 查询产品
+	 * 查询产品列表
 	 * @param callback
 	 * @param corpId
 	 * @param token
@@ -71,7 +72,7 @@ public class ProductTestEndpoint {
 			
 
 			//调用Service
-			service.query(page->{
+			service.queryList(page->{
 				
 				if(null!=page){					
 					callback.accept(ResultDataUtils.success(page));
@@ -87,6 +88,41 @@ public class ProductTestEndpoint {
 	
 	
 	/**
+	 * 查询详情
+	 * @param callback
+	 * @param corpId
+	 * @param token
+	 */
+	@RequestMapping(value="/test/{productId}",method=RequestMethod.GET)
+	public void queryProduct(Callback<Object> callback,@PathVariable("productId")String productId){
+		logger.debug(">>>>>>>>>>Query productId is {}",productId);
+	
+		 
+		try {
+			
+
+			//请求参数验证
+			if(null==productId || productId.isEmpty()){
+				callback.accept(ResultDataUtils.error("402",new String[]{"productId"}));
+				return;
+			}
+			
+			ProductVO vo=new ProductVO(); 
+			vo.setProductId(productId);
+			service.queryDetail(result->{
+				if(null!=result){
+					callback.accept(ResultDataUtils.success(result));
+				}else{
+					callback.accept(ResultDataUtils.error("404"));
+				}
+			}, vo);
+		} catch (Exception e) {
+			logger.error("the exception is {}",e);
+			callback.accept(ResultDataUtils.error(e));
+		}
+	}
+	
+	/**
 	 * 保存产品
 	 * @param callback
 	 * @param corpId
@@ -98,9 +134,7 @@ public class ProductTestEndpoint {
 	
 		 
 		try {
-			
-			
-			
+
 			
 			//请求参数验证
 			if(null==vo){
@@ -127,6 +161,114 @@ public class ProductTestEndpoint {
 			
 		} catch (Exception e) {
 			
+			callback.accept(ResultDataUtils.error(e));
+		}
+	}
+	
+	
+	
+	/**
+	 * 删除
+	 * @param callback
+	 * @param corpId
+	 * @param token
+	 */
+	@RequestMapping(value="/test/{productId}",method=RequestMethod.DELETE)
+	public void deleteProducttest(Callback<Object> callback,@PathVariable("productId")String productId){
+		logger.debug(">>>>>>>>>>delete product the productId is {}",productId);
+	
+		 
+		try {
+			
+			
+			
+			
+			//请求参数验证
+		
+			if(null==productId ||productId.isEmpty()){
+				callback.accept(ResultDataUtils.error("401",new String[]{"productId"}));
+				return;
+			}
+			
+			
+			ProductVO vo=new ProductVO();
+
+			vo.setProductId(productId);
+			
+			
+			//查询product，验证是否存在
+			
+			service.delete(rownum->{				
+				try {
+					if(null!=rownum && rownum.intValue()==1){
+						callback.accept(ResultDataUtils.success());
+					}else{
+						callback.accept(ResultDataUtils.error("407"));
+					}
+				} catch (Exception e) {
+					logger.error("the exception is {}",e);
+					callback.accept(ResultDataUtils.error(e));
+				}
+			},vo);
+	
+		
+		
+			
+			
+			
+		} catch (Exception e) {
+			logger.error("the exception is {}",e);
+			callback.accept(ResultDataUtils.error(e));
+		}
+	}
+	
+	
+	
+	/**
+	 * 修改
+	 * @param callback
+	 * @param corpId
+	 * @param token
+	 */
+	@RequestMapping(value="/test/{productId}",method=RequestMethod.PUT)
+	public void updateProducttest(Callback<Object> callback,@PathVariable("productId")String productId,ProductVO vo){
+		logger.debug(">>>>>>>>>>update productId is {}, the param is {}",productId,vo);
+	
+		 
+		try {
+			
+
+			//请求参数验证
+			if(null==productId || productId.isEmpty()){
+				callback.accept(ResultDataUtils.error("402"));
+				return;
+			}
+			
+			
+			if(null==vo.getCode() || vo.getCode().isEmpty()){
+				callback.accept(ResultDataUtils.error("401",new String[]{"code"}));
+				return;
+			}
+			
+			if(null==vo.getName() || vo.getName().isEmpty()){
+				callback.accept(ResultDataUtils.error("401",new String[]{"name"}));
+				return;
+			}
+
+			vo.setProductId(productId);
+
+			//调用update Service
+			service.update(rownum->{				
+				if(null!=rownum && rownum.intValue()==1){
+					callback.accept(ResultDataUtils.success());
+				}else{
+					callback.accept(ResultDataUtils.error("406"));
+				}
+			},vo);
+			
+			
+		} catch (Exception e) {
+			logger.error("the exception is {}",e);
 			callback.accept(ResultDataUtils.error(e));
 		}
 	}

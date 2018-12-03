@@ -3,6 +3,7 @@ package com.qloudbiz.core.utils;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.UndeclaredThrowableException;
 import java.util.Properties;
 
 import com.qloudbiz.core.exception.GenericException;
@@ -32,7 +33,7 @@ public class ResultDataUtils {
 		ResultData<T> resultData=new ResultData<T>();
 		
 		resultData.setResultCode(SUCCESS_CODE);
-		resultData.setMsg(MessageUtils.getMessage(SUCCESS_CODE));
+		resultData.setResultMsg(MessageUtils.getMessage(SUCCESS_CODE));
 		resultData.setResult(data);
 		
 		return resultData;
@@ -48,7 +49,7 @@ public class ResultDataUtils {
 		BaseResult resultData=new BaseResult();
 		
 		resultData.setResultCode(SUCCESS_CODE);
-		resultData.setMsg(MessageUtils.getMessage(SUCCESS_CODE));
+		resultData.setResultMsg(MessageUtils.getMessage(SUCCESS_CODE));
 		return resultData;
 	}
 	
@@ -69,7 +70,7 @@ public class ResultDataUtils {
 		
 		if(null!=data){
 			data.setResultCode(SUCCESS_CODE);
-			data.setMsg(MessageUtils.getMessage(SUCCESS_CODE));
+			data.setResultMsg(MessageUtils.getMessage(SUCCESS_CODE));
 		}
 		
 		return data;
@@ -87,7 +88,7 @@ public class ResultDataUtils {
 	
 		
 		resultData.setResultCode(code);
-		resultData.setMsg(MessageUtils.getMessage(code));
+		resultData.setResultMsg(MessageUtils.getMessage(code));
 		resultData.setResult(data);
 		
 		return resultData;
@@ -109,7 +110,7 @@ public class ResultDataUtils {
 	
 		
 		resultData.setResultCode(code);
-		resultData.setMsg(MessageUtils.getMessage(code, placeholders));
+		resultData.setResultMsg(MessageUtils.getMessage(code, placeholders));
 		resultData.setResult(data);
 		
 		return resultData;
@@ -125,7 +126,7 @@ public class ResultDataUtils {
 		ResultData<T> resultData=new ResultData<T>();
 
 		resultData.setResultCode(code);
-		resultData.setMsg(MessageUtils.getMessage(code,placeholders));
+		resultData.setResultMsg(MessageUtils.getMessage(code,placeholders));
 		
 		return resultData;
 	}
@@ -139,7 +140,7 @@ public class ResultDataUtils {
 		ResultData<T> resultData=new ResultData<T>();
 
 		resultData.setResultCode(code);
-		resultData.setMsg(MessageUtils.getMessage(code));
+		resultData.setResultMsg(MessageUtils.getMessage(code));
 		
 		return resultData;
 	}
@@ -156,6 +157,9 @@ public class ResultDataUtils {
 			if(exception instanceof GenericException){
 				return error(((GenericException)exception).getCode());
 			}
+			
+			
+			UndeclaredThrowableException e=null;
 			
 			if(exception instanceof InvocationTargetException ){
 				Throwable throwable=((InvocationTargetException) exception).getTargetException();
@@ -202,7 +206,7 @@ public class ResultDataUtils {
 		
 		if(null!=data){
 			data.setResultCode(code);
-			data.setMsg(MessageUtils.getMessage(code,placeholders));
+			data.setResultMsg(MessageUtils.getMessage(code,placeholders));
 		}
 		
 		

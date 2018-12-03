@@ -12,7 +12,7 @@ import lombok.Data;
 public class BaseResult{
 	
 	private String resultCode;  //返回消息编码
-	private String msg;   //返回消息主体
+	private String resultMsg;   //返回消息主体
 	
 	
 }
