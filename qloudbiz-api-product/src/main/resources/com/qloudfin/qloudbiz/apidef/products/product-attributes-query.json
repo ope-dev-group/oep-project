@@ -1,63 +1,81 @@
 {
-	"returnCode":"0", 
-	"returnMsg":"ok",
-	"pgUpDownFlag":"next",
-	"totalNum":20,
-	"pagePerNum":25,
-	"currentNum":1,
-	"result": [
-		{
-			"attributeId": "2001",
-			"attributeCode": "system",
-			"attributeName": "操作系统",
-			"isRequired": "Y", 
-			"attributeConstraint ": "Enum", 
-			"maxStringLength":null   ,
-			"dateTimeFormat": null, 
-			"numberFormat":null,
-			"numberFormat":null,
-			"sort": "1",
-			"status": "Y",   
-			"productTypeId": "1001", 
-			"attributeType": "Basic", 
-			"attributeGroupId": "3213244-43423545-234534", 
-			"isSearchForMiddlePlatform": "Y", 
-			"isSearchForShoppingMall": "Y", 
-			"remark":"",
-			"createdTime": "2018-11-10  09:30:00",
-			"creatorId": "1001",
-			"creatorName": "张三",
-			"modifyTime": "2018-11-20  09:43:20" ,
-			"modifierId": "1001",
-			"modifierName": "张三",
-			"lastModifyTime": "2018-11-20  09:43:20:123",
-			"tenantId": "qloudfin"
-			},{
-			"attributeId": "2002",
-			"attributeCode": "color",
-			"attributeName": "颜色",
-			"isRequired": "Y", 
-			"attributeConstraint ": "Enum", 
-			"maxStringLength":  null ,
-			"dateTimeFormat": null, 
-			"numberFormat":null,
-			"numberFormat":null,
-			"sort": "2",
-			"status": "Y",   
-			"productTypeId": "3213244-43423545-54254545", 
-			"attributeType": "Basic", 
-			"attributeGroupId": "3213244-43423545-234234", 
-			"isSearchForMiddlePlatform": "Y",
-			"isSearchForShoppingMall": "Y", 
-			"description":"",
-			"createdTime": "2018-11-10  09:30:00",
-			"creatorId": "1001",
-			"creatorName": "张三",
-			"modifyTime": "2018-11-20  09:43:20" ,
-			"modifierId": "1001",
-			"modifierName": "张三",
-			"lastModifyTime": "2018-11-20  09:43:20:123",
-			"tenantId": "qloudfin"
-		}
-	]
+    "returnCode": "0",
+    "returnMsg": "ok",
+    "pgUpDownFlag": "next",
+    "totalNum": 20,
+    "pagePerNum": 25,
+    "currentNum": 1,
+    "result": [
+        {
+            "attributeId": "2001",
+            "attributeCode": "system",
+            "attributeName": "操作系统",
+            "isRequired": "Y",
+            "attributeConstraint ": "Enum",
+            "maxStringLength": "",
+            "dateTimeFormat": "",
+            "numberFormat": "",
+            "sort": "1",
+            "status": "Y",
+            "productTypeId": "1001",
+            "attributeType": "Basic",
+            "attributeGroupId": "3213244-43423545-234534",
+            "isSearchForMiddlePlatform": "Y",
+            "isSearchForShoppingMall": "Y",
+            "remark": "",
+            "createdTime": "2018-11-10  09:30:00",
+            "creatorId": "1001",
+            "creatorName": "张三",
+            "modifyTime": "2018-11-20  09:43:20",
+            "modifierId": "1001",
+            "modifierName": "张三",
+            "lastModifyTime": "2018-11-20  09:43:20:123",
+            "tenantId": "qloudfin",
+            "attrributeValues": [
+                {
+                    "id": "1",
+                    "value": "IOS"
+                },
+                {   "id": "2",
+                    "value": "Android"
+                }
+            ]
+        },
+        {
+            "attributeId": "2002",
+            "attributeCode": "color",
+            "attributeName": "颜色",
+            "isRequired": "Y",
+            "attributeConstraint ": "Enum",
+            "maxStringLength": null,
+            "dateTimeFormat": null,
+            "numberFormat": null,
+            "sort": "2",
+            "status": "Y",
+            "productTypeId": "3213244-43423545-54254545",
+            "attributeType": "Basic",
+            "attributeGroupId": "3213244-43423545-234234",
+            "isSearchForMiddlePlatform": "Y",
+            "isSearchForShoppingMall": "Y",
+            "description": "",
+            "createdTime": "2018-11-10  09:30:00",
+            "creatorId": "1001",
+            "creatorName": "张三",
+            "modifyTime": "2018-11-20  09:43:20",
+            "modifierId": "1001",
+            "modifierName": "张三",
+            "lastModifyTime": "2018-11-20  09:43:20:123",
+            "tenantId": "qloudfin",
+            "attrributeValues": [
+                {
+                    "id":"1",
+                    "value": "红色"
+                },
+                {
+                    "id":"2",
+                    "value": "黄色"
+                }
+            ]
+        }
+    ]
 }

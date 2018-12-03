@@ -15,25 +15,33 @@
 					"typeName": "苹果手机分类",
 					"parentId": null,
 					"sort": "1",
+					"lineId":"101",
+					"status":"Y",
 					"children": 
 					[
 						{
 						"typeId": "100001",
 						"typeCode":"iphne8",
 						"typeName": "苹果8手机",
-						"sort": "1"
+						"sort": "1",
+						"lineId":"101-8",
+						"status":"Y"
 						},
 						{
 						"typeId": "100002",
 						"typeCode":"iphonex",
 						"typeName": "苹果x手机",
-						"sort": "2"
+						"sort": "2",
+						"lineId":"101-x",
+						"status":"Y"
 						},
 						{
 						"typeId": "100003",
 						"typeCode":"iphonexs",
 						"typeName": "苹果xs手机",
-						"sort": "3"
+						"sort": "3",
+						"lineId":"101-xs",
+						"status":"Y"
 						}
 					]
 				},
@@ -42,19 +50,25 @@
 					"typeCode":"ipad-type",
 					"typeName": "苹果平板电脑分类",
 					"sort": "2",
+					"lineId":"102",
+					"status":"Y",
 					"children": 
 					[
 						{
 						"typeId": "100004",
 						"typeCode":"ipadmin",
 						"typeName": "ipad min",
-						"sort": "1"
+						"sort": "1",
+						"lineId":"102-min",
+						"status":"Y"
 						},
 						{
 						"typeId": "100005",
 						"typeCode":"ipadpro",
 						"typeName": "ipad pro",
-						"sort": "2"
+						"sort": "2",
+						"lineId":"102-pro",
+						"status":"Y"
 						}
 					]
 				}

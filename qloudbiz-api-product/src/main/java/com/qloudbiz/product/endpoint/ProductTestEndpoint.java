@@ -76,6 +76,8 @@ public class ProductTestEndpoint {
 				
 				if(null!=page){					
 					callback.accept(ResultDataUtils.success(page));
+				}else{
+					callback.accept(ResultDataUtils.error("409"));
 				}
 			},vo);
 			
