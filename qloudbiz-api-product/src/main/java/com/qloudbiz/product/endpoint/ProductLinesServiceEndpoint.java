@@ -1,27 +1,17 @@
 package com.qloudbiz.product.endpoint;
 
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-import java.util.Map;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.alibaba.fastjson.JSON;
-import com.qloudbiz.core.exception.GenericException;
+import com.alibaba.fastjson.serializer.SimplePropertyPreFilter;
 import com.qloudbiz.core.factory.ServiceProxyFactory;
-import com.qloudbiz.core.result.PageResultData;
-import com.qloudbiz.core.utils.FileUtils;
 import com.qloudbiz.core.utils.ResultDataUtils;
 import com.qloudbiz.product.pojo.ProductLine;
 import com.qloudbiz.product.service.ProductLineService;
 import com.qloudbiz.product.service.impl.ProductLineServiceImpl;
 import com.qloudbiz.product.vo.ProductLineVO;
-import com.qloudbiz.product.vo.ProductVO;
 import com.qloudfin.qloudbus.annotation.PathVariable;
 import com.qloudfin.qloudbus.annotation.RequestMapping;
 import com.qloudfin.qloudbus.annotation.RequestMethod;
@@ -83,7 +73,8 @@ public class ProductLinesServiceEndpoint {
 			}
 			//调用service
 			service.save(productLine -> {
-				callback.accept(ResultDataUtils.success(productLine));
+				String jsonStr = JSON.toJSONString(ResultDataUtils.success(productLine),new SimplePropertyPreFilter(ProductLine.class,"lineId","lineCode"));
+				callback.accept(JSON.parse(jsonStr));
 			}, vo);
 			
 		} catch (Exception e) {
@@ -104,13 +95,20 @@ public class ProductLinesServiceEndpoint {
 	public void updateLines(Callback<Object> callback,@PathVariable("lineId") String lineId,ProductLineVO vo){
 		
 		//调试日志
-		logger.debug(">>>>>>>>>Update lines :lineId is:{}",lineId);
+		logger.debug(">>>>>>>>>Update lines :lineId is:{}, the param is {}",lineId,vo);
 		
 		try {
-			if (null == lineId || lineId.isEmpty()) {
+			if (null == vo) {
 				callback.accept(ResultDataUtils.error("402"));
 				return;
 			}
+			if (StringUtils.isEmpty(lineId)) {
+				callback.accept(ResultDataUtils.error("401",new String[]{"lineId"}));
+				return;
+			}
+			
+			vo.setLineId(lineId);
+			
 			if (StringUtils.isEmpty(vo.getLineName())) {
 				callback.accept(ResultDataUtils.error("401",new String[]{"lineName"}));
 				return;
@@ -123,7 +121,11 @@ public class ProductLinesServiceEndpoint {
 				callback.accept(ResultDataUtils.error("401",new String[] {"status"}));
 				return;
 			}
-			vo.setLineId(lineId);
+			//状态验证
+			if(!("Y".equals(vo.getStatus()) || "N".equals(vo.getStatus()))){
+				callback.accept(ResultDataUtils.error("410",new String[]{"status"}));
+				return;
+			}
 			//调用service
 			service.update(rownum -> {
 				if (null != rownum && rownum.intValue()==1) {
@@ -204,22 +206,6 @@ public class ProductLinesServiceEndpoint {
 				callback.accept(ResultDataUtils.error("401",new String[]{"pagePerNum"}));
 				return;
 			}
-			if(StringUtils.isEmpty(lineCode)) {
-				callback.accept(ResultDataUtils.error("401", new String[] {"lineCode"}));
-				return;
-			}
-			if(StringUtils.isEmpty(lineName)) {
-				callback.accept(ResultDataUtils.error("401", new String[] {"lineName"}));
-				return;
-			}
-			if(StringUtils.isEmpty(status)) {
-				callback.accept(ResultDataUtils.error("401", new String[] {"status"}));
-				return;
-			}
-			if(StringUtils.isEmpty(tenantId)) {
-				callback.accept(ResultDataUtils.error("401", new String[] {"tenantId"}));
-				return;
-			}
 			
 			//参数设置
 			ProductLineVO vo = new ProductLineVO(); 
@@ -271,7 +257,9 @@ public class ProductLinesServiceEndpoint {
 			//调用查询详情
 			service.queryInfo(result->{
 				if (null != result) {
-					callback.accept(ResultDataUtils.success(result));
+                   String jsonStr=JSON.toJSONString(ResultDataUtils.success(result));
+					
+					callback.accept(JSON.parse(jsonStr));
 				} else {
 					callback.accept(ResultDataUtils.error("404"));	
 				}

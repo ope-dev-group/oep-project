@@ -132,10 +132,10 @@ public class ProductLineServiceImpl implements ProductLineService{
 					e1.printStackTrace();
 				}
 				//记录存在则更新
-				line.setModifierId("1");
-				line.setModifierName("admin");
-				line.setModifyTime(new Timestamp(System.currentTimeMillis()));
-				line.setLastModifyTime(line.getModifyTime());
+				vo.setModifierId("1");
+				vo.setModifierName("admin");
+				vo.setModifyTime(new Timestamp(System.currentTimeMillis()));
+				vo.setLastModifyTime(vo.getModifyTime());
 				if(null!=line && StringUtils.isNotEmpty(line.getLineId())){
 					productLineDao.update(rownum->{
 						callback.accept(rownum);
