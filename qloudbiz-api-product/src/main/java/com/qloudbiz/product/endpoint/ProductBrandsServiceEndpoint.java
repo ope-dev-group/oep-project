@@ -7,13 +7,22 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
+
+
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+
+
+
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SimplePropertyPreFilter;
 import com.qloudbiz.core.factory.ServiceProxyFactory;
+import com.qloudbiz.core.result.ResultData;
 import com.qloudbiz.core.utils.FileUtils;
 import com.qloudbiz.core.utils.ResultDataUtils;
+import com.qloudbiz.product.pojo.ProductBrand;
 import com.qloudbiz.product.service.ProductBrandService;
 import com.qloudbiz.product.service.ProductTestService;
 import com.qloudbiz.product.service.impl.ProductBrandServiceImpl;
@@ -60,8 +69,6 @@ public class ProductBrandsServiceEndpoint {
 		// 调试日志
 		logger.debug(">>>>>>>>>>>>>Add brands param is:{}", vo);
 
-	
-		
 		 
 		try {
 
@@ -103,8 +110,11 @@ public class ProductBrandsServiceEndpoint {
 			
 
 			//调用Save
-			service.save(brand->{				
-				callback.accept(ResultDataUtils.success(brand));
+			service.save(brand->{
+				
+				String jsonStr=JSON.toJSONString(ResultDataUtils.success(brand),new SimplePropertyPreFilter(ProductBrand.class,"brandId","brandCode"));
+				
+				callback.accept(JSON.parse(jsonStr));
 			},vo);
 			
 			
@@ -345,9 +355,11 @@ public class ProductBrandsServiceEndpoint {
 			vo.setBrandId(brandId);
 			
 			//调用查询详情方法
-			service.queryDetail(result->{
-				if(null!=result){
-					callback.accept(ResultDataUtils.success(result));
+			service.queryDetail(brand->{
+				if(null!=brand){
+					String jsonStr=JSON.toJSONString(ResultDataUtils.success(brand));
+					
+					callback.accept(JSON.parse(jsonStr));
 				}else{
 					callback.accept(ResultDataUtils.error("404"));
 				}

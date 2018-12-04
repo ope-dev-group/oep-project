@@ -88,6 +88,8 @@ public class ProductBrandServiceImpl implements ProductBrandService{
 	public void save(Callback<ProductBrand> callback, ProductBrandVO vo) throws GenericException{
 		logger.debug(">>>>>>>>>>Service Method :save  Start");
 		
+		vo.setBrandId(PKUtils.genPK());
+		
 		//设置创建人信息
 		vo.setCreatorId("1");
 		vo.setCreatorName("admin");
