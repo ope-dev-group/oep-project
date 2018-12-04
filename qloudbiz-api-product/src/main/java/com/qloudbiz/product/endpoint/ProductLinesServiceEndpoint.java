@@ -76,20 +76,9 @@ public class ProductLinesServiceEndpoint {
 				callback.accept(ResultDataUtils.error("401", new String[] {"status"}));
 				return;
 			}
-			if(StringUtils.isEmpty(vo.getCreatedTime())) {
-				callback.accept(ResultDataUtils.error("401", new String[] {"createdTime"}));
-				return;
-			}
-			if(StringUtils.isEmpty(vo.getCreatorId())) {
-				callback.accept(ResultDataUtils.error("401", new String[] {"creatorId"}));
-				return;
-			}
-			if(StringUtils.isEmpty(vo.getCreatorName())) {
-				callback.accept(ResultDataUtils.error("401", new String[] {"creatorName"}));
-				return;
-			}
-			if(StringUtils.isEmpty(vo.getTenantId())) {
-				callback.accept(ResultDataUtils.error("401", new String[] {"tenantId"}));
+			//状态验证
+			if(!("Y".equals(vo.getStatus()) || "N".equals(vo.getStatus()))){
+				callback.accept(ResultDataUtils.error("410",new String[]{"status"}));
 				return;
 			}
 			//调用service
