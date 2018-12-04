@@ -37,8 +37,7 @@ public class ResultDataUtils {
 		resultData.setResultMsg(MessageUtils.getMessage(SUCCESS_CODE));
 		resultData.setResult(data);
 		
-		String objstr=JSON.toJSONString(resultData);
-		return JSON.parseObject(objstr, resultData.getClass());
+		return resultData;		
 	}
 	
 	/**
