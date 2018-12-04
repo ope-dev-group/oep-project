@@ -1,34 +1,15 @@
 package com.qloudbiz.product.vo;
 
 import java.io.Serializable;
-import java.util.Date;
+
+import com.qloudbiz.product.pojo.ProductLine;
 
 import lombok.Data;
 
-import com.qloudbiz.core.vo.PageVO;
-
 @Data
-public class ProductLineVO extends PageVO implements Serializable{
+public class ProductLineVO extends ProductLine implements Serializable{
 	
-	/**
-	 * productLine的属性，因为查询列表可能会有分页，因此继承PageVO
-	 */
-	private String lineId;
-	private String lineCode;
-	private String lineName;
-	private String parentId;
-	private Integer sort;
-	private String status;
-	private Date createdTime;
-	private String creatorId;
-	private String creatorName;
-	private Date modifyTime;
-	private String modifierId;
-	private String modifierName;
-	private Date lastModifyTime;
-	private String ownerCompanyCode;
-	private String tenantId;
-	
-	
-
+	//分页参数
+	private Integer pagePerNum=null;//pageSize,页大小
+	private Integer currentNum=null;//当前页
 }

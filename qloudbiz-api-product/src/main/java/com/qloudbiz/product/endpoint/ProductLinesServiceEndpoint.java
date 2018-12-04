@@ -27,6 +27,7 @@ import com.qloudfin.qloudbus.annotation.RequestMapping;
 import com.qloudfin.qloudbus.annotation.RequestMethod;
 import com.qloudfin.qloudbus.annotation.RequestParam;
 import com.qloudfin.qloudbus.reactive.Callback;
+import com.qloudfin.qloudbus.security.util.StringUtils;
 
 
 /**
@@ -40,12 +41,6 @@ public class ProductLinesServiceEndpoint {
 	
 	private final static Logger logger=LoggerFactory.getLogger(ProductLinesServiceEndpoint.class);
 	
-//	private final static String PATH_ADD_LINES_JSON="com/qloudfin/qloudbiz/apidef/products/productlines-create.json";	
-//	
-//	private final static String PATH_UPDATE_DELETE="com/qloudfin/qloudbiz/apidef/common/update_or_delete.json";//新增或者修改json
-//	private final static String PATH_LIST_LINES_JSON="com/qloudfin/qloudbiz/apidef/products/productlines-list.json";
-//	private final static String PATH_QUERY_LINES_DETAIL_JSON="com/qloudfin/qloudbiz/apidef/products/productlines-detail.json";
-
 	private ProductLineService service = ServiceProxyFactory.createProxy(ProductLineServiceImpl.class);
 	
 	/**
@@ -55,20 +50,58 @@ public class ProductLinesServiceEndpoint {
 	 * @param token
 	 */
 	@RequestMapping(value="/lines",method=RequestMethod.POST)
-	public void addLines(Callback<Object> callback,Map<String,String> body){
-		
-		
+	public void addLines(Callback<Object> callback, ProductLineVO vo){
 		//调试日志
-		logger.debug(">>>>>>>>>>>>>Add lines param is:{}",body);
-	
-//		//读取json数据
-//		String content=FileUtils.getResourceContent(PATH_ADD_LINES_JSON);
-//		
-//		//业务处理
-//		Object resultObj=JSON.parse(content);
-//	
-//		
-//		callback.accept(resultObj);	
+		logger.debug(">>>>>>>>>>>>>Add lines param is:{}",vo);
+	    
+		try {
+			//请求参数验证
+			if(null ==vo) {
+				callback.accept(ResultDataUtils.error("402"));
+				return;
+			}
+			if(StringUtils.isEmpty(vo.getLineCode())) {
+				callback.accept(ResultDataUtils.error("401",new String[] {"lineCode"}));
+				return;
+			}
+			if(StringUtils.isEmpty(vo.getLineName())) {
+				callback.accept(ResultDataUtils.error("401", new String[] {"lineName"}));
+				return;
+			}
+			if(StringUtils.isEmpty(vo.getSort())) {
+				callback.accept(ResultDataUtils.error("401", new String[] {"sort"}));
+				return;
+			}
+			if(StringUtils.isEmpty(vo.getStatus())) {
+				callback.accept(ResultDataUtils.error("401", new String[] {"status"}));
+				return;
+			}
+			if(StringUtils.isEmpty(vo.getCreatedTime())) {
+				callback.accept(ResultDataUtils.error("401", new String[] {"createdTime"}));
+				return;
+			}
+			if(StringUtils.isEmpty(vo.getCreatorId())) {
+				callback.accept(ResultDataUtils.error("401", new String[] {"creatorId"}));
+				return;
+			}
+			if(StringUtils.isEmpty(vo.getCreatorName())) {
+				callback.accept(ResultDataUtils.error("401", new String[] {"creatorName"}));
+				return;
+			}
+			if(StringUtils.isEmpty(vo.getTenantId())) {
+				callback.accept(ResultDataUtils.error("401", new String[] {"tenantId"}));
+				return;
+			}
+			//调用service
+			service.save(productLine -> {
+				callback.accept(ResultDataUtils.success(productLine));
+			}, vo);
+			
+		} catch (Exception e) {
+			logger.error("the excption is {}",e);
+			callback.accept(ResultDataUtils.error(e));
+		}
+		
 	}
 	
 	
@@ -79,20 +112,43 @@ public class ProductLinesServiceEndpoint {
 	 * @param token
 	 */
 	@RequestMapping(value="/lines/{lineId}",method=RequestMethod.PUT)
-	public void updateLines(Callback<Object> callback,@PathVariable("lineId") String lineId,Map<String,String> body){
-		
+	public void updateLines(Callback<Object> callback,@PathVariable("lineId") String lineId,ProductLineVO vo){
 		
 		//调试日志
-		logger.debug(">>>>>>>>>Update lines :lineId is:{},param is {}",lineId,body);
+		logger.debug(">>>>>>>>>Update lines :lineId is:{}",lineId);
 		
-//		//读取json数据
-//		String content=FileUtils.getResourceContent(PATH_UPDATE_DELETE);
-//				
-//		//业务处理
-//		Object resultObj=JSON.parse(content);
-//	
-//		
-//		callback.accept(resultObj);	
+		try {
+			if (null == lineId || lineId.isEmpty()) {
+				callback.accept(ResultDataUtils.error("402"));
+				return;
+			}
+			if (StringUtils.isEmpty(vo.getLineName())) {
+				callback.accept(ResultDataUtils.error("401",new String[]{"lineName"}));
+				return;
+			}
+			if (StringUtils.isEmpty(vo.getSort())) {
+				callback.accept(ResultDataUtils.error("401",new String[]{"sort"}));
+				return;
+			}
+			if (StringUtils.isEmpty(vo.getStatus())) {
+				callback.accept(ResultDataUtils.error("401",new String[] {"status"}));
+				return;
+			}
+			vo.setLineId(lineId);
+			//调用service
+			service.update(rownum -> {
+				if (null != rownum && rownum.intValue()==1) {
+					callback.accept(ResultDataUtils.success());
+				}else {
+					callback.accept(ResultDataUtils.error("406"));
+				}
+			},vo);
+			
+		} catch (Exception e) {
+			logger.error("the exception is {}",e);
+			callback.accept(ResultDataUtils.error(e));
+		}
+		
 	}
 	
 	/**
@@ -104,18 +160,30 @@ public class ProductLinesServiceEndpoint {
 	@RequestMapping(value="/lines/{lineId}",method=RequestMethod.DELETE)
 	public void deleteLines(Callback<Object> callback,@PathVariable("lineId") String lineId){
 		
-		
 		//调试日志
-		logger.debug("Delete lines :lineId is:{}",lineId);
-		
-//		//读取json数据
-//		String content=FileUtils.getResourceContent(PATH_UPDATE_DELETE);
-//				
-//		//业务处理
-//		Object resultObj=JSON.parse(content);
-//	
-//		
-//		callback.accept(resultObj);		
+		logger.debug(">>>>>>>>>>delete product the lineId is {}",lineId);
+		 
+		try {
+			//请求参数验证
+			if(StringUtils.isEmpty(lineId)){
+				callback.accept(ResultDataUtils.error("401",new String[]{"lineId"}));
+				return;
+			}
+			ProductLineVO vo=new ProductLineVO();
+			vo.setLineId(lineId);
+			//调用delete方法
+			service.delete(rownum->{				
+				if(null!=rownum && rownum.intValue()==1){
+					callback.accept(ResultDataUtils.success());
+				}else{
+					callback.accept(ResultDataUtils.error("407"));
+				}
+			},vo);
+		} catch (Exception e) {
+			logger.error("the exception is {}",e);
+			callback.accept(ResultDataUtils.error(e));
+		}
+			
 	}
 	
 	/**
@@ -139,27 +207,30 @@ public class ProductLinesServiceEndpoint {
 		
 		try {
 			
-//			if(currentNum < 0) {
-//				callback.accept(ResultDataUtils.error("401",new String[]{"currentNum"}));
-//				return;
-//			}
-//			if(pagePerNum < 0) {
-//				callback.accept(ResultDataUtils.error("401",new String[]{"pagePerNum"}));
-//				return;
-//			}
-//			if(lineCode == null || lineCode == "") {
-//				callback.accept(ResultDataUtils.error("401", new String[] {"lineCode"}));
-//				return;
-//			}
-//			if(lineName == null || lineName == "") {
-//				callback.accept(ResultDataUtils.error("401", new String[] {"lineName"}));
-//			}
-//			if(status == null || status == "") {
-//				callback.accept(ResultDataUtils.error("401", new String[] {"status"}));
-//			}
-//			if(tenantId == null || tenantId == "") {
-//				callback.accept(ResultDataUtils.error("401", new String[] {"tenantId"}));
-//			}
+			if(currentNum <= 0) {
+				callback.accept(ResultDataUtils.error("401",new String[]{"currentNum"}));
+				return;
+			}
+			if(pagePerNum <= 0) {
+				callback.accept(ResultDataUtils.error("401",new String[]{"pagePerNum"}));
+				return;
+			}
+			if(StringUtils.isEmpty(lineCode)) {
+				callback.accept(ResultDataUtils.error("401", new String[] {"lineCode"}));
+				return;
+			}
+			if(StringUtils.isEmpty(lineName)) {
+				callback.accept(ResultDataUtils.error("401", new String[] {"lineName"}));
+				return;
+			}
+			if(StringUtils.isEmpty(status)) {
+				callback.accept(ResultDataUtils.error("401", new String[] {"status"}));
+				return;
+			}
+			if(StringUtils.isEmpty(tenantId)) {
+				callback.accept(ResultDataUtils.error("401", new String[] {"tenantId"}));
+				return;
+			}
 			
 			//参数设置
 			ProductLineVO vo = new ProductLineVO(); 
@@ -195,17 +266,30 @@ public class ProductLinesServiceEndpoint {
 	@RequestMapping(value="/lines/{lineId}",method=RequestMethod.GET)
 	public void queryLinesDetail(Callback<Object> callback,@PathVariable("lineId")String lineId){
 		
-		
 		//调试日志
-		logger.debug("Query lines");
+		logger.debug("Query info lines");
 		
-//		//读取json数据
-//		String content=FileUtils.getResourceContent(PATH_QUERY_LINES_DETAIL_JSON);
-//				
-//		//业务处理
-//		Object resultObj=JSON.parse(content);
-//	
-//		
-//		callback.accept(resultObj);	
+		try {
+			
+			//验证参数
+			if(StringUtils.isEmpty(lineId)) {
+				callback.accept(ResultDataUtils.error("402",new String[]{"lineId"}));
+				return;
+			}
+			//设置参数
+			ProductLineVO vo = new ProductLineVO();
+			vo.setLineId(lineId);
+			//调用查询详情
+			service.queryInfo(result->{
+				if (null != result) {
+					callback.accept(ResultDataUtils.success(result));
+				} else {
+					callback.accept(ResultDataUtils.error("404"));	
+				}
+			}, vo);
+		} catch (Exception e) {
+			logger.error("the exception is {}",e);
+			callback.accept(ResultDataUtils.error(e));
+		}
 	}
 }
