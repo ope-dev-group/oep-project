@@ -6,6 +6,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.UndeclaredThrowableException;
 import java.util.Properties;
 
+import com.alibaba.fastjson.JSON;
 import com.qloudbiz.core.exception.GenericException;
 import com.qloudbiz.core.result.BaseResult;
 import com.qloudbiz.core.result.PageResultData;
@@ -36,7 +37,8 @@ public class ResultDataUtils {
 		resultData.setResultMsg(MessageUtils.getMessage(SUCCESS_CODE));
 		resultData.setResult(data);
 		
-		return resultData;
+		String objstr=JSON.toJSONString(resultData);
+		return JSON.parseObject(objstr, resultData.getClass());
 	}
 	
 	/**
@@ -91,7 +93,10 @@ public class ResultDataUtils {
 		resultData.setResultMsg(MessageUtils.getMessage(code));
 		resultData.setResult(data);
 		
-		return resultData;
+
+		String objstr=JSON.toJSONString(resultData);
+		return JSON.parseObject(objstr, resultData.getClass());
+		
 	}
 	
 	
@@ -112,8 +117,9 @@ public class ResultDataUtils {
 		resultData.setResultCode(code);
 		resultData.setResultMsg(MessageUtils.getMessage(code, placeholders));
 		resultData.setResult(data);
+		String objstr=JSON.toJSONString(resultData);
+		return JSON.parseObject(objstr, resultData.getClass());
 		
-		return resultData;
 	}
 	
 	
@@ -136,8 +142,8 @@ public class ResultDataUtils {
 	 * @param code
 	 * @return
 	 */
-	public static <T> BaseResult error(String code){
-		ResultData<T> resultData=new ResultData<T>();
+	public static BaseResult error(String code){
+		ResultData resultData=new ResultData();
 
 		resultData.setResultCode(code);
 		resultData.setResultMsg(MessageUtils.getMessage(code));

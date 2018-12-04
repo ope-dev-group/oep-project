@@ -262,7 +262,7 @@ public class ProductTestEndpoint {
 			vo.setProductId(productId);
 			
 
-			//调用update Service
+			//调用update
 			service.update(rownum->{				
 				if(null!=rownum && rownum.intValue()==1){
 					callback.accept(ResultDataUtils.success());
