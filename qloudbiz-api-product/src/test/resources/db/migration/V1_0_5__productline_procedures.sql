@@ -1,7 +1,37 @@
--- insert a productLine
+-- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTLINE_DELETE_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTLINE_DELETE_PROCEDURE`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTLINE_DELETE_PROCEDURE`(
+	 IN v_lineId varchar(50)
+)
+lable:BEGIN
+   	DELETE FROM productLine WHERE lineId=v_lineId;
+END
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTLINE_INFO_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTLINE_INFO_PROCEDURE`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTLINE_INFO_PROCEDURE`(
+	IN v_lineId varchar(50)
+)
+lable:BEGIN
+	SELECT * FROM productLine WHERE lineId = v_lineId;
+END
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTLINE_INSERT_PROCEDURE
+-- ----------------------------
 DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTLINE_INSERT_PROCEDURE`;
-DELIMITER //
-CREATE  PROCEDURE `QLOUDFLOW_PRODUCTLINE_INSERT_PROCEDURE`(
+DELIMITER ;;
+CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTLINE_INSERT_PROCEDURE`(
 	 IN v_lineId varchar(50),
      IN v_lineCode varchar(50), 
      IN v_lineName varchar(100),
@@ -58,18 +88,20 @@ lable:BEGIN
      v_tenantId
 	); 
 	
-END//
+	
+
+END
+;;
 DELIMITER ;
 
-
-
-
--- query productLines
-DROP PROCEDURE IF EXISTS QLOUDFLOW_PRODUCTLINE_LISTALL_PROCEDURE;
-DELIMITER //
-CREATE PROCEDURE QLOUDFLOW_PRODUCTLINE_LISTALL_PROCEDURE(
-	IN v_currentNum int,
-	IN v_pagePerNum int,
+-- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTLINE_LISTALL_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTLINE_LISTALL_PROCEDURE`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTLINE_LISTALL_PROCEDURE`(
+	IN v_startrow int,
+	IN v_pagesize int,
 	IN v_lineCode varchar(50),
 	IN v_lineName varchar(100),
 	IN v_status varchar(16),
@@ -77,79 +109,51 @@ CREATE PROCEDURE QLOUDFLOW_PRODUCTLINE_LISTALL_PROCEDURE(
 )
 lable:BEGIN
 	IF 
-	v_pagePerNum=-1  THEN SELECT COUNT(1) FROM productLine where lineCode is null or lineCode like CONCAT('%',v_lineCode,'%') 
-	and lineName is null or lineName like CONCAT('%',v_lineName,'%')
-	and status is null or status like CONCAT('%',v_status, '%')
-	and tenantId is null or tenantId like CONCAT('%',v_tenantId,'%');
+	v_startrow=-1  THEN SELECT COUNT(1) 
+	FROM productLine where 
+	(v_lineCode is null or lineCode like CONCAT('%',v_lineCode,'%') )
+	and (v_lineName is null or lineName like CONCAT('%',v_lineName,'%'))
+	and (v_status is null or status = v_status)
+	and (v_tenantId is null or tenantId = v_tenantId);
 	ELSE
-	SELECT * FROM productLine 
-	where lineCode like CONCAT('%',v_lineCode,'%') 
-	and lineName like CONCAT('%',v_lineName,'%')
-	and status like CONCAT('%',v_status,'%')
-	and tenantId like CONCAT('%',v_tenantId,'%')
-	LIMIT v_currentNum,v_pagePerNum;
+	SELECT * FROM productLine where 
+	(v_lineCode is null or lineCode like CONCAT('%',v_lineCode,'%') )
+	and (v_lineName is null or lineName like CONCAT('%',v_lineName,'%'))
+	and (v_status is null or status = v_status)
+	and (v_tenantId is null or tenantId = v_tenantId)
+	LIMIT v_startrow,v_pagesize;
 	END IF;
-END//
-DELIMITER;
-
-
-
-
-
--- query info productLines
-DROP PROCEDURE IF EXISTS QLOUDFLOW_PRODUCTLINE_INFO_PROCEDURE;
-DELIMITER //
-CREATE PROCEDURE QLOUDFLOW_PRODUCTLINE_INFO_PROCEDURE(
-	IN v_lineId varchar(50)
-)
-lable:BEGIN
-	SELECT * FROM productLine WHERE lineId = v_lineId;
-END//
-DELIMITER;
-
-
-
-
--- delete productLines
-DROP PROCEDURE IF EXISTS QLOUDFLOW_PRODUCTLINE_DELETE_PROCEDURE;
-DELIMITER //
-CREATE  PROCEDURE QLOUDFLOW_PRODUCTLINE_DELETE_PROCEDURE(
-	 IN v_lineId varchar(50)
-)
-lable:BEGIN
-   	DELETE FROM productLine WHERE lineId=v_lineId;
-   	
-	SELECT  ROW_COUNT();
-
-END//
+END
+;;
 DELIMITER ;
 
-
-
-
-
---update productLine
-DROP PROCEDURE IF EXISTS QLOUDFLOW_PRODUCTLINE_UPDATE_PROCEDURE;
-DELIMITER //
-CREATE PROCEDURE  QLOUDFLOW_PRODUCTLINE_UPDATE_PROCEDURE(
-    IN v_lineId varchar(50),
+-- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTLINE_UPDATE_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTLINE_UPDATE_PROCEDURE`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTLINE_UPDATE_PROCEDURE`(
+  IN v_lineId varchar(50),
 	IN v_lineName varchar(100),
 	IN v_parentId varchar(50),
 	IN v_sort int(4),
-	IN v_status varchar(16)
+	IN v_status varchar(16),
+	IN v_modifierId varchar(50),
+	IN v_modifierName varchar(50),
+	IN v_modifyTime timestamp,
+	IN v_lastModifyTime timestamp
 )
 label:BEGIN
 	UPDATE productLine set 
 	lineName=v_lineName,
 	parentId=v_parentId,
 	sort=v_sort,
-	status=v_status
+	status=v_status,
+	modifierId = v_modifierId,
+	modifierName = v_modifierName,
+	modifyTime = v_modifyTime,
+	lastModifyTime = v_lastModifyTime
 	where lineId=v_lineId;
-
-  SELECT  ROW_COUNT();
-END//
-
+END
+;;
 DELIMITER ;
-
-
-
