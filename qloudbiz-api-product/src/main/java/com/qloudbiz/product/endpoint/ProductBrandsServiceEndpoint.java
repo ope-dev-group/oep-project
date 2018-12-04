@@ -45,7 +45,6 @@ import com.qloudfin.qloudbus.security.util.StringUtils;
 @RequestMapping("/products")
 public class ProductBrandsServiceEndpoint {
 	private final static String PATH_ADD_BRANDS_JSON = "com/qloudfin/qloudbiz/apidef/products/productbrands-create.json";// 添加品牌json
-
 	private final static String PATH_UPDATE_DELETE = "com/qloudfin/qloudbiz/apidef/common/update_or_delete.json";// 新增或者修改json
 	private final static String PATH_LIST_BRANDS_JSON = "com/qloudfin/qloudbiz/apidef/products/productbrands-list.json";// 添加品牌json
 
@@ -223,7 +222,7 @@ public class ProductBrandsServiceEndpoint {
 
 		callback.accept(resultObj);*/
 		
-		logger.debug(">>>>>>>>>>>>delete productBrand the productId is {}",brandId);
+		logger.debug(">>>>>>>>>>>>>>>>>Delete productBrand the brandId is {}",brandId);
 		
 		 
 		try {
