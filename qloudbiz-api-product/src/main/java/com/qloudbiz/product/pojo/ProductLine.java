@@ -45,7 +45,7 @@ public class ProductLine {
 	private String modifierName;
 	
 	@Pojo(name = "lastModifyTime")
-	private String lastModifyTime;
+	private Date lastModifyTime;
 	
 	@Pojo(name = "ownerCompanyCode")
 	private String ownerCompanyCode;
