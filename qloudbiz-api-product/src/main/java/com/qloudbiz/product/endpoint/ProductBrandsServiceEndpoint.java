@@ -226,10 +226,6 @@ public class ProductBrandsServiceEndpoint {
 		
 		 
 		try {
-			
-			
-			
-			
 			//请求参数验证
 		
 			if(StringUtils.isEmpty(brandId)){

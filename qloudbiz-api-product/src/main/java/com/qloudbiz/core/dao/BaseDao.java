@@ -35,7 +35,7 @@ public  class BaseDao {
 	private Logger logger=LoggerFactory.getLogger(BaseDao.class);
 
 	/**
-	 * 调用存储过程的查询，接收参数列表，返回单一结果
+	 * 调用存储过程查询，返回单一结果,接收参数列表。
 	 * @param callabelSql
 	 * @param params
 	 * @return
@@ -55,7 +55,7 @@ public  class BaseDao {
 	
 	
 	/**
-	 * 调用存储过程的查询，接收参数列表，返回单一结果
+	 * 调用存储过程的查询，返回单一结果,接收可变参数
 	 * @param callabelSql
 	 * @param params
 	 * @return
@@ -73,7 +73,7 @@ public  class BaseDao {
 	
 	
 	/**
-	 * 调用存储过程的查询，接收参数列表，返回单一结果
+	 * 调用存储过程的查询，返回单一结果,不接收参数
 	 * @param callabelSql
 	 * @param params
 	 * @return
@@ -92,7 +92,7 @@ public  class BaseDao {
 	
 	
 	/**
-	 * 调用存储过程的查询，接收参数列表，返回查询列表
+	 * 调用存储过程的查询，返回查询列表，接收列表参数
 	 * @param callabelSql
 	 * @param params
 	 * @return
@@ -115,7 +115,7 @@ public  class BaseDao {
 	
 	
 	/**
-	 * 调用存储过程的查询，接收参数列表，返回查询列表
+	 * 调用存储过程的查询，返回查询列表,接收可变参数
 	 * @param callabelSql  存储过程sql
 	 * @param params	        可变参数列表
 	 * @return
@@ -140,7 +140,7 @@ public  class BaseDao {
 	
 	
 	/**
-	 * 调用存储过程的查询，不接收参数，返回查询列表
+	 * 调用存储过程的查询，返回查询列表,不接收参数
 	 * @param callabelSql  存储过程sql
 	 * @param params	        可变参数列表
 	 * @return
@@ -163,7 +163,7 @@ public  class BaseDao {
 	
 	
 	/**
-	 * 调用存储过程的查询，接收参数列表，返回单一结果
+	 * 调用存储过程的查询，返回单个Map集合，接收参数列表。
 	 * @param callabelSql
 	 * @param params
 	 * @return
@@ -179,7 +179,7 @@ public  class BaseDao {
 	
 	
 	/**
-	 * 调用存储过程的查询，接收参数列表，返回单一结果
+	 * 调用存储过程的查询，返回单一Map集合结果，接收可变参数
 	 * @param callabelSql
 	 * @param params
 	 * @return
@@ -195,7 +195,7 @@ public  class BaseDao {
 	
 	
 	/**
-	 * 调用存储过程的查询，接收参数列表，返回单一结果
+	 * 调用存储过程的查询，返回单一Map集合结果，不接收参数列表。
 	 * @param callabelSql
 	 * @param params
 	 * @return
@@ -213,7 +213,7 @@ public  class BaseDao {
 	
 	
 	/**
-	 * 调用存储过程的查询，接收参数列表，返回查询列表
+	 * 调用存储过程的查询，返回查询List<Map>列表，接收参数列表。
 	 * @param callabelSql
 	 * @param params
 	 * @return
@@ -275,7 +275,7 @@ public  class BaseDao {
 	
 	
 	/**
-	 * 调用存储过程的查询，接收参数列表，返回查询列表
+	 * 调用存储过程的查询，，返回查询List<Map>列表,接收可变参数
 	 * @param callabelSql  存储过程sql
 	 * @param params	        可变参数列表
 	 * @return
@@ -340,7 +340,7 @@ public  class BaseDao {
 	
 	
 	/**
-	 * 调用存储过程的查询，不接收参数，返回查询列表
+	 * 调用存储过程的查询，返回查询List<Map>列表,不接收参数。
 	 * @param callabelSql  存储过程sql
 	 * @param params	        可变参数列表
 	 * @return
@@ -425,7 +425,7 @@ public  class BaseDao {
 	
 	
 	/**
-	 * 调用存储过程的查询，不接收参数，返回分页对象
+	 * 调用存储过程的查询，返回分页对象，接收分页参数，不接收其它参数。
 	 * @param callabelSql  存储过程sql
 	 * @currentNum 当前页
 	 * @pagePerNum 页大小
@@ -460,7 +460,7 @@ public  class BaseDao {
 	
 	
 	/**
-	 * 调用存储过程的查询，不接收参数，返回分页对象
+	 * 调用存储过程的查询，返回分页对象，接收分页参数和列表参数
 	 * @param callabelSql  存储过程sql
 	 * @currentNum 当前页
 	 * @pagePerNum 页大小
@@ -493,7 +493,7 @@ public  class BaseDao {
 	
 	
 	/**
-	 * 调用存储过程的查询，接收可变参数，返回分页对象
+	 * 调用存储过程的查询，返回分页Map集合，接收分页参数和可变参数。
 	 * @param callabelSql  存储过程sql
 	 * @currentNum 当前页
 	 * @pagePerNum 页大小
@@ -571,7 +571,7 @@ public  class BaseDao {
 	
 	
 	/**
-	 * 调用存储过程的查询，不接收参数，返回分页对象
+	 * 调用存储过程的查询，，返回分页的Map集合，接收分页参数
 	 * @param callabelSql  存储过程sql
 	 * @currentNum 当前页
 	 * @pagePerNum 页大小
@@ -587,7 +587,7 @@ public  class BaseDao {
 	
 	
 	/**
-	 * 调用存储过程的查询，不接收参数，返回分页对象
+	 * 调用存储过程的查询，返回分页Map集合对象,接收列表参数。
 	 * @param callabelSql  存储过程sql
 	 * @currentNum 当前页
 	 * @pagePerNum 页大小
@@ -674,7 +674,7 @@ public  class BaseDao {
 	
 	/**
 	 * 
-	 * 调用存储过程的增、删、改，没有传入参数
+	 * 调用存储过程的增、删、改，不接收传入参数
 	 * 存储过程的增删改可以调用此方法
 	 * 存储过程没有返回消息
 	 * @param callabelSql  存储过程sql
@@ -696,7 +696,7 @@ public  class BaseDao {
 	
 	/**
 	 * 
-	 * 调用存储过程，接收list参数
+	 * 调用存储过的增，删，改，接收list参数
 	 * 存储过程的增删改可以调用此方法
 	 * 存储过程没有返回消息
 	 * @param callabelSql  存储过程sql
@@ -751,7 +751,7 @@ public  class BaseDao {
 	
 	/**
 	 * 
-	 * 1.调用存储过程，接收可变参数
+	 * 1.调用存储过程的增、删改，接收可变参数
 	 * 2.存储过程的增、删、改可以调用此方法
 	 * 3.存储过程没有返回消息
 	 * @param callabelSql  存储过程sql
@@ -812,127 +812,4 @@ public  class BaseDao {
 
 		return updateCount;
 	}
-	
-	
-	
-	/**
-	 * 
-	 * 1.调用存储过程，接收参数列表,返回存储过程输入参数。
-	 * 2.存储过程的增、删、改可以调用此方法
-	 * 3.存储过程没有返回消息
-	 * 4.注意：输出参数必须出现在sql的最后一位
-	 * @param callabelSql  存储过程sql
-	 * @param params	        传入参数,参数列表
-	 * @return             无返回值
-	 */
-	public Object callProcUpdateWithOut(String callabelSql,int outSqlType,List<Object> params) throws GenericException{
-		Connection conn = ConnectionUtils.getConnection();
-		DataSource dataSource = null;
-		CallableStatement statement = null;
-		Object outParam=null;
-		try{
-	
-			if (null != conn) {
-				
-				statement = conn.prepareCall(callabelSql);
-				if (null != statement) {
-					if (params != null && !params.isEmpty()) {
-	
-						for (int i = 0; i < params.size(); i++) {
-							statement.setObject(i + 1, params.get(i));
-						}
-					}
-				
-					int outParamIndex = (null == params || params.isEmpty()) ? 0 : params.size();
-					statement.registerOutParameter(outParamIndex+1,outSqlType);
-					
-					statement.execute();
-					
-					outParam=statement.getObject(outParamIndex);
-				}
-	
-			}
-		
-		}catch (Exception e) {
-			logger.debug(">>>>>>>>>>>>>>>>>>>>>>>DataBase SQL Exception "+e.getMessage());
-			e.printStackTrace();
-			ExceptionUtils.throwsGenericException("300",e.getMessage());//Call PrepareCall Exception!
-		}finally{
-			ConnectionUtils.close(statement);
-			
-			
-			//如果未开启事务则关闭数据库连接
-			try {
-				if(!conn.isClosed() && conn.getAutoCommit()){
-					ConnectionUtils.closeConnection();
-				}
-			} catch (SQLException e) {
-				logger.debug(">>>>>>>>>>>>>>>>>>>>>>>Close Exception EXCEPTION"+e.getMessage());
-				ExceptionUtils.throwsGenericException("301");//关闭连接出错
-			}
-		}
-		
-		return outParam;
-	}
-	
-	/**
-	 * 
-	 * 1.调用存储过程，接收参数list，返回存储过程的输出参数。注意：输出参数必须出现在sql的最后一位
-	 * 2.存储过程的增、删、改可以调用此方法
-	 * 3.存储过程有返回参数
-	 * 4.注意：输出参数必须出现在sql的最后一位
-	 * @param callabelSql  存储过程sql
-	 * @param params	        传入参数,参数列表
-	 * @return             无返回值
-	 */
-	public Object callProcUpdateWithOut(String callabelSql,int outSqlType,Object ...params) throws GenericException{
-		Connection conn = ConnectionUtils.getConnection();
-		DataSource dataSource = null;
-		CallableStatement statement = null;
-		Object outParam=null;
-		try{
-	
-			if (null != conn) {
-				
-				statement = conn.prepareCall(callabelSql);
-				if (null != statement) {
-					if (params != null && params.length>0) {
-	
-						for (int i = 0; i < params.length; i++) {
-							statement.setObject(i + 1, params[i]);
-						}
-					}
-				
-					int outParamIndex = (null == params || params.length==0) ? 0 : params.length;
-					statement.registerOutParameter(outParamIndex+1,outSqlType);
-					
-					statement.execute();
-					
-					outParam=statement.getObject(outParamIndex);
-				}
-	
-			}
-		
-		}catch (Exception e) {
-			logger.debug(">>>>>>>>>>>>>>>>>>>>>>>DataBase SQL Exception "+e.getMessage());
-			e.printStackTrace();
-			ExceptionUtils.throwsGenericException("300",e.getMessage());//Call PrepareCall Exception!
-		}finally{
-			ConnectionUtils.close(statement);
-			
-			
-			//如果未开启事务则关闭数据库连接
-			try {
-				if(!conn.isClosed() && conn.getAutoCommit()){
-					ConnectionUtils.closeConnection();
-				}
-			} catch (SQLException e) {
-				logger.debug(">>>>>>>>>>>>>>>>>>>>>>>Close Exception  EXCEPTION"+e.getMessage());
-				ExceptionUtils.throwsGenericException("301");//关闭连接出错
-			}
-		}
-		
-		return outParam;
-	}
-	
 }
