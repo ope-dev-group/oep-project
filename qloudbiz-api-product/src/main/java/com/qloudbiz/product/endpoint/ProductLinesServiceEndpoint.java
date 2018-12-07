@@ -218,7 +218,9 @@ public class ProductLinesServiceEndpoint {
 			
 			service.queryList(page -> {
 				if(null!=page) {
-					callback.accept(ResultDataUtils.success(page));
+					String jsonStr=JSON.toJSONString(ResultDataUtils.success(page));
+					
+					callback.accept(JSON.parse(jsonStr));
 				} else {
 					callback.accept(ResultDataUtils.error("409"));
 				}
@@ -257,7 +259,7 @@ public class ProductLinesServiceEndpoint {
 			//调用查询详情
 			service.queryInfo(result->{
 				if (null != result) {
-                   String jsonStr=JSON.toJSONString(ResultDataUtils.success(result));
+					String jsonStr=JSON.toJSONString(ResultDataUtils.success(result));
 					
 					callback.accept(JSON.parse(jsonStr));
 				} else {

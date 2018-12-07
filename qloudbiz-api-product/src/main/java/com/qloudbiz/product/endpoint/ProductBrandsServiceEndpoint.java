@@ -306,8 +306,10 @@ public class ProductBrandsServiceEndpoint {
 			//调用分页查询方法
 			service.queryList(page->{
 				
-				if(null!=page){					
-					callback.accept(ResultDataUtils.success(page));
+				if(null!=page){	
+					String jsonStr=JSON.toJSONString(ResultDataUtils.success(page));
+					
+					callback.accept(JSON.parse(jsonStr));
 				}else{
 					callback.accept(ResultDataUtils.error("409"));
 				}
