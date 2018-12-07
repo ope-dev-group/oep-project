@@ -57,32 +57,11 @@ public class ProductLogicTypeServiceImpl implements ProductLogicTypeService{
 	@Override
 	public void remote(Callback<Integer> callback, ProductLogicTypeVO vo)
 			throws GenericException {
-		 //同步计数器
-		CountDownLatch latch=new CountDownLatch(1);
-		ProductLogicType logicType=new ProductLogicType();
-	
-		//查询productLogicTypeDao，验证是否存在此记录
-		productLogicTypeDao.queryById(productdLogicType->{
-			latch.countDown();
-			if(null!=productdLogicType){
-				BeanUtils.copyProperties(productdLogicType, logicType);
-			}
+		
+		productLogicTypeDao.delete(rownum->{
+			callback.accept(rownum);
 		}, vo);
-		try {
-			//同步等待
-			latch.await();
-		} catch (InterruptedException e1) {
-			e1.printStackTrace();
-		}
-		//记录存在则删除
-		if(null !=logicType && StringUtils.isNotEmpty(logicType.getTypeId())){
-			productLogicTypeDao.delete(rownum->{
-				callback.accept(rownum);
-			}, vo);
-		}else{
-			//记录不存在抛出异常
-			ExceptionUtils.throwsGenericException("408");
-		}
+		
 	}
 
 	
@@ -92,35 +71,11 @@ public class ProductLogicTypeServiceImpl implements ProductLogicTypeService{
 	@Override
 	public void modify(Callback<Integer> callback, ProductLogicTypeVO vo)
 			throws GenericException {
-		//同步计数器
-		CountDownLatch latch=new CountDownLatch(1);
-		ProductLogicType type=new ProductLogicType();
-		//查询productLogicTypeDao，验证是否存在此记录
-		productLogicTypeDao.queryById(productLogicType->{
-			latch.countDown();
-			if(null!=productLogicType){
-				BeanUtils.copyProperties(productLogicType, type);
-			}
+		
+		productLogicTypeDao.update(rownum->{
+			callback.accept(rownum);
 		}, vo);
-		try {
-			//同步等待
-			latch.await();
-		} catch (InterruptedException e1) {	
-			e1.printStackTrace();
-		}
-		//记录存在则更新
-		vo.setModifierId("1");
-		vo.setModifierName("admin");
-		vo.setModifyTime(new Timestamp(System.currentTimeMillis()));
-		vo.setLastModifyTime(vo.getModifyTime());
-		if(null!=type && StringUtils.isNotEmpty(type.getTypeId())){
-			productLogicTypeDao.update(rownum->{
-				callback.accept(rownum);
-			}, vo);
-		}else{
-			//记录不存在抛出异常
-			ExceptionUtils.throwsGenericException("408");
-		}  
+		
 	}
 
 	

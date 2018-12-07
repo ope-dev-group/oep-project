@@ -80,32 +80,11 @@ public class ProductLineServiceImpl implements ProductLineService{
 	@Override
 	public void delete(Callback<Integer> callback, ProductLineVO vo)
 			throws GenericException {
-		        //同步计数器
-				CountDownLatch latch=new CountDownLatch(1);
-				ProductLine line=new ProductLine();
-			
-				//查询product，验证是否存在此记录
-				productLineDao.queryById(productLine->{
-					latch.countDown();
-					if(null!=productLine){
-						BeanUtils.copyProperties(productLine, line);
-					}
-				}, vo);
-				try {
-					//同步等待
-					latch.await();
-				} catch (InterruptedException e1) {
-					e1.printStackTrace();
-				}
-				//记录存在则删除
-				if(null !=line && StringUtils.isNotEmpty(line.getLineId())){
-					productLineDao.delete(rownum->{
-						callback.accept(rownum);
-					}, vo);
-				}else{
-					//记录不存在抛出异常
-					ExceptionUtils.throwsGenericException("408");
-				}	
+		       
+			productLineDao.delete(rownum->{
+				callback.accept(rownum);
+			}, vo);
+				
 	}
 
 
@@ -113,37 +92,10 @@ public class ProductLineServiceImpl implements ProductLineService{
 	 * 修改
 	 */
 	@Override
-	public void update(Callback<Integer> callback, ProductLineVO vo)
-			throws GenericException {
-		        //同步计数器
-				CountDownLatch latch=new CountDownLatch(1);
-				ProductLine line=new ProductLine();
-				//查询productLine，验证是否存在此记录
-				productLineDao.queryById(productLine->{
-					latch.countDown();
-					if(null!=productLine){
-						BeanUtils.copyProperties(productLine, line);
-					}
-				}, vo);
-				try {
-					//同步等待
-					latch.await();
-				} catch (InterruptedException e1) {	
-					e1.printStackTrace();
-				}
-				//记录存在则更新
-				vo.setModifierId("1");
-				vo.setModifierName("admin");
-				vo.setModifyTime(new Timestamp(System.currentTimeMillis()));
-				vo.setLastModifyTime(vo.getModifyTime());
-				if(null!=line && StringUtils.isNotEmpty(line.getLineId())){
-					productLineDao.update(rownum->{
-						callback.accept(rownum);
-					}, vo);
-				}else{
-					//记录不存在抛出异常
-					ExceptionUtils.throwsGenericException("408");
-				}
+	public void update(Callback<Integer> callback, ProductLineVO vo)throws GenericException {       
+		productLineDao.update(rownum->{
+			callback.accept(rownum);
+		}, vo);		
 	}
 
 
