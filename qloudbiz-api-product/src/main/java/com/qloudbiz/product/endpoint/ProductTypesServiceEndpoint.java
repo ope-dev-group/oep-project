@@ -216,9 +216,9 @@ public class ProductTypesServiceEndpoint {
 		logger.debug("Query  Types Tree ,typeName is {}",typeName);
 		
         try {
-       	ProductTypeVO vo=new ProductTypeVO();
-
-			//调用分页查询方法
+        	ProductTypeVO vo = new ProductTypeVO();
+        	vo.setTypeName(typeName);
+//    		vo.setTenantId(vo);sss
 			service.seachTree(result->{
 				if(null!=result){					
 					callback.accept(ResultDataUtils.success(result));

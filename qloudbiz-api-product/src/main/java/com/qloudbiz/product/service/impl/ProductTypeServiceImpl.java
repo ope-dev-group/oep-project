@@ -56,32 +56,11 @@ public class ProductTypeServiceImpl implements ProductTypeService {
 	@Override
 	public void remote(Callback<Integer> callback, ProductTypeVO vo)
 			throws GenericException {
-                //同步计数器
-				CountDownLatch latch=new CountDownLatch(1);
-				ProductType type=new ProductType();
-			
-				//查询ProductType，验证是否存在此记录
-				productTypeDao.queryById(productType->{
-					latch.countDown();
-					if(null!=productType){
-						BeanUtils.copyProperties(productType, type);
-					}
-				}, vo);
-				try {
-					//同步等待
-					latch.await();
-				} catch (InterruptedException e1) {
-					e1.printStackTrace();
-				}
-				//记录存在则删除
-				if(null !=type && StringUtils.isNotEmpty(type.getTypeId())){
+               
 					productTypeDao.delete(rownum->{
 						callback.accept(rownum);
 					}, vo);
-				}else{
-					//记录不存在抛出异常
-					ExceptionUtils.throwsGenericException("408");
-				}
+				
 	}
 
 	
@@ -91,35 +70,15 @@ public class ProductTypeServiceImpl implements ProductTypeService {
 	@Override
 	public void modify(Callback<Integer> callback, ProductTypeVO vo)
 			throws GenericException {
-                //同步计数器
-				CountDownLatch latch=new CountDownLatch(1);
-				ProductType type=new ProductType();
-				//查询productTypeDao，验证是否存在此记录
-				productTypeDao.queryById(productType->{
-					latch.countDown();
-					if(null!=productType){
-						BeanUtils.copyProperties(productType, type);
-					}
-				}, vo);
-				try {
-					//同步等待
-					latch.await();
-				} catch (InterruptedException e1) {	
-					e1.printStackTrace();
-				}
+              
 				//记录存在则更新
 				vo.setModifierId("1");
 				vo.setModifierName("admin");
 				vo.setModifyTime(new Timestamp(System.currentTimeMillis()));
 				vo.setLastModifyTime(vo.getModifyTime());
-				if(null!=type && StringUtils.isNotEmpty(type.getTypeId())){
 					productTypeDao.update(rownum->{
 						callback.accept(rownum);
 					}, vo);
-				}else{
-					//记录不存在抛出异常
-					ExceptionUtils.throwsGenericException("408");
-				}  
 	}
 
 	
@@ -131,7 +90,9 @@ public class ProductTypeServiceImpl implements ProductTypeService {
 	public void seachTree(Callback<List<ProductType>> callback, ProductTypeVO vo)
 			throws GenericException {
 		logger.debug(">>>>>>>>>>>>>> service query tree method start");
-		productTypeDao.queryTree(nodes -> {
+		
+		vo.setTenantId("1");
+		productTypeDao.queryAll(nodes -> {
 			
             //1.遍历父节点,查询父节点的子节点
 			List<ProductType> productTypes=new ArrayList<ProductType>();
@@ -164,6 +125,7 @@ public class ProductTypeServiceImpl implements ProductTypeService {
         	callback.accept(result);
         }, vo);
 	}
+	
 	
 	//递归
 		public static void  recur(List<ProductType> nodes,ProductType type){

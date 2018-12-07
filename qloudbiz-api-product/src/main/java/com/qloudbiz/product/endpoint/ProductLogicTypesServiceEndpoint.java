@@ -193,7 +193,7 @@ public class ProductLogicTypesServiceEndpoint {
 	 * 查询产品逻辑分类列表
 	 * @param callback
 	 */
-	@RequestMapping(value = "/logictypes/rootnode")
+	@RequestMapping(value = "/logictypes/rootnode", method=RequestMethod.GET)
 	public void queryLogicTypes(Callback<Object> callback,
 			@RequestParam("currentNum")int currentNum,
 			@RequestParam("pagePerNum")int pagePerNum,
@@ -246,7 +246,7 @@ try {
 	 * @param callback
 	 * @param logicTypeId
 	 */
-	@RequestMapping(value = "/logictypes/rootnode/{logicTypeId}")
+	@RequestMapping(value = "/logictypes/rootnode/{logicTypeId}", method=RequestMethod.GET)
 	public void queryLogicTypesTree(Callback<Object> callback, 
 			@PathVariable("logicTypeId")String logicTypeId, 
 			@RequestParam("logicTypeName")String logicTypeName) {
@@ -255,7 +255,8 @@ try {
 		logger.debug("Query LogicTypesTree , logicTypeId is :{}, logicTypeName is {}",logicTypeId,logicTypeName);
 		try {
 	       	ProductLogicTypeVO vo=new ProductLogicTypeVO();
-
+	       	vo.setTypeId(logicTypeId);
+	       	vo.setTypeName(logicTypeName);
 				//调用分页查询方法
 				service.seachTree(result->{
 					if(null!=result){					
@@ -269,17 +270,16 @@ try {
 				logger.error(">>>>>>>>>>query exception ");
 				callback.accept(ResultDataUtils.error(e));
 			}
-		
 	}
 	
 	
 	
 	/**
-	 * 
+	 * 获取详情
 	 * @param callback
 	 * @param logicTypeId
 	 */
-	@RequestMapping(value = "/logictypes/{logicTypeId}")
+	@RequestMapping(value = "/logictypes/{logicTypeId}", method=RequestMethod.GET)
 	public void queryLogicTypesINF(Callback<Object> callback, @PathVariable("logicTypeId")String logicTypeId) {
 		
 		//调试日志
