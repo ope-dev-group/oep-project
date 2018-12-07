@@ -99,7 +99,7 @@ public class ProductTypesServiceEndpoint {
 			}
 			//调用service
 			service.add(productType -> {
-				String jsonStr=JSON.toJSONString(ResultDataUtils.success(productType),SerializerFeature.WriteMapNullValue);
+				String jsonStr=JSON.toJSONString(ResultDataUtils.success(productType));
 				callback.accept(JSON.parse(jsonStr));
 			}, vo);
 		} catch(Exception e) {
@@ -222,7 +222,7 @@ public class ProductTypesServiceEndpoint {
 			//调用分页查询方法
 			service.seachTree(result->{
 				if(null!=result){					
-					String jsonStr=JSON.toJSONString(ResultDataUtils.success(result),SerializerFeature.WriteMapNullValue);
+					String jsonStr=JSON.toJSONString(ResultDataUtils.success(result));
 					
 					callback.accept(JSON.parse(jsonStr));
 				}else{
@@ -261,7 +261,7 @@ public class ProductTypesServiceEndpoint {
 			//调用查询详情
 			service.seachById(result->{
 				if (null != result) {
-					String jsonStr=JSON.toJSONString(ResultDataUtils.success(result),SerializerFeature.WriteMapNullValue);
+					String jsonStr=JSON.toJSONString(ResultDataUtils.success(result));
 					
 					callback.accept(JSON.parse(jsonStr));
 				} else {

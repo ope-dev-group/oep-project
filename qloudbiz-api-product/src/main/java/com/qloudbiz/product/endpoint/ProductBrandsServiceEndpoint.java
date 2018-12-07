@@ -315,7 +315,7 @@ public class ProductBrandsServiceEndpoint {
 			service.queryList(page->{
 				
 				if(null!=page){	
-					String jsonStr=JSON.toJSONString(ResultDataUtils.success(page),SerializerFeature.WriteMapNullValue);
+					String jsonStr=JSON.toJSONString(ResultDataUtils.success(page));
 					
 					callback.accept(JSON.parse(jsonStr));
 				}else{
@@ -362,7 +362,7 @@ public class ProductBrandsServiceEndpoint {
 			//调用查询详情方法
 			service.queryDetail(brand->{
 				if(null!=brand){
-					String jsonStr=JSON.toJSONString(ResultDataUtils.success(brand),SerializerFeature.WriteMapNullValue);
+					String jsonStr=JSON.toJSONString(ResultDataUtils.success(brand));
 					
 					callback.accept(JSON.parse(jsonStr));
 				}else{

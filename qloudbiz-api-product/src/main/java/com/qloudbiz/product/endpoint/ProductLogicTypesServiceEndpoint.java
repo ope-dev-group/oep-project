@@ -226,7 +226,7 @@ try {
 			
 			service.seachList(page -> {
 				if(null!=page) {
-					String jsonStr=JSON.toJSONString(ResultDataUtils.success(page),SerializerFeature.WriteMapNullValue);
+					String jsonStr=JSON.toJSONString(ResultDataUtils.success(page));
 
 					callback.accept(JSON.parse(jsonStr));
 				} else {
@@ -262,7 +262,7 @@ try {
 				//调用分页查询方法
 				service.seachTree(result->{
 					if(null!=result){					
-						String jsonStr=JSON.toJSONString(ResultDataUtils.success(result),SerializerFeature.WriteMapNullValue);
+						String jsonStr=JSON.toJSONString(ResultDataUtils.success(result));
 						callback.accept(JSON.parse(jsonStr));
 					}else{
 						callback.accept(ResultDataUtils.error("409"));
@@ -301,7 +301,7 @@ try {
 			//调用查询详情
 			service.seachById(result->{
 				if (null != result) {
-					String jsonStr=JSON.toJSONString(ResultDataUtils.success(result),SerializerFeature.WriteMapNullValue);
+					String jsonStr=JSON.toJSONString(ResultDataUtils.success(result));
 					
 					callback.accept(JSON.parse(jsonStr));
 				} else {
