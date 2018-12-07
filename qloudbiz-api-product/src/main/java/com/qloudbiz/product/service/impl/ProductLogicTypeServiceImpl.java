@@ -132,22 +132,22 @@ public class ProductLogicTypeServiceImpl implements ProductLogicTypeService{
 			ProductLogicTypeVO vo) throws GenericException {
 		//遍历父节点
 		logger.debug(">>>>>>>>>>>>>> ProductLogicTypeService query tree method start");
-//		productLogicTypeDao.queryTree(nodes -> {
-//			
-//            //1.遍历父节点,查询父节点的子节点
-//			List<ProductLogicType> productLogicTypes=new ArrayList<ProductLogicType>();
-//			for(ProductLogicType productLogicType:nodes){
-//				if(StringUtils.isEmpty(productLogicType.getParentId())){
-//					productLogicType.add(productLogicType);
-//				}
-//			}
-//			
-//			for(ProductType type:productTypes){
-//				recur(nodes,type);
-//			}
-//			
-//			callback.accept(productTypes);
-//		}, vo);
+		productLogicTypeDao.queryTree(nodes -> {
+			
+            //1.遍历父节点,查询父节点的子节点
+			List<ProductLogicType> productLogicTypes=new ArrayList<ProductLogicType>();
+			for(ProductLogicType productLogicType:nodes){
+				if(StringUtils.isEmpty(productLogicType.getParentId())){
+					productLogicTypes.add(productLogicType);
+				}
+			}
+			
+			for(ProductLogicType type:productLogicTypes){
+				recur(nodes,type);
+			}
+			
+			callback.accept(productLogicTypes);
+		}, vo);
 	}
 
 	

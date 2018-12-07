@@ -253,7 +253,22 @@ try {
 		
 		//调试日志
 		logger.debug("Query LogicTypesTree , logicTypeId is :{}, logicTypeName is {}",logicTypeId,logicTypeName);
-		
+		try {
+	       	ProductLogicTypeVO vo=new ProductLogicTypeVO();
+
+				//调用分页查询方法
+				service.seachTree(result->{
+					if(null!=result){					
+						callback.accept(ResultDataUtils.success(result));
+					}else{
+						callback.accept(ResultDataUtils.error("409"));
+					}
+				},vo);
+				
+			} catch (Exception e) {
+				logger.error(">>>>>>>>>>query exception ");
+				callback.accept(ResultDataUtils.error(e));
+			}
 		
 	}
 	
