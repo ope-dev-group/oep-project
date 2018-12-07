@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.serializer.SimplePropertyPreFilter;
 import com.qloudbiz.core.dao.DbInit;
 import com.qloudbiz.core.exception.GenericException;
@@ -98,7 +99,7 @@ public class ProductTypesServiceEndpoint {
 			}
 			//调用service
 			service.add(productType -> {
-				String jsonStr = JSON.toJSONString(ResultDataUtils.success(productType),new SimplePropertyPreFilter(ProductType.class,"typeId","typeCode"));
+				String jsonStr=JSON.toJSONString(ResultDataUtils.success(productType),SerializerFeature.WriteMapNullValue);
 				callback.accept(JSON.parse(jsonStr));
 			}, vo);
 		} catch(Exception e) {
@@ -221,7 +222,9 @@ public class ProductTypesServiceEndpoint {
 			//调用分页查询方法
 			service.seachTree(result->{
 				if(null!=result){					
-					callback.accept(ResultDataUtils.success(result));
+					String jsonStr=JSON.toJSONString(ResultDataUtils.success(result),SerializerFeature.WriteMapNullValue);
+					
+					callback.accept(JSON.parse(jsonStr));
 				}else{
 					callback.accept(ResultDataUtils.error("409"));
 				}
@@ -258,7 +261,7 @@ public class ProductTypesServiceEndpoint {
 			//调用查询详情
 			service.seachById(result->{
 				if (null != result) {
-                   String jsonStr=JSON.toJSONString(ResultDataUtils.success(result));
+					String jsonStr=JSON.toJSONString(ResultDataUtils.success(result),SerializerFeature.WriteMapNullValue);
 					
 					callback.accept(JSON.parse(jsonStr));
 				} else {

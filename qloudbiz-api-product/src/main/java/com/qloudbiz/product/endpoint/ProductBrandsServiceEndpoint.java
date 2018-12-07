@@ -10,14 +10,22 @@ import java.util.Map;
 
 
 
+
+
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
 
 
+
+
+
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.serializer.SimplePropertyPreFilter;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.qloudbiz.core.factory.ServiceProxyFactory;
 import com.qloudbiz.core.result.ResultData;
 import com.qloudbiz.core.utils.FileUtils;
@@ -307,7 +315,7 @@ public class ProductBrandsServiceEndpoint {
 			service.queryList(page->{
 				
 				if(null!=page){	
-					String jsonStr=JSON.toJSONString(ResultDataUtils.success(page));
+					String jsonStr=JSON.toJSONString(ResultDataUtils.success(page),SerializerFeature.WriteMapNullValue);
 					
 					callback.accept(JSON.parse(jsonStr));
 				}else{
@@ -354,7 +362,7 @@ public class ProductBrandsServiceEndpoint {
 			//调用查询详情方法
 			service.queryDetail(brand->{
 				if(null!=brand){
-					String jsonStr=JSON.toJSONString(ResultDataUtils.success(brand));
+					String jsonStr=JSON.toJSONString(ResultDataUtils.success(brand),SerializerFeature.WriteMapNullValue);
 					
 					callback.accept(JSON.parse(jsonStr));
 				}else{

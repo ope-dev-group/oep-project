@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.serializer.SimplePropertyPreFilter;
 import com.qloudbiz.core.factory.ServiceProxyFactory;
 import com.qloudbiz.core.utils.FileUtils;
@@ -225,7 +226,9 @@ try {
 			
 			service.seachList(page -> {
 				if(null!=page) {
-					callback.accept(ResultDataUtils.success(page));
+					String jsonStr=JSON.toJSONString(ResultDataUtils.success(page),SerializerFeature.WriteMapNullValue);
+
+					callback.accept(JSON.parse(jsonStr));
 				} else {
 					callback.accept(ResultDataUtils.error("409"));
 				}
@@ -259,7 +262,8 @@ try {
 				//调用分页查询方法
 				service.seachTree(result->{
 					if(null!=result){					
-						callback.accept(ResultDataUtils.success(result));
+						String jsonStr=JSON.toJSONString(ResultDataUtils.success(result),SerializerFeature.WriteMapNullValue);
+						callback.accept(JSON.parse(jsonStr));
 					}else{
 						callback.accept(ResultDataUtils.error("409"));
 					}
@@ -297,7 +301,7 @@ try {
 			//调用查询详情
 			service.seachById(result->{
 				if (null != result) {
-                   String jsonStr=JSON.toJSONString(ResultDataUtils.success(result));
+					String jsonStr=JSON.toJSONString(ResultDataUtils.success(result),SerializerFeature.WriteMapNullValue);
 					
 					callback.accept(JSON.parse(jsonStr));
 				} else {

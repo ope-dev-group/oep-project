@@ -5,6 +5,7 @@ import java.util.Date;
 
 import lombok.Data;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.qloudbiz.core.annotations.Pojo;
 
 /**
@@ -19,12 +20,15 @@ public class AttributeGroup {
 	private String productTypeId;
 	private Integer sort;
 	private String status;
+	@JSONField(format="yyyy-MM-dd HH:mm:ss")
 	private Timestamp createdTime;
 	private String creatorId;
 	private String creatorName;
+	@JSONField(format="yyyy-MM-dd HH:mm:ss")
 	private Timestamp modifyTime;
 	private String modifierId;
 	private String modifierName;
+	@JSONField(format="yyyy-MM-dd HH:mm:ss")
 	private Timestamp lastModifyTime;
 	private String ownerCompanyCode;
 	private String tenantId;
