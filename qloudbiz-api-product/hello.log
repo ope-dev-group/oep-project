@@ -2011,3 +2011,3239 @@ END
 2018-11-30 09:47:15,205 com.qloudbiz.product.dao.ProductDao [main] (ProductDao.java:201) DEBUG --> >>>>>>> 
 2018-11-30 09:47:20,617 com.qloudbiz.product.dao.ProductDao [main] (ProductDao.java:204) DEBUG --> >>>>>>> 
 2018-11-30 09:47:28,539 com.qloudbiz.product.dao.ProductDao [main] (ProductDao.java:207) DEBUG --> finally 
+2018-12-06 18:27:49,350 com.atomikos.logging.LoggerFactory [main] (Slf4jLogger.java:32) DEBUG --> Using Slf4J for logging.
+2018-12-06 18:29:24,212 com.qloudbiz.core.dao.DbInit [main] (DbInit.java:40) INFO  --> got app config {"uniqueResourceName":"qloud.saga","maxPoolSize":5,"minPoolSize":5,"testQuery":"select 1","driver":"org.mariadb.jdbc.MariaDbDataSource","ip":"192.168.11.130","port":3306,"dbname":"productdb","username":"root","password":"666666"}
+2018-12-06 18:29:24,215 com.qloudbiz.core.dao.DbInit [main] (DbInit.java:58) DEBUG --> db config is {"driver":"org.mariadb.jdbc.MariaDbDataSource","ip":"192.168.11.130","port":3306,"dbname":"productdb","username":"root","password":"666666","testQuery":"select 1","maxPoolSize":5,"minPoolSize":5} 
+
+2018-12-06 18:29:24,255 org.flywaydb.core.internal.license.VersionPrinter [main] (Slf4jLog.java:49) INFO  --> Flyway Community Edition 5.2.1 by Boxfuse
+2018-12-06 18:29:45,330 org.flywaydb.core.Flyway [main] (Slf4jLog.java:45) DEBUG --> Memory usage: 25 of 184M
+2018-12-06 18:29:47,624 com.qloudbiz.core.dao.DbInit [main] (DbInit.java:40) INFO  --> got app config {"uniqueResourceName":"qloud.saga","maxPoolSize":5,"minPoolSize":5,"testQuery":"select 1","driver":"org.mariadb.jdbc.MariaDbDataSource","ip":"192.168.44.5","port":3306,"dbname":"productdb","username":"root","password":"666666"}
+2018-12-06 18:29:47,627 com.qloudbiz.core.dao.DbInit [main] (DbInit.java:58) DEBUG --> db config is {"driver":"org.mariadb.jdbc.MariaDbDataSource","ip":"192.168.44.5","port":3306,"dbname":"productdb","username":"root","password":"666666","testQuery":"select 1","maxPoolSize":5,"minPoolSize":5} 
+
+2018-12-06 18:29:47,669 org.flywaydb.core.internal.license.VersionPrinter [main] (Slf4jLog.java:49) INFO  --> Flyway Community Edition 5.2.1 by Boxfuse
+2018-12-06 18:29:47,802 org.flywaydb.core.internal.database.DatabaseFactory [main] (Slf4jLog.java:49) INFO  --> Database: jdbc:mariadb://192.168.44.5:3306/productdb (MySQL 5.5)
+2018-12-06 18:29:47,802 org.flywaydb.core.internal.database.DatabaseFactory [main] (Slf4jLog.java:45) DEBUG --> Driver  : MariaDB connector/J 2.3.0
+2018-12-06 18:29:47,827 org.flywaydb.core.internal.database.mysql.MySQLDatabase [main] (Slf4jLog.java:45) DEBUG --> Unable to detect whether we are running in a Percona XtraDB Cluster. Assuming not to be.
+2018-12-06 18:29:47,828 org.flywaydb.core.Flyway [main] (Slf4jLog.java:45) DEBUG --> DDL Transactions Supported: false
+2018-12-06 18:29:47,837 org.flywaydb.core.Flyway [main] (Slf4jLog.java:45) DEBUG --> Schema: productdb
+2018-12-06 18:29:47,842 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Scanning for classpath resources at 'classpath:db/migration' ...
+2018-12-06 18:29:47,843 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Determining location urls for classpath:db/migration using ClassLoader sun.misc.Launcher$AppClassLoader@18b4aac2 ...
+2018-12-06 18:29:47,843 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Scanning URL: file:/C:/Users/LCY/git/oep-project/qloudbiz-api-product/target/classes/db/migration
+2018-12-06 18:29:47,844 org.flywaydb.core.internal.util.FeatureDetector [main] (Slf4jLog.java:45) DEBUG --> JBoss VFS v2 available: false
+2018-12-06 18:29:47,846 org.flywaydb.core.internal.scanner.classpath.FileSystemClassPathLocationScanner [main] (Slf4jLog.java:45) DEBUG --> Scanning starting at classpath root in filesystem: C:\Users\LCY\git\oep-project\qloudbiz-api-product\target\classes\
+2018-12-06 18:29:47,847 org.flywaydb.core.internal.scanner.classpath.FileSystemClassPathLocationScanner [main] (Slf4jLog.java:45) DEBUG --> Scanning for resources in path: C:\Users\LCY\git\oep-project\qloudbiz-api-product\target\classes\db\migration (db/migration)
+2018-12-06 18:29:47,850 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Found resource: db/migration/V1_0_0__init_product_table.sql
+2018-12-06 18:29:47,850 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Found resource: db/migration/V1_0_2__product_procedures.sql
+2018-12-06 18:29:47,852 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Found resource: db/migration/V1_0_4__init_productline_table.sql
+2018-12-06 18:29:47,852 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Found resource: db/migration/V1_0_5__productline_procedures.sql
+2018-12-06 18:29:47,852 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Found resource: db/migration/V1_0_6__productbrand_procedures.sql
+2018-12-06 18:29:47,852 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Found resource: db/migration/V1_0_7__productbrand_table.sql
+2018-12-06 18:29:47,852 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Found resource: db/migration/V1_0_8__init_producttype_table.sql
+2018-12-06 18:29:47,852 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Found resource: db/migration/V1_0_9__producttype_procedures.sql
+2018-12-06 18:29:47,852 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Scanning for classes at classpath:db/migration
+2018-12-06 18:29:47,859 org.flywaydb.core.internal.callback.SqlScriptCallbackFactory [main] (Slf4jLog.java:45) DEBUG --> Scanning for SQL callbacks ...
+2018-12-06 18:29:47,866 org.flywaydb.core.internal.util.FeatureDetector [main] (Slf4jLog.java:45) DEBUG --> Spring Jdbc available: false
+2018-12-06 18:29:47,883 org.flywaydb.core.internal.command.DbValidate [main] (Slf4jLog.java:45) DEBUG --> Validating migrations ...
+2018-12-06 18:29:47,894 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Parsing V1_0_0__init_product_table.sql ...
+2018-12-06 18:29:47,899 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 1: drop table if exists product
+2018-12-06 18:29:47,901 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 3: create table if not exists product (
+	productId varchar(255) primary key, 
+	code  varchar(200) not null,
+	name varchar(255)
+)
+2018-12-06 18:29:47,907 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Parsing V1_0_2__product_procedures.sql ...
+2018-12-06 18:29:47,909 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 1: -- insert a product
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCT_INSERT_PROCEDURE`
+2018-12-06 18:29:47,916 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 4: CREATE  PROCEDURE `QLOUDFLOW_PRODUCT_INSERT_PROCEDURE`(
+	 IN v_productId varchar(255),
+     IN v_code varchar(50), 
+     IN v_name varchar(255)
+)
+lable:BEGIN
+    DECLARE tmpCont int default 0;
+    DECLARE cont int default 0;
+    
+    INSERT INTO product 
+    (
+     productId, 
+     code,
+     name
+	) VALUES 
+	(
+	 v_productId, 
+     v_code,
+     v_name
+	); 
+	
+	
+
+END
+2018-12-06 18:29:47,917 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 31: -- query products
+DROP PROCEDURE IF EXISTS QLOUDFLOW_PRODUCT_LISTALL_PROCEDURE
+2018-12-06 18:29:47,920 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 34: CREATE PROCEDURE QLOUDFLOW_PRODUCT_LISTALL_PROCEDURE(
+	IN v_startrow int,
+	IN v_pagesize int,
+	IN v_name varchar(255)
+)
+lable:BEGIN
+	IF v_startrow=-1  THEN SELECT COUNT(1) FROM product where name like CONCAT( '%', v_name, '%' ) ;
+	ELSE SELECT productId,code,name FROM product where name like CONCAT( '%', v_name, '%' ) LIMIT v_startrow,v_pagesize;
+	END IF;
+END
+2018-12-06 18:29:47,921 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 47: -- query products
+DROP PROCEDURE IF EXISTS QLOUDFLOW_PRODUCT_SINGLE_PROCEDURE
+2018-12-06 18:29:47,923 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 50: CREATE PROCEDURE QLOUDFLOW_PRODUCT_SINGLE_PROCEDURE(
+	IN v_productId int
+)
+lable:BEGIN
+	SELECT productId,code,name FROM product where productId=v_productId;
+END
+2018-12-06 18:29:47,924 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 59: -- delete QLOUDFLOW_PRODUCT_DELETE_PROCEDURE
+DROP PROCEDURE IF EXISTS QLOUDFLOW_PRODUCT_DELETE_PROCEDURE
+2018-12-06 18:29:47,928 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 62: CREATE  PROCEDURE QLOUDFLOW_PRODUCT_DELETE_PROCEDURE(
+	 IN v_productId varchar(255),
+     OUT V_OUT int
+)
+lable:BEGIN
+   	DELETE FROM product WHERE productId=v_productId;
+   	
+	SELECT  ROW_COUNT() into V_OUT;
+
+END
+2018-12-06 18:29:47,929 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 77: -- update QLOUDFLOW_PRODUCT_DELETE_PROCEDURE
+DROP PROCEDURE IF EXISTS QLOUDFLOW_PRODUCT_UPDATE_PROCEDURE
+2018-12-06 18:29:47,932 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 80: CREATE PROCEDURE  QLOUDFLOW_PRODUCT_UPDATE_PROCEDURE(
+	IN v_productId varchar(64),
+	IN v_code varchar(255),
+    IN v_name varchar(255),
+	OUT V_OUT int
+)
+label:BEGIN
+	UPDATE product set code=v_code,name=v_name where productId=v_productId;
+
+  SELECT  ROW_COUNT() into V_OUT;
+END
+2018-12-06 18:29:47,935 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Parsing V1_0_4__init_productline_table.sql ...
+2018-12-06 18:29:47,940 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 18: -- ----------------------------
+-- Table structure for productLine
+-- ----------------------------
+DROP TABLE IF EXISTS `productLine`
+2018-12-06 18:29:47,945 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 22: CREATE TABLE `productLine` (
+  `lineId` varchar(50) NOT NULL,
+  `lineCode` varchar(50) NOT NULL,
+  `lineName` varchar(100) NOT NULL,
+  `parentId` varchar(50) DEFAULT NULL,
+  `sort` int(4) NOT NULL,
+  `status` varchar(16) NOT NULL,
+  `createdTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `creatorId` varchar(50) NOT NULL,
+  `creatorName` varchar(50) NOT NULL,
+  `modifyTime` timestamp NULL DEFAULT NULL,
+  `modifierId` varchar(50) DEFAULT NULL,
+  `modifierName` varchar(50) DEFAULT NULL,
+  `lastModifyTime` timestamp NULL DEFAULT NULL,
+  `ownerCompanyCode` varchar(50) DEFAULT NULL,
+  `tenantId` varchar(50) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`lineId`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC
+2018-12-06 18:29:47,947 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Parsing V1_0_5__productline_procedures.sql ...
+2018-12-06 18:29:47,948 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 1: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTLINE_DELETE_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTLINE_DELETE_PROCEDURE`
+2018-12-06 18:29:47,949 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 6: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTLINE_DELETE_PROCEDURE`(
+	 IN v_lineId varchar(50)
+)
+lable:BEGIN
+   	DELETE FROM productLine WHERE lineId=v_lineId;
+END
+
+2018-12-06 18:29:47,950 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 15: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTLINE_INFO_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTLINE_INFO_PROCEDURE`
+2018-12-06 18:29:47,951 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 20: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTLINE_INFO_PROCEDURE`(
+	IN v_lineId varchar(50)
+)
+lable:BEGIN
+	SELECT * FROM productLine WHERE lineId = v_lineId;
+END
+
+2018-12-06 18:29:47,952 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 29: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTLINE_INSERT_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTLINE_INSERT_PROCEDURE`
+2018-12-06 18:29:47,956 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 34: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTLINE_INSERT_PROCEDURE`(
+	 IN v_lineId varchar(50),
+     IN v_lineCode varchar(50), 
+     IN v_lineName varchar(100),
+     IN v_parentId varchar(50),
+     IN v_sort int(4),
+     IN v_status varchar(16),
+     IN v_createdTime timestamp,
+     IN v_creatorId varchar(50),
+     IN v_creatorName varchar(50),
+     IN v_modifyTime timestamp,
+     IN v_modifierId varchar(50),
+     IN v_modifierName varchar(50),
+     IN v_lastModifyTime timestamp,
+     IN v_ownerCompanyCode varchar(50),
+     IN v_tenantId varchar(50)
+)
+lable:BEGIN
+    DECLARE tmpCont int default 0;
+    DECLARE cont int default 0;
+    
+    INSERT INTO productLine 
+    (
+     lineId, 
+     lineCode,
+     lineName,
+     parentId,
+     sort,
+     status,
+     createdTime,
+     creatorId,
+     creatorName,
+     modifyTime,
+     modifierId,
+     modifierName,
+     lastModifyTime,
+     ownerCompanyCode,
+     tenantId
+	) VALUES 
+	(
+	 v_lineId, 
+     v_lineCode,
+     v_lineName,
+     v_parentId,
+     v_sort,
+     v_status,
+     v_createdTime,
+     v_creatorId,
+     v_creatorName,
+     v_modifyTime,
+     v_modifierId,
+     v_modifierName,
+     v_lastModifyTime,
+     v_ownerCompanyCode,
+     v_tenantId
+	); 
+	
+	
+
+END
+
+2018-12-06 18:29:47,957 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 97: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTLINE_LISTALL_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTLINE_LISTALL_PROCEDURE`
+2018-12-06 18:29:47,960 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 102: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTLINE_LISTALL_PROCEDURE`(
+	IN v_startrow int,
+	IN v_pagesize int,
+	IN v_lineCode varchar(50),
+	IN v_lineName varchar(100),
+	IN v_status varchar(16),
+	IN v_tenantId varchar(50)
+)
+lable:BEGIN
+	IF 
+	v_startrow=-1  THEN SELECT COUNT(1) 
+	FROM productLine where 
+	(v_lineCode is null or lineCode like CONCAT('%',v_lineCode,'%') )
+	and (v_lineName is null or lineName like CONCAT('%',v_lineName,'%'))
+	and (v_status is null or status = v_status)
+	and (v_tenantId is null or tenantId = v_tenantId);
+	ELSE
+	SELECT * FROM productLine where 
+	(v_lineCode is null or lineCode like CONCAT('%',v_lineCode,'%') )
+	and (v_lineName is null or lineName like CONCAT('%',v_lineName,'%'))
+	and (v_status is null or status = v_status)
+	and (v_tenantId is null or tenantId = v_tenantId)
+	LIMIT v_startrow,v_pagesize;
+	END IF;
+END
+
+2018-12-06 18:29:47,962 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 130: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTLINE_UPDATE_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTLINE_UPDATE_PROCEDURE`
+2018-12-06 18:29:47,963 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 135: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTLINE_UPDATE_PROCEDURE`(
+  IN v_lineId varchar(50),
+	IN v_lineName varchar(100),
+	IN v_parentId varchar(50),
+	IN v_sort int(4),
+	IN v_status varchar(16),
+	IN v_modifierId varchar(50),
+	IN v_modifierName varchar(50),
+	IN v_modifyTime timestamp,
+	IN v_lastModifyTime timestamp
+)
+label:BEGIN
+	UPDATE productLine set 
+	lineName=v_lineName,
+	parentId=v_parentId,
+	sort=v_sort,
+	status=v_status,
+	modifierId = v_modifierId,
+	modifierName = v_modifierName,
+	modifyTime = v_modifyTime,
+	lastModifyTime = v_lastModifyTime
+	where lineId=v_lineId;
+END
+
+2018-12-06 18:29:47,966 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Parsing V1_0_6__productbrand_procedures.sql ...
+2018-12-06 18:29:47,969 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 1: -- ----------------------------
+-- Procedure structure for PRODUCTBRAND_DELETE_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `PRODUCTBRAND_DELETE_PROCEDURE`
+2018-12-06 18:29:47,970 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 6: CREATE DEFINER=`root`@`%` PROCEDURE `PRODUCTBRAND_DELETE_PROCEDURE`(IN v_brandId varchar(50))
+lable:BEGIN
+   	DELETE FROM productBrand WHERE brandId=v_brandId;
+  
+END
+
+2018-12-06 18:29:47,971 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 14: -- ----------------------------
+-- Procedure structure for PRODUCTBRAND_INFO_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `PRODUCTBRAND_INFO_PROCEDURE`
+2018-12-06 18:29:47,972 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 19: CREATE DEFINER=`root`@`%` PROCEDURE `PRODUCTBRAND_INFO_PROCEDURE`(IN v_brandId varchar(50))
+lable:BEGIN
+	SELECT * FROM productBrand WHERE brandId = v_brandId;
+END
+
+2018-12-06 18:29:47,973 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 26: -- ----------------------------
+-- Procedure structure for PRODUCTBRAND_INSERT_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `PRODUCTBRAND_INSERT_PROCEDURE`
+2018-12-06 18:29:47,978 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 31: CREATE DEFINER=`root`@`%` PROCEDURE `PRODUCTBRAND_INSERT_PROCEDURE`(IN v_brandId varchar(50),
+     IN v_brandCode varchar(50), 
+     IN v_brandName varchar(100),
+     IN v_brandType varchar(32),
+ IN  v_remark varchar(1024) , IN v_sort int(4),
+     IN v_status varchar(16),
+     IN v_createdTime timestamp,
+     IN v_creatorId varchar(50),
+     IN v_creatorName varchar(50),
+     IN v_modifyTime timestamp,
+     IN v_modifierId varchar(50),
+     IN v_modifierName varchar(50),
+     IN v_lastModifyTime timestamp,
+     IN v_ownerCompanyCode varchar(50),
+     IN v_tenantId varchar(50))
+lable:BEGIN
+    DECLARE tmpCont int default 0;
+    DECLARE cont int default 0;
+    
+    INSERT INTO productBrand 
+    (
+     brandId, 
+     brandCode,
+     brandName,
+     brandType,
+     remark,
+     sort,
+     status,
+     createdTime,
+     creatorId,
+     creatorName,
+     modifyTime,
+     modifierId,
+     modifierName,
+     lastModifyTime,
+     ownerCompanyCode,
+     tenantId
+	) VALUES 
+	(
+	   v_brandId, 
+     v_brandCode,
+     v_brandName,
+     v_brandType,
+     v_remark,
+     v_sort,
+     v_status,
+     v_createdTime,
+     v_creatorId,
+     v_creatorName,
+     v_modifyTime,
+     v_modifierId,
+     v_modifierName,
+     v_lastModifyTime,
+     v_ownerCompanyCode,
+     v_tenantId
+	); 
+	
+END
+
+2018-12-06 18:29:47,978 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 92: -- ----------------------------
+-- Procedure structure for PRODUCTBRAND_LISTALL_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `PRODUCTBRAND_LISTALL_PROCEDURE`
+2018-12-06 18:29:47,980 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 97: CREATE DEFINER=`root`@`%` PROCEDURE `PRODUCTBRAND_LISTALL_PROCEDURE`(IN v_startrow int,
+	IN v_pagesize int,
+	IN v_brandCode varchar(50),
+  IN v_brandType varchar(32),
+	IN v_brandName varchar(100),
+	IN v_status varchar(16),
+	IN v_tenantId varchar(50))
+lable:BEGIN
+	IF 
+	v_startrow=-1  THEN SELECT COUNT(1) FROM 
+  productBrand where 
+  (v_brandCode is null or brandCode like CONCAT('%',v_brandCode,'%') )
+	and (v_brandName is null or brandName like CONCAT('%',v_brandName,'%'))
+	and (v_status is null or status=v_status)
+  and (v_brandType is null or brandType=v_brandType)
+	and (v_tenantId is null or tenantId=v_tenantId);
+	ELSE
+	SELECT * FROM productBrand 
+	where 
+   (v_brandCode is null or brandCode like CONCAT('%',v_brandCode,'%') )
+	and (v_brandName is null or brandName like CONCAT('%',v_brandName,'%'))
+	and (v_status is null or status =v_status)
+  and (v_brandType is null or brandType=v_brandType)
+	and (v_tenantId is null or tenantId=v_tenantId)
+	LIMIT v_startrow,v_pagesize;
+	END IF;
+END
+
+2018-12-06 18:29:47,982 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 127: -- ----------------------------
+-- Procedure structure for PRODUCTBRAND_UPDATE_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `PRODUCTBRAND_UPDATE_PROCEDURE`
+2018-12-06 18:29:47,984 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 132: CREATE DEFINER=`root`@`%` PROCEDURE `PRODUCTBRAND_UPDATE_PROCEDURE`(IN v_brandId varchar(50),
+  IN v_brandCode varchar(50),
+	IN v_brandName varchar(100),
+	IN v_brandType varchar(32),
+  IN v_remark varchar(1024),
+	IN v_sort int(4),
+IN v_status varchar(16),IN v_modifierId VARCHAR(50),IN v_modifierName VARCHAR(50),IN v_modifyTime timestamp,IN v_lastModifyTime timestamp)
+label:BEGIN
+	UPDATE productBrand set 
+  brandCode=v_brandCode,
+	brandName=v_brandName,
+  brandType=v_brandType,
+	remark=v_remark,
+	sort=v_sort,
+  modifierId=v_modifierId,
+  modifierName=v_modifierName,
+  modifyTime=v_modifyTime,
+  lastModifyTime=v_lastModifyTime,
+	status=v_status
+	where brandId =v_brandId;
+END
+
+2018-12-06 18:29:47,986 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Parsing V1_0_7__productbrand_table.sql ...
+2018-12-06 18:29:47,988 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 1: -- ----------------------------
+-- Table structure for productBrand
+-- ----------------------------
+DROP TABLE IF EXISTS `productBrand`
+2018-12-06 18:29:48,001 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 5: CREATE TABLE `productBrand` (
+  `brandId` varchar(50) NOT NULL,
+  `brandCode` varchar(50) NOT NULL,
+  `brandName` varchar(100) NOT NULL,
+  `brandType` varchar(32) DEFAULT NULL,
+  `remark` varchar(1024) DEFAULT NULL,
+  `sort` int(4) NOT NULL,
+  `status` varchar(16) NOT NULL,
+  `createdTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `creatorId` varchar(50) NOT NULL DEFAULT '1',
+  `creatorName` varchar(50) NOT NULL DEFAULT 'admin',
+  `modifyTime` timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  `modifierId` varchar(50) DEFAULT NULL,
+  `modifierName` varchar(50) DEFAULT NULL,
+  `lastModifyTime` timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  `ownerCompanyCode` varchar(50) DEFAULT NULL,
+  `tenantId` varchar(50) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`brandId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+2018-12-06 18:29:48,003 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Parsing V1_0_8__init_producttype_table.sql ...
+2018-12-06 18:29:48,004 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 1: DROP TABLE IF EXISTS `productType`
+2018-12-06 18:29:48,011 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 2: CREATE TABLE `productType` (
+  `typeId` varchar(50) NOT NULL COMMENT '产品分类Id',
+  `typeCode` varchar(50) NOT NULL COMMENT '产品分类编号',
+  `typeName` varchar(100) NOT NULL COMMENT '产品分类中文名称',
+  `parentId` varchar(50) DEFAULT NULL COMMENT '产品分类父节点id',
+  `isPhysical` tinyint(1) DEFAULT '1' COMMENT '是否物理分类',
+  `toTransport` tinyint(1) DEFAULT '1' COMMENT '是否需要运输',
+  `prodLineId` varchar(50) DEFAULT NULL COMMENT '所属产品线Id',
+  `sort` int(4) NOT NULL COMMENT '排序号',
+  `status` varchar(16) NOT NULL COMMENT '状态',
+  `remark` varchar(50) DEFAULT NULL COMMENT '备注',
+  `createdTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
+  `creatorId` varchar(50) NOT NULL COMMENT '创建人ID',
+  `creatorName` varchar(50) NOT NULL COMMENT '创建人姓名',
+  `modifyTime` timestamp NULL DEFAULT NULL COMMENT '更新时间',
+  `modifierId` varchar(50) DEFAULT NULL COMMENT '更新人ID',
+  `modifierName` varchar(50) DEFAULT NULL COMMENT '更新人姓名',
+  `lastModifyTime` timestamp NULL DEFAULT NULL COMMENT '最后更新时间',
+  `tenantId` varchar(50) NOT NULL COMMENT '租户ID',
+  PRIMARY KEY (`typeId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+2018-12-06 18:29:48,013 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Parsing V1_0_9__producttype_procedures.sql ...
+2018-12-06 18:29:48,015 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 1: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTTYPE_INSERT_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTTYPE_INSERT_PROCEDURE`
+2018-12-06 18:29:48,018 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 6: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTTYPE_INSERT_PROCEDURE`(
+	 IN v_typeId varchar(50),
+     IN v_typeCode varchar(50), 
+     IN v_typeName varchar(100),
+     IN v_parentId varchar(50),
+     IN v_isPhysical tinyint(1),
+     IN v_toTransport tinyint(1),
+     IN v_prodLineId varchar(50),
+     IN v_sort int(4),
+     IN v_status varchar(16),
+     IN v_remark varchar(50),
+     IN v_createdTime timestamp,
+     IN v_creatorId varchar(50),
+     IN v_creatorName varchar(50),
+     IN v_modifyTime timestamp,
+     IN v_modifierId varchar(50),
+     IN v_modifierName varchar(50),
+     IN v_lastModifyTime timestamp,
+     IN v_tenantId varchar(50)
+)
+lable:BEGIN
+    DECLARE tmpCont int default 0;
+    DECLARE cont int default 0;
+    
+    INSERT INTO productType 
+    (
+     typeId, 
+     typeCode,
+     typeName,
+     parentId,
+     isPhysical,
+     toTransport,
+     prodLineId,
+     sort,
+     status,
+     remark,
+     createdTime,
+     creatorId,
+     creatorName,
+     modifyTime,
+     modifierId,
+     modifierName,
+     lastModifyTime,
+     tenantId
+	) VALUES 
+	(
+	 v_typeId, 
+     v_typeCode,
+     v_typeName,
+     v_parentId,
+     v_isPhysical,
+     v_toTransport,
+     v_prodLineId,
+     v_sort,
+     v_status,
+     v_remark,
+     v_createdTime,
+     v_creatorId,
+     v_creatorName,
+     v_modifyTime,
+     v_modifierId,
+     v_modifierName,
+     v_lastModifyTime,
+     v_tenantId
+	); 
+	
+	
+
+END
+
+2018-12-06 18:29:48,019 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 81: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTTYPE_UPDATE_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTTYPE_UPDATE_PROCEDURE`
+2018-12-06 18:29:48,021 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 86: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTTYPE_UPDATE_PROCEDURE`(
+    IN v_typeId varchar(50),
+	IN v_typeCode varchar(50),
+	IN v_typeName varchar(100),
+	IN v_isPhysical tinyint(1),
+	IN v_toTransport tinyint(1),
+	IN v_parentId varchar(50),
+	IN v_sort int(4),
+	IN v_status varchar(16),
+	IN v_prodLineId varchar(50),
+	IN v_tenantId varchar(50),
+	IN v_modifierId varchar(50),
+	IN v_modifierName varchar(50),
+	IN v_modifyTime timestamp,
+	IN v_lastModifyTime timestamp
+)
+label:BEGIN
+	UPDATE productType set 
+	typeCode=v_typeCode,
+	typeName=v_typeName,
+	isPhysical=v_isPhysical,
+	toTransport=v_toTransport,
+	parentId=v_parentId,
+	sort=v_sort,
+	status=v_status,
+	prodLineId=v_prodLineId,
+	tenantId=v_tenantId,
+	modifierId = v_modifierId,
+	modifierName = v_modifierName,
+	modifyTime = v_modifyTime,
+	lastModifyTime = v_lastModifyTime
+	where typeId=v_typeId;
+END
+
+2018-12-06 18:29:48,021 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 125: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTTYPE_DELETE_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTTYPE_DELETE_PROCEDURE`
+2018-12-06 18:29:48,022 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 130: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTTYPE_DELETE_PROCEDURE`(
+	 IN v_typeId varchar(50)
+)
+lable:BEGIN
+   	DELETE FROM productType WHERE typeId=v_typeId;
+END
+
+2018-12-06 18:29:48,023 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 142: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTTYPE_INFO_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTTYPE_INFO_PROCEDURE`
+2018-12-06 18:29:48,023 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 147: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTTYPE_INFO_PROCEDURE`(
+	IN v_typeId varchar(50)
+)
+lable:BEGIN
+	SELECT * FROM productType WHERE typeId = v_typeId;
+END
+
+2018-12-06 18:29:48,024 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 160: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTTYPE_TREE_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTTYPE_TREE_PROCEDURE`
+2018-12-06 18:29:48,025 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 165: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTTYPE_TREE_PROCEDURE`(
+	IN v_typeName varchar(100)
+)
+lable:BEGIN
+	SELECT * FROM productType
+	WHERE (v_typeName is null or typeName like CONCAT('%',v_typeName,'%') );
+END
+
+2018-12-06 18:29:48,029 org.flywaydb.core.internal.scanner.Scanner [main] (Slf4jLog.java:45) DEBUG --> Filtering out resource: db/migration/V1_0_0__init_product_table.sql (filename: V1_0_0__init_product_table.sql)
+2018-12-06 18:29:48,029 org.flywaydb.core.internal.scanner.Scanner [main] (Slf4jLog.java:45) DEBUG --> Filtering out resource: db/migration/V1_0_2__product_procedures.sql (filename: V1_0_2__product_procedures.sql)
+2018-12-06 18:29:48,029 org.flywaydb.core.internal.scanner.Scanner [main] (Slf4jLog.java:45) DEBUG --> Filtering out resource: db/migration/V1_0_4__init_productline_table.sql (filename: V1_0_4__init_productline_table.sql)
+2018-12-06 18:29:48,029 org.flywaydb.core.internal.scanner.Scanner [main] (Slf4jLog.java:45) DEBUG --> Filtering out resource: db/migration/V1_0_5__productline_procedures.sql (filename: V1_0_5__productline_procedures.sql)
+2018-12-06 18:29:48,029 org.flywaydb.core.internal.scanner.Scanner [main] (Slf4jLog.java:45) DEBUG --> Filtering out resource: db/migration/V1_0_6__productbrand_procedures.sql (filename: V1_0_6__productbrand_procedures.sql)
+2018-12-06 18:29:48,029 org.flywaydb.core.internal.scanner.Scanner [main] (Slf4jLog.java:45) DEBUG --> Filtering out resource: db/migration/V1_0_7__productbrand_table.sql (filename: V1_0_7__productbrand_table.sql)
+2018-12-06 18:29:48,030 org.flywaydb.core.internal.scanner.Scanner [main] (Slf4jLog.java:45) DEBUG --> Filtering out resource: db/migration/V1_0_8__init_producttype_table.sql (filename: V1_0_8__init_producttype_table.sql)
+2018-12-06 18:29:48,030 org.flywaydb.core.internal.scanner.Scanner [main] (Slf4jLog.java:45) DEBUG --> Filtering out resource: db/migration/V1_0_9__producttype_procedures.sql (filename: V1_0_9__producttype_procedures.sql)
+2018-12-06 18:29:48,072 org.flywaydb.core.internal.command.DbValidate [main] (Slf4jLog.java:49) INFO  --> Successfully validated 8 migrations (execution time 00:00.178s)
+2018-12-06 18:29:48,078 org.flywaydb.core.internal.command.DbSchemas [main] (Slf4jLog.java:45) DEBUG --> Schema `productdb` already exists. Skipping schema creation.
+2018-12-06 18:29:48,099 org.flywaydb.core.internal.command.DbMigrate [main] (Slf4jLog.java:49) INFO  --> Current version of schema `productdb`: 1.0.9
+2018-12-06 18:29:48,101 org.flywaydb.core.internal.command.DbMigrate [main] (Slf4jLog.java:49) INFO  --> Schema `productdb` is up to date. No migration necessary.
+2018-12-06 18:29:48,110 org.flywaydb.core.Flyway [main] (Slf4jLog.java:45) DEBUG --> Memory usage: 43 of 184M
+2018-12-06 18:29:48,126 com.atomikos.logging.LoggerFactory [main] (Slf4jLogger.java:32) DEBUG --> Using Slf4J for logging.
+2018-12-06 18:29:48,127 com.qloudfin.sagas.persistence.jdbc.JdbcClient [main] (JdbcClient.java:72) DEBUG --> db config is {"driver":"org.mariadb.jdbc.MariaDbDataSource","ip":"192.168.44.5","port":3306,"dbname":"productdb","username":"root","password":"666666","testQuery":"select 1","maxPoolSize":5,"minPoolSize":5} 
+
+2018-12-06 18:29:48,355 com.atomikos.jdbc.AbstractDataSourceBean [main] (Slf4jLogger.java:32) DEBUG --> AtomikosDataSoureBean '98daf385-82ad-41bf-9833-61187f025801': getConnection()...
+2018-12-06 18:29:48,355 com.atomikos.jdbc.AbstractDataSourceBean [main] (Slf4jLogger.java:28) INFO  --> AtomikosDataSoureBean '98daf385-82ad-41bf-9833-61187f025801': init...
+2018-12-06 18:29:48,356 com.atomikos.jdbc.AtomikosDataSourceBean [main] (Slf4jLogger.java:28) INFO  --> AtomikosDataSoureBean '98daf385-82ad-41bf-9833-61187f025801': initializing with [ xaDataSourceClassName=org.mariadb.jdbc.MariaDbDataSource, uniqueResourceName=98daf385-82ad-41bf-9833-61187f025801, maxPoolSize=5, minPoolSize=5, borrowConnectionTimeout=30, maxIdleTime=60, reapTimeout=0, maintenanceInterval=60, testQuery=select 1, xaProperties=[user=root,password=666666,url=jdbc:mariadb://192.168.44.5:3306/productdb?maxPoolSize=5&autoReconnect=true], loginTimeout=0, maxLifetime=0]
+2018-12-06 18:29:48,481 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:24) WARN  --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: WARNING: transaction manager not running?
+2018-12-06 18:29:48,481 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:32) DEBUG --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: calling getAutoCommit...
+2018-12-06 18:29:48,481 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:24) WARN  --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: WARNING: transaction manager not running?
+2018-12-06 18:29:48,482 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:32) DEBUG --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: calling setAutoCommit(false)...
+2018-12-06 18:29:48,484 com.qloudbiz.core.factory.ServiceProxyFactory [main] (ServiceProxyFactory.java:37) DEBUG --> >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>BEGIN  TRANSACTION
+2018-12-06 18:29:48,484 com.qloudbiz.product.service.impl.ProductTypeServiceImpl [main] (ProductTypeServiceImpl.java:133) DEBUG --> >>>>>>>>>>>>>> service query tree method start
+2018-12-06 18:30:29,914 com.qloudbiz.core.dao.DbInit [main] (DbInit.java:40) INFO  --> got app config {"uniqueResourceName":"qloud.saga","maxPoolSize":5,"minPoolSize":5,"testQuery":"select 1","driver":"org.mariadb.jdbc.MariaDbDataSource","ip":"192.168.44.5","port":3306,"dbname":"productdb","username":"root","password":"666666"}
+2018-12-06 18:30:29,917 com.qloudbiz.core.dao.DbInit [main] (DbInit.java:58) DEBUG --> db config is {"driver":"org.mariadb.jdbc.MariaDbDataSource","ip":"192.168.44.5","port":3306,"dbname":"productdb","username":"root","password":"666666","testQuery":"select 1","maxPoolSize":5,"minPoolSize":5} 
+
+2018-12-06 18:30:29,954 org.flywaydb.core.internal.license.VersionPrinter [main] (Slf4jLog.java:49) INFO  --> Flyway Community Edition 5.2.1 by Boxfuse
+2018-12-06 18:30:30,071 org.flywaydb.core.internal.database.DatabaseFactory [main] (Slf4jLog.java:49) INFO  --> Database: jdbc:mariadb://192.168.44.5:3306/productdb (MySQL 5.5)
+2018-12-06 18:30:30,072 org.flywaydb.core.internal.database.DatabaseFactory [main] (Slf4jLog.java:45) DEBUG --> Driver  : MariaDB connector/J 2.3.0
+2018-12-06 18:30:30,100 org.flywaydb.core.internal.database.mysql.MySQLDatabase [main] (Slf4jLog.java:45) DEBUG --> Unable to detect whether we are running in a Percona XtraDB Cluster. Assuming not to be.
+2018-12-06 18:30:30,100 org.flywaydb.core.Flyway [main] (Slf4jLog.java:45) DEBUG --> DDL Transactions Supported: false
+2018-12-06 18:30:30,108 org.flywaydb.core.Flyway [main] (Slf4jLog.java:45) DEBUG --> Schema: productdb
+2018-12-06 18:30:30,113 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Scanning for classpath resources at 'classpath:db/migration' ...
+2018-12-06 18:30:30,113 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Determining location urls for classpath:db/migration using ClassLoader sun.misc.Launcher$AppClassLoader@18b4aac2 ...
+2018-12-06 18:30:30,113 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Scanning URL: file:/C:/Users/LCY/git/oep-project/qloudbiz-api-product/target/classes/db/migration
+2018-12-06 18:30:30,114 org.flywaydb.core.internal.util.FeatureDetector [main] (Slf4jLog.java:45) DEBUG --> JBoss VFS v2 available: false
+2018-12-06 18:30:30,116 org.flywaydb.core.internal.scanner.classpath.FileSystemClassPathLocationScanner [main] (Slf4jLog.java:45) DEBUG --> Scanning starting at classpath root in filesystem: C:\Users\LCY\git\oep-project\qloudbiz-api-product\target\classes\
+2018-12-06 18:30:30,116 org.flywaydb.core.internal.scanner.classpath.FileSystemClassPathLocationScanner [main] (Slf4jLog.java:45) DEBUG --> Scanning for resources in path: C:\Users\LCY\git\oep-project\qloudbiz-api-product\target\classes\db\migration (db/migration)
+2018-12-06 18:30:30,119 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Found resource: db/migration/V1_0_0__init_product_table.sql
+2018-12-06 18:30:30,119 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Found resource: db/migration/V1_0_2__product_procedures.sql
+2018-12-06 18:30:30,121 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Found resource: db/migration/V1_0_4__init_productline_table.sql
+2018-12-06 18:30:30,121 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Found resource: db/migration/V1_0_5__productline_procedures.sql
+2018-12-06 18:30:30,121 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Found resource: db/migration/V1_0_6__productbrand_procedures.sql
+2018-12-06 18:30:30,121 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Found resource: db/migration/V1_0_7__productbrand_table.sql
+2018-12-06 18:30:30,121 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Found resource: db/migration/V1_0_8__init_producttype_table.sql
+2018-12-06 18:30:30,121 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Found resource: db/migration/V1_0_9__producttype_procedures.sql
+2018-12-06 18:30:30,121 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Scanning for classes at classpath:db/migration
+2018-12-06 18:30:30,127 org.flywaydb.core.internal.callback.SqlScriptCallbackFactory [main] (Slf4jLog.java:45) DEBUG --> Scanning for SQL callbacks ...
+2018-12-06 18:30:30,134 org.flywaydb.core.internal.util.FeatureDetector [main] (Slf4jLog.java:45) DEBUG --> Spring Jdbc available: false
+2018-12-06 18:30:30,150 org.flywaydb.core.internal.command.DbValidate [main] (Slf4jLog.java:45) DEBUG --> Validating migrations ...
+2018-12-06 18:30:30,162 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Parsing V1_0_0__init_product_table.sql ...
+2018-12-06 18:30:30,168 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 1: drop table if exists product
+2018-12-06 18:30:30,170 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 3: create table if not exists product (
+	productId varchar(255) primary key, 
+	code  varchar(200) not null,
+	name varchar(255)
+)
+2018-12-06 18:30:30,173 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Parsing V1_0_2__product_procedures.sql ...
+2018-12-06 18:30:30,177 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 1: -- insert a product
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCT_INSERT_PROCEDURE`
+2018-12-06 18:30:30,184 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 4: CREATE  PROCEDURE `QLOUDFLOW_PRODUCT_INSERT_PROCEDURE`(
+	 IN v_productId varchar(255),
+     IN v_code varchar(50), 
+     IN v_name varchar(255)
+)
+lable:BEGIN
+    DECLARE tmpCont int default 0;
+    DECLARE cont int default 0;
+    
+    INSERT INTO product 
+    (
+     productId, 
+     code,
+     name
+	) VALUES 
+	(
+	 v_productId, 
+     v_code,
+     v_name
+	); 
+	
+	
+
+END
+2018-12-06 18:30:30,185 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 31: -- query products
+DROP PROCEDURE IF EXISTS QLOUDFLOW_PRODUCT_LISTALL_PROCEDURE
+2018-12-06 18:30:30,188 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 34: CREATE PROCEDURE QLOUDFLOW_PRODUCT_LISTALL_PROCEDURE(
+	IN v_startrow int,
+	IN v_pagesize int,
+	IN v_name varchar(255)
+)
+lable:BEGIN
+	IF v_startrow=-1  THEN SELECT COUNT(1) FROM product where name like CONCAT( '%', v_name, '%' ) ;
+	ELSE SELECT productId,code,name FROM product where name like CONCAT( '%', v_name, '%' ) LIMIT v_startrow,v_pagesize;
+	END IF;
+END
+2018-12-06 18:30:30,189 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 47: -- query products
+DROP PROCEDURE IF EXISTS QLOUDFLOW_PRODUCT_SINGLE_PROCEDURE
+2018-12-06 18:30:30,191 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 50: CREATE PROCEDURE QLOUDFLOW_PRODUCT_SINGLE_PROCEDURE(
+	IN v_productId int
+)
+lable:BEGIN
+	SELECT productId,code,name FROM product where productId=v_productId;
+END
+2018-12-06 18:30:30,192 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 59: -- delete QLOUDFLOW_PRODUCT_DELETE_PROCEDURE
+DROP PROCEDURE IF EXISTS QLOUDFLOW_PRODUCT_DELETE_PROCEDURE
+2018-12-06 18:30:30,196 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 62: CREATE  PROCEDURE QLOUDFLOW_PRODUCT_DELETE_PROCEDURE(
+	 IN v_productId varchar(255),
+     OUT V_OUT int
+)
+lable:BEGIN
+   	DELETE FROM product WHERE productId=v_productId;
+   	
+	SELECT  ROW_COUNT() into V_OUT;
+
+END
+2018-12-06 18:30:30,197 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 77: -- update QLOUDFLOW_PRODUCT_DELETE_PROCEDURE
+DROP PROCEDURE IF EXISTS QLOUDFLOW_PRODUCT_UPDATE_PROCEDURE
+2018-12-06 18:30:30,200 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 80: CREATE PROCEDURE  QLOUDFLOW_PRODUCT_UPDATE_PROCEDURE(
+	IN v_productId varchar(64),
+	IN v_code varchar(255),
+    IN v_name varchar(255),
+	OUT V_OUT int
+)
+label:BEGIN
+	UPDATE product set code=v_code,name=v_name where productId=v_productId;
+
+  SELECT  ROW_COUNT() into V_OUT;
+END
+2018-12-06 18:30:30,202 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Parsing V1_0_4__init_productline_table.sql ...
+2018-12-06 18:30:30,206 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 18: -- ----------------------------
+-- Table structure for productLine
+-- ----------------------------
+DROP TABLE IF EXISTS `productLine`
+2018-12-06 18:30:30,211 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 22: CREATE TABLE `productLine` (
+  `lineId` varchar(50) NOT NULL,
+  `lineCode` varchar(50) NOT NULL,
+  `lineName` varchar(100) NOT NULL,
+  `parentId` varchar(50) DEFAULT NULL,
+  `sort` int(4) NOT NULL,
+  `status` varchar(16) NOT NULL,
+  `createdTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `creatorId` varchar(50) NOT NULL,
+  `creatorName` varchar(50) NOT NULL,
+  `modifyTime` timestamp NULL DEFAULT NULL,
+  `modifierId` varchar(50) DEFAULT NULL,
+  `modifierName` varchar(50) DEFAULT NULL,
+  `lastModifyTime` timestamp NULL DEFAULT NULL,
+  `ownerCompanyCode` varchar(50) DEFAULT NULL,
+  `tenantId` varchar(50) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`lineId`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC
+2018-12-06 18:30:30,213 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Parsing V1_0_5__productline_procedures.sql ...
+2018-12-06 18:30:30,215 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 1: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTLINE_DELETE_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTLINE_DELETE_PROCEDURE`
+2018-12-06 18:30:30,216 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 6: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTLINE_DELETE_PROCEDURE`(
+	 IN v_lineId varchar(50)
+)
+lable:BEGIN
+   	DELETE FROM productLine WHERE lineId=v_lineId;
+END
+
+2018-12-06 18:30:30,218 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 15: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTLINE_INFO_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTLINE_INFO_PROCEDURE`
+2018-12-06 18:30:30,219 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 20: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTLINE_INFO_PROCEDURE`(
+	IN v_lineId varchar(50)
+)
+lable:BEGIN
+	SELECT * FROM productLine WHERE lineId = v_lineId;
+END
+
+2018-12-06 18:30:30,220 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 29: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTLINE_INSERT_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTLINE_INSERT_PROCEDURE`
+2018-12-06 18:30:30,228 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 34: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTLINE_INSERT_PROCEDURE`(
+	 IN v_lineId varchar(50),
+     IN v_lineCode varchar(50), 
+     IN v_lineName varchar(100),
+     IN v_parentId varchar(50),
+     IN v_sort int(4),
+     IN v_status varchar(16),
+     IN v_createdTime timestamp,
+     IN v_creatorId varchar(50),
+     IN v_creatorName varchar(50),
+     IN v_modifyTime timestamp,
+     IN v_modifierId varchar(50),
+     IN v_modifierName varchar(50),
+     IN v_lastModifyTime timestamp,
+     IN v_ownerCompanyCode varchar(50),
+     IN v_tenantId varchar(50)
+)
+lable:BEGIN
+    DECLARE tmpCont int default 0;
+    DECLARE cont int default 0;
+    
+    INSERT INTO productLine 
+    (
+     lineId, 
+     lineCode,
+     lineName,
+     parentId,
+     sort,
+     status,
+     createdTime,
+     creatorId,
+     creatorName,
+     modifyTime,
+     modifierId,
+     modifierName,
+     lastModifyTime,
+     ownerCompanyCode,
+     tenantId
+	) VALUES 
+	(
+	 v_lineId, 
+     v_lineCode,
+     v_lineName,
+     v_parentId,
+     v_sort,
+     v_status,
+     v_createdTime,
+     v_creatorId,
+     v_creatorName,
+     v_modifyTime,
+     v_modifierId,
+     v_modifierName,
+     v_lastModifyTime,
+     v_ownerCompanyCode,
+     v_tenantId
+	); 
+	
+	
+
+END
+
+2018-12-06 18:30:30,229 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 97: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTLINE_LISTALL_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTLINE_LISTALL_PROCEDURE`
+2018-12-06 18:30:30,232 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 102: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTLINE_LISTALL_PROCEDURE`(
+	IN v_startrow int,
+	IN v_pagesize int,
+	IN v_lineCode varchar(50),
+	IN v_lineName varchar(100),
+	IN v_status varchar(16),
+	IN v_tenantId varchar(50)
+)
+lable:BEGIN
+	IF 
+	v_startrow=-1  THEN SELECT COUNT(1) 
+	FROM productLine where 
+	(v_lineCode is null or lineCode like CONCAT('%',v_lineCode,'%') )
+	and (v_lineName is null or lineName like CONCAT('%',v_lineName,'%'))
+	and (v_status is null or status = v_status)
+	and (v_tenantId is null or tenantId = v_tenantId);
+	ELSE
+	SELECT * FROM productLine where 
+	(v_lineCode is null or lineCode like CONCAT('%',v_lineCode,'%') )
+	and (v_lineName is null or lineName like CONCAT('%',v_lineName,'%'))
+	and (v_status is null or status = v_status)
+	and (v_tenantId is null or tenantId = v_tenantId)
+	LIMIT v_startrow,v_pagesize;
+	END IF;
+END
+
+2018-12-06 18:30:30,233 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 130: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTLINE_UPDATE_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTLINE_UPDATE_PROCEDURE`
+2018-12-06 18:30:30,245 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 135: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTLINE_UPDATE_PROCEDURE`(
+  IN v_lineId varchar(50),
+	IN v_lineName varchar(100),
+	IN v_parentId varchar(50),
+	IN v_sort int(4),
+	IN v_status varchar(16),
+	IN v_modifierId varchar(50),
+	IN v_modifierName varchar(50),
+	IN v_modifyTime timestamp,
+	IN v_lastModifyTime timestamp
+)
+label:BEGIN
+	UPDATE productLine set 
+	lineName=v_lineName,
+	parentId=v_parentId,
+	sort=v_sort,
+	status=v_status,
+	modifierId = v_modifierId,
+	modifierName = v_modifierName,
+	modifyTime = v_modifyTime,
+	lastModifyTime = v_lastModifyTime
+	where lineId=v_lineId;
+END
+
+2018-12-06 18:30:30,248 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Parsing V1_0_6__productbrand_procedures.sql ...
+2018-12-06 18:30:30,250 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 1: -- ----------------------------
+-- Procedure structure for PRODUCTBRAND_DELETE_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `PRODUCTBRAND_DELETE_PROCEDURE`
+2018-12-06 18:30:30,250 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 6: CREATE DEFINER=`root`@`%` PROCEDURE `PRODUCTBRAND_DELETE_PROCEDURE`(IN v_brandId varchar(50))
+lable:BEGIN
+   	DELETE FROM productBrand WHERE brandId=v_brandId;
+  
+END
+
+2018-12-06 18:30:30,251 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 14: -- ----------------------------
+-- Procedure structure for PRODUCTBRAND_INFO_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `PRODUCTBRAND_INFO_PROCEDURE`
+2018-12-06 18:30:30,251 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 19: CREATE DEFINER=`root`@`%` PROCEDURE `PRODUCTBRAND_INFO_PROCEDURE`(IN v_brandId varchar(50))
+lable:BEGIN
+	SELECT * FROM productBrand WHERE brandId = v_brandId;
+END
+
+2018-12-06 18:30:30,252 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 26: -- ----------------------------
+-- Procedure structure for PRODUCTBRAND_INSERT_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `PRODUCTBRAND_INSERT_PROCEDURE`
+2018-12-06 18:30:30,256 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 31: CREATE DEFINER=`root`@`%` PROCEDURE `PRODUCTBRAND_INSERT_PROCEDURE`(IN v_brandId varchar(50),
+     IN v_brandCode varchar(50), 
+     IN v_brandName varchar(100),
+     IN v_brandType varchar(32),
+ IN  v_remark varchar(1024) , IN v_sort int(4),
+     IN v_status varchar(16),
+     IN v_createdTime timestamp,
+     IN v_creatorId varchar(50),
+     IN v_creatorName varchar(50),
+     IN v_modifyTime timestamp,
+     IN v_modifierId varchar(50),
+     IN v_modifierName varchar(50),
+     IN v_lastModifyTime timestamp,
+     IN v_ownerCompanyCode varchar(50),
+     IN v_tenantId varchar(50))
+lable:BEGIN
+    DECLARE tmpCont int default 0;
+    DECLARE cont int default 0;
+    
+    INSERT INTO productBrand 
+    (
+     brandId, 
+     brandCode,
+     brandName,
+     brandType,
+     remark,
+     sort,
+     status,
+     createdTime,
+     creatorId,
+     creatorName,
+     modifyTime,
+     modifierId,
+     modifierName,
+     lastModifyTime,
+     ownerCompanyCode,
+     tenantId
+	) VALUES 
+	(
+	   v_brandId, 
+     v_brandCode,
+     v_brandName,
+     v_brandType,
+     v_remark,
+     v_sort,
+     v_status,
+     v_createdTime,
+     v_creatorId,
+     v_creatorName,
+     v_modifyTime,
+     v_modifierId,
+     v_modifierName,
+     v_lastModifyTime,
+     v_ownerCompanyCode,
+     v_tenantId
+	); 
+	
+END
+
+2018-12-06 18:30:30,257 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 92: -- ----------------------------
+-- Procedure structure for PRODUCTBRAND_LISTALL_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `PRODUCTBRAND_LISTALL_PROCEDURE`
+2018-12-06 18:30:30,260 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 97: CREATE DEFINER=`root`@`%` PROCEDURE `PRODUCTBRAND_LISTALL_PROCEDURE`(IN v_startrow int,
+	IN v_pagesize int,
+	IN v_brandCode varchar(50),
+  IN v_brandType varchar(32),
+	IN v_brandName varchar(100),
+	IN v_status varchar(16),
+	IN v_tenantId varchar(50))
+lable:BEGIN
+	IF 
+	v_startrow=-1  THEN SELECT COUNT(1) FROM 
+  productBrand where 
+  (v_brandCode is null or brandCode like CONCAT('%',v_brandCode,'%') )
+	and (v_brandName is null or brandName like CONCAT('%',v_brandName,'%'))
+	and (v_status is null or status=v_status)
+  and (v_brandType is null or brandType=v_brandType)
+	and (v_tenantId is null or tenantId=v_tenantId);
+	ELSE
+	SELECT * FROM productBrand 
+	where 
+   (v_brandCode is null or brandCode like CONCAT('%',v_brandCode,'%') )
+	and (v_brandName is null or brandName like CONCAT('%',v_brandName,'%'))
+	and (v_status is null or status =v_status)
+  and (v_brandType is null or brandType=v_brandType)
+	and (v_tenantId is null or tenantId=v_tenantId)
+	LIMIT v_startrow,v_pagesize;
+	END IF;
+END
+
+2018-12-06 18:30:30,261 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 127: -- ----------------------------
+-- Procedure structure for PRODUCTBRAND_UPDATE_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `PRODUCTBRAND_UPDATE_PROCEDURE`
+2018-12-06 18:30:30,263 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 132: CREATE DEFINER=`root`@`%` PROCEDURE `PRODUCTBRAND_UPDATE_PROCEDURE`(IN v_brandId varchar(50),
+  IN v_brandCode varchar(50),
+	IN v_brandName varchar(100),
+	IN v_brandType varchar(32),
+  IN v_remark varchar(1024),
+	IN v_sort int(4),
+IN v_status varchar(16),IN v_modifierId VARCHAR(50),IN v_modifierName VARCHAR(50),IN v_modifyTime timestamp,IN v_lastModifyTime timestamp)
+label:BEGIN
+	UPDATE productBrand set 
+  brandCode=v_brandCode,
+	brandName=v_brandName,
+  brandType=v_brandType,
+	remark=v_remark,
+	sort=v_sort,
+  modifierId=v_modifierId,
+  modifierName=v_modifierName,
+  modifyTime=v_modifyTime,
+  lastModifyTime=v_lastModifyTime,
+	status=v_status
+	where brandId =v_brandId;
+END
+
+2018-12-06 18:30:30,266 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Parsing V1_0_7__productbrand_table.sql ...
+2018-12-06 18:30:30,267 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 1: -- ----------------------------
+-- Table structure for productBrand
+-- ----------------------------
+DROP TABLE IF EXISTS `productBrand`
+2018-12-06 18:30:30,269 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 5: CREATE TABLE `productBrand` (
+  `brandId` varchar(50) NOT NULL,
+  `brandCode` varchar(50) NOT NULL,
+  `brandName` varchar(100) NOT NULL,
+  `brandType` varchar(32) DEFAULT NULL,
+  `remark` varchar(1024) DEFAULT NULL,
+  `sort` int(4) NOT NULL,
+  `status` varchar(16) NOT NULL,
+  `createdTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `creatorId` varchar(50) NOT NULL DEFAULT '1',
+  `creatorName` varchar(50) NOT NULL DEFAULT 'admin',
+  `modifyTime` timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  `modifierId` varchar(50) DEFAULT NULL,
+  `modifierName` varchar(50) DEFAULT NULL,
+  `lastModifyTime` timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  `ownerCompanyCode` varchar(50) DEFAULT NULL,
+  `tenantId` varchar(50) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`brandId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+2018-12-06 18:30:30,271 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Parsing V1_0_8__init_producttype_table.sql ...
+2018-12-06 18:30:30,272 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 1: DROP TABLE IF EXISTS `productType`
+2018-12-06 18:30:30,277 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 2: CREATE TABLE `productType` (
+  `typeId` varchar(50) NOT NULL COMMENT '产品分类Id',
+  `typeCode` varchar(50) NOT NULL COMMENT '产品分类编号',
+  `typeName` varchar(100) NOT NULL COMMENT '产品分类中文名称',
+  `parentId` varchar(50) DEFAULT NULL COMMENT '产品分类父节点id',
+  `isPhysical` tinyint(1) DEFAULT '1' COMMENT '是否物理分类',
+  `toTransport` tinyint(1) DEFAULT '1' COMMENT '是否需要运输',
+  `prodLineId` varchar(50) DEFAULT NULL COMMENT '所属产品线Id',
+  `sort` int(4) NOT NULL COMMENT '排序号',
+  `status` varchar(16) NOT NULL COMMENT '状态',
+  `remark` varchar(50) DEFAULT NULL COMMENT '备注',
+  `createdTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
+  `creatorId` varchar(50) NOT NULL COMMENT '创建人ID',
+  `creatorName` varchar(50) NOT NULL COMMENT '创建人姓名',
+  `modifyTime` timestamp NULL DEFAULT NULL COMMENT '更新时间',
+  `modifierId` varchar(50) DEFAULT NULL COMMENT '更新人ID',
+  `modifierName` varchar(50) DEFAULT NULL COMMENT '更新人姓名',
+  `lastModifyTime` timestamp NULL DEFAULT NULL COMMENT '最后更新时间',
+  `tenantId` varchar(50) NOT NULL COMMENT '租户ID',
+  PRIMARY KEY (`typeId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+2018-12-06 18:30:30,279 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Parsing V1_0_9__producttype_procedures.sql ...
+2018-12-06 18:30:30,280 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 1: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTTYPE_INSERT_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTTYPE_INSERT_PROCEDURE`
+2018-12-06 18:30:30,283 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 6: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTTYPE_INSERT_PROCEDURE`(
+	 IN v_typeId varchar(50),
+     IN v_typeCode varchar(50), 
+     IN v_typeName varchar(100),
+     IN v_parentId varchar(50),
+     IN v_isPhysical tinyint(1),
+     IN v_toTransport tinyint(1),
+     IN v_prodLineId varchar(50),
+     IN v_sort int(4),
+     IN v_status varchar(16),
+     IN v_remark varchar(50),
+     IN v_createdTime timestamp,
+     IN v_creatorId varchar(50),
+     IN v_creatorName varchar(50),
+     IN v_modifyTime timestamp,
+     IN v_modifierId varchar(50),
+     IN v_modifierName varchar(50),
+     IN v_lastModifyTime timestamp,
+     IN v_tenantId varchar(50)
+)
+lable:BEGIN
+    DECLARE tmpCont int default 0;
+    DECLARE cont int default 0;
+    
+    INSERT INTO productType 
+    (
+     typeId, 
+     typeCode,
+     typeName,
+     parentId,
+     isPhysical,
+     toTransport,
+     prodLineId,
+     sort,
+     status,
+     remark,
+     createdTime,
+     creatorId,
+     creatorName,
+     modifyTime,
+     modifierId,
+     modifierName,
+     lastModifyTime,
+     tenantId
+	) VALUES 
+	(
+	 v_typeId, 
+     v_typeCode,
+     v_typeName,
+     v_parentId,
+     v_isPhysical,
+     v_toTransport,
+     v_prodLineId,
+     v_sort,
+     v_status,
+     v_remark,
+     v_createdTime,
+     v_creatorId,
+     v_creatorName,
+     v_modifyTime,
+     v_modifierId,
+     v_modifierName,
+     v_lastModifyTime,
+     v_tenantId
+	); 
+	
+	
+
+END
+
+2018-12-06 18:30:30,284 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 81: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTTYPE_UPDATE_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTTYPE_UPDATE_PROCEDURE`
+2018-12-06 18:30:30,286 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 86: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTTYPE_UPDATE_PROCEDURE`(
+    IN v_typeId varchar(50),
+	IN v_typeCode varchar(50),
+	IN v_typeName varchar(100),
+	IN v_isPhysical tinyint(1),
+	IN v_toTransport tinyint(1),
+	IN v_parentId varchar(50),
+	IN v_sort int(4),
+	IN v_status varchar(16),
+	IN v_prodLineId varchar(50),
+	IN v_tenantId varchar(50),
+	IN v_modifierId varchar(50),
+	IN v_modifierName varchar(50),
+	IN v_modifyTime timestamp,
+	IN v_lastModifyTime timestamp
+)
+label:BEGIN
+	UPDATE productType set 
+	typeCode=v_typeCode,
+	typeName=v_typeName,
+	isPhysical=v_isPhysical,
+	toTransport=v_toTransport,
+	parentId=v_parentId,
+	sort=v_sort,
+	status=v_status,
+	prodLineId=v_prodLineId,
+	tenantId=v_tenantId,
+	modifierId = v_modifierId,
+	modifierName = v_modifierName,
+	modifyTime = v_modifyTime,
+	lastModifyTime = v_lastModifyTime
+	where typeId=v_typeId;
+END
+
+2018-12-06 18:30:30,286 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 125: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTTYPE_DELETE_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTTYPE_DELETE_PROCEDURE`
+2018-12-06 18:30:30,287 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 130: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTTYPE_DELETE_PROCEDURE`(
+	 IN v_typeId varchar(50)
+)
+lable:BEGIN
+   	DELETE FROM productType WHERE typeId=v_typeId;
+END
+
+2018-12-06 18:30:30,288 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 142: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTTYPE_INFO_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTTYPE_INFO_PROCEDURE`
+2018-12-06 18:30:30,288 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 147: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTTYPE_INFO_PROCEDURE`(
+	IN v_typeId varchar(50)
+)
+lable:BEGIN
+	SELECT * FROM productType WHERE typeId = v_typeId;
+END
+
+2018-12-06 18:30:30,289 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 160: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTTYPE_TREE_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTTYPE_TREE_PROCEDURE`
+2018-12-06 18:30:30,290 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 165: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTTYPE_TREE_PROCEDURE`(
+	IN v_typeName varchar(100)
+)
+lable:BEGIN
+	SELECT * FROM productType
+	WHERE (v_typeName is null or typeName like CONCAT('%',v_typeName,'%') );
+END
+
+2018-12-06 18:30:30,291 org.flywaydb.core.internal.scanner.Scanner [main] (Slf4jLog.java:45) DEBUG --> Filtering out resource: db/migration/V1_0_0__init_product_table.sql (filename: V1_0_0__init_product_table.sql)
+2018-12-06 18:30:30,292 org.flywaydb.core.internal.scanner.Scanner [main] (Slf4jLog.java:45) DEBUG --> Filtering out resource: db/migration/V1_0_2__product_procedures.sql (filename: V1_0_2__product_procedures.sql)
+2018-12-06 18:30:30,292 org.flywaydb.core.internal.scanner.Scanner [main] (Slf4jLog.java:45) DEBUG --> Filtering out resource: db/migration/V1_0_4__init_productline_table.sql (filename: V1_0_4__init_productline_table.sql)
+2018-12-06 18:30:30,292 org.flywaydb.core.internal.scanner.Scanner [main] (Slf4jLog.java:45) DEBUG --> Filtering out resource: db/migration/V1_0_5__productline_procedures.sql (filename: V1_0_5__productline_procedures.sql)
+2018-12-06 18:30:30,292 org.flywaydb.core.internal.scanner.Scanner [main] (Slf4jLog.java:45) DEBUG --> Filtering out resource: db/migration/V1_0_6__productbrand_procedures.sql (filename: V1_0_6__productbrand_procedures.sql)
+2018-12-06 18:30:30,292 org.flywaydb.core.internal.scanner.Scanner [main] (Slf4jLog.java:45) DEBUG --> Filtering out resource: db/migration/V1_0_7__productbrand_table.sql (filename: V1_0_7__productbrand_table.sql)
+2018-12-06 18:30:30,293 org.flywaydb.core.internal.scanner.Scanner [main] (Slf4jLog.java:45) DEBUG --> Filtering out resource: db/migration/V1_0_8__init_producttype_table.sql (filename: V1_0_8__init_producttype_table.sql)
+2018-12-06 18:30:30,293 org.flywaydb.core.internal.scanner.Scanner [main] (Slf4jLog.java:45) DEBUG --> Filtering out resource: db/migration/V1_0_9__producttype_procedures.sql (filename: V1_0_9__producttype_procedures.sql)
+2018-12-06 18:30:30,337 org.flywaydb.core.internal.command.DbValidate [main] (Slf4jLog.java:49) INFO  --> Successfully validated 8 migrations (execution time 00:00.178s)
+2018-12-06 18:30:30,343 org.flywaydb.core.internal.command.DbSchemas [main] (Slf4jLog.java:45) DEBUG --> Schema `productdb` already exists. Skipping schema creation.
+2018-12-06 18:30:30,362 org.flywaydb.core.internal.command.DbMigrate [main] (Slf4jLog.java:49) INFO  --> Current version of schema `productdb`: 1.0.9
+2018-12-06 18:30:30,365 org.flywaydb.core.internal.command.DbMigrate [main] (Slf4jLog.java:49) INFO  --> Schema `productdb` is up to date. No migration necessary.
+2018-12-06 18:30:30,405 org.flywaydb.core.Flyway [main] (Slf4jLog.java:45) DEBUG --> Memory usage: 43 of 184M
+2018-12-06 18:30:30,422 com.atomikos.logging.LoggerFactory [main] (Slf4jLogger.java:32) DEBUG --> Using Slf4J for logging.
+2018-12-06 18:30:30,423 com.qloudfin.sagas.persistence.jdbc.JdbcClient [main] (JdbcClient.java:72) DEBUG --> db config is {"driver":"org.mariadb.jdbc.MariaDbDataSource","ip":"192.168.44.5","port":3306,"dbname":"productdb","username":"root","password":"666666","testQuery":"select 1","maxPoolSize":5,"minPoolSize":5} 
+
+2018-12-06 18:30:30,652 com.atomikos.jdbc.AbstractDataSourceBean [main] (Slf4jLogger.java:32) DEBUG --> AtomikosDataSoureBean '06253d80-32e3-4d12-a545-3a1823a81dab': getConnection()...
+2018-12-06 18:30:30,652 com.atomikos.jdbc.AbstractDataSourceBean [main] (Slf4jLogger.java:28) INFO  --> AtomikosDataSoureBean '06253d80-32e3-4d12-a545-3a1823a81dab': init...
+2018-12-06 18:30:30,653 com.atomikos.jdbc.AtomikosDataSourceBean [main] (Slf4jLogger.java:28) INFO  --> AtomikosDataSoureBean '06253d80-32e3-4d12-a545-3a1823a81dab': initializing with [ xaDataSourceClassName=org.mariadb.jdbc.MariaDbDataSource, uniqueResourceName=06253d80-32e3-4d12-a545-3a1823a81dab, maxPoolSize=5, minPoolSize=5, borrowConnectionTimeout=30, maxIdleTime=60, reapTimeout=0, maintenanceInterval=60, testQuery=select 1, xaProperties=[user=root,password=666666,url=jdbc:mariadb://192.168.44.5:3306/productdb?maxPoolSize=5&autoReconnect=true], loginTimeout=0, maxLifetime=0]
+2018-12-06 18:30:30,769 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:24) WARN  --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: WARNING: transaction manager not running?
+2018-12-06 18:30:30,769 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:32) DEBUG --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: calling getAutoCommit...
+2018-12-06 18:30:30,769 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:24) WARN  --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: WARNING: transaction manager not running?
+2018-12-06 18:30:30,769 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:32) DEBUG --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: calling setAutoCommit(false)...
+2018-12-06 18:30:30,772 com.qloudbiz.core.factory.ServiceProxyFactory [main] (ServiceProxyFactory.java:37) DEBUG --> >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>BEGIN  TRANSACTION
+2018-12-06 18:30:30,772 com.qloudbiz.product.service.impl.ProductTypeServiceImpl [main] (ProductTypeServiceImpl.java:133) DEBUG --> >>>>>>>>>>>>>> service query tree method start
+2018-12-06 18:31:04,438 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:32) DEBUG --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: isClosed()...
+2018-12-06 18:31:04,438 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:24) WARN  --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: WARNING: transaction manager not running?
+2018-12-06 18:31:04,439 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:24) WARN  --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: WARNING: transaction manager not running?
+2018-12-06 18:31:04,439 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:32) DEBUG --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: calling prepareCall({CALL QLOUDFLOW_PRODUCTTYPE_TREE_PROCEDURE(?)})...
+2018-12-06 18:31:04,469 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:32) DEBUG --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: isClosed()...
+2018-12-06 18:31:04,469 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:24) WARN  --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: WARNING: transaction manager not running?
+2018-12-06 18:31:04,469 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:32) DEBUG --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: calling getAutoCommit...
+2018-12-06 18:36:39,801 com.qloudbiz.core.dao.DbInit [main] (DbInit.java:40) INFO  --> got app config {"uniqueResourceName":"qloud.saga","maxPoolSize":5,"minPoolSize":5,"testQuery":"select 1","driver":"org.mariadb.jdbc.MariaDbDataSource","ip":"192.168.44.5","port":3306,"dbname":"productdb","username":"root","password":"666666"}
+2018-12-06 18:36:39,804 com.qloudbiz.core.dao.DbInit [main] (DbInit.java:58) DEBUG --> db config is {"driver":"org.mariadb.jdbc.MariaDbDataSource","ip":"192.168.44.5","port":3306,"dbname":"productdb","username":"root","password":"666666","testQuery":"select 1","maxPoolSize":5,"minPoolSize":5} 
+
+2018-12-06 18:36:39,839 org.flywaydb.core.internal.license.VersionPrinter [main] (Slf4jLog.java:49) INFO  --> Flyway Community Edition 5.2.1 by Boxfuse
+2018-12-06 18:36:39,963 org.flywaydb.core.internal.database.DatabaseFactory [main] (Slf4jLog.java:49) INFO  --> Database: jdbc:mariadb://192.168.44.5:3306/productdb (MySQL 5.5)
+2018-12-06 18:36:39,963 org.flywaydb.core.internal.database.DatabaseFactory [main] (Slf4jLog.java:45) DEBUG --> Driver  : MariaDB connector/J 2.3.0
+2018-12-06 18:36:39,984 org.flywaydb.core.internal.database.mysql.MySQLDatabase [main] (Slf4jLog.java:45) DEBUG --> Unable to detect whether we are running in a Percona XtraDB Cluster. Assuming not to be.
+2018-12-06 18:36:39,984 org.flywaydb.core.Flyway [main] (Slf4jLog.java:45) DEBUG --> DDL Transactions Supported: false
+2018-12-06 18:36:39,991 org.flywaydb.core.Flyway [main] (Slf4jLog.java:45) DEBUG --> Schema: productdb
+2018-12-06 18:36:39,994 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Scanning for classpath resources at 'classpath:db/migration' ...
+2018-12-06 18:36:39,995 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Determining location urls for classpath:db/migration using ClassLoader sun.misc.Launcher$AppClassLoader@73d16e93 ...
+2018-12-06 18:36:39,995 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Scanning URL: file:/C:/Users/LCY/git/oep-project/qloudbiz-api-product/target/classes/db/migration
+2018-12-06 18:36:39,996 org.flywaydb.core.internal.util.FeatureDetector [main] (Slf4jLog.java:45) DEBUG --> JBoss VFS v2 available: false
+2018-12-06 18:36:39,998 org.flywaydb.core.internal.scanner.classpath.FileSystemClassPathLocationScanner [main] (Slf4jLog.java:45) DEBUG --> Scanning starting at classpath root in filesystem: C:\Users\LCY\git\oep-project\qloudbiz-api-product\target\classes\
+2018-12-06 18:36:39,998 org.flywaydb.core.internal.scanner.classpath.FileSystemClassPathLocationScanner [main] (Slf4jLog.java:45) DEBUG --> Scanning for resources in path: C:\Users\LCY\git\oep-project\qloudbiz-api-product\target\classes\db\migration (db/migration)
+2018-12-06 18:36:40,002 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Found resource: db/migration/V1_0_0__init_product_table.sql
+2018-12-06 18:36:40,002 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Found resource: db/migration/V1_0_2__product_procedures.sql
+2018-12-06 18:36:40,004 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Found resource: db/migration/V1_0_4__init_productline_table.sql
+2018-12-06 18:36:40,004 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Found resource: db/migration/V1_0_5__productline_procedures.sql
+2018-12-06 18:36:40,004 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Found resource: db/migration/V1_0_6__productbrand_procedures.sql
+2018-12-06 18:36:40,004 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Found resource: db/migration/V1_0_7__productbrand_table.sql
+2018-12-06 18:36:40,004 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Found resource: db/migration/V1_0_8__init_producttype_table.sql
+2018-12-06 18:36:40,004 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Found resource: db/migration/V1_0_9__producttype_procedures.sql
+2018-12-06 18:36:40,005 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Scanning for classes at classpath:db/migration
+2018-12-06 18:36:40,010 org.flywaydb.core.internal.callback.SqlScriptCallbackFactory [main] (Slf4jLog.java:45) DEBUG --> Scanning for SQL callbacks ...
+2018-12-06 18:36:40,016 org.flywaydb.core.internal.util.FeatureDetector [main] (Slf4jLog.java:45) DEBUG --> Spring Jdbc available: false
+2018-12-06 18:36:40,028 org.flywaydb.core.internal.command.DbValidate [main] (Slf4jLog.java:45) DEBUG --> Validating migrations ...
+2018-12-06 18:36:40,036 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Parsing V1_0_0__init_product_table.sql ...
+2018-12-06 18:36:40,041 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 1: drop table if exists product
+2018-12-06 18:36:40,042 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 3: create table if not exists product (
+	productId varchar(255) primary key, 
+	code  varchar(200) not null,
+	name varchar(255)
+)
+2018-12-06 18:36:40,045 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Parsing V1_0_2__product_procedures.sql ...
+2018-12-06 18:36:40,046 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 1: -- insert a product
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCT_INSERT_PROCEDURE`
+2018-12-06 18:36:40,053 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 4: CREATE  PROCEDURE `QLOUDFLOW_PRODUCT_INSERT_PROCEDURE`(
+	 IN v_productId varchar(255),
+     IN v_code varchar(50), 
+     IN v_name varchar(255)
+)
+lable:BEGIN
+    DECLARE tmpCont int default 0;
+    DECLARE cont int default 0;
+    
+    INSERT INTO product 
+    (
+     productId, 
+     code,
+     name
+	) VALUES 
+	(
+	 v_productId, 
+     v_code,
+     v_name
+	); 
+	
+	
+
+END
+2018-12-06 18:36:40,054 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 31: -- query products
+DROP PROCEDURE IF EXISTS QLOUDFLOW_PRODUCT_LISTALL_PROCEDURE
+2018-12-06 18:36:40,057 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 34: CREATE PROCEDURE QLOUDFLOW_PRODUCT_LISTALL_PROCEDURE(
+	IN v_startrow int,
+	IN v_pagesize int,
+	IN v_name varchar(255)
+)
+lable:BEGIN
+	IF v_startrow=-1  THEN SELECT COUNT(1) FROM product where name like CONCAT( '%', v_name, '%' ) ;
+	ELSE SELECT productId,code,name FROM product where name like CONCAT( '%', v_name, '%' ) LIMIT v_startrow,v_pagesize;
+	END IF;
+END
+2018-12-06 18:36:40,059 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 47: -- query products
+DROP PROCEDURE IF EXISTS QLOUDFLOW_PRODUCT_SINGLE_PROCEDURE
+2018-12-06 18:36:40,061 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 50: CREATE PROCEDURE QLOUDFLOW_PRODUCT_SINGLE_PROCEDURE(
+	IN v_productId int
+)
+lable:BEGIN
+	SELECT productId,code,name FROM product where productId=v_productId;
+END
+2018-12-06 18:36:40,062 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 59: -- delete QLOUDFLOW_PRODUCT_DELETE_PROCEDURE
+DROP PROCEDURE IF EXISTS QLOUDFLOW_PRODUCT_DELETE_PROCEDURE
+2018-12-06 18:36:40,064 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 62: CREATE  PROCEDURE QLOUDFLOW_PRODUCT_DELETE_PROCEDURE(
+	 IN v_productId varchar(255),
+     OUT V_OUT int
+)
+lable:BEGIN
+   	DELETE FROM product WHERE productId=v_productId;
+   	
+	SELECT  ROW_COUNT() into V_OUT;
+
+END
+2018-12-06 18:36:40,065 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 77: -- update QLOUDFLOW_PRODUCT_DELETE_PROCEDURE
+DROP PROCEDURE IF EXISTS QLOUDFLOW_PRODUCT_UPDATE_PROCEDURE
+2018-12-06 18:36:40,075 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 80: CREATE PROCEDURE  QLOUDFLOW_PRODUCT_UPDATE_PROCEDURE(
+	IN v_productId varchar(64),
+	IN v_code varchar(255),
+    IN v_name varchar(255),
+	OUT V_OUT int
+)
+label:BEGIN
+	UPDATE product set code=v_code,name=v_name where productId=v_productId;
+
+  SELECT  ROW_COUNT() into V_OUT;
+END
+2018-12-06 18:36:40,077 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Parsing V1_0_4__init_productline_table.sql ...
+2018-12-06 18:36:40,081 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 18: -- ----------------------------
+-- Table structure for productLine
+-- ----------------------------
+DROP TABLE IF EXISTS `productLine`
+2018-12-06 18:36:40,083 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 22: CREATE TABLE `productLine` (
+  `lineId` varchar(50) NOT NULL,
+  `lineCode` varchar(50) NOT NULL,
+  `lineName` varchar(100) NOT NULL,
+  `parentId` varchar(50) DEFAULT NULL,
+  `sort` int(4) NOT NULL,
+  `status` varchar(16) NOT NULL,
+  `createdTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `creatorId` varchar(50) NOT NULL,
+  `creatorName` varchar(50) NOT NULL,
+  `modifyTime` timestamp NULL DEFAULT NULL,
+  `modifierId` varchar(50) DEFAULT NULL,
+  `modifierName` varchar(50) DEFAULT NULL,
+  `lastModifyTime` timestamp NULL DEFAULT NULL,
+  `ownerCompanyCode` varchar(50) DEFAULT NULL,
+  `tenantId` varchar(50) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`lineId`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC
+2018-12-06 18:36:40,085 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Parsing V1_0_5__productline_procedures.sql ...
+2018-12-06 18:36:40,086 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 1: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTLINE_DELETE_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTLINE_DELETE_PROCEDURE`
+2018-12-06 18:36:40,087 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 6: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTLINE_DELETE_PROCEDURE`(
+	 IN v_lineId varchar(50)
+)
+lable:BEGIN
+   	DELETE FROM productLine WHERE lineId=v_lineId;
+END
+
+2018-12-06 18:36:40,088 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 15: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTLINE_INFO_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTLINE_INFO_PROCEDURE`
+2018-12-06 18:36:40,089 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 20: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTLINE_INFO_PROCEDURE`(
+	IN v_lineId varchar(50)
+)
+lable:BEGIN
+	SELECT * FROM productLine WHERE lineId = v_lineId;
+END
+
+2018-12-06 18:36:40,089 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 29: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTLINE_INSERT_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTLINE_INSERT_PROCEDURE`
+2018-12-06 18:36:40,093 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 34: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTLINE_INSERT_PROCEDURE`(
+	 IN v_lineId varchar(50),
+     IN v_lineCode varchar(50), 
+     IN v_lineName varchar(100),
+     IN v_parentId varchar(50),
+     IN v_sort int(4),
+     IN v_status varchar(16),
+     IN v_createdTime timestamp,
+     IN v_creatorId varchar(50),
+     IN v_creatorName varchar(50),
+     IN v_modifyTime timestamp,
+     IN v_modifierId varchar(50),
+     IN v_modifierName varchar(50),
+     IN v_lastModifyTime timestamp,
+     IN v_ownerCompanyCode varchar(50),
+     IN v_tenantId varchar(50)
+)
+lable:BEGIN
+    DECLARE tmpCont int default 0;
+    DECLARE cont int default 0;
+    
+    INSERT INTO productLine 
+    (
+     lineId, 
+     lineCode,
+     lineName,
+     parentId,
+     sort,
+     status,
+     createdTime,
+     creatorId,
+     creatorName,
+     modifyTime,
+     modifierId,
+     modifierName,
+     lastModifyTime,
+     ownerCompanyCode,
+     tenantId
+	) VALUES 
+	(
+	 v_lineId, 
+     v_lineCode,
+     v_lineName,
+     v_parentId,
+     v_sort,
+     v_status,
+     v_createdTime,
+     v_creatorId,
+     v_creatorName,
+     v_modifyTime,
+     v_modifierId,
+     v_modifierName,
+     v_lastModifyTime,
+     v_ownerCompanyCode,
+     v_tenantId
+	); 
+	
+	
+
+END
+
+2018-12-06 18:36:40,094 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 97: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTLINE_LISTALL_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTLINE_LISTALL_PROCEDURE`
+2018-12-06 18:36:40,096 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 102: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTLINE_LISTALL_PROCEDURE`(
+	IN v_startrow int,
+	IN v_pagesize int,
+	IN v_lineCode varchar(50),
+	IN v_lineName varchar(100),
+	IN v_status varchar(16),
+	IN v_tenantId varchar(50)
+)
+lable:BEGIN
+	IF 
+	v_startrow=-1  THEN SELECT COUNT(1) 
+	FROM productLine where 
+	(v_lineCode is null or lineCode like CONCAT('%',v_lineCode,'%') )
+	and (v_lineName is null or lineName like CONCAT('%',v_lineName,'%'))
+	and (v_status is null or status = v_status)
+	and (v_tenantId is null or tenantId = v_tenantId);
+	ELSE
+	SELECT * FROM productLine where 
+	(v_lineCode is null or lineCode like CONCAT('%',v_lineCode,'%') )
+	and (v_lineName is null or lineName like CONCAT('%',v_lineName,'%'))
+	and (v_status is null or status = v_status)
+	and (v_tenantId is null or tenantId = v_tenantId)
+	LIMIT v_startrow,v_pagesize;
+	END IF;
+END
+
+2018-12-06 18:36:40,097 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 130: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTLINE_UPDATE_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTLINE_UPDATE_PROCEDURE`
+2018-12-06 18:36:40,099 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 135: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTLINE_UPDATE_PROCEDURE`(
+  IN v_lineId varchar(50),
+	IN v_lineName varchar(100),
+	IN v_parentId varchar(50),
+	IN v_sort int(4),
+	IN v_status varchar(16),
+	IN v_modifierId varchar(50),
+	IN v_modifierName varchar(50),
+	IN v_modifyTime timestamp,
+	IN v_lastModifyTime timestamp
+)
+label:BEGIN
+	UPDATE productLine set 
+	lineName=v_lineName,
+	parentId=v_parentId,
+	sort=v_sort,
+	status=v_status,
+	modifierId = v_modifierId,
+	modifierName = v_modifierName,
+	modifyTime = v_modifyTime,
+	lastModifyTime = v_lastModifyTime
+	where lineId=v_lineId;
+END
+
+2018-12-06 18:36:40,103 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Parsing V1_0_6__productbrand_procedures.sql ...
+2018-12-06 18:36:40,104 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 1: -- ----------------------------
+-- Procedure structure for PRODUCTBRAND_DELETE_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `PRODUCTBRAND_DELETE_PROCEDURE`
+2018-12-06 18:36:40,105 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 6: CREATE DEFINER=`root`@`%` PROCEDURE `PRODUCTBRAND_DELETE_PROCEDURE`(IN v_brandId varchar(50))
+lable:BEGIN
+   	DELETE FROM productBrand WHERE brandId=v_brandId;
+  
+END
+
+2018-12-06 18:36:40,106 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 14: -- ----------------------------
+-- Procedure structure for PRODUCTBRAND_INFO_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `PRODUCTBRAND_INFO_PROCEDURE`
+2018-12-06 18:36:40,107 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 19: CREATE DEFINER=`root`@`%` PROCEDURE `PRODUCTBRAND_INFO_PROCEDURE`(IN v_brandId varchar(50))
+lable:BEGIN
+	SELECT * FROM productBrand WHERE brandId = v_brandId;
+END
+
+2018-12-06 18:36:40,108 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 26: -- ----------------------------
+-- Procedure structure for PRODUCTBRAND_INSERT_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `PRODUCTBRAND_INSERT_PROCEDURE`
+2018-12-06 18:36:40,112 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 31: CREATE DEFINER=`root`@`%` PROCEDURE `PRODUCTBRAND_INSERT_PROCEDURE`(IN v_brandId varchar(50),
+     IN v_brandCode varchar(50), 
+     IN v_brandName varchar(100),
+     IN v_brandType varchar(32),
+ IN  v_remark varchar(1024) , IN v_sort int(4),
+     IN v_status varchar(16),
+     IN v_createdTime timestamp,
+     IN v_creatorId varchar(50),
+     IN v_creatorName varchar(50),
+     IN v_modifyTime timestamp,
+     IN v_modifierId varchar(50),
+     IN v_modifierName varchar(50),
+     IN v_lastModifyTime timestamp,
+     IN v_ownerCompanyCode varchar(50),
+     IN v_tenantId varchar(50))
+lable:BEGIN
+    DECLARE tmpCont int default 0;
+    DECLARE cont int default 0;
+    
+    INSERT INTO productBrand 
+    (
+     brandId, 
+     brandCode,
+     brandName,
+     brandType,
+     remark,
+     sort,
+     status,
+     createdTime,
+     creatorId,
+     creatorName,
+     modifyTime,
+     modifierId,
+     modifierName,
+     lastModifyTime,
+     ownerCompanyCode,
+     tenantId
+	) VALUES 
+	(
+	   v_brandId, 
+     v_brandCode,
+     v_brandName,
+     v_brandType,
+     v_remark,
+     v_sort,
+     v_status,
+     v_createdTime,
+     v_creatorId,
+     v_creatorName,
+     v_modifyTime,
+     v_modifierId,
+     v_modifierName,
+     v_lastModifyTime,
+     v_ownerCompanyCode,
+     v_tenantId
+	); 
+	
+END
+
+2018-12-06 18:36:40,114 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 92: -- ----------------------------
+-- Procedure structure for PRODUCTBRAND_LISTALL_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `PRODUCTBRAND_LISTALL_PROCEDURE`
+2018-12-06 18:36:40,118 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 97: CREATE DEFINER=`root`@`%` PROCEDURE `PRODUCTBRAND_LISTALL_PROCEDURE`(IN v_startrow int,
+	IN v_pagesize int,
+	IN v_brandCode varchar(50),
+  IN v_brandType varchar(32),
+	IN v_brandName varchar(100),
+	IN v_status varchar(16),
+	IN v_tenantId varchar(50))
+lable:BEGIN
+	IF 
+	v_startrow=-1  THEN SELECT COUNT(1) FROM 
+  productBrand where 
+  (v_brandCode is null or brandCode like CONCAT('%',v_brandCode,'%') )
+	and (v_brandName is null or brandName like CONCAT('%',v_brandName,'%'))
+	and (v_status is null or status=v_status)
+  and (v_brandType is null or brandType=v_brandType)
+	and (v_tenantId is null or tenantId=v_tenantId);
+	ELSE
+	SELECT * FROM productBrand 
+	where 
+   (v_brandCode is null or brandCode like CONCAT('%',v_brandCode,'%') )
+	and (v_brandName is null or brandName like CONCAT('%',v_brandName,'%'))
+	and (v_status is null or status =v_status)
+  and (v_brandType is null or brandType=v_brandType)
+	and (v_tenantId is null or tenantId=v_tenantId)
+	LIMIT v_startrow,v_pagesize;
+	END IF;
+END
+
+2018-12-06 18:36:40,119 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 127: -- ----------------------------
+-- Procedure structure for PRODUCTBRAND_UPDATE_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `PRODUCTBRAND_UPDATE_PROCEDURE`
+2018-12-06 18:36:40,121 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 132: CREATE DEFINER=`root`@`%` PROCEDURE `PRODUCTBRAND_UPDATE_PROCEDURE`(IN v_brandId varchar(50),
+  IN v_brandCode varchar(50),
+	IN v_brandName varchar(100),
+	IN v_brandType varchar(32),
+  IN v_remark varchar(1024),
+	IN v_sort int(4),
+IN v_status varchar(16),IN v_modifierId VARCHAR(50),IN v_modifierName VARCHAR(50),IN v_modifyTime timestamp,IN v_lastModifyTime timestamp)
+label:BEGIN
+	UPDATE productBrand set 
+  brandCode=v_brandCode,
+	brandName=v_brandName,
+  brandType=v_brandType,
+	remark=v_remark,
+	sort=v_sort,
+  modifierId=v_modifierId,
+  modifierName=v_modifierName,
+  modifyTime=v_modifyTime,
+  lastModifyTime=v_lastModifyTime,
+	status=v_status
+	where brandId =v_brandId;
+END
+
+2018-12-06 18:36:40,123 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Parsing V1_0_7__productbrand_table.sql ...
+2018-12-06 18:36:40,125 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 1: -- ----------------------------
+-- Table structure for productBrand
+-- ----------------------------
+DROP TABLE IF EXISTS `productBrand`
+2018-12-06 18:36:40,126 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 5: CREATE TABLE `productBrand` (
+  `brandId` varchar(50) NOT NULL,
+  `brandCode` varchar(50) NOT NULL,
+  `brandName` varchar(100) NOT NULL,
+  `brandType` varchar(32) DEFAULT NULL,
+  `remark` varchar(1024) DEFAULT NULL,
+  `sort` int(4) NOT NULL,
+  `status` varchar(16) NOT NULL,
+  `createdTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `creatorId` varchar(50) NOT NULL DEFAULT '1',
+  `creatorName` varchar(50) NOT NULL DEFAULT 'admin',
+  `modifyTime` timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  `modifierId` varchar(50) DEFAULT NULL,
+  `modifierName` varchar(50) DEFAULT NULL,
+  `lastModifyTime` timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  `ownerCompanyCode` varchar(50) DEFAULT NULL,
+  `tenantId` varchar(50) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`brandId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+2018-12-06 18:36:40,128 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Parsing V1_0_8__init_producttype_table.sql ...
+2018-12-06 18:36:40,129 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 1: DROP TABLE IF EXISTS `productType`
+2018-12-06 18:36:40,134 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 2: CREATE TABLE `productType` (
+  `typeId` varchar(50) NOT NULL COMMENT '产品分类Id',
+  `typeCode` varchar(50) NOT NULL COMMENT '产品分类编号',
+  `typeName` varchar(100) NOT NULL COMMENT '产品分类中文名称',
+  `parentId` varchar(50) DEFAULT NULL COMMENT '产品分类父节点id',
+  `isPhysical` tinyint(1) DEFAULT '1' COMMENT '是否物理分类',
+  `toTransport` tinyint(1) DEFAULT '1' COMMENT '是否需要运输',
+  `prodLineId` varchar(50) DEFAULT NULL COMMENT '所属产品线Id',
+  `sort` int(4) NOT NULL COMMENT '排序号',
+  `status` varchar(16) NOT NULL COMMENT '状态',
+  `remark` varchar(50) DEFAULT NULL COMMENT '备注',
+  `createdTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
+  `creatorId` varchar(50) NOT NULL COMMENT '创建人ID',
+  `creatorName` varchar(50) NOT NULL COMMENT '创建人姓名',
+  `modifyTime` timestamp NULL DEFAULT NULL COMMENT '更新时间',
+  `modifierId` varchar(50) DEFAULT NULL COMMENT '更新人ID',
+  `modifierName` varchar(50) DEFAULT NULL COMMENT '更新人姓名',
+  `lastModifyTime` timestamp NULL DEFAULT NULL COMMENT '最后更新时间',
+  `tenantId` varchar(50) NOT NULL COMMENT '租户ID',
+  PRIMARY KEY (`typeId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+2018-12-06 18:36:40,136 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Parsing V1_0_9__producttype_procedures.sql ...
+2018-12-06 18:36:40,138 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 1: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTTYPE_INSERT_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTTYPE_INSERT_PROCEDURE`
+2018-12-06 18:36:40,141 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 6: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTTYPE_INSERT_PROCEDURE`(
+	 IN v_typeId varchar(50),
+     IN v_typeCode varchar(50), 
+     IN v_typeName varchar(100),
+     IN v_parentId varchar(50),
+     IN v_isPhysical tinyint(1),
+     IN v_toTransport tinyint(1),
+     IN v_prodLineId varchar(50),
+     IN v_sort int(4),
+     IN v_status varchar(16),
+     IN v_remark varchar(50),
+     IN v_createdTime timestamp,
+     IN v_creatorId varchar(50),
+     IN v_creatorName varchar(50),
+     IN v_modifyTime timestamp,
+     IN v_modifierId varchar(50),
+     IN v_modifierName varchar(50),
+     IN v_lastModifyTime timestamp,
+     IN v_tenantId varchar(50)
+)
+lable:BEGIN
+    DECLARE tmpCont int default 0;
+    DECLARE cont int default 0;
+    
+    INSERT INTO productType 
+    (
+     typeId, 
+     typeCode,
+     typeName,
+     parentId,
+     isPhysical,
+     toTransport,
+     prodLineId,
+     sort,
+     status,
+     remark,
+     createdTime,
+     creatorId,
+     creatorName,
+     modifyTime,
+     modifierId,
+     modifierName,
+     lastModifyTime,
+     tenantId
+	) VALUES 
+	(
+	 v_typeId, 
+     v_typeCode,
+     v_typeName,
+     v_parentId,
+     v_isPhysical,
+     v_toTransport,
+     v_prodLineId,
+     v_sort,
+     v_status,
+     v_remark,
+     v_createdTime,
+     v_creatorId,
+     v_creatorName,
+     v_modifyTime,
+     v_modifierId,
+     v_modifierName,
+     v_lastModifyTime,
+     v_tenantId
+	); 
+	
+	
+
+END
+
+2018-12-06 18:36:40,142 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 81: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTTYPE_UPDATE_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTTYPE_UPDATE_PROCEDURE`
+2018-12-06 18:36:40,144 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 86: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTTYPE_UPDATE_PROCEDURE`(
+    IN v_typeId varchar(50),
+	IN v_typeCode varchar(50),
+	IN v_typeName varchar(100),
+	IN v_isPhysical tinyint(1),
+	IN v_toTransport tinyint(1),
+	IN v_parentId varchar(50),
+	IN v_sort int(4),
+	IN v_status varchar(16),
+	IN v_prodLineId varchar(50),
+	IN v_tenantId varchar(50),
+	IN v_modifierId varchar(50),
+	IN v_modifierName varchar(50),
+	IN v_modifyTime timestamp,
+	IN v_lastModifyTime timestamp
+)
+label:BEGIN
+	UPDATE productType set 
+	typeCode=v_typeCode,
+	typeName=v_typeName,
+	isPhysical=v_isPhysical,
+	toTransport=v_toTransport,
+	parentId=v_parentId,
+	sort=v_sort,
+	status=v_status,
+	prodLineId=v_prodLineId,
+	tenantId=v_tenantId,
+	modifierId = v_modifierId,
+	modifierName = v_modifierName,
+	modifyTime = v_modifyTime,
+	lastModifyTime = v_lastModifyTime
+	where typeId=v_typeId;
+END
+
+2018-12-06 18:36:40,144 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 125: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTTYPE_DELETE_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTTYPE_DELETE_PROCEDURE`
+2018-12-06 18:36:40,145 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 130: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTTYPE_DELETE_PROCEDURE`(
+	 IN v_typeId varchar(50)
+)
+lable:BEGIN
+   	DELETE FROM productType WHERE typeId=v_typeId;
+END
+
+2018-12-06 18:36:40,146 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 142: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTTYPE_INFO_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTTYPE_INFO_PROCEDURE`
+2018-12-06 18:36:40,146 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 147: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTTYPE_INFO_PROCEDURE`(
+	IN v_typeId varchar(50)
+)
+lable:BEGIN
+	SELECT * FROM productType WHERE typeId = v_typeId;
+END
+
+2018-12-06 18:36:40,147 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 160: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTTYPE_TREE_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTTYPE_TREE_PROCEDURE`
+2018-12-06 18:36:40,148 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 165: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTTYPE_TREE_PROCEDURE`(
+	IN v_typeName varchar(100)
+)
+lable:BEGIN
+	SELECT * FROM productType
+	WHERE (v_typeName is null or typeName like CONCAT('%',v_typeName,'%') );
+END
+
+2018-12-06 18:36:40,150 org.flywaydb.core.internal.scanner.Scanner [main] (Slf4jLog.java:45) DEBUG --> Filtering out resource: db/migration/V1_0_0__init_product_table.sql (filename: V1_0_0__init_product_table.sql)
+2018-12-06 18:36:40,151 org.flywaydb.core.internal.scanner.Scanner [main] (Slf4jLog.java:45) DEBUG --> Filtering out resource: db/migration/V1_0_2__product_procedures.sql (filename: V1_0_2__product_procedures.sql)
+2018-12-06 18:36:40,151 org.flywaydb.core.internal.scanner.Scanner [main] (Slf4jLog.java:45) DEBUG --> Filtering out resource: db/migration/V1_0_4__init_productline_table.sql (filename: V1_0_4__init_productline_table.sql)
+2018-12-06 18:36:40,151 org.flywaydb.core.internal.scanner.Scanner [main] (Slf4jLog.java:45) DEBUG --> Filtering out resource: db/migration/V1_0_5__productline_procedures.sql (filename: V1_0_5__productline_procedures.sql)
+2018-12-06 18:36:40,151 org.flywaydb.core.internal.scanner.Scanner [main] (Slf4jLog.java:45) DEBUG --> Filtering out resource: db/migration/V1_0_6__productbrand_procedures.sql (filename: V1_0_6__productbrand_procedures.sql)
+2018-12-06 18:36:40,151 org.flywaydb.core.internal.scanner.Scanner [main] (Slf4jLog.java:45) DEBUG --> Filtering out resource: db/migration/V1_0_7__productbrand_table.sql (filename: V1_0_7__productbrand_table.sql)
+2018-12-06 18:36:40,151 org.flywaydb.core.internal.scanner.Scanner [main] (Slf4jLog.java:45) DEBUG --> Filtering out resource: db/migration/V1_0_8__init_producttype_table.sql (filename: V1_0_8__init_producttype_table.sql)
+2018-12-06 18:36:40,151 org.flywaydb.core.internal.scanner.Scanner [main] (Slf4jLog.java:45) DEBUG --> Filtering out resource: db/migration/V1_0_9__producttype_procedures.sql (filename: V1_0_9__producttype_procedures.sql)
+2018-12-06 18:36:40,190 org.flywaydb.core.internal.command.DbValidate [main] (Slf4jLog.java:49) INFO  --> Successfully validated 8 migrations (execution time 00:00.143s)
+2018-12-06 18:36:40,211 org.flywaydb.core.internal.command.DbSchemas [main] (Slf4jLog.java:45) DEBUG --> Schema `productdb` already exists. Skipping schema creation.
+2018-12-06 18:36:40,229 org.flywaydb.core.internal.command.DbMigrate [main] (Slf4jLog.java:49) INFO  --> Current version of schema `productdb`: 1.0.9
+2018-12-06 18:36:40,232 org.flywaydb.core.internal.command.DbMigrate [main] (Slf4jLog.java:49) INFO  --> Schema `productdb` is up to date. No migration necessary.
+2018-12-06 18:36:40,239 org.flywaydb.core.Flyway [main] (Slf4jLog.java:45) DEBUG --> Memory usage: 42 of 184M
+2018-12-06 18:36:40,252 com.atomikos.logging.LoggerFactory [main] (Slf4jLogger.java:32) DEBUG --> Using Slf4J for logging.
+2018-12-06 18:36:40,253 com.qloudfin.sagas.persistence.jdbc.JdbcClient [main] (JdbcClient.java:72) DEBUG --> db config is {"driver":"org.mariadb.jdbc.MariaDbDataSource","ip":"192.168.44.5","port":3306,"dbname":"productdb","username":"root","password":"666666","testQuery":"select 1","maxPoolSize":5,"minPoolSize":5} 
+
+2018-12-06 18:36:40,446 com.atomikos.jdbc.AbstractDataSourceBean [main] (Slf4jLogger.java:32) DEBUG --> AtomikosDataSoureBean '2d8512a5-ec3d-44a5-b116-75b03e8a3e8a': getConnection()...
+2018-12-06 18:36:40,446 com.atomikos.jdbc.AbstractDataSourceBean [main] (Slf4jLogger.java:28) INFO  --> AtomikosDataSoureBean '2d8512a5-ec3d-44a5-b116-75b03e8a3e8a': init...
+2018-12-06 18:36:40,447 com.atomikos.jdbc.AtomikosDataSourceBean [main] (Slf4jLogger.java:28) INFO  --> AtomikosDataSoureBean '2d8512a5-ec3d-44a5-b116-75b03e8a3e8a': initializing with [ xaDataSourceClassName=org.mariadb.jdbc.MariaDbDataSource, uniqueResourceName=2d8512a5-ec3d-44a5-b116-75b03e8a3e8a, maxPoolSize=5, minPoolSize=5, borrowConnectionTimeout=30, maxIdleTime=60, reapTimeout=0, maintenanceInterval=60, testQuery=select 1, xaProperties=[user=root,password=666666,url=jdbc:mariadb://192.168.44.5:3306/productdb?maxPoolSize=5&autoReconnect=true], loginTimeout=0, maxLifetime=0]
+2018-12-06 18:36:40,553 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:24) WARN  --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@276438c9: WARNING: transaction manager not running?
+2018-12-06 18:36:40,553 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:32) DEBUG --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@276438c9: calling getAutoCommit...
+2018-12-06 18:36:40,553 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:24) WARN  --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@276438c9: WARNING: transaction manager not running?
+2018-12-06 18:36:40,553 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:32) DEBUG --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@276438c9: calling setAutoCommit(false)...
+2018-12-06 18:36:40,556 com.qloudbiz.core.factory.ServiceProxyFactory [main] (ServiceProxyFactory.java:37) DEBUG --> >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>BEGIN  TRANSACTION
+2018-12-06 18:36:40,556 com.qloudbiz.product.service.impl.ProductTypeServiceImpl [main] (ProductTypeServiceImpl.java:133) DEBUG --> >>>>>>>>>>>>>> service query tree method start
+2018-12-06 18:36:40,557 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:32) DEBUG --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@276438c9: isClosed()...
+2018-12-06 18:36:40,557 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:24) WARN  --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@276438c9: WARNING: transaction manager not running?
+2018-12-06 18:36:40,558 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:24) WARN  --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@276438c9: WARNING: transaction manager not running?
+2018-12-06 18:36:40,558 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:32) DEBUG --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@276438c9: calling prepareCall({CALL QLOUDFLOW_PRODUCTTYPE_TREE_PROCEDURE(?)})...
+2018-12-06 18:36:40,580 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:32) DEBUG --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@276438c9: isClosed()...
+2018-12-06 18:36:40,580 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:24) WARN  --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@276438c9: WARNING: transaction manager not running?
+2018-12-06 18:36:40,580 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:32) DEBUG --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@276438c9: calling getAutoCommit...
+2018-12-06 18:36:40,586 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:32) DEBUG --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@276438c9: isClosed()...
+2018-12-06 18:36:40,586 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:24) WARN  --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@276438c9: WARNING: transaction manager not running?
+2018-12-06 18:36:40,586 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:32) DEBUG --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@276438c9: calling getAutoCommit...
+2018-12-06 18:36:40,586 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:24) WARN  --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@276438c9: WARNING: transaction manager not running?
+2018-12-06 18:36:40,586 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:32) DEBUG --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@276438c9: calling commit...
+2018-12-06 18:36:40,588 com.qloudbiz.core.factory.ServiceProxyFactory [main] (ServiceProxyFactory.java:46) DEBUG --> >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>COMMIT TRANSACTION
+2018-12-06 18:36:40,588 com.qloudbiz.core.factory.ServiceProxyFactory [main] (ServiceProxyFactory.java:62) DEBUG --> >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>CLOSE CONNECTION
+2018-12-06 18:36:40,588 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:24) WARN  --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@276438c9: WARNING: transaction manager not running?
+2018-12-06 18:36:40,588 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:32) DEBUG --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@276438c9: close()...
+2018-12-06 18:36:56,117 com.qloudbiz.core.dao.DbInit [main] (DbInit.java:40) INFO  --> got app config {"uniqueResourceName":"qloud.saga","maxPoolSize":5,"minPoolSize":5,"testQuery":"select 1","driver":"org.mariadb.jdbc.MariaDbDataSource","ip":"192.168.44.5","port":3306,"dbname":"productdb","username":"root","password":"666666"}
+2018-12-06 18:36:56,119 com.qloudbiz.core.dao.DbInit [main] (DbInit.java:58) DEBUG --> db config is {"driver":"org.mariadb.jdbc.MariaDbDataSource","ip":"192.168.44.5","port":3306,"dbname":"productdb","username":"root","password":"666666","testQuery":"select 1","maxPoolSize":5,"minPoolSize":5} 
+
+2018-12-06 18:36:56,154 org.flywaydb.core.internal.license.VersionPrinter [main] (Slf4jLog.java:49) INFO  --> Flyway Community Edition 5.2.1 by Boxfuse
+2018-12-06 18:36:56,281 org.flywaydb.core.internal.database.DatabaseFactory [main] (Slf4jLog.java:49) INFO  --> Database: jdbc:mariadb://192.168.44.5:3306/productdb (MySQL 5.5)
+2018-12-06 18:36:56,282 org.flywaydb.core.internal.database.DatabaseFactory [main] (Slf4jLog.java:45) DEBUG --> Driver  : MariaDB connector/J 2.3.0
+2018-12-06 18:36:56,307 org.flywaydb.core.internal.database.mysql.MySQLDatabase [main] (Slf4jLog.java:45) DEBUG --> Unable to detect whether we are running in a Percona XtraDB Cluster. Assuming not to be.
+2018-12-06 18:36:56,307 org.flywaydb.core.Flyway [main] (Slf4jLog.java:45) DEBUG --> DDL Transactions Supported: false
+2018-12-06 18:36:56,315 org.flywaydb.core.Flyway [main] (Slf4jLog.java:45) DEBUG --> Schema: productdb
+2018-12-06 18:36:56,321 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Scanning for classpath resources at 'classpath:db/migration' ...
+2018-12-06 18:36:56,321 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Determining location urls for classpath:db/migration using ClassLoader sun.misc.Launcher$AppClassLoader@18b4aac2 ...
+2018-12-06 18:36:56,322 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Scanning URL: file:/C:/Users/LCY/git/oep-project/qloudbiz-api-product/target/classes/db/migration
+2018-12-06 18:36:56,322 org.flywaydb.core.internal.util.FeatureDetector [main] (Slf4jLog.java:45) DEBUG --> JBoss VFS v2 available: false
+2018-12-06 18:36:56,325 org.flywaydb.core.internal.scanner.classpath.FileSystemClassPathLocationScanner [main] (Slf4jLog.java:45) DEBUG --> Scanning starting at classpath root in filesystem: C:\Users\LCY\git\oep-project\qloudbiz-api-product\target\classes\
+2018-12-06 18:36:56,326 org.flywaydb.core.internal.scanner.classpath.FileSystemClassPathLocationScanner [main] (Slf4jLog.java:45) DEBUG --> Scanning for resources in path: C:\Users\LCY\git\oep-project\qloudbiz-api-product\target\classes\db\migration (db/migration)
+2018-12-06 18:36:56,329 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Found resource: db/migration/V1_0_0__init_product_table.sql
+2018-12-06 18:36:56,329 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Found resource: db/migration/V1_0_2__product_procedures.sql
+2018-12-06 18:36:56,330 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Found resource: db/migration/V1_0_4__init_productline_table.sql
+2018-12-06 18:36:56,331 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Found resource: db/migration/V1_0_5__productline_procedures.sql
+2018-12-06 18:36:56,331 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Found resource: db/migration/V1_0_6__productbrand_procedures.sql
+2018-12-06 18:36:56,331 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Found resource: db/migration/V1_0_7__productbrand_table.sql
+2018-12-06 18:36:56,331 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Found resource: db/migration/V1_0_8__init_producttype_table.sql
+2018-12-06 18:36:56,331 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Found resource: db/migration/V1_0_9__producttype_procedures.sql
+2018-12-06 18:36:56,331 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Scanning for classes at classpath:db/migration
+2018-12-06 18:36:56,336 org.flywaydb.core.internal.callback.SqlScriptCallbackFactory [main] (Slf4jLog.java:45) DEBUG --> Scanning for SQL callbacks ...
+2018-12-06 18:36:56,344 org.flywaydb.core.internal.util.FeatureDetector [main] (Slf4jLog.java:45) DEBUG --> Spring Jdbc available: false
+2018-12-06 18:36:56,360 org.flywaydb.core.internal.command.DbValidate [main] (Slf4jLog.java:45) DEBUG --> Validating migrations ...
+2018-12-06 18:36:56,374 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Parsing V1_0_0__init_product_table.sql ...
+2018-12-06 18:36:56,380 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 1: drop table if exists product
+2018-12-06 18:36:56,382 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 3: create table if not exists product (
+	productId varchar(255) primary key, 
+	code  varchar(200) not null,
+	name varchar(255)
+)
+2018-12-06 18:36:56,385 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Parsing V1_0_2__product_procedures.sql ...
+2018-12-06 18:36:56,387 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 1: -- insert a product
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCT_INSERT_PROCEDURE`
+2018-12-06 18:36:56,394 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 4: CREATE  PROCEDURE `QLOUDFLOW_PRODUCT_INSERT_PROCEDURE`(
+	 IN v_productId varchar(255),
+     IN v_code varchar(50), 
+     IN v_name varchar(255)
+)
+lable:BEGIN
+    DECLARE tmpCont int default 0;
+    DECLARE cont int default 0;
+    
+    INSERT INTO product 
+    (
+     productId, 
+     code,
+     name
+	) VALUES 
+	(
+	 v_productId, 
+     v_code,
+     v_name
+	); 
+	
+	
+
+END
+2018-12-06 18:36:56,395 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 31: -- query products
+DROP PROCEDURE IF EXISTS QLOUDFLOW_PRODUCT_LISTALL_PROCEDURE
+2018-12-06 18:36:56,399 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 34: CREATE PROCEDURE QLOUDFLOW_PRODUCT_LISTALL_PROCEDURE(
+	IN v_startrow int,
+	IN v_pagesize int,
+	IN v_name varchar(255)
+)
+lable:BEGIN
+	IF v_startrow=-1  THEN SELECT COUNT(1) FROM product where name like CONCAT( '%', v_name, '%' ) ;
+	ELSE SELECT productId,code,name FROM product where name like CONCAT( '%', v_name, '%' ) LIMIT v_startrow,v_pagesize;
+	END IF;
+END
+2018-12-06 18:36:56,400 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 47: -- query products
+DROP PROCEDURE IF EXISTS QLOUDFLOW_PRODUCT_SINGLE_PROCEDURE
+2018-12-06 18:36:56,403 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 50: CREATE PROCEDURE QLOUDFLOW_PRODUCT_SINGLE_PROCEDURE(
+	IN v_productId int
+)
+lable:BEGIN
+	SELECT productId,code,name FROM product where productId=v_productId;
+END
+2018-12-06 18:36:56,404 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 59: -- delete QLOUDFLOW_PRODUCT_DELETE_PROCEDURE
+DROP PROCEDURE IF EXISTS QLOUDFLOW_PRODUCT_DELETE_PROCEDURE
+2018-12-06 18:36:56,407 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 62: CREATE  PROCEDURE QLOUDFLOW_PRODUCT_DELETE_PROCEDURE(
+	 IN v_productId varchar(255),
+     OUT V_OUT int
+)
+lable:BEGIN
+   	DELETE FROM product WHERE productId=v_productId;
+   	
+	SELECT  ROW_COUNT() into V_OUT;
+
+END
+2018-12-06 18:36:56,408 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 77: -- update QLOUDFLOW_PRODUCT_DELETE_PROCEDURE
+DROP PROCEDURE IF EXISTS QLOUDFLOW_PRODUCT_UPDATE_PROCEDURE
+2018-12-06 18:36:56,410 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 80: CREATE PROCEDURE  QLOUDFLOW_PRODUCT_UPDATE_PROCEDURE(
+	IN v_productId varchar(64),
+	IN v_code varchar(255),
+    IN v_name varchar(255),
+	OUT V_OUT int
+)
+label:BEGIN
+	UPDATE product set code=v_code,name=v_name where productId=v_productId;
+
+  SELECT  ROW_COUNT() into V_OUT;
+END
+2018-12-06 18:36:56,413 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Parsing V1_0_4__init_productline_table.sql ...
+2018-12-06 18:36:56,417 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 18: -- ----------------------------
+-- Table structure for productLine
+-- ----------------------------
+DROP TABLE IF EXISTS `productLine`
+2018-12-06 18:36:56,421 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 22: CREATE TABLE `productLine` (
+  `lineId` varchar(50) NOT NULL,
+  `lineCode` varchar(50) NOT NULL,
+  `lineName` varchar(100) NOT NULL,
+  `parentId` varchar(50) DEFAULT NULL,
+  `sort` int(4) NOT NULL,
+  `status` varchar(16) NOT NULL,
+  `createdTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `creatorId` varchar(50) NOT NULL,
+  `creatorName` varchar(50) NOT NULL,
+  `modifyTime` timestamp NULL DEFAULT NULL,
+  `modifierId` varchar(50) DEFAULT NULL,
+  `modifierName` varchar(50) DEFAULT NULL,
+  `lastModifyTime` timestamp NULL DEFAULT NULL,
+  `ownerCompanyCode` varchar(50) DEFAULT NULL,
+  `tenantId` varchar(50) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`lineId`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC
+2018-12-06 18:36:56,425 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Parsing V1_0_5__productline_procedures.sql ...
+2018-12-06 18:36:56,427 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 1: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTLINE_DELETE_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTLINE_DELETE_PROCEDURE`
+2018-12-06 18:36:56,429 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 6: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTLINE_DELETE_PROCEDURE`(
+	 IN v_lineId varchar(50)
+)
+lable:BEGIN
+   	DELETE FROM productLine WHERE lineId=v_lineId;
+END
+
+2018-12-06 18:36:56,430 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 15: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTLINE_INFO_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTLINE_INFO_PROCEDURE`
+2018-12-06 18:36:56,432 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 20: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTLINE_INFO_PROCEDURE`(
+	IN v_lineId varchar(50)
+)
+lable:BEGIN
+	SELECT * FROM productLine WHERE lineId = v_lineId;
+END
+
+2018-12-06 18:36:56,433 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 29: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTLINE_INSERT_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTLINE_INSERT_PROCEDURE`
+2018-12-06 18:36:56,437 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 34: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTLINE_INSERT_PROCEDURE`(
+	 IN v_lineId varchar(50),
+     IN v_lineCode varchar(50), 
+     IN v_lineName varchar(100),
+     IN v_parentId varchar(50),
+     IN v_sort int(4),
+     IN v_status varchar(16),
+     IN v_createdTime timestamp,
+     IN v_creatorId varchar(50),
+     IN v_creatorName varchar(50),
+     IN v_modifyTime timestamp,
+     IN v_modifierId varchar(50),
+     IN v_modifierName varchar(50),
+     IN v_lastModifyTime timestamp,
+     IN v_ownerCompanyCode varchar(50),
+     IN v_tenantId varchar(50)
+)
+lable:BEGIN
+    DECLARE tmpCont int default 0;
+    DECLARE cont int default 0;
+    
+    INSERT INTO productLine 
+    (
+     lineId, 
+     lineCode,
+     lineName,
+     parentId,
+     sort,
+     status,
+     createdTime,
+     creatorId,
+     creatorName,
+     modifyTime,
+     modifierId,
+     modifierName,
+     lastModifyTime,
+     ownerCompanyCode,
+     tenantId
+	) VALUES 
+	(
+	 v_lineId, 
+     v_lineCode,
+     v_lineName,
+     v_parentId,
+     v_sort,
+     v_status,
+     v_createdTime,
+     v_creatorId,
+     v_creatorName,
+     v_modifyTime,
+     v_modifierId,
+     v_modifierName,
+     v_lastModifyTime,
+     v_ownerCompanyCode,
+     v_tenantId
+	); 
+	
+	
+
+END
+
+2018-12-06 18:36:56,438 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 97: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTLINE_LISTALL_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTLINE_LISTALL_PROCEDURE`
+2018-12-06 18:36:56,439 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 102: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTLINE_LISTALL_PROCEDURE`(
+	IN v_startrow int,
+	IN v_pagesize int,
+	IN v_lineCode varchar(50),
+	IN v_lineName varchar(100),
+	IN v_status varchar(16),
+	IN v_tenantId varchar(50)
+)
+lable:BEGIN
+	IF 
+	v_startrow=-1  THEN SELECT COUNT(1) 
+	FROM productLine where 
+	(v_lineCode is null or lineCode like CONCAT('%',v_lineCode,'%') )
+	and (v_lineName is null or lineName like CONCAT('%',v_lineName,'%'))
+	and (v_status is null or status = v_status)
+	and (v_tenantId is null or tenantId = v_tenantId);
+	ELSE
+	SELECT * FROM productLine where 
+	(v_lineCode is null or lineCode like CONCAT('%',v_lineCode,'%') )
+	and (v_lineName is null or lineName like CONCAT('%',v_lineName,'%'))
+	and (v_status is null or status = v_status)
+	and (v_tenantId is null or tenantId = v_tenantId)
+	LIMIT v_startrow,v_pagesize;
+	END IF;
+END
+
+2018-12-06 18:36:56,440 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 130: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTLINE_UPDATE_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTLINE_UPDATE_PROCEDURE`
+2018-12-06 18:36:56,441 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 135: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTLINE_UPDATE_PROCEDURE`(
+  IN v_lineId varchar(50),
+	IN v_lineName varchar(100),
+	IN v_parentId varchar(50),
+	IN v_sort int(4),
+	IN v_status varchar(16),
+	IN v_modifierId varchar(50),
+	IN v_modifierName varchar(50),
+	IN v_modifyTime timestamp,
+	IN v_lastModifyTime timestamp
+)
+label:BEGIN
+	UPDATE productLine set 
+	lineName=v_lineName,
+	parentId=v_parentId,
+	sort=v_sort,
+	status=v_status,
+	modifierId = v_modifierId,
+	modifierName = v_modifierName,
+	modifyTime = v_modifyTime,
+	lastModifyTime = v_lastModifyTime
+	where lineId=v_lineId;
+END
+
+2018-12-06 18:36:56,444 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Parsing V1_0_6__productbrand_procedures.sql ...
+2018-12-06 18:36:56,446 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 1: -- ----------------------------
+-- Procedure structure for PRODUCTBRAND_DELETE_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `PRODUCTBRAND_DELETE_PROCEDURE`
+2018-12-06 18:36:56,447 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 6: CREATE DEFINER=`root`@`%` PROCEDURE `PRODUCTBRAND_DELETE_PROCEDURE`(IN v_brandId varchar(50))
+lable:BEGIN
+   	DELETE FROM productBrand WHERE brandId=v_brandId;
+  
+END
+
+2018-12-06 18:36:56,448 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 14: -- ----------------------------
+-- Procedure structure for PRODUCTBRAND_INFO_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `PRODUCTBRAND_INFO_PROCEDURE`
+2018-12-06 18:36:56,449 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 19: CREATE DEFINER=`root`@`%` PROCEDURE `PRODUCTBRAND_INFO_PROCEDURE`(IN v_brandId varchar(50))
+lable:BEGIN
+	SELECT * FROM productBrand WHERE brandId = v_brandId;
+END
+
+2018-12-06 18:36:56,450 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 26: -- ----------------------------
+-- Procedure structure for PRODUCTBRAND_INSERT_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `PRODUCTBRAND_INSERT_PROCEDURE`
+2018-12-06 18:36:56,455 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 31: CREATE DEFINER=`root`@`%` PROCEDURE `PRODUCTBRAND_INSERT_PROCEDURE`(IN v_brandId varchar(50),
+     IN v_brandCode varchar(50), 
+     IN v_brandName varchar(100),
+     IN v_brandType varchar(32),
+ IN  v_remark varchar(1024) , IN v_sort int(4),
+     IN v_status varchar(16),
+     IN v_createdTime timestamp,
+     IN v_creatorId varchar(50),
+     IN v_creatorName varchar(50),
+     IN v_modifyTime timestamp,
+     IN v_modifierId varchar(50),
+     IN v_modifierName varchar(50),
+     IN v_lastModifyTime timestamp,
+     IN v_ownerCompanyCode varchar(50),
+     IN v_tenantId varchar(50))
+lable:BEGIN
+    DECLARE tmpCont int default 0;
+    DECLARE cont int default 0;
+    
+    INSERT INTO productBrand 
+    (
+     brandId, 
+     brandCode,
+     brandName,
+     brandType,
+     remark,
+     sort,
+     status,
+     createdTime,
+     creatorId,
+     creatorName,
+     modifyTime,
+     modifierId,
+     modifierName,
+     lastModifyTime,
+     ownerCompanyCode,
+     tenantId
+	) VALUES 
+	(
+	   v_brandId, 
+     v_brandCode,
+     v_brandName,
+     v_brandType,
+     v_remark,
+     v_sort,
+     v_status,
+     v_createdTime,
+     v_creatorId,
+     v_creatorName,
+     v_modifyTime,
+     v_modifierId,
+     v_modifierName,
+     v_lastModifyTime,
+     v_ownerCompanyCode,
+     v_tenantId
+	); 
+	
+END
+
+2018-12-06 18:36:56,456 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 92: -- ----------------------------
+-- Procedure structure for PRODUCTBRAND_LISTALL_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `PRODUCTBRAND_LISTALL_PROCEDURE`
+2018-12-06 18:36:56,458 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 97: CREATE DEFINER=`root`@`%` PROCEDURE `PRODUCTBRAND_LISTALL_PROCEDURE`(IN v_startrow int,
+	IN v_pagesize int,
+	IN v_brandCode varchar(50),
+  IN v_brandType varchar(32),
+	IN v_brandName varchar(100),
+	IN v_status varchar(16),
+	IN v_tenantId varchar(50))
+lable:BEGIN
+	IF 
+	v_startrow=-1  THEN SELECT COUNT(1) FROM 
+  productBrand where 
+  (v_brandCode is null or brandCode like CONCAT('%',v_brandCode,'%') )
+	and (v_brandName is null or brandName like CONCAT('%',v_brandName,'%'))
+	and (v_status is null or status=v_status)
+  and (v_brandType is null or brandType=v_brandType)
+	and (v_tenantId is null or tenantId=v_tenantId);
+	ELSE
+	SELECT * FROM productBrand 
+	where 
+   (v_brandCode is null or brandCode like CONCAT('%',v_brandCode,'%') )
+	and (v_brandName is null or brandName like CONCAT('%',v_brandName,'%'))
+	and (v_status is null or status =v_status)
+  and (v_brandType is null or brandType=v_brandType)
+	and (v_tenantId is null or tenantId=v_tenantId)
+	LIMIT v_startrow,v_pagesize;
+	END IF;
+END
+
+2018-12-06 18:36:56,459 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 127: -- ----------------------------
+-- Procedure structure for PRODUCTBRAND_UPDATE_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `PRODUCTBRAND_UPDATE_PROCEDURE`
+2018-12-06 18:36:56,461 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 132: CREATE DEFINER=`root`@`%` PROCEDURE `PRODUCTBRAND_UPDATE_PROCEDURE`(IN v_brandId varchar(50),
+  IN v_brandCode varchar(50),
+	IN v_brandName varchar(100),
+	IN v_brandType varchar(32),
+  IN v_remark varchar(1024),
+	IN v_sort int(4),
+IN v_status varchar(16),IN v_modifierId VARCHAR(50),IN v_modifierName VARCHAR(50),IN v_modifyTime timestamp,IN v_lastModifyTime timestamp)
+label:BEGIN
+	UPDATE productBrand set 
+  brandCode=v_brandCode,
+	brandName=v_brandName,
+  brandType=v_brandType,
+	remark=v_remark,
+	sort=v_sort,
+  modifierId=v_modifierId,
+  modifierName=v_modifierName,
+  modifyTime=v_modifyTime,
+  lastModifyTime=v_lastModifyTime,
+	status=v_status
+	where brandId =v_brandId;
+END
+
+2018-12-06 18:36:56,464 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Parsing V1_0_7__productbrand_table.sql ...
+2018-12-06 18:36:56,465 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 1: -- ----------------------------
+-- Table structure for productBrand
+-- ----------------------------
+DROP TABLE IF EXISTS `productBrand`
+2018-12-06 18:36:56,468 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 5: CREATE TABLE `productBrand` (
+  `brandId` varchar(50) NOT NULL,
+  `brandCode` varchar(50) NOT NULL,
+  `brandName` varchar(100) NOT NULL,
+  `brandType` varchar(32) DEFAULT NULL,
+  `remark` varchar(1024) DEFAULT NULL,
+  `sort` int(4) NOT NULL,
+  `status` varchar(16) NOT NULL,
+  `createdTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `creatorId` varchar(50) NOT NULL DEFAULT '1',
+  `creatorName` varchar(50) NOT NULL DEFAULT 'admin',
+  `modifyTime` timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  `modifierId` varchar(50) DEFAULT NULL,
+  `modifierName` varchar(50) DEFAULT NULL,
+  `lastModifyTime` timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  `ownerCompanyCode` varchar(50) DEFAULT NULL,
+  `tenantId` varchar(50) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`brandId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+2018-12-06 18:36:56,469 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Parsing V1_0_8__init_producttype_table.sql ...
+2018-12-06 18:36:56,471 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 1: DROP TABLE IF EXISTS `productType`
+2018-12-06 18:36:56,475 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 2: CREATE TABLE `productType` (
+  `typeId` varchar(50) NOT NULL COMMENT '产品分类Id',
+  `typeCode` varchar(50) NOT NULL COMMENT '产品分类编号',
+  `typeName` varchar(100) NOT NULL COMMENT '产品分类中文名称',
+  `parentId` varchar(50) DEFAULT NULL COMMENT '产品分类父节点id',
+  `isPhysical` tinyint(1) DEFAULT '1' COMMENT '是否物理分类',
+  `toTransport` tinyint(1) DEFAULT '1' COMMENT '是否需要运输',
+  `prodLineId` varchar(50) DEFAULT NULL COMMENT '所属产品线Id',
+  `sort` int(4) NOT NULL COMMENT '排序号',
+  `status` varchar(16) NOT NULL COMMENT '状态',
+  `remark` varchar(50) DEFAULT NULL COMMENT '备注',
+  `createdTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
+  `creatorId` varchar(50) NOT NULL COMMENT '创建人ID',
+  `creatorName` varchar(50) NOT NULL COMMENT '创建人姓名',
+  `modifyTime` timestamp NULL DEFAULT NULL COMMENT '更新时间',
+  `modifierId` varchar(50) DEFAULT NULL COMMENT '更新人ID',
+  `modifierName` varchar(50) DEFAULT NULL COMMENT '更新人姓名',
+  `lastModifyTime` timestamp NULL DEFAULT NULL COMMENT '最后更新时间',
+  `tenantId` varchar(50) NOT NULL COMMENT '租户ID',
+  PRIMARY KEY (`typeId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+2018-12-06 18:36:56,477 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Parsing V1_0_9__producttype_procedures.sql ...
+2018-12-06 18:36:56,479 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 1: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTTYPE_INSERT_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTTYPE_INSERT_PROCEDURE`
+2018-12-06 18:36:56,482 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 6: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTTYPE_INSERT_PROCEDURE`(
+	 IN v_typeId varchar(50),
+     IN v_typeCode varchar(50), 
+     IN v_typeName varchar(100),
+     IN v_parentId varchar(50),
+     IN v_isPhysical tinyint(1),
+     IN v_toTransport tinyint(1),
+     IN v_prodLineId varchar(50),
+     IN v_sort int(4),
+     IN v_status varchar(16),
+     IN v_remark varchar(50),
+     IN v_createdTime timestamp,
+     IN v_creatorId varchar(50),
+     IN v_creatorName varchar(50),
+     IN v_modifyTime timestamp,
+     IN v_modifierId varchar(50),
+     IN v_modifierName varchar(50),
+     IN v_lastModifyTime timestamp,
+     IN v_tenantId varchar(50)
+)
+lable:BEGIN
+    DECLARE tmpCont int default 0;
+    DECLARE cont int default 0;
+    
+    INSERT INTO productType 
+    (
+     typeId, 
+     typeCode,
+     typeName,
+     parentId,
+     isPhysical,
+     toTransport,
+     prodLineId,
+     sort,
+     status,
+     remark,
+     createdTime,
+     creatorId,
+     creatorName,
+     modifyTime,
+     modifierId,
+     modifierName,
+     lastModifyTime,
+     tenantId
+	) VALUES 
+	(
+	 v_typeId, 
+     v_typeCode,
+     v_typeName,
+     v_parentId,
+     v_isPhysical,
+     v_toTransport,
+     v_prodLineId,
+     v_sort,
+     v_status,
+     v_remark,
+     v_createdTime,
+     v_creatorId,
+     v_creatorName,
+     v_modifyTime,
+     v_modifierId,
+     v_modifierName,
+     v_lastModifyTime,
+     v_tenantId
+	); 
+	
+	
+
+END
+
+2018-12-06 18:36:56,483 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 81: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTTYPE_UPDATE_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTTYPE_UPDATE_PROCEDURE`
+2018-12-06 18:36:56,486 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 86: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTTYPE_UPDATE_PROCEDURE`(
+    IN v_typeId varchar(50),
+	IN v_typeCode varchar(50),
+	IN v_typeName varchar(100),
+	IN v_isPhysical tinyint(1),
+	IN v_toTransport tinyint(1),
+	IN v_parentId varchar(50),
+	IN v_sort int(4),
+	IN v_status varchar(16),
+	IN v_prodLineId varchar(50),
+	IN v_tenantId varchar(50),
+	IN v_modifierId varchar(50),
+	IN v_modifierName varchar(50),
+	IN v_modifyTime timestamp,
+	IN v_lastModifyTime timestamp
+)
+label:BEGIN
+	UPDATE productType set 
+	typeCode=v_typeCode,
+	typeName=v_typeName,
+	isPhysical=v_isPhysical,
+	toTransport=v_toTransport,
+	parentId=v_parentId,
+	sort=v_sort,
+	status=v_status,
+	prodLineId=v_prodLineId,
+	tenantId=v_tenantId,
+	modifierId = v_modifierId,
+	modifierName = v_modifierName,
+	modifyTime = v_modifyTime,
+	lastModifyTime = v_lastModifyTime
+	where typeId=v_typeId;
+END
+
+2018-12-06 18:36:56,486 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 125: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTTYPE_DELETE_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTTYPE_DELETE_PROCEDURE`
+2018-12-06 18:36:56,487 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 130: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTTYPE_DELETE_PROCEDURE`(
+	 IN v_typeId varchar(50)
+)
+lable:BEGIN
+   	DELETE FROM productType WHERE typeId=v_typeId;
+END
+
+2018-12-06 18:36:56,488 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 142: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTTYPE_INFO_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTTYPE_INFO_PROCEDURE`
+2018-12-06 18:36:56,488 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 147: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTTYPE_INFO_PROCEDURE`(
+	IN v_typeId varchar(50)
+)
+lable:BEGIN
+	SELECT * FROM productType WHERE typeId = v_typeId;
+END
+
+2018-12-06 18:36:56,489 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 160: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTTYPE_TREE_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTTYPE_TREE_PROCEDURE`
+2018-12-06 18:36:56,490 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 165: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTTYPE_TREE_PROCEDURE`(
+	IN v_typeName varchar(100)
+)
+lable:BEGIN
+	SELECT * FROM productType
+	WHERE (v_typeName is null or typeName like CONCAT('%',v_typeName,'%') );
+END
+
+2018-12-06 18:36:56,492 org.flywaydb.core.internal.scanner.Scanner [main] (Slf4jLog.java:45) DEBUG --> Filtering out resource: db/migration/V1_0_0__init_product_table.sql (filename: V1_0_0__init_product_table.sql)
+2018-12-06 18:36:56,492 org.flywaydb.core.internal.scanner.Scanner [main] (Slf4jLog.java:45) DEBUG --> Filtering out resource: db/migration/V1_0_2__product_procedures.sql (filename: V1_0_2__product_procedures.sql)
+2018-12-06 18:36:56,492 org.flywaydb.core.internal.scanner.Scanner [main] (Slf4jLog.java:45) DEBUG --> Filtering out resource: db/migration/V1_0_4__init_productline_table.sql (filename: V1_0_4__init_productline_table.sql)
+2018-12-06 18:36:56,492 org.flywaydb.core.internal.scanner.Scanner [main] (Slf4jLog.java:45) DEBUG --> Filtering out resource: db/migration/V1_0_5__productline_procedures.sql (filename: V1_0_5__productline_procedures.sql)
+2018-12-06 18:36:56,493 org.flywaydb.core.internal.scanner.Scanner [main] (Slf4jLog.java:45) DEBUG --> Filtering out resource: db/migration/V1_0_6__productbrand_procedures.sql (filename: V1_0_6__productbrand_procedures.sql)
+2018-12-06 18:36:56,493 org.flywaydb.core.internal.scanner.Scanner [main] (Slf4jLog.java:45) DEBUG --> Filtering out resource: db/migration/V1_0_7__productbrand_table.sql (filename: V1_0_7__productbrand_table.sql)
+2018-12-06 18:36:56,493 org.flywaydb.core.internal.scanner.Scanner [main] (Slf4jLog.java:45) DEBUG --> Filtering out resource: db/migration/V1_0_8__init_producttype_table.sql (filename: V1_0_8__init_producttype_table.sql)
+2018-12-06 18:36:56,493 org.flywaydb.core.internal.scanner.Scanner [main] (Slf4jLog.java:45) DEBUG --> Filtering out resource: db/migration/V1_0_9__producttype_procedures.sql (filename: V1_0_9__producttype_procedures.sql)
+2018-12-06 18:36:56,531 org.flywaydb.core.internal.command.DbValidate [main] (Slf4jLog.java:49) INFO  --> Successfully validated 8 migrations (execution time 00:00.159s)
+2018-12-06 18:36:56,536 org.flywaydb.core.internal.command.DbSchemas [main] (Slf4jLog.java:45) DEBUG --> Schema `productdb` already exists. Skipping schema creation.
+2018-12-06 18:36:56,554 org.flywaydb.core.internal.command.DbMigrate [main] (Slf4jLog.java:49) INFO  --> Current version of schema `productdb`: 1.0.9
+2018-12-06 18:36:56,556 org.flywaydb.core.internal.command.DbMigrate [main] (Slf4jLog.java:49) INFO  --> Schema `productdb` is up to date. No migration necessary.
+2018-12-06 18:36:56,565 org.flywaydb.core.Flyway [main] (Slf4jLog.java:45) DEBUG --> Memory usage: 43 of 184M
+2018-12-06 18:36:56,584 com.atomikos.logging.LoggerFactory [main] (Slf4jLogger.java:32) DEBUG --> Using Slf4J for logging.
+2018-12-06 18:36:56,586 com.qloudfin.sagas.persistence.jdbc.JdbcClient [main] (JdbcClient.java:72) DEBUG --> db config is {"driver":"org.mariadb.jdbc.MariaDbDataSource","ip":"192.168.44.5","port":3306,"dbname":"productdb","username":"root","password":"666666","testQuery":"select 1","maxPoolSize":5,"minPoolSize":5} 
+
+2018-12-06 18:36:56,806 com.atomikos.jdbc.AbstractDataSourceBean [main] (Slf4jLogger.java:32) DEBUG --> AtomikosDataSoureBean '230a1789-a3e4-4dd1-a789-a3660e5439fd': getConnection()...
+2018-12-06 18:36:56,806 com.atomikos.jdbc.AbstractDataSourceBean [main] (Slf4jLogger.java:28) INFO  --> AtomikosDataSoureBean '230a1789-a3e4-4dd1-a789-a3660e5439fd': init...
+2018-12-06 18:36:56,806 com.atomikos.jdbc.AtomikosDataSourceBean [main] (Slf4jLogger.java:28) INFO  --> AtomikosDataSoureBean '230a1789-a3e4-4dd1-a789-a3660e5439fd': initializing with [ xaDataSourceClassName=org.mariadb.jdbc.MariaDbDataSource, uniqueResourceName=230a1789-a3e4-4dd1-a789-a3660e5439fd, maxPoolSize=5, minPoolSize=5, borrowConnectionTimeout=30, maxIdleTime=60, reapTimeout=0, maintenanceInterval=60, testQuery=select 1, xaProperties=[user=root,password=666666,url=jdbc:mariadb://192.168.44.5:3306/productdb?maxPoolSize=5&autoReconnect=true], loginTimeout=0, maxLifetime=0]
+2018-12-06 18:36:56,916 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:24) WARN  --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: WARNING: transaction manager not running?
+2018-12-06 18:36:56,916 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:32) DEBUG --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: calling getAutoCommit...
+2018-12-06 18:36:56,916 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:24) WARN  --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: WARNING: transaction manager not running?
+2018-12-06 18:36:56,916 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:32) DEBUG --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: calling setAutoCommit(false)...
+2018-12-06 18:36:56,919 com.qloudbiz.core.factory.ServiceProxyFactory [main] (ServiceProxyFactory.java:37) DEBUG --> >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>BEGIN  TRANSACTION
+2018-12-06 18:36:56,919 com.qloudbiz.product.service.impl.ProductTypeServiceImpl [main] (ProductTypeServiceImpl.java:133) DEBUG --> >>>>>>>>>>>>>> service query tree method start
+2018-12-06 18:37:01,756 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:32) DEBUG --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: isClosed()...
+2018-12-06 18:37:01,757 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:24) WARN  --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: WARNING: transaction manager not running?
+2018-12-06 18:37:01,757 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:24) WARN  --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: WARNING: transaction manager not running?
+2018-12-06 18:37:01,757 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:32) DEBUG --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: calling prepareCall({CALL QLOUDFLOW_PRODUCTTYPE_TREE_PROCEDURE(?)})...
+2018-12-06 18:37:01,787 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:32) DEBUG --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: isClosed()...
+2018-12-06 18:37:01,787 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:24) WARN  --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: WARNING: transaction manager not running?
+2018-12-06 18:37:01,787 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:32) DEBUG --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: calling getAutoCommit...
+2018-12-06 18:37:17,927 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:32) DEBUG --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: isClosed()...
+2018-12-06 18:37:17,928 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:24) WARN  --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: WARNING: transaction manager not running?
+2018-12-06 18:37:17,928 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:32) DEBUG --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: calling getAutoCommit...
+2018-12-06 18:37:17,928 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:24) WARN  --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: WARNING: transaction manager not running?
+2018-12-06 18:37:17,928 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:32) DEBUG --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: calling commit...
+2018-12-06 18:37:17,931 com.qloudbiz.core.factory.ServiceProxyFactory [main] (ServiceProxyFactory.java:46) DEBUG --> >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>COMMIT TRANSACTION
+2018-12-06 18:37:17,931 com.qloudbiz.core.factory.ServiceProxyFactory [main] (ServiceProxyFactory.java:62) DEBUG --> >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>CLOSE CONNECTION
+2018-12-06 18:37:17,931 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:24) WARN  --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: WARNING: transaction manager not running?
+2018-12-06 18:37:17,932 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:32) DEBUG --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: close()...
+2018-12-06 18:37:47,327 com.qloudbiz.core.dao.DbInit [main] (DbInit.java:40) INFO  --> got app config {"uniqueResourceName":"qloud.saga","maxPoolSize":5,"minPoolSize":5,"testQuery":"select 1","driver":"org.mariadb.jdbc.MariaDbDataSource","ip":"192.168.44.5","port":3306,"dbname":"productdb","username":"root","password":"666666"}
+2018-12-06 18:37:47,330 com.qloudbiz.core.dao.DbInit [main] (DbInit.java:58) DEBUG --> db config is {"driver":"org.mariadb.jdbc.MariaDbDataSource","ip":"192.168.44.5","port":3306,"dbname":"productdb","username":"root","password":"666666","testQuery":"select 1","maxPoolSize":5,"minPoolSize":5} 
+
+2018-12-06 18:37:47,365 org.flywaydb.core.internal.license.VersionPrinter [main] (Slf4jLog.java:49) INFO  --> Flyway Community Edition 5.2.1 by Boxfuse
+2018-12-06 18:37:47,481 org.flywaydb.core.internal.database.DatabaseFactory [main] (Slf4jLog.java:49) INFO  --> Database: jdbc:mariadb://192.168.44.5:3306/productdb (MySQL 5.5)
+2018-12-06 18:37:47,481 org.flywaydb.core.internal.database.DatabaseFactory [main] (Slf4jLog.java:45) DEBUG --> Driver  : MariaDB connector/J 2.3.0
+2018-12-06 18:37:47,505 org.flywaydb.core.internal.database.mysql.MySQLDatabase [main] (Slf4jLog.java:45) DEBUG --> Unable to detect whether we are running in a Percona XtraDB Cluster. Assuming not to be.
+2018-12-06 18:37:47,505 org.flywaydb.core.Flyway [main] (Slf4jLog.java:45) DEBUG --> DDL Transactions Supported: false
+2018-12-06 18:37:47,513 org.flywaydb.core.Flyway [main] (Slf4jLog.java:45) DEBUG --> Schema: productdb
+2018-12-06 18:37:47,517 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Scanning for classpath resources at 'classpath:db/migration' ...
+2018-12-06 18:37:47,518 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Determining location urls for classpath:db/migration using ClassLoader sun.misc.Launcher$AppClassLoader@18b4aac2 ...
+2018-12-06 18:37:47,518 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Scanning URL: file:/C:/Users/LCY/git/oep-project/qloudbiz-api-product/target/classes/db/migration
+2018-12-06 18:37:47,519 org.flywaydb.core.internal.util.FeatureDetector [main] (Slf4jLog.java:45) DEBUG --> JBoss VFS v2 available: false
+2018-12-06 18:37:47,521 org.flywaydb.core.internal.scanner.classpath.FileSystemClassPathLocationScanner [main] (Slf4jLog.java:45) DEBUG --> Scanning starting at classpath root in filesystem: C:\Users\LCY\git\oep-project\qloudbiz-api-product\target\classes\
+2018-12-06 18:37:47,522 org.flywaydb.core.internal.scanner.classpath.FileSystemClassPathLocationScanner [main] (Slf4jLog.java:45) DEBUG --> Scanning for resources in path: C:\Users\LCY\git\oep-project\qloudbiz-api-product\target\classes\db\migration (db/migration)
+2018-12-06 18:37:47,524 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Found resource: db/migration/V1_0_0__init_product_table.sql
+2018-12-06 18:37:47,525 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Found resource: db/migration/V1_0_2__product_procedures.sql
+2018-12-06 18:37:47,526 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Found resource: db/migration/V1_0_4__init_productline_table.sql
+2018-12-06 18:37:47,526 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Found resource: db/migration/V1_0_5__productline_procedures.sql
+2018-12-06 18:37:47,526 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Found resource: db/migration/V1_0_6__productbrand_procedures.sql
+2018-12-06 18:37:47,526 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Found resource: db/migration/V1_0_7__productbrand_table.sql
+2018-12-06 18:37:47,526 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Found resource: db/migration/V1_0_8__init_producttype_table.sql
+2018-12-06 18:37:47,527 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Found resource: db/migration/V1_0_9__producttype_procedures.sql
+2018-12-06 18:37:47,527 org.flywaydb.core.internal.scanner.classpath.ClassPathScanner [main] (Slf4jLog.java:45) DEBUG --> Scanning for classes at classpath:db/migration
+2018-12-06 18:37:47,533 org.flywaydb.core.internal.callback.SqlScriptCallbackFactory [main] (Slf4jLog.java:45) DEBUG --> Scanning for SQL callbacks ...
+2018-12-06 18:37:47,540 org.flywaydb.core.internal.util.FeatureDetector [main] (Slf4jLog.java:45) DEBUG --> Spring Jdbc available: false
+2018-12-06 18:37:47,561 org.flywaydb.core.internal.command.DbValidate [main] (Slf4jLog.java:45) DEBUG --> Validating migrations ...
+2018-12-06 18:37:47,572 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Parsing V1_0_0__init_product_table.sql ...
+2018-12-06 18:37:47,577 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 1: drop table if exists product
+2018-12-06 18:37:47,578 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 3: create table if not exists product (
+	productId varchar(255) primary key, 
+	code  varchar(200) not null,
+	name varchar(255)
+)
+2018-12-06 18:37:47,581 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Parsing V1_0_2__product_procedures.sql ...
+2018-12-06 18:37:47,583 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 1: -- insert a product
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCT_INSERT_PROCEDURE`
+2018-12-06 18:37:47,590 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 4: CREATE  PROCEDURE `QLOUDFLOW_PRODUCT_INSERT_PROCEDURE`(
+	 IN v_productId varchar(255),
+     IN v_code varchar(50), 
+     IN v_name varchar(255)
+)
+lable:BEGIN
+    DECLARE tmpCont int default 0;
+    DECLARE cont int default 0;
+    
+    INSERT INTO product 
+    (
+     productId, 
+     code,
+     name
+	) VALUES 
+	(
+	 v_productId, 
+     v_code,
+     v_name
+	); 
+	
+	
+
+END
+2018-12-06 18:37:47,591 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 31: -- query products
+DROP PROCEDURE IF EXISTS QLOUDFLOW_PRODUCT_LISTALL_PROCEDURE
+2018-12-06 18:37:47,595 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 34: CREATE PROCEDURE QLOUDFLOW_PRODUCT_LISTALL_PROCEDURE(
+	IN v_startrow int,
+	IN v_pagesize int,
+	IN v_name varchar(255)
+)
+lable:BEGIN
+	IF v_startrow=-1  THEN SELECT COUNT(1) FROM product where name like CONCAT( '%', v_name, '%' ) ;
+	ELSE SELECT productId,code,name FROM product where name like CONCAT( '%', v_name, '%' ) LIMIT v_startrow,v_pagesize;
+	END IF;
+END
+2018-12-06 18:37:47,596 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 47: -- query products
+DROP PROCEDURE IF EXISTS QLOUDFLOW_PRODUCT_SINGLE_PROCEDURE
+2018-12-06 18:37:47,598 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 50: CREATE PROCEDURE QLOUDFLOW_PRODUCT_SINGLE_PROCEDURE(
+	IN v_productId int
+)
+lable:BEGIN
+	SELECT productId,code,name FROM product where productId=v_productId;
+END
+2018-12-06 18:37:47,599 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 59: -- delete QLOUDFLOW_PRODUCT_DELETE_PROCEDURE
+DROP PROCEDURE IF EXISTS QLOUDFLOW_PRODUCT_DELETE_PROCEDURE
+2018-12-06 18:37:47,602 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 62: CREATE  PROCEDURE QLOUDFLOW_PRODUCT_DELETE_PROCEDURE(
+	 IN v_productId varchar(255),
+     OUT V_OUT int
+)
+lable:BEGIN
+   	DELETE FROM product WHERE productId=v_productId;
+   	
+	SELECT  ROW_COUNT() into V_OUT;
+
+END
+2018-12-06 18:37:47,603 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 77: -- update QLOUDFLOW_PRODUCT_DELETE_PROCEDURE
+DROP PROCEDURE IF EXISTS QLOUDFLOW_PRODUCT_UPDATE_PROCEDURE
+2018-12-06 18:37:47,605 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 80: CREATE PROCEDURE  QLOUDFLOW_PRODUCT_UPDATE_PROCEDURE(
+	IN v_productId varchar(64),
+	IN v_code varchar(255),
+    IN v_name varchar(255),
+	OUT V_OUT int
+)
+label:BEGIN
+	UPDATE product set code=v_code,name=v_name where productId=v_productId;
+
+  SELECT  ROW_COUNT() into V_OUT;
+END
+2018-12-06 18:37:47,608 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Parsing V1_0_4__init_productline_table.sql ...
+2018-12-06 18:37:47,612 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 18: -- ----------------------------
+-- Table structure for productLine
+-- ----------------------------
+DROP TABLE IF EXISTS `productLine`
+2018-12-06 18:37:47,615 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 22: CREATE TABLE `productLine` (
+  `lineId` varchar(50) NOT NULL,
+  `lineCode` varchar(50) NOT NULL,
+  `lineName` varchar(100) NOT NULL,
+  `parentId` varchar(50) DEFAULT NULL,
+  `sort` int(4) NOT NULL,
+  `status` varchar(16) NOT NULL,
+  `createdTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `creatorId` varchar(50) NOT NULL,
+  `creatorName` varchar(50) NOT NULL,
+  `modifyTime` timestamp NULL DEFAULT NULL,
+  `modifierId` varchar(50) DEFAULT NULL,
+  `modifierName` varchar(50) DEFAULT NULL,
+  `lastModifyTime` timestamp NULL DEFAULT NULL,
+  `ownerCompanyCode` varchar(50) DEFAULT NULL,
+  `tenantId` varchar(50) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`lineId`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC
+2018-12-06 18:37:47,617 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Parsing V1_0_5__productline_procedures.sql ...
+2018-12-06 18:37:47,619 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 1: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTLINE_DELETE_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTLINE_DELETE_PROCEDURE`
+2018-12-06 18:37:47,621 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 6: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTLINE_DELETE_PROCEDURE`(
+	 IN v_lineId varchar(50)
+)
+lable:BEGIN
+   	DELETE FROM productLine WHERE lineId=v_lineId;
+END
+
+2018-12-06 18:37:47,622 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 15: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTLINE_INFO_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTLINE_INFO_PROCEDURE`
+2018-12-06 18:37:47,623 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 20: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTLINE_INFO_PROCEDURE`(
+	IN v_lineId varchar(50)
+)
+lable:BEGIN
+	SELECT * FROM productLine WHERE lineId = v_lineId;
+END
+
+2018-12-06 18:37:47,624 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 29: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTLINE_INSERT_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTLINE_INSERT_PROCEDURE`
+2018-12-06 18:37:47,631 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 34: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTLINE_INSERT_PROCEDURE`(
+	 IN v_lineId varchar(50),
+     IN v_lineCode varchar(50), 
+     IN v_lineName varchar(100),
+     IN v_parentId varchar(50),
+     IN v_sort int(4),
+     IN v_status varchar(16),
+     IN v_createdTime timestamp,
+     IN v_creatorId varchar(50),
+     IN v_creatorName varchar(50),
+     IN v_modifyTime timestamp,
+     IN v_modifierId varchar(50),
+     IN v_modifierName varchar(50),
+     IN v_lastModifyTime timestamp,
+     IN v_ownerCompanyCode varchar(50),
+     IN v_tenantId varchar(50)
+)
+lable:BEGIN
+    DECLARE tmpCont int default 0;
+    DECLARE cont int default 0;
+    
+    INSERT INTO productLine 
+    (
+     lineId, 
+     lineCode,
+     lineName,
+     parentId,
+     sort,
+     status,
+     createdTime,
+     creatorId,
+     creatorName,
+     modifyTime,
+     modifierId,
+     modifierName,
+     lastModifyTime,
+     ownerCompanyCode,
+     tenantId
+	) VALUES 
+	(
+	 v_lineId, 
+     v_lineCode,
+     v_lineName,
+     v_parentId,
+     v_sort,
+     v_status,
+     v_createdTime,
+     v_creatorId,
+     v_creatorName,
+     v_modifyTime,
+     v_modifierId,
+     v_modifierName,
+     v_lastModifyTime,
+     v_ownerCompanyCode,
+     v_tenantId
+	); 
+	
+	
+
+END
+
+2018-12-06 18:37:47,632 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 97: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTLINE_LISTALL_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTLINE_LISTALL_PROCEDURE`
+2018-12-06 18:37:47,636 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 102: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTLINE_LISTALL_PROCEDURE`(
+	IN v_startrow int,
+	IN v_pagesize int,
+	IN v_lineCode varchar(50),
+	IN v_lineName varchar(100),
+	IN v_status varchar(16),
+	IN v_tenantId varchar(50)
+)
+lable:BEGIN
+	IF 
+	v_startrow=-1  THEN SELECT COUNT(1) 
+	FROM productLine where 
+	(v_lineCode is null or lineCode like CONCAT('%',v_lineCode,'%') )
+	and (v_lineName is null or lineName like CONCAT('%',v_lineName,'%'))
+	and (v_status is null or status = v_status)
+	and (v_tenantId is null or tenantId = v_tenantId);
+	ELSE
+	SELECT * FROM productLine where 
+	(v_lineCode is null or lineCode like CONCAT('%',v_lineCode,'%') )
+	and (v_lineName is null or lineName like CONCAT('%',v_lineName,'%'))
+	and (v_status is null or status = v_status)
+	and (v_tenantId is null or tenantId = v_tenantId)
+	LIMIT v_startrow,v_pagesize;
+	END IF;
+END
+
+2018-12-06 18:37:47,637 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 130: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTLINE_UPDATE_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTLINE_UPDATE_PROCEDURE`
+2018-12-06 18:37:47,644 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 135: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTLINE_UPDATE_PROCEDURE`(
+  IN v_lineId varchar(50),
+	IN v_lineName varchar(100),
+	IN v_parentId varchar(50),
+	IN v_sort int(4),
+	IN v_status varchar(16),
+	IN v_modifierId varchar(50),
+	IN v_modifierName varchar(50),
+	IN v_modifyTime timestamp,
+	IN v_lastModifyTime timestamp
+)
+label:BEGIN
+	UPDATE productLine set 
+	lineName=v_lineName,
+	parentId=v_parentId,
+	sort=v_sort,
+	status=v_status,
+	modifierId = v_modifierId,
+	modifierName = v_modifierName,
+	modifyTime = v_modifyTime,
+	lastModifyTime = v_lastModifyTime
+	where lineId=v_lineId;
+END
+
+2018-12-06 18:37:47,646 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Parsing V1_0_6__productbrand_procedures.sql ...
+2018-12-06 18:37:47,648 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 1: -- ----------------------------
+-- Procedure structure for PRODUCTBRAND_DELETE_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `PRODUCTBRAND_DELETE_PROCEDURE`
+2018-12-06 18:37:47,649 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 6: CREATE DEFINER=`root`@`%` PROCEDURE `PRODUCTBRAND_DELETE_PROCEDURE`(IN v_brandId varchar(50))
+lable:BEGIN
+   	DELETE FROM productBrand WHERE brandId=v_brandId;
+  
+END
+
+2018-12-06 18:37:47,649 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 14: -- ----------------------------
+-- Procedure structure for PRODUCTBRAND_INFO_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `PRODUCTBRAND_INFO_PROCEDURE`
+2018-12-06 18:37:47,650 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 19: CREATE DEFINER=`root`@`%` PROCEDURE `PRODUCTBRAND_INFO_PROCEDURE`(IN v_brandId varchar(50))
+lable:BEGIN
+	SELECT * FROM productBrand WHERE brandId = v_brandId;
+END
+
+2018-12-06 18:37:47,651 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 26: -- ----------------------------
+-- Procedure structure for PRODUCTBRAND_INSERT_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `PRODUCTBRAND_INSERT_PROCEDURE`
+2018-12-06 18:37:47,656 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 31: CREATE DEFINER=`root`@`%` PROCEDURE `PRODUCTBRAND_INSERT_PROCEDURE`(IN v_brandId varchar(50),
+     IN v_brandCode varchar(50), 
+     IN v_brandName varchar(100),
+     IN v_brandType varchar(32),
+ IN  v_remark varchar(1024) , IN v_sort int(4),
+     IN v_status varchar(16),
+     IN v_createdTime timestamp,
+     IN v_creatorId varchar(50),
+     IN v_creatorName varchar(50),
+     IN v_modifyTime timestamp,
+     IN v_modifierId varchar(50),
+     IN v_modifierName varchar(50),
+     IN v_lastModifyTime timestamp,
+     IN v_ownerCompanyCode varchar(50),
+     IN v_tenantId varchar(50))
+lable:BEGIN
+    DECLARE tmpCont int default 0;
+    DECLARE cont int default 0;
+    
+    INSERT INTO productBrand 
+    (
+     brandId, 
+     brandCode,
+     brandName,
+     brandType,
+     remark,
+     sort,
+     status,
+     createdTime,
+     creatorId,
+     creatorName,
+     modifyTime,
+     modifierId,
+     modifierName,
+     lastModifyTime,
+     ownerCompanyCode,
+     tenantId
+	) VALUES 
+	(
+	   v_brandId, 
+     v_brandCode,
+     v_brandName,
+     v_brandType,
+     v_remark,
+     v_sort,
+     v_status,
+     v_createdTime,
+     v_creatorId,
+     v_creatorName,
+     v_modifyTime,
+     v_modifierId,
+     v_modifierName,
+     v_lastModifyTime,
+     v_ownerCompanyCode,
+     v_tenantId
+	); 
+	
+END
+
+2018-12-06 18:37:47,657 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 92: -- ----------------------------
+-- Procedure structure for PRODUCTBRAND_LISTALL_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `PRODUCTBRAND_LISTALL_PROCEDURE`
+2018-12-06 18:37:47,659 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 97: CREATE DEFINER=`root`@`%` PROCEDURE `PRODUCTBRAND_LISTALL_PROCEDURE`(IN v_startrow int,
+	IN v_pagesize int,
+	IN v_brandCode varchar(50),
+  IN v_brandType varchar(32),
+	IN v_brandName varchar(100),
+	IN v_status varchar(16),
+	IN v_tenantId varchar(50))
+lable:BEGIN
+	IF 
+	v_startrow=-1  THEN SELECT COUNT(1) FROM 
+  productBrand where 
+  (v_brandCode is null or brandCode like CONCAT('%',v_brandCode,'%') )
+	and (v_brandName is null or brandName like CONCAT('%',v_brandName,'%'))
+	and (v_status is null or status=v_status)
+  and (v_brandType is null or brandType=v_brandType)
+	and (v_tenantId is null or tenantId=v_tenantId);
+	ELSE
+	SELECT * FROM productBrand 
+	where 
+   (v_brandCode is null or brandCode like CONCAT('%',v_brandCode,'%') )
+	and (v_brandName is null or brandName like CONCAT('%',v_brandName,'%'))
+	and (v_status is null or status =v_status)
+  and (v_brandType is null or brandType=v_brandType)
+	and (v_tenantId is null or tenantId=v_tenantId)
+	LIMIT v_startrow,v_pagesize;
+	END IF;
+END
+
+2018-12-06 18:37:47,660 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 127: -- ----------------------------
+-- Procedure structure for PRODUCTBRAND_UPDATE_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `PRODUCTBRAND_UPDATE_PROCEDURE`
+2018-12-06 18:37:47,662 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 132: CREATE DEFINER=`root`@`%` PROCEDURE `PRODUCTBRAND_UPDATE_PROCEDURE`(IN v_brandId varchar(50),
+  IN v_brandCode varchar(50),
+	IN v_brandName varchar(100),
+	IN v_brandType varchar(32),
+  IN v_remark varchar(1024),
+	IN v_sort int(4),
+IN v_status varchar(16),IN v_modifierId VARCHAR(50),IN v_modifierName VARCHAR(50),IN v_modifyTime timestamp,IN v_lastModifyTime timestamp)
+label:BEGIN
+	UPDATE productBrand set 
+  brandCode=v_brandCode,
+	brandName=v_brandName,
+  brandType=v_brandType,
+	remark=v_remark,
+	sort=v_sort,
+  modifierId=v_modifierId,
+  modifierName=v_modifierName,
+  modifyTime=v_modifyTime,
+  lastModifyTime=v_lastModifyTime,
+	status=v_status
+	where brandId =v_brandId;
+END
+
+2018-12-06 18:37:47,664 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Parsing V1_0_7__productbrand_table.sql ...
+2018-12-06 18:37:47,666 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 1: -- ----------------------------
+-- Table structure for productBrand
+-- ----------------------------
+DROP TABLE IF EXISTS `productBrand`
+2018-12-06 18:37:47,668 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 5: CREATE TABLE `productBrand` (
+  `brandId` varchar(50) NOT NULL,
+  `brandCode` varchar(50) NOT NULL,
+  `brandName` varchar(100) NOT NULL,
+  `brandType` varchar(32) DEFAULT NULL,
+  `remark` varchar(1024) DEFAULT NULL,
+  `sort` int(4) NOT NULL,
+  `status` varchar(16) NOT NULL,
+  `createdTime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `creatorId` varchar(50) NOT NULL DEFAULT '1',
+  `creatorName` varchar(50) NOT NULL DEFAULT 'admin',
+  `modifyTime` timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  `modifierId` varchar(50) DEFAULT NULL,
+  `modifierName` varchar(50) DEFAULT NULL,
+  `lastModifyTime` timestamp NULL DEFAULT '0000-00-00 00:00:00',
+  `ownerCompanyCode` varchar(50) DEFAULT NULL,
+  `tenantId` varchar(50) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`brandId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+2018-12-06 18:37:47,670 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Parsing V1_0_8__init_producttype_table.sql ...
+2018-12-06 18:37:47,672 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 1: DROP TABLE IF EXISTS `productType`
+2018-12-06 18:37:47,676 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 2: CREATE TABLE `productType` (
+  `typeId` varchar(50) NOT NULL COMMENT '产品分类Id',
+  `typeCode` varchar(50) NOT NULL COMMENT '产品分类编号',
+  `typeName` varchar(100) NOT NULL COMMENT '产品分类中文名称',
+  `parentId` varchar(50) DEFAULT NULL COMMENT '产品分类父节点id',
+  `isPhysical` tinyint(1) DEFAULT '1' COMMENT '是否物理分类',
+  `toTransport` tinyint(1) DEFAULT '1' COMMENT '是否需要运输',
+  `prodLineId` varchar(50) DEFAULT NULL COMMENT '所属产品线Id',
+  `sort` int(4) NOT NULL COMMENT '排序号',
+  `status` varchar(16) NOT NULL COMMENT '状态',
+  `remark` varchar(50) DEFAULT NULL COMMENT '备注',
+  `createdTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '创建时间',
+  `creatorId` varchar(50) NOT NULL COMMENT '创建人ID',
+  `creatorName` varchar(50) NOT NULL COMMENT '创建人姓名',
+  `modifyTime` timestamp NULL DEFAULT NULL COMMENT '更新时间',
+  `modifierId` varchar(50) DEFAULT NULL COMMENT '更新人ID',
+  `modifierName` varchar(50) DEFAULT NULL COMMENT '更新人姓名',
+  `lastModifyTime` timestamp NULL DEFAULT NULL COMMENT '最后更新时间',
+  `tenantId` varchar(50) NOT NULL COMMENT '租户ID',
+  PRIMARY KEY (`typeId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+2018-12-06 18:37:47,678 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Parsing V1_0_9__producttype_procedures.sql ...
+2018-12-06 18:37:47,680 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 1: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTTYPE_INSERT_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTTYPE_INSERT_PROCEDURE`
+2018-12-06 18:37:47,683 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 6: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTTYPE_INSERT_PROCEDURE`(
+	 IN v_typeId varchar(50),
+     IN v_typeCode varchar(50), 
+     IN v_typeName varchar(100),
+     IN v_parentId varchar(50),
+     IN v_isPhysical tinyint(1),
+     IN v_toTransport tinyint(1),
+     IN v_prodLineId varchar(50),
+     IN v_sort int(4),
+     IN v_status varchar(16),
+     IN v_remark varchar(50),
+     IN v_createdTime timestamp,
+     IN v_creatorId varchar(50),
+     IN v_creatorName varchar(50),
+     IN v_modifyTime timestamp,
+     IN v_modifierId varchar(50),
+     IN v_modifierName varchar(50),
+     IN v_lastModifyTime timestamp,
+     IN v_tenantId varchar(50)
+)
+lable:BEGIN
+    DECLARE tmpCont int default 0;
+    DECLARE cont int default 0;
+    
+    INSERT INTO productType 
+    (
+     typeId, 
+     typeCode,
+     typeName,
+     parentId,
+     isPhysical,
+     toTransport,
+     prodLineId,
+     sort,
+     status,
+     remark,
+     createdTime,
+     creatorId,
+     creatorName,
+     modifyTime,
+     modifierId,
+     modifierName,
+     lastModifyTime,
+     tenantId
+	) VALUES 
+	(
+	 v_typeId, 
+     v_typeCode,
+     v_typeName,
+     v_parentId,
+     v_isPhysical,
+     v_toTransport,
+     v_prodLineId,
+     v_sort,
+     v_status,
+     v_remark,
+     v_createdTime,
+     v_creatorId,
+     v_creatorName,
+     v_modifyTime,
+     v_modifierId,
+     v_modifierName,
+     v_lastModifyTime,
+     v_tenantId
+	); 
+	
+	
+
+END
+
+2018-12-06 18:37:47,684 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 81: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTTYPE_UPDATE_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTTYPE_UPDATE_PROCEDURE`
+2018-12-06 18:37:47,686 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 86: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTTYPE_UPDATE_PROCEDURE`(
+    IN v_typeId varchar(50),
+	IN v_typeCode varchar(50),
+	IN v_typeName varchar(100),
+	IN v_isPhysical tinyint(1),
+	IN v_toTransport tinyint(1),
+	IN v_parentId varchar(50),
+	IN v_sort int(4),
+	IN v_status varchar(16),
+	IN v_prodLineId varchar(50),
+	IN v_tenantId varchar(50),
+	IN v_modifierId varchar(50),
+	IN v_modifierName varchar(50),
+	IN v_modifyTime timestamp,
+	IN v_lastModifyTime timestamp
+)
+label:BEGIN
+	UPDATE productType set 
+	typeCode=v_typeCode,
+	typeName=v_typeName,
+	isPhysical=v_isPhysical,
+	toTransport=v_toTransport,
+	parentId=v_parentId,
+	sort=v_sort,
+	status=v_status,
+	prodLineId=v_prodLineId,
+	tenantId=v_tenantId,
+	modifierId = v_modifierId,
+	modifierName = v_modifierName,
+	modifyTime = v_modifyTime,
+	lastModifyTime = v_lastModifyTime
+	where typeId=v_typeId;
+END
+
+2018-12-06 18:37:47,686 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 125: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTTYPE_DELETE_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTTYPE_DELETE_PROCEDURE`
+2018-12-06 18:37:47,687 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 130: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTTYPE_DELETE_PROCEDURE`(
+	 IN v_typeId varchar(50)
+)
+lable:BEGIN
+   	DELETE FROM productType WHERE typeId=v_typeId;
+END
+
+2018-12-06 18:37:47,687 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 142: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTTYPE_INFO_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTTYPE_INFO_PROCEDURE`
+2018-12-06 18:37:47,688 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 147: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTTYPE_INFO_PROCEDURE`(
+	IN v_typeId varchar(50)
+)
+lable:BEGIN
+	SELECT * FROM productType WHERE typeId = v_typeId;
+END
+
+2018-12-06 18:37:47,688 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 160: -- ----------------------------
+-- Procedure structure for QLOUDFLOW_PRODUCTTYPE_TREE_PROCEDURE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `QLOUDFLOW_PRODUCTTYPE_TREE_PROCEDURE`
+2018-12-06 18:37:47,689 org.flywaydb.core.internal.sqlscript.SqlScript [main] (Slf4jLog.java:45) DEBUG --> Found statement at line 165: CREATE DEFINER=`root`@`%` PROCEDURE `QLOUDFLOW_PRODUCTTYPE_TREE_PROCEDURE`(
+	IN v_typeName varchar(100)
+)
+lable:BEGIN
+	SELECT * FROM productType
+	WHERE (v_typeName is null or typeName like CONCAT('%',v_typeName,'%') );
+END
+
+2018-12-06 18:37:47,691 org.flywaydb.core.internal.scanner.Scanner [main] (Slf4jLog.java:45) DEBUG --> Filtering out resource: db/migration/V1_0_0__init_product_table.sql (filename: V1_0_0__init_product_table.sql)
+2018-12-06 18:37:47,691 org.flywaydb.core.internal.scanner.Scanner [main] (Slf4jLog.java:45) DEBUG --> Filtering out resource: db/migration/V1_0_2__product_procedures.sql (filename: V1_0_2__product_procedures.sql)
+2018-12-06 18:37:47,691 org.flywaydb.core.internal.scanner.Scanner [main] (Slf4jLog.java:45) DEBUG --> Filtering out resource: db/migration/V1_0_4__init_productline_table.sql (filename: V1_0_4__init_productline_table.sql)
+2018-12-06 18:37:47,691 org.flywaydb.core.internal.scanner.Scanner [main] (Slf4jLog.java:45) DEBUG --> Filtering out resource: db/migration/V1_0_5__productline_procedures.sql (filename: V1_0_5__productline_procedures.sql)
+2018-12-06 18:37:47,692 org.flywaydb.core.internal.scanner.Scanner [main] (Slf4jLog.java:45) DEBUG --> Filtering out resource: db/migration/V1_0_6__productbrand_procedures.sql (filename: V1_0_6__productbrand_procedures.sql)
+2018-12-06 18:37:47,692 org.flywaydb.core.internal.scanner.Scanner [main] (Slf4jLog.java:45) DEBUG --> Filtering out resource: db/migration/V1_0_7__productbrand_table.sql (filename: V1_0_7__productbrand_table.sql)
+2018-12-06 18:37:47,692 org.flywaydb.core.internal.scanner.Scanner [main] (Slf4jLog.java:45) DEBUG --> Filtering out resource: db/migration/V1_0_8__init_producttype_table.sql (filename: V1_0_8__init_producttype_table.sql)
+2018-12-06 18:37:47,692 org.flywaydb.core.internal.scanner.Scanner [main] (Slf4jLog.java:45) DEBUG --> Filtering out resource: db/migration/V1_0_9__producttype_procedures.sql (filename: V1_0_9__producttype_procedures.sql)
+2018-12-06 18:37:47,726 org.flywaydb.core.internal.command.DbValidate [main] (Slf4jLog.java:49) INFO  --> Successfully validated 8 migrations (execution time 00:00.153s)
+2018-12-06 18:37:47,732 org.flywaydb.core.internal.command.DbSchemas [main] (Slf4jLog.java:45) DEBUG --> Schema `productdb` already exists. Skipping schema creation.
+2018-12-06 18:37:47,749 org.flywaydb.core.internal.command.DbMigrate [main] (Slf4jLog.java:49) INFO  --> Current version of schema `productdb`: 1.0.9
+2018-12-06 18:37:47,752 org.flywaydb.core.internal.command.DbMigrate [main] (Slf4jLog.java:49) INFO  --> Schema `productdb` is up to date. No migration necessary.
+2018-12-06 18:37:47,761 org.flywaydb.core.Flyway [main] (Slf4jLog.java:45) DEBUG --> Memory usage: 43 of 184M
+2018-12-06 18:37:47,778 com.atomikos.logging.LoggerFactory [main] (Slf4jLogger.java:32) DEBUG --> Using Slf4J for logging.
+2018-12-06 18:37:47,778 com.qloudfin.sagas.persistence.jdbc.JdbcClient [main] (JdbcClient.java:72) DEBUG --> db config is {"driver":"org.mariadb.jdbc.MariaDbDataSource","ip":"192.168.44.5","port":3306,"dbname":"productdb","username":"root","password":"666666","testQuery":"select 1","maxPoolSize":5,"minPoolSize":5} 
+
+2018-12-06 18:37:47,997 com.atomikos.jdbc.AbstractDataSourceBean [main] (Slf4jLogger.java:32) DEBUG --> AtomikosDataSoureBean 'ab16bce4-ce19-4803-8bd4-3a89b4d74407': getConnection()...
+2018-12-06 18:37:47,997 com.atomikos.jdbc.AbstractDataSourceBean [main] (Slf4jLogger.java:28) INFO  --> AtomikosDataSoureBean 'ab16bce4-ce19-4803-8bd4-3a89b4d74407': init...
+2018-12-06 18:37:47,997 com.atomikos.jdbc.AtomikosDataSourceBean [main] (Slf4jLogger.java:28) INFO  --> AtomikosDataSoureBean 'ab16bce4-ce19-4803-8bd4-3a89b4d74407': initializing with [ xaDataSourceClassName=org.mariadb.jdbc.MariaDbDataSource, uniqueResourceName=ab16bce4-ce19-4803-8bd4-3a89b4d74407, maxPoolSize=5, minPoolSize=5, borrowConnectionTimeout=30, maxIdleTime=60, reapTimeout=0, maintenanceInterval=60, testQuery=select 1, xaProperties=[user=root,password=666666,url=jdbc:mariadb://192.168.44.5:3306/productdb?maxPoolSize=5&autoReconnect=true], loginTimeout=0, maxLifetime=0]
+2018-12-06 18:37:48,113 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:24) WARN  --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: WARNING: transaction manager not running?
+2018-12-06 18:37:48,114 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:32) DEBUG --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: calling getAutoCommit...
+2018-12-06 18:37:48,114 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:24) WARN  --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: WARNING: transaction manager not running?
+2018-12-06 18:37:48,114 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:32) DEBUG --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: calling setAutoCommit(false)...
+2018-12-06 18:37:48,117 com.qloudbiz.core.factory.ServiceProxyFactory [main] (ServiceProxyFactory.java:37) DEBUG --> >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>BEGIN  TRANSACTION
+2018-12-06 18:37:48,117 com.qloudbiz.product.service.impl.ProductTypeServiceImpl [main] (ProductTypeServiceImpl.java:133) DEBUG --> >>>>>>>>>>>>>> service query tree method start
+2018-12-06 18:38:01,125 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:32) DEBUG --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: isClosed()...
+2018-12-06 18:38:01,126 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:24) WARN  --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: WARNING: transaction manager not running?
+2018-12-06 18:38:01,126 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:24) WARN  --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: WARNING: transaction manager not running?
+2018-12-06 18:38:01,126 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:32) DEBUG --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: calling prepareCall({CALL QLOUDFLOW_PRODUCTTYPE_TREE_PROCEDURE(?)})...
+2018-12-06 18:38:01,156 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:32) DEBUG --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: isClosed()...
+2018-12-06 18:38:01,156 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:24) WARN  --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: WARNING: transaction manager not running?
+2018-12-06 18:38:01,156 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:32) DEBUG --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: calling getAutoCommit...
+2018-12-06 18:38:15,866 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:32) DEBUG --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: isClosed()...
+2018-12-06 18:38:15,867 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:24) WARN  --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: WARNING: transaction manager not running?
+2018-12-06 18:38:15,867 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:32) DEBUG --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: calling getAutoCommit...
+2018-12-06 18:38:15,867 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:24) WARN  --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: WARNING: transaction manager not running?
+2018-12-06 18:38:15,867 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:32) DEBUG --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: calling commit...
+2018-12-06 18:38:15,870 com.qloudbiz.core.factory.ServiceProxyFactory [main] (ServiceProxyFactory.java:46) DEBUG --> >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>COMMIT TRANSACTION
+2018-12-06 18:38:15,870 com.qloudbiz.core.factory.ServiceProxyFactory [main] (ServiceProxyFactory.java:62) DEBUG --> >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>CLOSE CONNECTION
+2018-12-06 18:38:15,871 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:24) WARN  --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: WARNING: transaction manager not running?
+2018-12-06 18:38:15,871 com.atomikos.jdbc.AtomikosConnectionProxy [main] (Slf4jLogger.java:32) DEBUG --> atomikos connection proxy for org.mariadb.jdbc.MariaDbConnection@38467116: close()...
