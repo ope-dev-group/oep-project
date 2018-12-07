@@ -139,7 +139,7 @@ public class ProductAttributeGroupsServiceEndpoint {
 		logger.debug(">>>>>>>>>>>>>Update attributeGroups the groupId is {} , param is:{}",groupId,vo);
 		
 
-		 
+		  
 		try {
 			
 
