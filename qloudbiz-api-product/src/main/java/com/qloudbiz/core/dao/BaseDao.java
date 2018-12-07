@@ -26,7 +26,7 @@ import com.qloudbiz.core.utils.ResultSetUtils;
 
 
 /**
- * dao基类，提供基础的查询和数据库连接的获取和控制
+ * dao基类，提供基础的增、删、改、查询列表、查询分页的方法
  * @author Administrator
  *
  */
