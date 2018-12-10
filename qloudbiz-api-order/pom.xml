@@ -129,10 +129,17 @@
 
 
 	<dependencies>
+	
 		<dependency>
 			<groupId>com.qloudfin.qloudbus</groupId>
 			<artifactId>qloudbus-sdk-client</artifactId>
 			<version>3.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.qloudfin.qloudbus</groupId>
+			<artifactId>qloudbus-kafka-admin</artifactId>
+			<version>4.0.0</version>
 			<scope>provided</scope>
 		</dependency>
 			<dependency>
@@ -148,5 +155,10 @@
     		<version>1.2.8</version>
     		<scope>compile</scope>
 		</dependency>
+		<dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.10</version>
+        </dependency>
 	</dependencies>
 </project>

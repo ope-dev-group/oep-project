@@ -1,0 +1,17 @@
+{
+	"returnCode": 0,
+	"returnMsg": "ok",
+	"pgUpDownFlag": "next",
+	"totalNum": 20,
+	"pagePerNum": 25,
+	"currentNum": 1,
+	"result": [{
+			"skuId": "445-55-555-555",
+			"skuCode": "P0234230-3122"
+		},
+		{
+			"skuId": "445-55-555-231",
+			"skuCode": "P0234230-3123"
+		}
+	]
+}
