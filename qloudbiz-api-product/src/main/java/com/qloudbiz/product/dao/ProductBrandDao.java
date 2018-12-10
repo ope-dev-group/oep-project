@@ -112,7 +112,7 @@ public class ProductBrandDao extends BaseDao {
 	public void listall(Callback<PageResultData<ProductBrand>> callback,
 			ProductBrandVO vo) throws GenericException {
 
-		logger.debug("listall startRow = {} , pageSize = {}",
+		logger.debug("listall startRow = {} , startRowstartRow = {}",
 				vo.getCurrentNum(), vo.getPagePerNum());
 
 		PageResultData<ProductBrand> page = null;

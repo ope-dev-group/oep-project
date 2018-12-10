@@ -104,7 +104,7 @@ public class ProductLineDao extends BaseDao{
 	 */
 	public void listall(Callback<PageResultData<ProductLine>> callback,ProductLineVO vo) throws GenericException {
 		
-		logger.debug("listall currentNum = {}, pagePerNum = {}",
+		logger.debug("listall startRow = {}, pagePerNum = {}",
 				vo.getCurrentNum(), vo.getPagePerNum());
 		
 		PageResultData<ProductLine> page = null;

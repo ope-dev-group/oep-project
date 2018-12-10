@@ -4,6 +4,7 @@ import java.util.Date;
 
 import lombok.Data;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.qloudbiz.core.annotations.Pojo;
 
 @Data
@@ -26,6 +27,7 @@ public class ProductLine {
 	@Pojo(name = "status")
 	private String status;
 	
+	@JSONField(format="yyyy-MM-dd HH:mm:ss")
 	@Pojo(name ="createdTime")
 	private Date createdTime;
 	
@@ -35,6 +37,7 @@ public class ProductLine {
 	@Pojo(name = "creatorName")
 	private String creatorName;
 	
+	@JSONField(format="yyyy-MM-dd HH:mm:ss")
 	@Pojo(name = "modifyTime")
 	private Date modifyTime;
 	
@@ -44,6 +47,7 @@ public class ProductLine {
 	@Pojo(name = "modifierName")
 	private String modifierName;
 	
+	@JSONField(format="yyyy-MM-dd HH:mm:ss")
 	@Pojo(name = "lastModifyTime")
 	private Date lastModifyTime;
 	

@@ -89,7 +89,7 @@ public class ProductDao extends BaseDao {
 		
 			logger.debug("update product where id={}",entity.getProductId());
 			
-			//传入参数
+			/*//传入参数
 			List<Object> inParams=new ArrayList<Object>();
 			inParams.add(entity.getProductId());
 			inParams.add(entity.getCode());
@@ -113,7 +113,7 @@ public class ProductDao extends BaseDao {
 			result.put("msg","Success delete");
 			result.put("resultCode","200");
 			callback.accept(result);
-			return;
+			return;*/
 		}catch(Exception e){
 			
 		

@@ -7,7 +7,7 @@ import java.lang.annotation.Target;
 
 
 /**
- * 自定义注解
+ * 实体自定义注解
  * @author Administrator
  *
  */
