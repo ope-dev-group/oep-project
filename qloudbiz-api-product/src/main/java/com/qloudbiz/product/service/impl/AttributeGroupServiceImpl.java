@@ -75,6 +75,26 @@ public class AttributeGroupServiceImpl implements AttributeGroupService{
 	private final static Logger logger = LoggerFactory.getLogger(AttributeGroupServiceImpl.class);
 
 	private AttributeGroupDao attributeGroupDao=new AttributeGroupDao();
+	
+	
+
+	/*@Override
+	public void queryList(Callback<PageResultData<AttributeGroup>> callback,AttributeGroupVO vo) throws GenericException {
+		logger.debug(">>>>>>>>>>Service Method :queryList  start");
+
+		//业务数据验证，如果业务数据有问题，抛出异常
+		//ExceptionUtils.throwsGenericException("400");
+	
+		
+		
+		productBrandDao.listall(result->{
+		
+			callback.accept(result);
+			logger.debug(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Service Method querList Callback");
+			
+ 		}, vo);
+	}*/
+
 
 	@Override
 	public void save(Callback<AttributeGroup> callback, AttributeGroupVO vo) throws GenericException{

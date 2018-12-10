@@ -50,15 +50,13 @@ public class ProductTypeServiceImpl implements ProductTypeService {
 
 	
 	
-	/**
-	 * 删除
-	 */
-	@Override
+
 	public void remote(Callback<Integer> callback, ProductTypeVO vo)throws GenericException {
                
 		productTypeDao.delete(rownum->{
 			callback.accept(rownum);
 		}, vo);
+
 				
 	}
 
@@ -67,12 +65,17 @@ public class ProductTypeServiceImpl implements ProductTypeService {
 	 * 更新
 	 */
 	@Override
-	public void modify(Callback<Integer> callback, ProductTypeVO vo)throws GenericException {
-               
-		productTypeDao.update(rownum->{
-			callback.accept(rownum);
-		}, vo);
-				
+	public void modify(Callback<Integer> callback, ProductTypeVO vo)
+			throws GenericException {
+              
+				//记录存在则更新
+				vo.setModifierId("1");
+				vo.setModifierName("admin");
+				vo.setModifyTime(new Timestamp(System.currentTimeMillis()));
+				vo.setLastModifyTime(vo.getModifyTime());
+					productTypeDao.update(rownum->{
+						callback.accept(rownum);
+					}, vo);
 	}
 
 	
@@ -84,7 +87,9 @@ public class ProductTypeServiceImpl implements ProductTypeService {
 	public void seachTree(Callback<List<ProductType>> callback, ProductTypeVO vo)
 			throws GenericException {
 		logger.debug(">>>>>>>>>>>>>> service query tree method start");
-		productTypeDao.queryTree(nodes -> {
+		
+		vo.setTenantId("1");
+		productTypeDao.queryAll(nodes -> {
 			
             //1.遍历父节点,查询父节点的子节点
 			List<ProductType> productTypes=new ArrayList<ProductType>();
@@ -117,6 +122,7 @@ public class ProductTypeServiceImpl implements ProductTypeService {
         	callback.accept(result);
         }, vo);
 	}
+	
 	
 	//递归
 		public static void  recur(List<ProductType> nodes,ProductType type){

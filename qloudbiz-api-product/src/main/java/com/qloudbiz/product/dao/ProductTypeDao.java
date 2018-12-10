@@ -27,7 +27,7 @@ public class ProductTypeDao extends BaseDao{
 	
 	private String query_productTypeInfo_sql = "{CALL QLOUDFLOW_PRODUCTTYPE_INFO_PROCEDURE(?)}";
 	
-	private String query_productTypeTree_sql = "{CALL QLOUDFLOW_PRODUCTTYPE_TREE_PROCEDURE(?)}";
+	private String query_productTypeTree_sql = "{CALL QLOUDFLOW_PRODUCTTYPE_TREE_PROCEDURE(?,?)}";
 	
 	
 	/**
@@ -110,17 +110,19 @@ public class ProductTypeDao extends BaseDao{
     
     
     /**
-     * 查询树
+     * 查询所有
      * @param callback
      * @param vo
      * @throws GenericException
      */
-	public void queryTree(Callback<List<ProductType>> callback,ProductTypeVO vo) throws GenericException {
+	public void queryAll(Callback<List<ProductType>> callback,ProductTypeVO vo) throws GenericException {
 		
 		List<ProductType> productType = super.callProcQueryList(
 				ProductType.class,
 				query_productTypeTree_sql,
-				vo.getTypeName());
+				vo.getTypeName(),
+				vo.getTenantId()
+				);
 		callback.accept(productType);
 	}
 	

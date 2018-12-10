@@ -12,12 +12,26 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SimplePropertyPreFilter;
+import com.qloudbiz.core.factory.ServiceProxyFactory;
 import com.qloudbiz.core.utils.FileUtils;
+import com.qloudbiz.core.utils.ResultDataUtils;
+import com.qloudbiz.product.pojo.ProductBrand;
+import com.qloudbiz.product.pojo.ProductSku;
+import com.qloudbiz.product.pojo.ProductSkuAttribute;
+import com.qloudbiz.product.service.ProductBrandService;
+import com.qloudbiz.product.service.ProductSkuService;
+import com.qloudbiz.product.service.impl.ProductBrandServiceImpl;
+import com.qloudbiz.product.service.impl.ProductSkuServiceImpl;
+import com.qloudbiz.product.vo.ProductBrandVO;
+import com.qloudbiz.product.vo.ProductSkuVO;
+import com.qloudbiz.product.vo.ProductSkusVO;
 import com.qloudfin.qloudbus.annotation.PathVariable;
 import com.qloudfin.qloudbus.annotation.RequestMapping;
 import com.qloudfin.qloudbus.annotation.RequestMethod;
 import com.qloudfin.qloudbus.annotation.RequestParam;
 import com.qloudfin.qloudbus.reactive.Callback;
+import com.qloudfin.qloudbus.security.util.StringUtils;
 
 
 /**
@@ -37,7 +51,9 @@ public class ProductSkucodesServiceEndpoint {
 	private final static String PATH_LIST_SKU_JSON="com/qloudfin/qloudbiz/apidef/products/skucode-list.json";//添加品牌json
 
 	private final static String PATH_QUERY_SKU_DETAIL_JSON="com/qloudfin/qloudbiz/apidef/products/skucode-detail.json";//添加品牌json
+    ProductSkuService service=ServiceProxyFactory.createProxy(ProductSkuServiceImpl.class);
 
+    
 	
 	/**
 	 * 添加产品skuCode
@@ -46,20 +62,124 @@ public class ProductSkucodesServiceEndpoint {
 	 * @param token
 	 */
 	@RequestMapping(value="/skucodes",method=RequestMethod.POST)
-	public void addSkucodes(Callback<Object> callback,Map<String,String> body){
+	public void addSkucodes(Callback<Object> callback,ProductSkusVO vo){
+		try{
 		
-		
-		//调试日志
-		logger.debug(">>>>>>>>>>>>>Add Product Skucodes param is:{}",body);
-		
-		//读取json数据
-		String content=FileUtils.getResourceContent(PATH_ADD_SKU_JSON);
+			//调试日志
+			logger.debug(">>>>>>>>>>>>>Add Product Skucodes param is:{}",vo);
+			//请求参数非空验证
+			if(null==vo){
+				callback.accept(ResultDataUtils.error("402"));
+				return;
+			}
+			
+			/*if(StringUtils.isEmpty(vo.get)){
+				callback.accept(ResultDataUtils.error("401",new String[]{"brandCode"}));
+				return;
+			}*/
+			if(null==vo.getSkus() || vo.getSkus().isEmpty()){
+				callback.accept(ResultDataUtils.error("401",new String[]{"skus"}));
+				return;
+			}
+			
+			for(ProductSkuVO sku:vo.getSkus()){
+				if(StringUtils.isEmpty(sku.getSkuCode())){
+					callback.accept(ResultDataUtils.error("401",new String[]{"skuCode"}));
+					return;
+				}
 				
-		//业务处理
-		Object resultObj=JSON.parse(content);
-	
+				if(StringUtils.isEmpty(sku.getSkuName())){
+					callback.accept(ResultDataUtils.error("401",new String[]{"skuName"}));
+					return;
+				}
+				
+				if(StringUtils.isEmpty(sku.getProductId())){
+					callback.accept(ResultDataUtils.error("401",new String[]{"productId"}));
+					return;
+				}
+				
+				
+				//TODO 产品ID验证
+				
+			
+				
+				if(StringUtils.isEmpty(sku.getStatus())){
+					callback.accept(ResultDataUtils.error("401",new String[]{"status"}));
+					return;
+				}
+				
+				if(null==sku.getSkuAttributes() ||sku.getSkuAttributes().isEmpty()){
+					callback.accept(ResultDataUtils.error("401",new String[]{"skuAttributes"}));
+					return;
+				}
+				for(ProductSkuAttribute skuAttr:sku.getSkuAttributes()){
+					
+					if(StringUtils.isEmpty(skuAttr.getAttributeId())){
+						callback.accept(ResultDataUtils.error("401",new String[]{"attributeId"}));
+						return;
+					}
+					//TODO 产品属性ID 验证
+					if(StringUtils.isEmpty(skuAttr.getAttributeName())){
+						callback.accept(ResultDataUtils.error("401",new String[]{"attributeName"}));
+						return;
+					}
+					
+					//TODO 枚举 值验证
+					if(StringUtils.isEmpty(skuAttr.getEnumValue())){
+						callback.accept(ResultDataUtils.error("401",new String[]{"enumValue"}));
+						return;
+					}
+					if(StringUtils.isEmpty(skuAttr.getEnumText())){
+						callback.accept(ResultDataUtils.error("401",new String[]{"enumText"}));
+						return;
+					}
+				}
+				
+			}
+			
+			
+			/*if(StringUtils.isEmpty(vo.getBrandCode())){
+				callback.accept(ResultDataUtils.error("401",new String[]{"brandCode"}));
+				return;
+			}
+			
+			if(StringUtils.isEmpty(vo.getBrandName())){
+				callback.accept(ResultDataUtils.error("401",new String[]{"brandName"}));
+				return;
+			}
+			if(StringUtils.isEmpty(vo.getSort())){
+				callback.accept(ResultDataUtils.error("401",new String[]{"sort"}));
+				return;
+			}
+			
+			if(StringUtils.isEmpty(vo.getStatus())){
+				callback.accept(ResultDataUtils.error("401",new String[]{"status"}));
+				return;
+			}*/
+			
 		
-		callback.accept(resultObj);	
+			
+			
+		
+			//状态验证
+			/*if(!("Y".equals(vo.getStatus()) || "N".equals(vo.getStatus()))){
+				callback.accept(ResultDataUtils.error("410",new String[]{"status"}));
+				return;
+			}*/
+			
+	
+			//调用Save
+			service.save(result->{
+				
+				String jsonStr=JSON.toJSONString(ResultDataUtils.success(result));
+				
+				callback.accept(JSON.parse(jsonStr));
+			},vo);
+
+		} catch (Exception e) {
+			logger.error("the exception is {}",e);
+			callback.accept(ResultDataUtils.error(e));
+		}
 	}
 	
 	
@@ -100,14 +220,38 @@ public class ProductSkucodesServiceEndpoint {
 		logger.debug(">>>>>>>>>>>>>>>>Delete skuCode :skuId is:{}",skuId);
 		
 		
-		//读取json数据
-		String content=FileUtils.getResourceContent(PATH_UPDATE_DELETE);
-				
-		//业务处理
-		Object resultObj=JSON.parse(content);
-	
+		 
+		try {
+			//请求参数验证
 		
-		callback.accept(resultObj);	
+			if(StringUtils.isEmpty(skuId)){
+				callback.accept(ResultDataUtils.error("401",new String[]{"skuId"}));
+				return;
+			}
+			
+			
+			ProductSkuVO vo=new ProductSkuVO();
+
+			vo.setSkuId(skuId);
+			
+			
+			//调用delete方法
+			
+			service.delete(rownum->{				
+				
+				if(null!=rownum && rownum.intValue()==1){
+					callback.accept(ResultDataUtils.success());
+				}else{
+					callback.accept(ResultDataUtils.error("407"));
+				}
+				
+			},vo);
+			
+		} catch (Exception e) {
+			logger.error("the exception is {}",e);
+			callback.accept(ResultDataUtils.error(e));
+		}
+	
 	}
 	
 	
@@ -120,6 +264,7 @@ public class ProductSkucodesServiceEndpoint {
 	 */
 	@RequestMapping(value="/skucodes",method=RequestMethod.GET)
 	public void querySkucodes(Callback<Object> callback,@RequestParam("typeId")String typeId,@RequestParam("productCode") String  productCode,@RequestParam("skuName")String skuName,@RequestParam("status")String status){
+		
 		
 		
 		//调试日志
@@ -143,19 +288,39 @@ public class ProductSkucodesServiceEndpoint {
 	 * @param token
 	 */
 	@RequestMapping(value="/skucodes/{skuId}",method=RequestMethod.GET)
-	public void querySkucode(Callback<Object> callback,@PathVariable("skuId")String skuCode){
+	public void querySkucode(Callback<Object> callback,@PathVariable("skuId")String skuId){
 		
 		
 		//调试日志
-		logger.debug(">>>>>>>>>>>>>>Query  Product sku detail,skuCode is {}",skuCode);
+		logger.debug(">>>>>>>>>>>>>>Query  Product sku detail,skuId is {}",skuId);
 		
-		//读取json数据
-		String content=FileUtils.getResourceContent(PATH_QUERY_SKU_DETAIL_JSON);
-				
-		//业务处理
-		Object resultObj=JSON.parse(content);
-	
-		
-		callback.accept(resultObj);	
+		try {
+			
+
+			//请求参数验证
+			if(StringUtils.isEmpty(skuId)){
+				callback.accept(ResultDataUtils.error("401",new String[]{"skuId"}));
+				return;
+			}
+			
+			
+			//设置参数
+			ProductSkuVO vo=new ProductSkuVO(); 
+			vo.setSkuId(skuId);
+			
+			//调用查询详情方法
+			service.queryDetail(sku->{
+				if(null!=sku){
+					String jsonStr=JSON.toJSONString(ResultDataUtils.success(sku));
+					
+					callback.accept(JSON.parse(jsonStr));
+				}else{
+					callback.accept(ResultDataUtils.error("404"));
+				}
+			}, vo);
+		} catch (Exception e) {
+			logger.error("the exception is {}",e);
+			callback.accept(ResultDataUtils.error(e));
+		}
 	}
 }
