@@ -63,7 +63,7 @@ public class AttributeGroupDao extends BaseDao {
 				                              vo.getModifierName(),
 				                              vo.getModifyTime(),
 				                              vo.getLastModifyTime());
-		callback.accept(rownum);
+		callback.accept(rownum); 
 	}
 
 	// delete product
