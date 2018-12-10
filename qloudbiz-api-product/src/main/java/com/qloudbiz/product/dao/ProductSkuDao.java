@@ -33,7 +33,7 @@ public class ProductSkuDao extends BaseDao {
 	private String save_productsku_sql = "{CALL PRODUCTSKU_INSERT_PROCEDURE(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
 	private String save_productskuattribute_sql = "{CALL PRODUCTSKUATTRIBUTE_INSERT_PROCEDURE(?,?,?,?,?,?)}";
 
-	public void save(Callback<ProductSku> callback, ProductSkusVO vo) throws GenericException {
+	public void save(Callback<List<ProductSku>> callback, ProductSkusVO vo) throws GenericException {
 
 		logger.debug(">>>>>>>>ProductAttributeDao Save Method The Param Is {}",vo);
 		
@@ -41,6 +41,7 @@ public class ProductSkuDao extends BaseDao {
 
 		//调用保存的存储过程	
 		
+		List<ProductSku> productSkus=new ArrayList<ProductSku>();
 		List<ProductSkuVO> skus=vo.getSkus();
 		for(ProductSkuVO sku:skus){
 			sku.setSkuId(PKUtils.genPK());
@@ -85,6 +86,9 @@ public class ProductSkuDao extends BaseDao {
 							skuAttribute.getEnumText());
 				}	    
 			}
+			
+			ProductSku psku=new ProductSku();
+			psku.setSkuId(sku.getSkuId());
 		}
 		
 		
@@ -93,7 +97,7 @@ public class ProductSkuDao extends BaseDao {
 		/*ProductSku sku=super.callProcQuerySingle(ProductSku.class, listone_sql,vo.getBrandId());
 		callback.accept(product);
 		callback.accept(product);*/
-		callback.accept(new ProductSku());
+		callback.accept(productSkus);
 
 	}
 

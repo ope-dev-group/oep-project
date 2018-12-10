@@ -1,5 +1,7 @@
 package com.qloudbiz.product.service;
 
+import java.util.List;
+
 import com.qloudbiz.core.exception.GenericException;
 import com.qloudbiz.core.result.PageResultData;
 import com.qloudbiz.product.pojo.Product;
@@ -20,7 +22,7 @@ public interface ProductSkuService {
 	 * @param vo
 	 * @throws GenericException
 	 */
-	public void save(Callback<ProductSku> callback,ProductSkusVO vo) throws GenericException;
+	public void save(Callback<List<ProductSku>> callback,ProductSkusVO vo) throws GenericException;
 
 	
 /*

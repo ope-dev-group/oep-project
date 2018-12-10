@@ -32,7 +32,7 @@ public class ResultDataUtils {
 	 */
 	public static <T>  ResultData success(T data){
 		ResultData<T> resultData=new ResultData<T>();
-		
+		 
 		resultData.setResultCode(SUCCESS_CODE);
 		resultData.setResultMsg(MessageUtils.getMessage(SUCCESS_CODE));
 		resultData.setResult(data);

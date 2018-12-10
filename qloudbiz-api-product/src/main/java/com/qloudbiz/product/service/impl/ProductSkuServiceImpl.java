@@ -87,7 +87,7 @@ public class ProductSkuServiceImpl implements ProductSkuService{
 
 
 	@Override
-	public void save(Callback<ProductSku> callback, ProductSkusVO vo) throws GenericException{
+	public void save(Callback<List<ProductSku>> callback, ProductSkusVO vo) throws GenericException{
 		logger.debug(">>>>>>>>>>Service Method :save  Start");
 		productSkuDao.save(result->{
 			logger.debug(">>>>>>>>>>Service Method :save  Callback");
