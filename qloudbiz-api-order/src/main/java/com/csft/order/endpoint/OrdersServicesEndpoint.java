@@ -31,6 +31,7 @@ public class OrdersServicesEndpoint {
 	private final static String PATH_QUERY_ATTRIBUTES_ORDERS_JSON = "com/qloudfin/qloudbiz/apidef/orders/order-attributes-query-inf.json";
 	private final static String PATH_QUERY_BUYER_ORGS_ORDERS_JSON = "com/qloudfin/qloudbiz/apidef/orders/order-buyerorgs-query-inf.json";
 	private final static String PATH_QUERY_CONFIRM_ORDERS_JSON = "com/qloudfin/qloudbiz/apidef/orders/order-Confirm-inf.json";
+	private final static String PATH_QUERY_ORDERS_LIST_JSON="com/qloudfin/qloudbiz/apidef/orders/query-orders-list.json";
 	
 	/**
 	 * 创建订单
@@ -201,37 +202,11 @@ public class OrdersServicesEndpoint {
 		// 调试日志
 		logger.debug("Query orders :status is:{}", status);
 
-		// 加载数据文件
-		InputStream in = ClassLoader.getSystemResourceAsStream("com/qloudfin/qloudbiz/apidef/orders/order-create.json");
-
-		StringBuffer sb = new StringBuffer();
-		InputStreamReader isr = null;
-		try {
-			isr = new InputStreamReader(in, "UTF-8");
-		} catch (UnsupportedEncodingException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		BufferedReader reader = new BufferedReader(isr);
-		String line = null;
-		try {
-			while ((line = reader.readLine()) != null) {
-				sb.append(line);
-
-			}
-			reader.close();
-			isr.close();
-			in.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		// 业务处理
-		sb.toString().replaceAll("\t", "");
-		Object resultObj = JSON.parse(sb.toString());
-
+		String content = FileUtils.getResourceContent(PATH_QUERY_ORDERS_LIST_JSON);
+		
+		Object resultObj = JSON.parse(content);
 		callback.accept(resultObj);
+		
 	}
 
 	/**
@@ -250,36 +225,9 @@ public class OrdersServicesEndpoint {
 		// 调试日志
 		logger.debug("Query orders :channelId is:{},status is {}", channelId, status);
 
-		// 加载数据文件
-		InputStream in = ClassLoader.getSystemResourceAsStream("com/qloudfin/qloudbiz/apidef/orders/order-create.json");
-
-		StringBuffer sb = new StringBuffer();
-		InputStreamReader isr = null;
-		try {
-			isr = new InputStreamReader(in, "UTF-8");
-		} catch (UnsupportedEncodingException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		BufferedReader reader = new BufferedReader(isr);
-		String line = null;
-		try {
-			while ((line = reader.readLine()) != null) {
-				sb.append(line);
-
-			}
-			reader.close();
-			isr.close();
-			in.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		// 业务处理
-		sb.toString().replaceAll("\t", "");
-		Object resultObj = JSON.parse(sb.toString());
-
+		String content = FileUtils.getResourceContent(PATH_QUERY_ORDERS_LIST_JSON);
+		
+		Object resultObj = JSON.parse(content);
 		callback.accept(resultObj);
 	}
 
@@ -299,35 +247,9 @@ public class OrdersServicesEndpoint {
 		// 调试日志
 		logger.debug("Query orders :dealerId is:{},status is {}", dealerId, status);
 
-		// 加载数据文件
-		InputStream in = ClassLoader.getSystemResourceAsStream("com/qloudfin/qloudbiz/apidef/orders/order-create.json");
-
-		StringBuffer sb = new StringBuffer();
-		InputStreamReader isr = null;
-		try {
-			isr = new InputStreamReader(in, "UTF-8");
-		} catch (UnsupportedEncodingException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		BufferedReader reader = new BufferedReader(isr);
-		String line = null;
-		try {
-			while ((line = reader.readLine()) != null) {
-				sb.append(line);
-			}
-			reader.close();
-			isr.close();
-			in.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		// 业务处理
-		sb.toString().replaceAll("\t", "");
-		Object resultObj = JSON.parse(sb.toString());
-
+		String content = FileUtils.getResourceContent(PATH_QUERY_ORDERS_LIST_JSON);
+		
+		Object resultObj = JSON.parse(content);
 		callback.accept(resultObj);
 	}
 
@@ -348,52 +270,10 @@ public class OrdersServicesEndpoint {
 
 		// 调试日志
 		logger.debug("Query orders :userId is:{},status is {}", userId, status);
-
-		if(currentNum <=0 ){
-			callback.accept(ResultDataUtils.error("401",new String[]{"currentNum"}));
-		}
-		if(pagePerNum <= 0) {
-			callback.accept(ResultDataUtils.error("401",new String[]{"pagePerNum"}));
-			return;
-		}
-		if(StringUtils.isEmpty(userId)) {
-			callback.accept(ResultDataUtils.error("401",new String[]{"userId"}));
-			return;
-		}
-		if(StringUtils.isEmpty(status)) {
-			callback.accept(ResultDataUtils.error("401",new String[]{"status"}));
-			return;
-		}
 		
-		// 加载数据文件
-		InputStream in = ClassLoader.getSystemResourceAsStream("com/qloudfin/qloudbiz/apidef/orders/order-create.json");
-
-		StringBuffer sb = new StringBuffer();
-		InputStreamReader isr = null;
-		try {
-			isr = new InputStreamReader(in, "UTF-8");
-		} catch (UnsupportedEncodingException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		BufferedReader reader = new BufferedReader(isr);
-		String line = null;
-		try {
-			while ((line = reader.readLine()) != null) {
-				sb.append(line);
-			}
-			reader.close();
-			isr.close();
-			in.close();
-		} catch (IOException e) {
-			
-			e.printStackTrace();
-		}
-
-		// 业务处理
-		sb.toString().replaceAll("\t", "");
-		Object resultObj = JSON.parse(sb.toString());
-
+		String content = FileUtils.getResourceContent(PATH_QUERY_ORDERS_LIST_JSON);
+		
+		Object resultObj = JSON.parse(content);
 		callback.accept(resultObj);
 	}
 
