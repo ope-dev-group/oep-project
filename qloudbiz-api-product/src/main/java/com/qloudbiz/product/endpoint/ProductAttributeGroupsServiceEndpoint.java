@@ -272,7 +272,7 @@ public class ProductAttributeGroupsServiceEndpoint {
 		
 
 		 // 调试日志
-		logger.debug(">>>>>>>>>>>>>Query brands Detail ,the groupId is {},",groupId);
+		logger.debug(">>>>>>>>>>>>>Query attributeGroup Detail ,the groupId is {},",groupId);
 
 		try {
 			

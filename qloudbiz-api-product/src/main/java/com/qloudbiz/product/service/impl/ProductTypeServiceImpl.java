@@ -50,16 +50,13 @@ public class ProductTypeServiceImpl implements ProductTypeService {
 
 	
 	
-	/**
-	 * 删除
-	 */
-	@Override
-	public void remote(Callback<Integer> callback, ProductTypeVO vo)
-			throws GenericException {
+
+	public void remote(Callback<Integer> callback, ProductTypeVO vo)throws GenericException {
                
-					productTypeDao.delete(rownum->{
-						callback.accept(rownum);
-					}, vo);
+		productTypeDao.delete(rownum->{
+			callback.accept(rownum);
+		}, vo);
+
 				
 	}
 

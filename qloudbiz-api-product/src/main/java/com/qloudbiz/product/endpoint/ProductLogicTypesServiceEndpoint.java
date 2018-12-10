@@ -222,6 +222,7 @@ try {
 			vo.setPagePerNum(pagePerNum);
 			vo.setTypeCode(logicTypeCode);
 			vo.setTypeName(logicTypeName);
+			vo.setStatus(status);
 			vo.setProdLineId(lineId);
 			
 			service.seachList(page -> {

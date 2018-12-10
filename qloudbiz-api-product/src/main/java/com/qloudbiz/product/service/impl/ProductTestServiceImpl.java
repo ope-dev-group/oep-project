@@ -85,84 +85,23 @@ public class ProductTestServiceImpl implements ProductTestService{
 	@Override
 	public void delete(Callback<Integer> callback, ProductVO vo)throws GenericException {
 		
-		//同步计数器
-		CountDownLatch latch=new CountDownLatch(1);
 		
-		Product prod=new Product();
-	
-		
-		//查询product，验证是否存在此记录
-		productDao.queryById(product->{
-			latch.countDown();
-			if(null!=product){
-				BeanUtils.copyProperties(product, prod);
-			}
 			
+		productDao.delete(rownum->{
+			callback.accept(rownum);
 		}, vo);
 		
-		
-		try {
-			//同步等待
-			latch.await();
-		} catch (InterruptedException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		
-		//记录存在则删除
-		if(null!=prod && StringUtils.isNotEmpty(prod.getProductId())){
-			
-			productDao.delete(rownum->{
-				callback.accept(rownum);
-			}, vo);
-		}else{
-			
-			//记录不存在抛出异常
-			ExceptionUtils.throwsGenericException("408");
-		}
 	}
 
 
 	@Override
 	public void update(Callback<Integer> callback, ProductVO vo)throws GenericException {
 		
-		//同步计数器
-		CountDownLatch latch=new CountDownLatch(1);
 		
-		Product prod=new Product();
-	
-		
-		//查询product，验证是否存在此记录
-		productDao.queryById(product->{
-			latch.countDown();
-			if(null!=product){
-				BeanUtils.copyProperties(product, prod);
-			}
-			
+		productDao.update(rownum->{
+			callback.accept(rownum);
 		}, vo);
 		
-		
-		try {
-			//同步等待
-			latch.await();
-		} catch (InterruptedException e1) {
-			
-		}
-		
-		
-		
-		//记录存在则更新
-		if(null!=prod && StringUtils.isNotEmpty(prod.getProductId())){
-			
-			productDao.update(rownum->{
-				callback.accept(rownum);
-			}, vo);
-		}else{
-			
-			//记录不存在抛出异常
-			ExceptionUtils.throwsGenericException("408");
-		}
-	
 	}
 
 
