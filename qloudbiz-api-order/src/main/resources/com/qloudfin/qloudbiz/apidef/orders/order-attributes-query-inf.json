@@ -1,0 +1,146 @@
+{
+	"returnCode": 0,
+	"returnMsg": "ok",
+	"result": {
+		"orderId": "e9ef42e9-12a7-48a0-b6a4-42febe504469",
+		"orderCode": "201811281001",
+		"formTypeId": "7255cfd6-f2d7-11e8-8eb2-f2801f1b9fd1",
+		"orderCategory": "standard",
+		"salesOrgId": "YH36",
+		"channel": {
+			"channelId": "43434-54545-54345435-555",
+			"channelName": "零售"
+		},
+		"divisionId": "50e15e06-f2d7-11e8-8eb2-f2801f1b9fd1",
+		"salesOfficeId": "3f0d1c1e-749f-4676-9a67-ac8a7c7051d8",
+		"buyerOrgId": "647b1fcf-31a2-43c4-81a3-2ae099cc8a61",
+		"sellerOrgId": "a7618f25-ebe5-4478-ba6e-fb904535b157",
+		"agentOrgId": null,
+		"receivingOrgId": "647b1fcf-31a2-43c4-81a3-2ae099cc8a61",
+		"payerOrgId": "647b1fcf-31a2-43c4-81a3-2ae099cc8a61",
+		"drawerOrgId": "647b1fcf-31a2-43c4-81a3-2ae099cc8a61",
+		"logisticsOrgId": null,
+		"customer": {
+			"customerCode": null,
+			"customerName": null
+		},
+		"formDate": "2018-11-21",
+		"salesmanId": "7e62935b-48c0-4f66-80cd-3d700ab16b97",
+		"salesmanName": "张三",
+		"settlementType": "01",
+		"deliveryType": "01",
+		"freightType": "01",
+		"payType": "01",
+		"totalAmt": 1000.55,
+		"discount": 100.55,
+		"afterDiscountAmt": 900,
+		"freightPrice": 0,
+		"payableAmt": 900,
+		"totalWeight": 1000,
+		"weightUnit": "kg",
+		"couponDetails": [{
+			"itemCode": null,
+			"skuCode": "",
+			"couponType": "",
+			"couponId": "",
+			"discountAmt": ""
+		}],
+		"priceActiveBefore": "2018-10-22T12:00:00.0000",
+		"orderApiKey": "54545-4gggg455-55555",
+		"contractId": "43q434-4324234-532245-535",
+		"contractCode": "2012551124",
+		"deliveryStatus": "pending",
+		"status": "submitted",
+		"paymentStatus": "payed",
+		"deliverAddr": {
+			"id": null,
+			"country": "中国",
+			"province": "天津",
+			"city": "天津",
+			"district": "河东区电子城街道办",
+			"address": "仙霞路1222号",
+			"postalCode": "300100",
+			"contact": "王莫某",
+			"phone": ["17029876755"]
+		},
+
+		"orderSource": "OEP",
+		"sourceOrderCode": null,
+		"erpOrderCode": null,
+		"buyerRemark": null,
+		"sellerRemark": null,
+		"closingRemark": null,
+		"orderItems": [{
+				"itemId": "def5a820-74ae-4e3a-a636-6c7b3ee13907",
+				"itemCode": "10",
+				"skuId": "445-55-555-555",
+				"skuCode": "P0234230-3432",
+				"qty": 10,
+				"unit": "桶",
+				"actualPrice": 100,
+				"agentPrice": null,
+				"salePrice": 100,
+				"subTotal": 1000,
+				"currency": "RMB",
+				"deliverAddr": {
+					"id": null,
+					"country": null,
+					"province": null,
+					"city": null,
+					"district": null,
+					"address": null,
+					"postalCode": null,
+					"contact": null,
+					"phone": null
+				},
+				"status": "submitted"
+			},
+			{
+				"itemId": "5d9a754f-a2bd-4b83-9982-c70ee4ffd039",
+				"itemCode": "20",
+				"skuId": "445-55-555-555",
+				"skuCode": "P0234230-3122",
+				"qty": 10,
+				"unit": "袋",
+				"actualPrice": 200,
+				"agentPrice": null,
+				"salePrice": 200,
+				"subTotal": 2000,
+				"currency": "RMB",
+				"deliverAddr": {
+					"id": null,
+					"country": null,
+					"province": null,
+					"city": null,
+					"district": null,
+					"address": null,
+					"postalCode": null,
+					"contact": null,
+					"phone": null
+				},
+				"status": "submitted"
+			}
+		],
+		"saleOrderPayDetails": [{
+				"tradeTime": "2018-10-22T12:00:00.0000",
+				"assetType": "1",
+				"accountType": "2",
+				"amt": 1000,
+				"balance": 20000,
+				"reason": "消费支出",
+				"remark": null,
+				"outsideTradeNo": null
+			},
+			{
+				"tradeTime": "2018-10-22T12:00:00.0000",
+				"assetType": "E",
+				"accountType": "2",
+				"amt": 1000,
+				"balance": 50000,
+				"reason": "消费支出",
+				"remark": null,
+				"outsideTradeNo": null
+			}
+		]
+	}
+}
